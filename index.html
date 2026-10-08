@@ -23,7 +23,7 @@
 :root[data-theme="dark"]{--bg:#12171b;--surface:#1b2227;--fg:#e4eaee;--muted:#93a2ad;--line:#2a343b;--accent:#7cc0cc;--accent-fg:#0d2327;--warn:#e5a77c;--warn-bg:#33261c;--ok-bg:#17323a;--scrim:rgba(0,0,0,.6);--red:#ff9b94;--red-bg:#3d1c1a;color-scheme:dark}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-body{background:var(--bg);color:var(--fg);font-family:var(--body);padding-inline:16px;padding-block:12px 90px;font-size:15px;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);padding-inline:16px;padding-block:12px 90px;font-size:17px;line-height:1.45;-webkit-text-size-adjust:100%}
 .wrap{max-width:1200px;margin:0 auto}
 h1{font-family:var(--display);font-size:1.35rem;margin:4px 0 2px;text-wrap:balance}
 .sub{color:var(--accent-fg);background:var(--accent);border-radius:12px;padding:12px 14px;margin:0 0 14px;font-size:1.2rem;font-weight:700;line-height:1.35;text-wrap:balance}
@@ -40,28 +40,29 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .status select{width:auto;padding:7px 10px;font-size:14px}
 .reset-inline{border:0;background:var(--warn-bg);color:var(--warn);border-radius:99px;padding:0 14px;min-height:36px;font-weight:600}
 .loadmore{display:block;margin:16px auto 0;padding:12px 28px;border-radius:12px;border:1px solid var(--accent);background:transparent;color:var(--accent);font:inherit;font-weight:700;cursor:pointer}.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:12px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:0 1px 2px rgba(20,40,50,.05);padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
-.row1{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 10px;align-items:flex-start}
-.price{white-space:nowrap;font-size:1.3rem;font-weight:700;font-variant-numeric:tabular-nums}
-.pl{font-size:.85rem;font-weight:600;opacity:.85}.mv{white-space:nowrap;color:var(--fg);font-size:.98rem;font-weight:600;margin-top:2px;font-variant-numeric:tabular-nums}
-.bmv{background:var(--ok-bg);color:var(--accent);border-radius:99px;padding:4px 12px;font-weight:700;font-size:.9rem;white-space:nowrap}
-.addr{font-size:.92rem;line-height:1.4;overflow-wrap:anywhere}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 1px 2px rgba(20,40,50,.05);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.kind{font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.pricebox{background:var(--bg);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.price{white-space:nowrap;font-size:1.75rem;font-weight:800;line-height:1.15;letter-spacing:-.01em}
+.pl{display:block;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}.mv{white-space:nowrap;color:var(--fg);font-size:1.05rem;font-weight:600}.mv small{color:var(--muted);font-weight:500;font-size:.95rem}
+.bmv{align-self:flex-start;margin-top:4px;background:var(--ok-bg);color:var(--accent);border-radius:99px;padding:6px 14px;font-weight:800;font-size:1rem;white-space:nowrap}
+.addr{font-size:1.12rem;font-weight:700;line-height:1.4;overflow-wrap:anywhere}
 .dims{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.dims.d3{grid-template-columns:repeat(3,1fr);margin-top:8px}.dims.d3>div{padding:8px 8px}.dims.d3 span{letter-spacing:.02em}.dims>div{background:var(--bg);border-radius:10px;padding:8px 12px;display:flex;flex-direction:column;gap:2px;min-width:0}
-.dims span{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.dims b{font-size:1rem;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.dims.d3{grid-template-columns:repeat(3,1fr);margin-top:8px}.dims.d3>div{padding:8px 8px}.dims.d3 span{letter-spacing:.02em}.dims>div{background:var(--bg);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.dims span{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.dims b{font-size:1.1rem;overflow-wrap:anywhere}
 .upd{margin:0 0 8px;color:var(--muted);font-size:.8rem}
 #statusSeg{margin:4px 0 2px}
 .card.expired{opacity:.62}
-.exp-tag{align-self:flex-start;background:var(--line);color:var(--fg);border-radius:6px;padding:3px 10px;font-size:.75rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.exp-tag{align-self:flex-start;background:var(--line);color:var(--fg);border-radius:6px;padding:4px 10px;font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font-size:.76rem;background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:2px 10px;color:var(--muted)}
+.chip{font-size:.9rem;background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:4px 12px;color:var(--fg)}
 .chip.ok{background:var(--ok-bg);color:var(--accent);border-color:transparent}
 .chip.red{background:var(--red-bg);color:var(--red);border-color:transparent;font-weight:600}
 .chip.non,.chip.warn{background:var(--warn-bg);color:var(--warn);border-color:transparent}
-.when{display:flex;justify-content:space-between;gap:8px;font-size:.88rem;font-variant-numeric:tabular-nums;border-top:1px solid var(--line);padding-top:10px}
-.more{display:none;grid-template-columns:1fr 1fr;gap:6px 12px;font-size:.84rem}
-.more dt{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em}
+.when{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 12px;font-size:1rem;border-top:1px solid var(--line);padding-top:12px}.when .dt{display:flex;align-items:center;gap:8px}.when .dt b{font-size:1.08rem}.when .cnt{color:var(--muted);font-size:.95rem}
+.more{display:none;grid-template-columns:1fr 1fr;gap:6px 12px;font-size:1rem}
+.more dt{color:var(--muted);font-size:.76rem;text-transform:uppercase;letter-spacing:.05em}
 .more dd{margin:0 0 4px;overflow-wrap:anywhere}
 .card.open .more{display:grid}
 .acts{display:flex;gap:8px}
@@ -73,8 +74,8 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .shared-bar button{border:0;background:var(--accent);color:var(--accent-fg);border-radius:8px;padding:0 12px;min-height:38px;font-weight:600}
 .card.hl{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(90px + env(safe-area-inset-bottom,0px));background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:10px;z-index:30;font-weight:600;font-size:.9rem}
-.acts a,.acts button{flex:1;text-align:center;text-decoration:none;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:10px;min-height:44px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:.88rem}
-.acts a.map{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+.acts a,.acts button{flex:1;text-align:center;text-decoration:none;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:12px;min-height:50px;display:flex;align-items:center;justify-content:center;gap:6px;font-weight:700;font-size:1rem}
+.acts a.map{flex:1.35;background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
 .empty{text-align:center;padding:50px 16px;color:var(--muted)}
 .empty .btn{margin-top:12px}
 /* bottom sheet */
@@ -216,11 +217,15 @@ function filtered(){
 function activeN(){return [$('q').value!=='',$('negeri').value,$('daerah').value,$('jenis').value,$('tarikh').value,$('cat').value,bmv,laca].filter(Boolean).length}
 const dash=v=>(v&&v!=='-'&&v!=='N/A')?esc(v):'N/A';
 function card(r,i){
- const ex=isExp(r);return '<article class="card'+(ex?' expired':'')+(sharedId?' hl':'')+'" data-k="'+i+'" data-id="'+esc(r[20])+'">'+(ex?'<div class="exp-tag">Expired · auction date passed</div>':'')+'<div class="row1"><div><div class="price"><span class="pl">Auction Price :</span> '+dash(r[7])+(ex?'':' 🔥')+'</div><div class="mv">Market value '+dash(r[8])+'</div></div><div class="bmv">'+dash(r[6]).replace(/^\s*(\d+(?:\.\d+)?%)\s*BMV\s*$/i,'Below Market Value $1')+'</div></div>'
+ const ex=isExp(r);const condo=(r[21]===CATS[0]||r[21]===CATS[5]);
+ const bmv=dash(r[6]).replace(/^\s*(\d+(?:\.\d+)?%)\s*BMV\s*$/i,'$1 below market value');
+ return '<article class="card'+(ex?' expired':'')+(sharedId?' hl':'')+'" data-k="'+i+'" data-id="'+esc(r[20])+'">'+(ex?'<div class="exp-tag">Expired · auction date passed</div>':'')
+ +'<div class="kind">'+dash(r[5])+(r[9]&&r[9]!=='-'?' · '+esc(r[9]):'')+'</div>'
  +'<div class="addr">'+esc(r[1])+'</div>'
- +((r[21]===CATS[0]||r[21]===CATS[5])?'<div class="dims"><div><span>Built Up</span><b>'+dash(r[11])+'</b></div><div><span>Completion Year</span><b>'+dash(r[19])+'</b></div></div><div class="dims d3"><div><span>Bedroom</span><b>'+dash(r[23])+'</b></div><div><span>Bathroom</span><b>'+dash(r[24])+'</b></div><div><span>Carpark</span><b>'+dash(r[25])+'</b></div></div>':'<div class="dims"><div><span>Land Size</span><b>'+dash(r[10])+'</b></div><div><span>Built Up</span><b>'+dash(r[11])+'</b></div></div>')
- +'<div class="chips"><span class="chip">'+dash(r[5])+'</span><span class="chip">'+dash(r[9])+'</span>'+(r[17]?'<span class="chip '+(r[17]==='LACA'?'ok':'non')+'">'+r[17]+'</span>':'')+(r[15]&&r[15]!=='-'?'<span class="chip red">'+esc(r[15])+'</span>':'')+'</div>'
- +'<div class="when"><span><b>'+esc(r[12])+'</b>'+(r[13]&&r[13]!=='-'?' · '+esc(r[13]):'')+'</span><span>Auction '+dash(r[14])+'</span></div>'
+ +'<div class="pricebox"><span class="pl">Auction Price</span><div class="price">'+dash(r[7])+(ex?'':' 🔥')+'</div><div class="mv"><small>Market value</small> '+dash(r[8])+'</div>'+(bmv!=='N/A'&&!/^0%/.test(bmv)?'<div class="bmv">'+bmv+'</div>':'')+'</div>'
+ +(condo?'<div class="dims"><div><span>Built Up</span><b>'+dash(r[11])+'</b></div><div><span>Completion Year</span><b>'+dash(r[19])+'</b></div></div><div class="dims d3"><div><span>Bedroom</span><b>'+dash(r[23])+'</b></div><div><span>Bathroom</span><b>'+dash(r[24])+'</b></div><div><span>Carpark</span><b>'+dash(r[25])+'</b></div></div>':'<div class="dims"><div><span>Land Size</span><b>'+dash(r[10])+'</b></div><div><span>Built Up</span><b>'+dash(r[11])+'</b></div></div>')
+ +'<div class="when"><span class="dt">📅 <b>'+esc(r[12])+'</b>'+(r[13]&&r[13]!=='-'?'<span>'+esc(r[13])+'</span>':'')+'</span><span class="cnt">'+(r[14]&&r[14]!=='-'?esc(r[14])+' auction':'')+'</span></div>'
+ +((r[17]||(r[15]&&r[15]!=='-'))?'<div class="chips">'+(r[17]?'<span class="chip '+(r[17]==='LACA'?'ok':'non')+'">'+r[17]+'</span>':'')+(r[15]&&r[15]!=='-'?'<span class="chip red">'+esc(r[15])+'</span>':'')+'</div>':'')
  +'<dl class="more"><div><dt>District</dt><dd>'+dash(r[3])+'</dd></div><div><dt>State</dt><dd>'+dash(r[2])+'</dd></div><div style="grid-column:1/-1"><dt>Bank</dt><dd>'+dash(r[16])+'</dd></div></dl>'
  +'<div class="acts">'+(r[4]?'<a class="map" href="'+esc(r[4])+'" target="_blank" rel="noopener">Google Maps</a>':'')+'<button type="button" class="tg">More Info</button><button type="button" class="sh" data-id="'+esc(r[20])+'" aria-label="Share this unit">Share</button></div></article>';
 }
