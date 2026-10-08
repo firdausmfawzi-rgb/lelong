@@ -35,7 +35,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .status{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin:6px 0 10px;font-size:.88rem;color:var(--muted)}
 .status select{width:auto;padding:7px 10px;font-size:14px}
 .reset-inline{border:0;background:var(--warn-bg);color:var(--warn);border-radius:99px;padding:0 14px;min-height:36px;font-weight:600}
-.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:12px}
+.loadmore{display:block;margin:16px auto 0;padding:12px 28px;border-radius:12px;border:1px solid var(--accent);background:transparent;color:var(--accent);font:inherit;font-weight:700;cursor:pointer}.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:12px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:0 1px 2px rgba(20,40,50,.05);padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
 .row1{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 10px;align-items:flex-start}
 .price{white-space:nowrap;font-size:1.3rem;font-weight:700;font-variant-numeric:tabular-nums}
@@ -109,7 +109,7 @@ body{padding-block-end:100px}
 <div class="toast" id="toast" role="status" hidden></div>
 <div class="seg" id="statusSeg" role="group" aria-label="Listing status"></div>
 <div class="status"><span id="count">Loading listings…</span><span style="display:flex;gap:8px;align-items:center"><button class="reset-inline" id="resetInline" type="button" hidden>Reset</button><select id="sort" aria-label="Sort"><option value="bmv">Highest Below Market Value %</option><option value="tarikh">Nearest date</option><option value="harga">Lowest price</option><option value="hharga">Highest price</option><option value="lbmv">Lowest Below Market Value %</option><option value="new">Newest Listing</option></select></span></div>
-<div class="list" id="list"></div>
+<div class="list" id="list"></div><button type="button" class="loadmore" id="more" hidden>Show more</button>
 <div class="empty" id="empty" hidden>No units match these filters.<br><button class="btn primary rs" type="button">Reset all filters</button></div>
 </div>
 <div class="dock"><button class="btn primary" id="openFab" type="button">Filter<span class="badge" hidden></span></button><button class="btn" id="resetBar" type="button" hidden>Reset</button></div>
@@ -156,8 +156,8 @@ async function doShare(kind,r){
  try{await navigator.clipboard.writeText(url);toast('Link copied')}catch(e){}
  window.open(wa,'_blank','noopener');
 }
-const CATS=['Condominium / Apartment / SOHO','Terrace / Linkhouse','Bungalow / Semi-Detached','Factory / Warehouse','Shoplot / Offices','Flat'];
-function catOf(r){if(r[18]&&CATS.includes(r[18]))return r[18];const s=String(r[5]||'').toLowerCase();
+const CATS=['Condominium / Apartment / SOHO','Terrace / Linkhouse','Bungalow / Semi-Detached','Factory / Warehouse','Shoplot / Offices','Flat','Land'];
+function catOf(r){if(r[18]&&r[18]!=='-')return r[18];const s=String(r[5]||'').toLowerCase();
  if(/factory|warehouse|workshop|industrial/.test(s))return CATS[3];
  if(/shop|office|retail|commercial/.test(s))return CATS[4];
  if(/\bflat\b/.test(s))return CATS[5];
@@ -165,8 +165,10 @@ function catOf(r){if(r[18]&&CATS.includes(r[18]))return r[18];const s=String(r[5
  if(/terrace|link|town ?house/.test(s))return CATS[1];
  if(/bungalow|semi|detached|villa/.test(s))return CATS[2];
  if(/cluster/.test(s))return CATS[1];
- return '';}
+ if(/\bland\b|tanah|vacant/.test(s))return CATS[6];
+ return 'Others';}
 DATA.forEach(r=>{r[21]=catOf(r)});
+DATA.forEach(r=>{if(!CATS.includes(r[21]))CATS.push(r[21])});
 $('cat').innerHTML='<option value="">All categories</option>'+CATS.map(c=>'<option value="'+c+'">'+c+' ('+DATA.filter(r=>r[21]===c).length+')</option>').join('');
 const T0=(()=>{const d=new Date();d.setHours(0,0,0,0);return d.getTime()})();
 const isExp=r=>{const d=dt(r[12]);return d>0&&d<T0};
@@ -202,10 +204,12 @@ function card(r,i){
  +'<dl class="more"><div><dt>District</dt><dd>'+dash(r[3])+'</dd></div><div><dt>State</dt><dd>'+dash(r[2])+'</dd></div><div style="grid-column:1/-1"><dt>Bank</dt><dd>'+dash(r[16])+'</dd></div></dl>'
  +'<div class="acts">'+(r[4]?'<a class="map" href="'+esc(r[4])+'" target="_blank" rel="noopener">Google Maps</a>':'')+'<button type="button" class="tg">More Info</button><button type="button" class="sh" data-id="'+esc(r[20])+'" aria-label="Share this unit">Share</button></div></article>';
 }
+let ROWS=[],SHOWN=0;const PAGE=60;
+function moreBtn(){const b=$('more');b.hidden=SHOWN>=ROWS.length;b.textContent='Show more ('+(ROWS.length-SHOWN)+' more)'}
 function render(){
  let rows=filtered();const s=$('sort').value;
  rows=rows.slice().sort((a,b)=>s==='bmv'?num(b[6])-num(a[6]):s==='lbmv'?num(a[6])-num(b[6]):s==='harga'?num(a[7])-num(b[7]):s==='hharga'?num(b[7])-num(a[7]):s==='new'?((b[22]||'').localeCompare(a[22]||'')||DATA.indexOf(b)-DATA.indexOf(a)):(dt(a[12])||9e15)-(dt(b[12])||9e15));
- $('list').innerHTML=rows.map(card).join('');
+ ROWS=rows;SHOWN=Math.min(PAGE,rows.length);$('list').innerHTML=rows.slice(0,SHOWN).map(card).join('');moreBtn();
  $('count').textContent=rows.length+' / '+DATA.length+' units';
  const a=activeN();
  document.querySelectorAll('.badge').forEach(b=>{b.hidden=!a;b.textContent=a});
@@ -227,6 +231,7 @@ $('close').onclick=$('apply').onclick=$('scrim').onclick=()=>sheet(false);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')sheet(false)});
 $('negeri').onchange=()=>{$('daerah').value='';daerahOpts();render()};
 ['q','daerah','jenis','tarikh','cat','sort'].forEach(k=>$(k).addEventListener('input',render));
+$('more').onclick=()=>{const n=Math.min(SHOWN+PAGE,ROWS.length);$('list').insertAdjacentHTML('beforeend',ROWS.slice(SHOWN,n).map((r,j)=>card(r,SHOWN+j)).join(''));SHOWN=n;moreBtn()};
 $('shareAll').onclick=()=>doShare('list',null);
 $('viewAll').onclick=()=>{clearShared();render();window.scrollTo(0,0)};
 if(sharedId)track('shared_unit_open',{unit_id:sharedId});
