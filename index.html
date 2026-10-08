@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Auction List | Firdaus Jay</title>
+<meta name="description" content="Bank auction properties below market value. Contact Firdaus Jay: 019-6522361">
+<meta property="og:title" content="Auction List: Terrace &amp; Townhouse">
+<meta property="og:description" content="Bank auction properties below market value. Contact Firdaus Jay: 019-6522361">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#2f6f7c">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px/1.45 system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+
+<style>
+/* Layout: phone-first card list, sticky search bar, bottom-sheet filters with Reset */
+:root{--bg:#edf1f4;--surface:#fbfcfd;--fg:#22303a;--muted:#6a7985;--line:#dce4ea;--accent:#2f6f7c;--accent-fg:#fff;--warn:#a9602f;--warn-bg:#f7ebe1;--ok-bg:#dff0ee;--scrim:rgba(20,30,38,.4);--red:#b3261e;--red-bg:#fbe3e1;
+--display:'Fraunces',Georgia,serif;--body:'IBM Plex Sans',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12171b;--surface:#1b2227;--fg:#e4eaee;--muted:#93a2ad;--line:#2a343b;--accent:#7cc0cc;--accent-fg:#0d2327;--warn:#e5a77c;--warn-bg:#33261c;--ok-bg:#17323a;--scrim:rgba(0,0,0,.6);--red:#ff9b94;--red-bg:#3d1c1a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#12171b;--surface:#1b2227;--fg:#e4eaee;--muted:#93a2ad;--line:#2a343b;--accent:#7cc0cc;--accent-fg:#0d2327;--warn:#e5a77c;--warn-bg:#33261c;--ok-bg:#17323a;--scrim:rgba(0,0,0,.6);--red:#ff9b94;--red-bg:#3d1c1a;color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);padding-inline:16px;padding-block:12px 90px;font-size:15px;-webkit-text-size-adjust:100%}
+.wrap{max-width:1200px;margin:0 auto}
+h1{font-family:var(--display);font-size:1.35rem;margin:4px 0 2px;text-wrap:balance}
+.sub{color:var(--accent-fg);background:var(--accent);border-radius:12px;padding:12px 14px;margin:0 0 14px;font-size:1.2rem;font-weight:700;line-height:1.35;text-wrap:balance}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:8px;display:flex;gap:8px}
+.top input{flex:1;min-width:0}
+#openTop{min-height:46px;background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+input,select{font:inherit;font-size:16px;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:11px 12px;min-width:0;width:100%}
+button{font:inherit;cursor:pointer;min-height:44px}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:10px;padding:0 14px;font-weight:600;white-space:nowrap;position:relative}
+.btn.primary{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+.badge{background:var(--warn);color:#fff;border-radius:99px;font-size:.72rem;padding:1px 7px;margin-left:6px}
+.status{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin:6px 0 10px;font-size:.88rem;color:var(--muted)}
+.status select{width:auto;padding:7px 10px;font-size:14px}
+.reset-inline{border:0;background:var(--warn-bg);color:var(--warn);border-radius:99px;padding:0 14px;min-height:36px;font-weight:600}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:0 1px 2px rgba(20,40,50,.05);padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.row1{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.price{font-size:1.3rem;font-weight:700;font-variant-numeric:tabular-nums}
+.mv{color:var(--fg);font-size:.98rem;font-weight:600;margin-top:2px;font-variant-numeric:tabular-nums}
+.bmv{background:var(--ok-bg);color:var(--accent);border-radius:99px;padding:4px 12px;font-weight:700;font-size:.9rem;white-space:nowrap}
+.addr{font-size:.92rem;line-height:1.4;overflow-wrap:anywhere}
+.dims{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dims>div{background:var(--bg);border-radius:10px;padding:8px 12px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.dims span{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.dims b{font-size:1rem;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.upd{margin:0 0 8px;color:var(--muted);font-size:.8rem}
+#statusSeg{margin:4px 0 2px}
+.card.expired{opacity:.62}
+.exp-tag{align-self:flex-start;background:var(--line);color:var(--fg);border-radius:6px;padding:3px 10px;font-size:.75rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:.76rem;background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:2px 10px;color:var(--muted)}
+.chip.ok{background:var(--ok-bg);color:var(--accent);border-color:transparent}
+.chip.red{background:var(--red-bg);color:var(--red);border-color:transparent;font-weight:600}
+.chip.non,.chip.warn{background:var(--warn-bg);color:var(--warn);border-color:transparent}
+.when{display:flex;justify-content:space-between;gap:8px;font-size:.88rem;font-variant-numeric:tabular-nums;border-top:1px solid var(--line);padding-top:10px}
+.more{display:none;grid-template-columns:1fr 1fr;gap:6px 12px;font-size:.84rem}
+.more dt{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em}
+.more dd{margin:0 0 4px;overflow-wrap:anywhere}
+.card.open .more{display:grid}
+.acts{display:flex;gap:8px}
+.acts a,.acts button{flex:1;text-align:center;text-decoration:none;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:10px;min-height:44px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:.88rem}
+.acts a.map{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+.empty{text-align:center;padding:50px 16px;color:var(--muted)}
+.empty .btn{margin-top:12px}
+/* bottom sheet */
+.scrim{position:fixed;inset:0;background:var(--scrim);z-index:20}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:21;background:var(--surface);border-radius:18px 18px 0 0;max-height:88%;display:flex;flex-direction:column;max-width:640px;margin:0 auto}
+.sh-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px 8px}
+.sh-head h2{margin:0;font-size:1.05rem;font-family:var(--display)}
+.sh-body{overflow-y:auto;padding:4px 16px 12px;display:flex;flex-direction:column;gap:14px}
+.sh-foot{display:flex;gap:10px;padding:12px 16px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+.sh-foot .btn{flex:1}
+.fld{display:flex;flex-direction:column;gap:6px}
+.fld>span{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:99px;padding:0 16px;min-height:42px}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+/* floating filter button */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -6px 18px rgba(0,0,0,.18);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:flex;gap:10px}
+.dock .btn{min-height:52px;font-size:1.05rem;border-radius:12px}
+.dock #openFab{flex:1}
+.dock #resetBar{flex:0 0 auto;color:var(--warn);background:var(--warn-bg);border-color:transparent}
+body{padding-block-end:100px}
+@media (min-width:700px){.dock{display:none}}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=IBM+Plex+Sans:wght@400;600;700&display=swap">
+</head>
+<body>
+<div class="wrap">
+<h1>Auction List: Terrace &amp; Townhouse</h1>
+<p class="upd" id="upd"></p>
+<p class="sub">Interested? Contact Firdaus Jay: 019-6522361</p>
+<div class="top">
+<input id="q" type="search" placeholder="Search address or bank" aria-label="Search address or bank">
+<button class="btn" id="openTop" type="button">Filter<span class="badge" hidden></span></button>
+</div>
+<div class="seg" id="statusSeg" role="group" aria-label="Listing status"></div>
+<div class="status"><span id="count">Loading listings…</span><span style="display:flex;gap:8px;align-items:center"><button class="reset-inline" id="resetInline" type="button" hidden>Reset</button><select id="sort" aria-label="Sort"><option value="bmv">Highest Below Market</option><option value="tarikh">Nearest date</option><option value="harga">Lowest price</option></select></span></div>
+<div class="list" id="list"></div>
+<div class="empty" id="empty" hidden>No units match these filters.<br><button class="btn primary rs" type="button">Reset all filters</button></div>
+</div>
+<div class="dock"><button class="btn primary" id="openFab" type="button">Filter<span class="badge" hidden></span></button><button class="btn" id="resetBar" type="button" hidden>Reset</button></div>
+
+<div class="scrim" id="scrim" hidden></div>
+<div class="sheet" id="sheet" role="dialog" aria-label="Filter" hidden>
+<div class="sh-head"><h2>Filter</h2><button class="btn" id="close" type="button">Close</button></div>
+<div class="sh-body">
+<label class="fld"><span>State</span><select id="negeri"></select></label>
+<label class="fld"><span>District</span><select id="daerah"></select></label>
+<label class="fld"><span>Property Category</span><select id="cat"></select></label>
+<label class="fld"><span>Type</span><select id="jenis"></select></label>
+<label class="fld"><span>Auction Date</span><select id="tarikh"></select></label>
+<div class="fld"><span>Minimum Below Market</span><div class="seg" id="bmvSeg"></div></div>
+<div class="fld"><span>LACA</span><div class="seg" id="lacaSeg"></div></div>
+</div>
+<div class="sh-foot"><button class="btn rs" type="button">Reset all</button><button class="btn primary" id="apply" type="button">Show</button></div>
+</div>
+
+<script>
+const FIELDS=["no", "address", "state", "district", "maps", "type", "bmv", "price", "market_value", "tenure", "land", "built_up", "auction_date", "auction_time", "auction_count", "restrictions", "bank", "laca","category"];
+function boot(DATA,META){
+const $=id=>document.getElementById(id);
+const num=s=>parseFloat(String(s||'').replace(/[^0-9.]/g,''))||0;
+const dt=s=>Date.parse(s)||0;
+const esc=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+const uniq=i=>[...new Set(DATA.map(r=>r[i]).filter(Boolean))].sort();
+function fill(sel,vals,all){sel.innerHTML='<option value="">'+all+'</option>'+vals.map(v=>'<option>'+esc(v)+'</option>').join('')}
+fill($('negeri'),uniq(2),'All states');
+fill($('jenis'),uniq(5),'All types');
+fill($('tarikh'),[...new Set(DATA.map(r=>r[12]))].sort((a,b)=>dt(a)-dt(b)),'All dates');
+let bmv=0,laca='',status='active';
+const CATS=['Condominium / Apartment / SOHO','Terrace / Linkhouse','Bungalow / Semi-Detached','Factory / Warehouse','Shoplot / Offices','Flat'];
+function catOf(r){if(r[18]&&CATS.includes(r[18]))return r[18];const s=String(r[5]||'').toLowerCase();
+ if(/factory|warehouse|workshop|industrial/.test(s))return CATS[3];
+ if(/shop|office|retail|commercial/.test(s))return CATS[4];
+ if(/\bflat\b/.test(s))return CATS[5];
+ if(/condo|apartment|soho|serviced|residence suite|penthouse|duplex/.test(s))return CATS[0];
+ if(/terrace|link|town ?house/.test(s))return CATS[1];
+ if(/bungalow|semi|detached|villa/.test(s))return CATS[2];
+ if(/cluster/.test(s))return CATS[1];
+ return '';}
+DATA.forEach(r=>{r[19]=catOf(r)});
+$('cat').innerHTML='<option value="">All categories</option>'+CATS.map(c=>'<option value="'+c+'">'+c+' ('+DATA.filter(r=>r[19]===c).length+')</option>').join('');
+const T0=(()=>{const d=new Date();d.setHours(0,0,0,0);return d.getTime()})();
+const isExp=r=>{const d=dt(r[12]);return d>0&&d<T0};
+const nA=DATA.filter(r=>!isExp(r)).length,nE=DATA.length-nA;
+$('upd').textContent='Updated '+new Date(META.updated).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+function seg(el,opts,get,set){el.innerHTML=opts.map(o=>'<button type="button" data-v="'+o[0]+'">'+o[1]+'</button>').join('');
+ el.onclick=e=>{const b=e.target.closest('button');if(!b)return;set(b.dataset.v);paint();render()};}
+seg($('bmvSeg'),[[0,'All'],[30,'30%+'],[40,'40%+'],[50,'50%+']],0,v=>bmv=+v);
+seg($('statusSeg'),[['active','Active ('+nA+')'],['expired','Expired ('+nE+')'],['all','All']],0,v=>status=v);
+seg($('lacaSeg'),[['','All'],['LACA','LACA'],['Non-LACA','Non-LACA']],0,v=>laca=v);
+function paint(){
+ [...$('bmvSeg').children].forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.v===bmv)));
+ [...$('statusSeg').children].forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===status)));
+ [...$('lacaSeg').children].forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===laca)));
+}
+function daerahOpts(){const n=$('negeri').value,cur=$('daerah').value;
+ const v=[...new Set(DATA.filter(r=>!n||r[2]===n).map(r=>r[3]).filter(Boolean))].sort();
+ fill($('daerah'),v,'All districts');if(v.includes(cur))$('daerah').value=cur}
+daerahOpts();
+function filtered(){
+ const q=$('q').value.trim().toLowerCase(),n=$('negeri').value,d=$('daerah').value,j=$('jenis').value,t=$('tarikh').value;
+ return DATA.filter(r=>(!q||(r[1]+' '+r[16]).toLowerCase().includes(q))&&(!n||r[2]===n)&&(!d||r[3]===d)&&(!j||r[5]===j)&&(!bmv||num(r[6])>=bmv)&&(!laca||r[17]===laca)&&(!t||r[12]===t)&&(!$('cat').value||r[19]===$('cat').value)&&(status==='all'||(status==='expired')===isExp(r)));
+}
+function activeN(){return [$('q').value!=='',$('negeri').value,$('daerah').value,$('jenis').value,$('tarikh').value,$('cat').value,bmv,laca].filter(Boolean).length}
+const dash=v=>(v&&v!=='-')?esc(v):'-';
+function card(r,i){
+ const ex=isExp(r);return '<article class="card'+(ex?' expired':'')+'" data-k="'+i+'">'+(ex?'<div class="exp-tag">Expired · auction date passed</div>':'')+'<div class="row1"><div><div class="price">'+esc(r[7])+(ex?'':' 🔥')+'</div><div class="mv">Market value '+esc(r[8])+'</div></div><div class="bmv">'+esc(r[6]).replace('BMV','Below Market')+'</div></div>'
+ +'<div class="addr">'+esc(r[1])+'</div>'
+ +'<div class="dims"><div><span>Land Size</span><b>'+dash(r[10])+'</b></div><div><span>Built Up</span><b>'+dash(r[11])+'</b></div></div>'
+ +'<div class="chips"><span class="chip">'+esc(r[5])+'</span><span class="chip">'+esc(r[9])+'</span>'+(r[17]?'<span class="chip '+(r[17]==='LACA'?'ok':'non')+'">'+r[17]+'</span>':'')+(r[15]&&r[15]!=='-'?'<span class="chip red">'+esc(r[15])+'</span>':'')+'</div>'
+ +'<div class="when"><span><b>'+esc(r[12])+'</b>'+(r[13]&&r[13]!=='-'?' · '+esc(r[13]):'')+'</span><span>Auction '+esc(r[14])+'</span></div>'
+ +'<dl class="more"><div><dt>District</dt><dd>'+dash(r[3])+'</dd></div><div><dt>State</dt><dd>'+dash(r[2])+'</dd></div><div style="grid-column:1/-1"><dt>Bank</dt><dd>'+dash(r[16])+'</dd></div></dl>'
+ +'<div class="acts">'+(r[4]?'<a class="map" href="'+esc(r[4])+'" target="_blank" rel="noopener">Google Maps</a>':'')+'<button type="button" class="tg">More Info</button></div></article>';
+}
+function render(){
+ let rows=filtered();const s=$('sort').value;
+ rows=rows.slice().sort((a,b)=>s==='bmv'?num(b[6])-num(a[6]):s==='harga'?num(a[7])-num(b[7]):(dt(a[12])||9e15)-(dt(b[12])||9e15));
+ $('list').innerHTML=rows.map(card).join('');
+ $('count').textContent=rows.length+' / '+DATA.length+' units';
+ const a=activeN();
+ document.querySelectorAll('.badge').forEach(b=>{b.hidden=!a;b.textContent=a});
+ $('resetInline').hidden=!a;$('resetBar').hidden=!a;
+ $('empty').hidden=rows.length>0;
+ $('apply').textContent='Show '+rows.length+' units';
+}
+function reset(){status='active';['q','negeri','jenis','tarikh','cat'].forEach(k=>$(k).value='');daerahOpts();$('daerah').value='';bmv=0;laca='';paint();render()}
+document.querySelectorAll('.rs').forEach(b=>b.onclick=reset);
+$('resetInline').onclick=reset;$('resetBar').onclick=reset;
+$('list').onclick=e=>{const b=e.target.closest('.tg');if(!b)return;const c=b.closest('.card');c.classList.toggle('open');b.textContent=c.classList.contains('open')?'Close':'More Info'};
+function sheet(o){$('sheet').hidden=!o;$('scrim').hidden=!o}
+$('openFab').onclick=$('openTop').onclick=()=>sheet(true);
+$('close').onclick=$('apply').onclick=$('scrim').onclick=()=>sheet(false);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')sheet(false)});
+$('negeri').onchange=()=>{$('daerah').value='';daerahOpts();render()};
+['q','daerah','jenis','tarikh','cat','sort'].forEach(k=>$(k).addEventListener('input',render));
+paint();render();
+}
+fetch('data.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{boot(j.listings.map(o=>FIELDS.map(f=>o[f])),j);}).catch(()=>{document.getElementById('count').textContent='Could not load listings. Refresh the page to try again.'});
+</script>
+
+</body>
+</html>
