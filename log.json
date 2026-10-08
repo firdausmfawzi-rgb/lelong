@@ -1,0 +1,62 @@
+{
+ "runs": [
+  {
+   "date": "2026-10-08",
+   "time": "",
+   "source": "masterlist",
+   "label": "Terrace / Townhouse masterlist 06/10/2026",
+   "added": 172,
+   "updated": 0,
+   "purged": 0,
+   "total": 172,
+   "by": "Excel upload"
+  },
+  {
+   "date": "2026-10-08",
+   "time": "",
+   "source": "masterlist",
+   "label": "Condo / Apartment masterlist 06/10/2026",
+   "added": 165,
+   "updated": 0,
+   "purged": 0,
+   "total": 337,
+   "by": "Excel upload"
+  },
+  {
+   "date": "2026-10-08",
+   "time": "",
+   "source": "masterlist",
+   "label": "Bungalow / Semi-D masterlist 06/10/2026",
+   "added": 117,
+   "updated": 0,
+   "purged": 0,
+   "total": 451,
+   "by": "Excel upload"
+  },
+  {
+   "date": "2026-10-08",
+   "time": "",
+   "source": "masterlist",
+   "label": "Condo carpark from Admin masterlist 04/10/2026",
+   "added": 0,
+   "updated": 164,
+   "purged": 0,
+   "total": 451,
+   "by": "Excel upload"
+  },
+  {
+   "date": "2026-10-09",
+   "time": "00:45",
+   "source": "bidnow",
+   "label": "BidNow active listings (all categories, no BMV minimum)",
+   "scraped": 2160,
+   "added": 1909,
+   "updated": 249,
+   "purged": 0,
+   "total": 2360,
+   "active": 2329,
+   "expired": 31,
+   "by": "Auto carian"
+  }
+ ]
+}
