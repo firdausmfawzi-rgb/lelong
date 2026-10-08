@@ -71,6 +71,17 @@
    "active": 4231,
    "expired": 31,
    "by": "Auto carian"
+  },
+  {
+   "date": "2026-10-09",
+   "time": "02:58",
+   "source": "masterlist",
+   "label": "Duplicate check: merged same unit listed on two websites",
+   "added": 0,
+   "updated": 558,
+   "purged": 0,
+   "total": 3704,
+   "by": "Dedupe"
   }
  ]
 }
