@@ -108,7 +108,7 @@ body{padding-block-end:100px}
 <div class="shared-bar" id="sharedBar" hidden><span>Showing a shared unit</span><button type="button" id="viewAll">View all listings</button></div>
 <div class="toast" id="toast" role="status" hidden></div>
 <div class="seg" id="statusSeg" role="group" aria-label="Listing status"></div>
-<div class="status"><span id="count">Loading listings…</span><span style="display:flex;gap:8px;align-items:center"><button class="reset-inline" id="resetInline" type="button" hidden>Reset</button><select id="sort" aria-label="Sort"><option value="bmv">Highest Below Market</option><option value="tarikh">Nearest date</option><option value="harga">Lowest price</option><option value="hharga">Highest price</option><option value="lbmv">Lowest Below Market</option><option value="new">Newest Listing</option></select></span></div>
+<div class="status"><span id="count">Loading listings…</span><span style="display:flex;gap:8px;align-items:center"><button class="reset-inline" id="resetInline" type="button" hidden>Reset</button><select id="sort" aria-label="Sort"><option value="bmv">Highest Below Market Value %</option><option value="tarikh">Nearest date</option><option value="harga">Lowest price</option><option value="hharga">Highest price</option><option value="lbmv">Lowest Below Market Value %</option><option value="new">Newest Listing</option></select></span></div>
 <div class="list" id="list"></div>
 <div class="empty" id="empty" hidden>No units match these filters.<br><button class="btn primary rs" type="button">Reset all filters</button></div>
 </div>
@@ -123,7 +123,7 @@ body{padding-block-end:100px}
 <label class="fld"><span>Property Category</span><select id="cat"></select></label>
 <label class="fld"><span>Type</span><select id="jenis"></select></label>
 <label class="fld"><span>Auction Date</span><select id="tarikh"></select></label>
-<div class="fld"><span>Minimum Below Market</span><div class="seg" id="bmvSeg"></div></div>
+<div class="fld"><span>Minimum Below Market Value %</span><div class="seg" id="bmvSeg"></div></div>
 <div class="fld"><span>LACA</span><div class="seg" id="lacaSeg"></div></div>
 </div>
 <div class="sh-foot"><button class="btn rs" type="button">Reset all</button><button class="btn primary" id="apply" type="button">Show</button></div>
@@ -194,7 +194,7 @@ function filtered(){
 function activeN(){return [$('q').value!=='',$('negeri').value,$('daerah').value,$('jenis').value,$('tarikh').value,$('cat').value,bmv,laca].filter(Boolean).length}
 const dash=v=>(v&&v!=='-'&&v!=='N/A')?esc(v):'N/A';
 function card(r,i){
- const ex=isExp(r);return '<article class="card'+(ex?' expired':'')+(sharedId?' hl':'')+'" data-k="'+i+'" data-id="'+esc(r[20])+'">'+(ex?'<div class="exp-tag">Expired · auction date passed</div>':'')+'<div class="row1"><div><div class="price"><span class="pl">Auction Price :</span> '+dash(r[7])+(ex?'':' 🔥')+'</div><div class="mv">Market value '+dash(r[8])+'</div></div><div class="bmv">'+dash(r[6]).replace('BMV','Below Market')+'</div></div>'
+ const ex=isExp(r);return '<article class="card'+(ex?' expired':'')+(sharedId?' hl':'')+'" data-k="'+i+'" data-id="'+esc(r[20])+'">'+(ex?'<div class="exp-tag">Expired · auction date passed</div>':'')+'<div class="row1"><div><div class="price"><span class="pl">Auction Price :</span> '+dash(r[7])+(ex?'':' 🔥')+'</div><div class="mv">Market value '+dash(r[8])+'</div></div><div class="bmv">'+dash(r[6]).replace(/^\s*(\d+(?:\.\d+)?%)\s*BMV\s*$/i,'Below Market Value $1')+'</div></div>'
  +'<div class="addr">'+esc(r[1])+'</div>'
  +((r[21]===CATS[0]||r[21]===CATS[5])?'<div class="dims"><div><span>Built Up</span><b>'+dash(r[11])+'</b></div><div><span>Completion Year</span><b>'+dash(r[19])+'</b></div></div>':'<div class="dims"><div><span>Land Size</span><b>'+dash(r[10])+'</b></div><div><span>Built Up</span><b>'+dash(r[11])+'</b></div></div>')
  +'<div class="chips"><span class="chip">'+dash(r[5])+'</span><span class="chip">'+dash(r[9])+'</span>'+(r[17]?'<span class="chip '+(r[17]==='LACA'?'ok':'non')+'">'+r[17]+'</span>':'')+(r[15]&&r[15]!=='-'?'<span class="chip red">'+esc(r[15])+'</span>':'')+'</div>'
