@@ -57,6 +57,20 @@
    "active": 2329,
    "expired": 31,
    "by": "Auto carian"
+  },
+  {
+   "date": "2026-10-09",
+   "time": "01:59",
+   "source": "auctionnetwork",
+   "label": "Auctionnetwork full scan",
+   "scraped": 3288,
+   "added": 1902,
+   "updated": 1367,
+   "purged": 0,
+   "total": 4262,
+   "active": 4231,
+   "expired": 31,
+   "by": "Auto carian"
   }
  ]
 }
