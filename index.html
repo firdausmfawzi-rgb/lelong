@@ -39,9 +39,9 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .status{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin:6px 0 10px;font-size:.88rem;color:var(--muted)}
 .status select{width:auto;padding:7px 10px;font-size:14px}
 .reset-inline{border:0;background:var(--warn-bg);color:var(--warn);border-radius:99px;padding:0 14px;min-height:36px;font-weight:600}
-.loadmore{display:block;margin:16px auto 0;padding:12px 28px;border-radius:12px;border:1px solid var(--accent);background:transparent;color:var(--accent);font:inherit;font-weight:700;cursor:pointer}.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:12px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 1px 2px rgba(20,40,50,.05);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
-.kind{font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.loadmore{display:block;margin:16px auto 0;padding:12px 28px;border-radius:12px;border:1px solid var(--accent);background:transparent;color:var(--accent);font:inherit;font-weight:700;cursor:pointer}.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:22px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;border-width:2px;box-shadow:0 4px 14px rgba(20,40,50,.10);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.kind{display:flex;align-items:center;gap:10px;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}.kind .num{flex:none;min-width:34px;height:34px;padding:0 8px;border-radius:10px;background:var(--accent);color:var(--accent-fg);display:flex;align-items:center;justify-content:center;font-size:1rem;letter-spacing:0}.kind .kindt{min-width:0;overflow-wrap:anywhere}
 .pricebox{background:var(--bg);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
 .price{white-space:nowrap;font-size:1.75rem;font-weight:800;line-height:1.15;letter-spacing:-.01em}
 .pl{display:block;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}.mv{white-space:nowrap;color:var(--fg);font-size:1.05rem;font-weight:600}.mv small{color:var(--muted);font-weight:500;font-size:.95rem}
@@ -220,7 +220,7 @@ function card(r,i){
  const ex=isExp(r);const condo=(r[21]===CATS[0]||r[21]===CATS[5]);
  const bmv=dash(r[6]).replace(/^\s*(\d+(?:\.\d+)?%)\s*BMV\s*$/i,'$1 below market value');
  return '<article class="card'+(ex?' expired':'')+(sharedId?' hl':'')+'" data-k="'+i+'" data-id="'+esc(r[20])+'">'+(ex?'<div class="exp-tag">Expired · auction date passed</div>':'')
- +'<div class="kind">'+dash(r[5])+(r[9]&&r[9]!=='-'?' · '+esc(r[9]):'')+'</div>'
+ +'<div class="kind"><span class="num">'+(i+1)+'</span><span class="kindt">'+dash(r[5])+(r[9]&&r[9]!=='-'?' · '+esc(r[9]):'')+'</span></div>'
  +'<div class="addr">'+esc(r[1])+'</div>'
  +'<div class="pricebox"><span class="pl">Auction Price</span><div class="price">'+dash(r[7])+(ex?'':' 🔥')+'</div><div class="mv"><small>Market value</small> '+dash(r[8])+'</div>'+(bmv!=='N/A'&&!/^0%/.test(bmv)?'<div class="bmv">'+bmv+'</div>':'')+'</div>'
  +(condo?'<div class="dims"><div><span>Built Up</span><b>'+dash(r[11])+'</b></div><div><span>Completion Year</span><b>'+dash(r[19])+'</b></div></div><div class="dims d3"><div><span>Bedroom</span><b>'+dash(r[23])+'</b></div><div><span>Bathroom</span><b>'+dash(r[24])+'</b></div><div><span>Carpark</span><b>'+dash(r[25])+'</b></div></div>':'<div class="dims"><div><span>Land Size</span><b>'+dash(r[10])+'</b></div><div><span>Built Up</span><b>'+dash(r[11])+'</b></div></div>')
@@ -234,7 +234,7 @@ function moreBtn(){const b=$('more');b.hidden=SHOWN>=ROWS.length;b.textContent='
 function render(){
  let rows=filtered();const s=$('sort').value;
  rows=rows.slice().sort((a,b)=>s==='bmv'?num(b[6])-num(a[6]):s==='lbmv'?num(a[6])-num(b[6]):s==='harga'?num(a[7])-num(b[7]):s==='hharga'?num(b[7])-num(a[7]):s==='new'?((b[22]||'').localeCompare(a[22]||'')||DATA.indexOf(b)-DATA.indexOf(a)):(dt(a[12])||9e15)-(dt(b[12])||9e15));
- ROWS=rows;SHOWN=Math.min(PAGE,rows.length);$('list').innerHTML=rows.slice(0,SHOWN).map(card).join('');moreBtn();
+ ROWS=rows;SHOWN=Math.min(PAGE,rows.length);$('list').innerHTML=rows.slice(0,SHOWN).map((r,j)=>card(r,j)).join('');moreBtn();
  $('count').textContent=rows.length+' / '+DATA.length+' units';
  const a=activeN();
  document.querySelectorAll('.badge').forEach(b=>{b.hidden=!a;b.textContent=a});
