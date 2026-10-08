@@ -93,10 +93,26 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .dock #resetBar{flex:0 0 auto;color:var(--warn);background:var(--warn-bg);border-color:transparent}
 body{padding-block-end:100px}
 @media (min-width:700px){.dock{display:none}}
+.gate{position:fixed;inset:0;z-index:50;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px 16px}
+.gate .box{width:100%;max-width:420px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 22px;display:flex;flex-direction:column;gap:14px}
+.gate h2{margin:0;font-size:1.3rem}.gate p{margin:0;color:var(--muted);line-height:1.5}
+.gate input{font:inherit;font-size:1.15rem;letter-spacing:.12em;text-transform:uppercase;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--fg);width:100%;box-sizing:border-box;text-align:center}
+.gate .err{color:#c0392b;font-weight:700;min-height:1.2em}
+.gate .btn{width:100%;box-sizing:border-box;text-align:center;padding:12px}
+.gate .wa{background:#25D366;color:#fff;border-color:#25D366;text-decoration:none;display:block}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=IBM+Plex+Sans:wght@400;600;700&display=swap">
 </head>
 <body>
+<div class="gate" id="gate" hidden><form class="box" id="gateForm">
+<h2>Private auction list</h2>
+<p>This list is for clients of Firdaus Jay only. Enter the access code you received on WhatsApp.</p>
+<input id="gateCode" type="text" inputmode="text" autocomplete="one-time-code" placeholder="ACCESS CODE" aria-label="Access code" maxlength="20">
+<div class="err" id="gateErr"></div>
+<button class="btn" type="submit" style="background:var(--accent);color:var(--bg);border-color:var(--accent);font-weight:700">Open list</button>
+<a class="btn wa" id="gateWa" href="https://wa.me/60196522361?text=Hi%20Firdaus%20Jay%2C%20saya%20nak%20minta%20kod%20akses%20untuk%20senarai%20lelong." target="_blank" rel="noopener">Request access on WhatsApp</a>
+<p style="font-size:.85rem">Firdaus Jay · 019-6522361 · Eden Assets &amp; Property Solutions</p>
+</form></div>
 <div class="wrap">
 <div class="hd"><h1>Auction List</h1><button class="btn share-all" id="shareAll" type="button">Share</button></div>
 <p class="upd" id="upd"></p>
@@ -237,7 +253,22 @@ $('viewAll').onclick=()=>{clearShared();render();window.scrollTo(0,0)};
 if(sharedId)track('shared_unit_open',{unit_id:sharedId});
 paint();render();
 }
-fetch('data.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{boot(j.listings.map(o=>FIELDS.map(f=>o[f])),j);}).catch(()=>{document.getElementById('count').textContent='Could not load listings. Refresh the page to try again.'});
+const G=id=>document.getElementById(id);const gtrack=(n,p)=>{try{if(window.gtag)gtag('event',n,p||{})}catch(e){}};
+async function sha(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+let ACCESS=null,CLIENT='';
+async function checkCode(code){code=(code||'').trim().toUpperCase().replace(/\s+/g,'');if(!code||!ACCESS)return null;const h=await sha(code);const e=ACCESS.codes&&ACCESS.codes[h];if(!e)return null;if(e.exp&&new Date(e.exp)<new Date())return 'expired';return e}
+function openGate(msg){const g=G('gate');g.hidden=false;G('gateErr').textContent=msg||'';setTimeout(()=>G('gateCode').focus(),50)}
+async function access(){
+ try{ACCESS=await fetch('access.json',{cache:'no-store'}).then(r=>r.ok?r.json():null)}catch(e){ACCESS=null}
+ if(!ACCESS||!ACCESS.codes||!Object.keys(ACCESS.codes).length)return true;   // no codes published yet = open
+ const u=new URL(location.href);let code=u.searchParams.get('c')||'';let stored='';try{stored=localStorage.getItem('lelong.code')||''}catch(e){}
+ for(const c of [code,stored]){if(!c)continue;const e=await checkCode(c);if(e&&e!=='expired'){CLIENT=e.label||'';try{localStorage.setItem('lelong.code',c.trim().toUpperCase())}catch(x){}if(u.searchParams.has('c')){u.searchParams.delete('c');try{history.replaceState(null,'',u.pathname+(u.search||'')+u.hash)}catch(x){}}gtrack('access_ok',{client:CLIENT});return true}
+  if(e==='expired'){openGate('This access code has expired. Please ask Firdaus Jay for a new one.');return false}}
+ openGate(code?'That code is not valid.':'');gtrack('access_gate',{});return false}
+G('gateForm').addEventListener('submit',async ev=>{ev.preventDefault();const c=G('gateCode').value;const e=await checkCode(c);if(e&&e!=='expired'){CLIENT=e.label||'';try{localStorage.setItem('lelong.code',c.trim().toUpperCase())}catch(x){}G('gate').hidden=true;gtrack('access_ok',{client:CLIENT});start()}else G('gateErr').textContent=e==='expired'?'This code has expired. Ask Firdaus Jay for a new one.':'Code not recognised. Check the code or request access on WhatsApp.'});
+let STARTED=false;
+function start(){if(STARTED)return;STARTED=true;fetch('data.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{boot(j.listings.map(o=>FIELDS.map(f=>o[f])),j);}).catch(()=>{document.getElementById('count').textContent='Could not load listings. Refresh the page to try again.'})}
+access().then(ok=>{if(ok)start()});
 </script>
 
 </body>
