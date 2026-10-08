@@ -115,7 +115,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "466514",
 "an_slug": "jalan-anggerik-55-bandar-amanjaya-08000-sungai-petani-kedah-466514",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Individu"
 },
 {
 "no": 4,
@@ -261,7 +262,8 @@
 "kaveat": "Kaveat Persendirian No. Perserahan 06B461/2024 bertarikh 5-6-2024",
 "sekatan_pos": "NIL",
 "mukim_daerah": "Pulau Kerengga / Marang / Terengganu",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Tidak diketahui"
 },
 {
 "no": 8,
@@ -613,7 +615,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "466609",
 "an_slug": "jalan-aruna-6-taman-m-aruna-48000-rawang-selangor-466609",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Tidak diketahui"
 },
 {
 "no": 17,
@@ -769,7 +772,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "208783",
 "an_slug": "jalan-vista-110-desa-vista-43900-sepang-selangor",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "no": 21,
@@ -1200,7 +1204,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "207609",
 "an_slug": "lorong-astana-122-bandar-seri-astana-08000-sungai-petani-kedah-copy",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "no": 32,
@@ -1669,7 +1674,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "466339",
 "an_slug": "jalan-seroja-14-taman-seroja-08000-sungai-petani-kedah-466339",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=cadbaa94-a42b-4b98-b847-3c1463ac2940&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=cadbaa94-a42b-4b98-b847-3c1463ac2940&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "no": 44,
@@ -3559,7 +3565,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "212447",
 "an_slug": "solok-mempat-taman-selatan-41200-klang-selangor",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=6760405d-004d-4cb4-9f0b-29d40974f778&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=6760405d-004d-4cb4-9f0b-29d40974f778&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "no": 94,
@@ -4301,7 +4308,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "210805",
 "an_slug": "jalan-lg3-118-taman-langat-utama-3-bukit-changgang-42700-banting-selangor-1",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=1a68903f-1564-4586-b1aa-05a8e616a81e&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=1a68903f-1564-4586-b1aa-05a8e616a81e&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "no": 114,
@@ -4533,7 +4541,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "210491",
 "an_slug": "lorong-bersatu-6-taman-simpang-bersatu-34700-simpang-perak",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "no": 120,
@@ -5803,7 +5812,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "440121",
 "an_slug": "jalan-perdana-65-pandan-perdana-55300-kuala-lumpur-440121",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "no": 154,
@@ -9390,7 +9400,8 @@
 "kaveat": "Kaveat Persendirian oleh Alliance Bank Malaysia Berhad yang didaftarkan pada 10.02.2021 dengan No. Perserahan 062B72/2021",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "Cheras / Hulu Langat / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "no": 254,
@@ -9987,7 +9998,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "212590",
 "an_slug": "pangsapuri-dedaun-hijau-jalan-skudai-lama-81200-johor-bahru-johor",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=a8c8a02e-8511-485b-b40d-6b11fdeb79fe&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=a8c8a02e-8511-485b-b40d-6b11fdeb79fe&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "no": 270,
@@ -10391,7 +10403,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "209651",
 "an_slug": "hilir-sungai-pinang-serina-bay-11600-jelutong-penang",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=bf57abd7-ddca-4be2-b9c0-8a37978331e9&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=bf57abd7-ddca-4be2-b9c0-8a37978331e9&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "no": 281,
@@ -10691,7 +10704,8 @@
 "an_slug": "pangsapuri-seri-mutiara-bandar-seri-alam-81750-masai-johor-2",
 "pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=d73f9131-7164-4b31-807d-608277debbe2&Inline=true",
 "mukim_daerah": "PLENTONG / JOHOR BAHRU / Johor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "no": 289,
@@ -10767,7 +10781,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "209665",
 "an_slug": "impian-senibong-jalan-persiaran-senibong-taman-bayu-senibong-81750-masai-johor",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=3821b8aa-119d-40d9-84af-06fb53d784fa&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=3821b8aa-119d-40d9-84af-06fb53d784fa&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "no": 291,
@@ -10990,7 +11005,8 @@
 "kaveat": "Kaveat Persendirian dimasukkan oleh Alliance Islamic Bank Berhad melalui Perserahan No. PDB10190/2019 yang didaftarkan pada 19/08/2019",
 "sekatan_pos": "Tanah ini tidak boleh dipindahmilik, dipajak, dicagar atau digadai tanpa kebenaran Jawatankuasa Kerja Tanah Wilayah Persekutuan Kuala Lumpur",
 "mukim_daerah": "Petaling / Kuala Lumpur / Wilayah Persekutuan",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "no": 297,
@@ -11780,7 +11796,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "463656",
 "an_slug": "villa-emas-condo-persiaran-bayan-indah-11900-bayan-lepas-penang-463656",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "no": 318,
@@ -12116,7 +12133,8 @@
 "kaveat": "Kaveat Persendirian dimasukkan oleh Hong Leong Bank Berhad melalui Perserahan No. 0799B2015014524 didaftarkan pada 23-12-2015",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "13 / Timor Laut / Pulau Pinang",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "no": 327,
@@ -12156,7 +12174,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "212333",
 "an_slug": "lengkok-kelicap-mutiara-perdana-mk-12-11900-bayan-lepas-penang",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=a922d057-1c4a-4b01-a036-1b7277282185&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=a922d057-1c4a-4b01-a036-1b7277282185&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "no": 328,
@@ -12639,7 +12658,8 @@
 "kaveat": "Nombor Perserahan : 1720/2014 Kaveat Persendirian atas Tanah oleh BIMB No. Syarikat : 98127-X Tingkat 12, Menara Bank Islam, No. 22 Jalan Perak, 50450 WP KL didaftarkan pada 6 Julai 2014 jam 12:14:21 petang Nombor Perserahan : 1065/2021 Kaveat Pendaftar atas Tanah didaftarkan pada 12 Julai 2021 jam 12:28:21 petang",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "Pintu Gang / Kota Bharu / Kelantan",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Pendaftar"
 },
 {
 "no": 341,
@@ -13039,7 +13059,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "466421",
 "an_slug": "laluan-perajurit-1-taman-cahaya-tasek-31400-ipoh-perak-466421",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=6e008e6e-39c6-4990-9a6c-d1146c7836a4&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=6e008e6e-39c6-4990-9a6c-d1146c7836a4&Inline=true",
+"kaveat_type": "Tidak diketahui"
 },
 {
 "no": 352,
@@ -14451,7 +14472,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "213756",
 "an_slug": "jalan-sm-1d1-bandar-baru-seri-manjung-fasa-1d3-32040-seri-manjung-perak-1",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=12e41d87-181d-478a-9142-12883d48bbd7&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=12e41d87-181d-478a-9142-12883d48bbd7&Inline=true",
+"kaveat_type": "Individu"
 },
 {
 "no": 390,
@@ -15123,7 +15145,8 @@
 "kaveat": "KAVEAT PERSENDIRIAN ATAS TANAH OLEH TAN LAY KHOON NO. K/P : 841104-10-5488, NO. PERSERAHAN 001B16269/2020 DIDAFTARKAN PADA 01.06.2020",
 "sekatan_pos": "TANAH INI BOLEH DIPINDAHMILIK, DIPAJAK ATAU DIGADAI SETELAH MENDAPAT KEBENARAN PIHAK BERKUASA NEGERI",
 "mukim_daerah": "Bukit Raja / Petaling / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Individu"
 },
 {
 "no": 409,
@@ -18399,7 +18422,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "467784",
 "an_slug": "jalan-bayu-aman-1-taman-bayu-aman-13050-butterworth-penang-auctionnetwork-467784",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=a2ed41be-0c96-45ef-9788-dd3f8ff81271&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=a2ed41be-0c96-45ef-9788-dd3f8ff81271&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no22jalanjasa41tamanmutiararini81300skudaijohor",
@@ -18555,7 +18579,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "464834",
 "an_slug": "kayangan-puri-mutiara-medan-fettes-10470-tanjung-tokong-penang-464834",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=de9d55c5-b355-4ce4-9da1-d787cdab5acd&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=de9d55c5-b355-4ce4-9da1-d787cdab5acd&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no60laluanklebangria2tamanklebangria31200chemorperak",
@@ -18811,7 +18836,8 @@
 "kaveat": "KAVEAT PERSENDIRIAN OLEH YAYASAN EKONOMI KEWANGAN ANTARABANGSA (INTERNATIONAL FINANCIAL ECONOMY) MELALUI NO PERSERAHAN NO.PDB13435/2022 DAN DIDAFTARKAN PADA 13.10.2022",
 "sekatan_pos": "TIADA",
 "mukim_daerah": "MUKIM BATU / KUALA LUMPUR / Wilayah",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "noa1506toweramercusummersuitesno8jalancendanaoffjalansultanismail50250kualalumpur",
@@ -19931,7 +19957,8 @@
 "kaveat": "No. Perserahan 001B11703/2021 Kaveat Persendirian atas tanah oleh Ambank (M) Berhad didaftarkan pada 19 Mac 2021 jam 11:05:54 No. Suratkuasa Wakil: 001SW1041/2017",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "Bandar Kundang / Gombak / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no17409blok17pangsapurisrivervilliano4jalananggeriknervilla31166kotakemuningseksyen3140460shahalamselangor",
@@ -20155,7 +20182,8 @@
 "kaveat": "Kaveat Persendirian melalui No. Perserahan : 002B11292/2017 didaftarkan pada 1/11/2017 oleh TX 10 Management Sdn Bhd",
 "sekatan_pos": "Tanah ini boleh dipindahmilik, dipajak atau digadai setelah mendapat kebenaran Pihak Berkuasa Negeri",
 "mukim_daerah": "Pekan Baru Sungai Buloh / Petaling / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Syarikat"
 },
 {
 "id": "noc111kondominiumsubanginderajalanusj62l47610uepsubangjayaselangor",
@@ -20543,7 +20571,8 @@
 "kaveat": "KAVEAT PERSENDIRIAN DI BAWAH NOMBOR PERSERAHAN 00B80069/2024 YANG DIMASUKKAN OLEH RHB ISLAMIC BANK BERHAD DAN DIDAFTARKAN PADA 14/11/2024",
 "sekatan_pos": "TANAH YANG DIBERI MILIK INI TIDAK BOLEH DIPINDAH MILIK, DIPAJAK ATAU DIGADAI MELAINKAN DENGAN KEBENARAN PIHAK BERKUASA NEGERI",
 "mukim_daerah": "PETALING / PETALING / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no2105level21blockbsummervillacondominiumno11jalanss12147500subangjayaselangor",
@@ -20735,7 +20764,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "466625",
 "an_slug": "the-parque-residences-jalan-eco-santuari-31-eco-santuari-42500-telok-panglima-garang-selangor-466625",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no706jalanpr1ma20pr1maresidensiputerijaya08000sungaipetanikedah",
@@ -21311,7 +21341,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "466347",
 "an_slug": "lintang-sungai-ara-6-zan-pavillion-11900-bayan-lepas-penang-466347",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "noa328bloka3pangsapurisamudera132040serimanjungperak",
@@ -21351,7 +21382,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "466128",
 "an_slug": "pangsapuri-samudera-1-32040-seri-manjung-perak-466128",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=98d83c64-20fe-4d24-a60c-d118771a835a&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=98d83c64-20fe-4d24-a60c-d118771a835a&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no880jalanresiden113residen1bandarbarusetiaawanperdana32000sitiawanperak",
@@ -22223,7 +22255,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "465771",
 "an_slug": "lorong-11-taman-sri-kota-34000-taiping-perak-465771",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Individu"
 },
 {
 "id": "no55jalan7tamansungaimas34000taipingperak",
@@ -22851,7 +22884,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "208748",
 "an_slug": "hartamas-regency-2-no2-jalan-duta-hartamas-sri-hartamas-50480-kuala-lumpur",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=601b9ab3-25a6-4e17-9875-4b6b48600db3&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=601b9ab3-25a6-4e17-9875-4b6b48600db3&Inline=true",
+"kaveat_type": "Individu"
 },
 {
 "id": "noc212berkeleyparksriputramascondominiumjalanputramas1offjalankuching51200kualalumpur",
@@ -22931,7 +22965,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "208715",
 "an_slug": "kondo-casa-idaman-jalan-112d-kampung-batu-muda-51100-kuala-lumpur",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=4faba8ad-9aae-4c2c-a01d-3ffee7cdaf34&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=4faba8ad-9aae-4c2c-a01d-3ffee7cdaf34&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "noa33a03residensivivo9seputehno20jalantelokdatokoffjalankelanglama58000kualalumpur",
@@ -23123,7 +23158,8 @@
 "kaveat": "Kaveat Persendirian telah dimasukkan oleh Affin Bank Berhad melalui no perserahan PDB12175/2022 bertarikh 19.09.2022",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "Kuala Lumpur / Kuala Lumpur / Wilayah",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "noa1135blockatitiwangsasentraljalanchemur50400kualalumpur",
@@ -23623,7 +23659,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "466619",
 "an_slug": "koi-tropika-jalan-puchong-batu-13-12-47100-puchong-selangor-466619",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no0803thecruiseresidencejalanputeri71bandarputeri47100puchongselangor",
@@ -23887,7 +23924,8 @@
 "kaveat": "Kaveat persendirian atas kepentingan oleh Ambank (M) Berhad (8515-D) melalui No. Perserahan 002B3713/2021 didaftarkan pada 12.03.2021",
 "sekatan_pos": "Tanah yang diberi milik ini tidak boleh dipindah milik, dipajak atau digadai melainkan dengan kebenaran Pihak Berkuasa Negeri",
 "mukim_daerah": "Pekan Baru Sungai Buloh / Petaling / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no17jalanpulauangsau102asectionu1040170shahalamselangor",
@@ -24083,7 +24121,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "467284",
 "an_slug": "pangsapuri-sri-ayu-lebuh-kebun-nenas-1-ks7-bandar-putera-41000-klang-selangor-auctionnetwork-467284",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no47jalankip2kepongindustrialpark52200kualalumpur",
@@ -24359,7 +24398,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "212560",
 "an_slug": "jalan-kenari-biru-1-taman-kenari-indah-08000-sungai-petani-kedah",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=c4422c5a-11bc-4214-867d-9ba879bb7686&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=c4422c5a-11bc-4214-867d-9ba879bb7686&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "nob516jalanuniversiti3tamanuniversitisemeling08100bedongkedah",
@@ -24674,7 +24714,8 @@
 "an_slug": "jalan-desa-aman-s-103-pangsapuri-enesta-desa-aman-09410-padang-meha-kedah-467050",
 "pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=aa86087a-529d-4785-a5d7-0b66bff9a5d7&Inline=true",
 "mukim_daerah": "PEKAN PADANG MEHA / DAERAH KULIM /",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "dt2049jalanangkasanuri26tamanangkasanuri76100duriantunggalmelaka",
@@ -24710,7 +24751,8 @@
 "kaveat": "DIKAVEATKAN OLEH BANK ISLAM MALAYSIA BERHAD NO. PER . 0400B2002003951 BERTARIKH 8.8.2002",
 "sekatan_pos": "TANAH INI TIDAK BOLEH DPINDAHMILIK ATAU DIPAJAK KECUALI DENGAN KEBENARAN PIHAK BERKUASA NEGERI. SEKATAN KEPENTINGAN INI DIKECUALIKAN KEPADA ORANG MELAYU",
 "mukim_daerah": "MUKIM DURIAN TUNGGAL / ALOR GAJAH /",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "st1726jalanbidarapermai2tamanbidarapermai78300masjidtanahmelaka",
@@ -25010,7 +25052,8 @@
 "kaveat": "Kaveat Persendirian",
 "sekatan_pos": "Tanah Rizab Melayu",
 "mukim_daerah": "BUKIT KATIL / MELAKA TENGAH / Melaka",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Tidak diketahui"
 },
 {
 "id": "jd4451jalanbsjp22bandarscientexjasinpresint2fasa1a177300merlimaumelaka",
@@ -25238,7 +25281,8 @@
 "kaveat": "Kaveat Persendirian atas petak , oleh ambank (m) berhad dengan No. Perserahan 0799B2019003983 didaftarkan pada 17 April 2019",
 "sekatan_pos": "-",
 "mukim_daerah": "BANDAR BATU FERRINGGHI , SEKSYEN 1 /",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no7g1015jalantheanteikbandarbaruairitam11500ayeritampenang",
@@ -25974,7 +26018,8 @@
 "kaveat": "9040/2018 Kaveat Persendirian Atas Tanah oleh HONG LEONG BANK BERHAD didaftarkan pada 15 Mac 2018",
 "sekatan_pos": "1. Tuanpunya tanah tidak dibenarkan menawar atau menjualkan unit-unit (parcel) bangunan yang akan dibina di atas tanah ini melainkan bangunan telah mula dibina mengikut pelan yang diluluskan oleh Pihak Berkuasa Negeri. 2. Petak-petak bangunan yang didirikan di atas tanah ini apabila sahaja bertukar miliknya kepada seorang Bumiputera / Syarikat Bumiputera maka tidak boleh terkemudian daripada itu dijual, dipajak, atau dipindahmilik daripada apa cara sekalipun kepada orang bukan Bumiputera / Syarikat bukan Bumiputera tanpa persetujuan Pihak Berkuasa Negeri. 3. Petak-petak bangunan yang didirikan di atas tanah ini tidak boleh dijual atau dipindahmilik dengan apa cara sekalipun kepada bukan Warganegara / Syarikat Asing tanpa persetujuan Pihak Berkuasa Negeri.",
 "mukim_daerah": "Tebrau / Johor Bahru / Johor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no3jalansriwangsa40tamansriwangsa31000batugajahperak",
@@ -26296,7 +26341,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "208789",
 "an_slug": "marc-service-residence-no-3-jalan-pinang-50450-kuala-lumpur",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=41c80b06-0be0-437e-8dd7-fe18a7059137&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=41c80b06-0be0-437e-8dd7-fe18a7059137&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no187tamanbayuinderalukutbayu171010portdicksonnegerisembilan",
@@ -26448,7 +26494,8 @@
 "kaveat": "Kaveat Persendirian atas Tanah - Perserahan No. 768/2012",
 "sekatan_pos": "Tanah yang terkandung dalam hakmilik ini tidak boleh dipindahmilik, diberi pajak atau digadai melainkan mendapat kelulusan Pihak Berkuasa Negeri. Tanah ini dikecualikan daripada sebarang sekatan kepentingan atau kelulusan MMK untuk pindahmilik pertama. Tanah yang terkandung dalam hakmilik ini dikecualikan bagi gadaian kepada Bank atau Institusi Kewangan yang disenaraikan di dalam Jadual D Enakmen Rizab Melayu Kelantan 1930 dan Jadual 26A Enakmen Tanah Kelantan 1938 bagi membolehkan tuan tanah mendapat pinjaman sendiri.",
 "mukim_daerah": "Padang Enggang / Kota Bharu / Kelantan",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Tidak diketahui"
 },
 {
 "id": "lot3283kampungumurtokseh16800pasirputehkelantan",
@@ -27328,7 +27375,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "467287",
 "an_slug": "jalan-pilus-27-24-seksyen-27-40400-shah-alam-selangor-auctionnetwork-467287",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "noa11602residensihijauanno4jalanbudiman223seksyen2240300shahalamselangor",
@@ -27524,7 +27572,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "208868",
 "an_slug": "the-parque-residences-jalan-eco-santuari-31-eco-santuari-42500-telok-panglima-garang-selangor",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Individu"
 },
 {
 "id": "nob1606blockbtamanmedancahayajalanpjs2c246000petalingjayaselangor",
@@ -27876,7 +27925,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "208973",
 "an_slug": "jalan-mutiara-25-taman-mutiara-09700-karangan-kedah",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=07d3d442-382a-4939-96ed-8715b57f174a&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=07d3d442-382a-4939-96ed-8715b57f174a&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "noa46jalan3acintasayangresorthomes08000sungaipetanikedah",
@@ -28104,7 +28154,8 @@
 "kaveat": "Kaveat Persendirian dimasukkan oleh SME Development Bank Malaysia Berhad pada 25/05/2025 No. Pers: 3609/2025",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "Bandar Sungai Petani / Kuala Muda / Kedah",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no219jalananggerik810bandaramanjaya08000sungaipetanikedah",
@@ -28140,7 +28191,8 @@
 "kaveat": "Kaveat Persendirian didaftarkan oleh AMBANK ISLAMIC BERHAD",
 "sekatan_pos": "TIADA",
 "mukim_daerah": "BANDAR AMANJAYA / DAERAH KUALA",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no124jalan95darulamanperdana08000sungaipetanikedah",
@@ -28980,7 +29032,8 @@
 "kaveat": "KAVEAT PERSENDIRIAN ATAS TANAH OLEH AMBANK ISLAMIC BERHAD TELAH DIDAFTARKAN MELALUI NO PERS 9695/2021 BERTARIKH 19.11.2021",
 "sekatan_pos": "TIADA",
 "mukim_daerah": "PEKAN SEREMBAN JAYA / SEREMBAN /",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no413jalansendayanindah11tamansendayanindah71900labunegerisembilan",
@@ -29201,7 +29254,8 @@
 "kaveat": "Kaveat Persendirian telah didaftarkan melalui No. Perserahan 002B2143/2008 pada 26-06-2008",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "Pekan Subang Jaya / Petaling / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Tidak diketahui"
 },
 {
 "id": "no2a2jalanpju333sunwaydamansara47810petalingjayaselangor",
@@ -29273,7 +29327,8 @@
 "kaveat": "NO. PERSERAHAN 00B78134/2024 KAVEAT PERSENDIRIAN ATAS TANAH OLEH RHB BANK BERHAD DIDAFTARKAN PADA 08 NOVEMBER 2024",
 "sekatan_pos": "TIADA",
 "mukim_daerah": "BANDAR CHERAS / ULU LANGAT / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no25jalanzapin3tamanskudaibaru81300skudaijohor",
@@ -29662,7 +29717,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "211520",
 "an_slug": "lorong-nawa-17-bandar-utama-08000-sungai-petani-kedah",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=a6ee88ca-9f62-40e9-9981-c708c52a6b59&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=a6ee88ca-9f62-40e9-9981-c708c52a6b59&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no520lorongamanperwira119tamanamanperwira09300kualaketilkedah",
@@ -29774,7 +29830,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "211517",
 "an_slug": "lorong-residensi-b7-taman-residensi-mesra-08300-gurun-kedah",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=29c45af4-83e6-44be-8dc2-ade3c2f77c91&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=29c45af4-83e6-44be-8dc2-ade3c2f77c91&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no637jalankelisaria127tamankelisaria08000sungaipetanikedah",
@@ -29814,7 +29871,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "212383",
 "an_slug": "jalan-kelisa-ria-127-taman-kelisa-ria-08000-sungai-petani-kedah",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=67393340-6a65-4c45-ad62-7c92f9ed4f43&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=67393340-6a65-4c45-ad62-7c92f9ed4f43&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no403lorongsemarak6tamansemarak08000sungaipetanikedah",
@@ -30839,7 +30897,8 @@
 "kaveat": "\"Kaveat Persendirian atas tanah oleh Alliance Bank Malaysia Berhad No Perserahan Kaveat: 00B76630/2024 Tarikh: 04/11/2024\"",
 "sekatan_pos": "N/A",
 "mukim_daerah": "KLANG / KLANG / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no38jalanalamsuria1614seksyen1643200bandarpuncakalamselangor",
@@ -31687,7 +31746,8 @@
 "kaveat": "Kaveat Persendirian Oleh Bank Simpanan Nasional Yang Didaftarkan Pada 07 Ogos 2024 dengan No. Pendaftaran 00B51604/2024",
 "sekatan_pos": "Tanah Yang Diberi Milik Ini Tidak Boleh Dipindah Milik, Dipajak Atau Digadai Melainkan Dengan Kebenaran Pihak Berkuasa Negeri",
 "mukim_daerah": "Bandar Sunway / Daerah Petaling / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "noc2702rhythmavenuepersiarankewajipanusj1947630subangjayaselangor",
@@ -31875,7 +31935,8 @@
 "kaveat": "Kaveat oleh Hong Leong Islamic Bank Berhad melalui Pers. No 001B50185 didaftarkan pada 20.10.2022",
 "sekatan_pos": "Tanah ini tidak boleh dipindahmilik, dipajak atau digadai melainkan setelah mendapat kebenaran Pihak Berkuasa Negeri",
 "mukim_daerah": "Mukim Ijok / Kuala Selangor / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "noa2008toweraamerinresidencejalanimpianindahtamanimpianindah43300serikembanganselangor",
@@ -32191,7 +32252,8 @@
 "kaveat": "Kaveat Persendirian oleh Alliance Islamic Bank Berhad yang didaftarkan pada 21.06.2022 dengan No. Perserahan 002B10293/2022",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "Semenyih / Hulu Langat / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "nod1514blockdmentaricourtjalanpjs89tamanserimentari46150petalingjayaselangor",
@@ -32351,7 +32413,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "209383",
 "an_slug": "jalan-kenyalang-115d-seksyen-11-kota-damansara-47810-petaling-jaya-selangor",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=284ba570-8e1f-463c-92da-f1e528fe912a&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=284ba570-8e1f-463c-92da-f1e528fe912a&Inline=true",
+"kaveat_type": "Individu"
 },
 {
 "id": "nob269duapuluhenam26pangsapuriakasajalanakasaakasacherasselatan43300serikembanganselangor",
@@ -32627,7 +32690,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "209387",
 "an_slug": "kelana-damansara-suite-no-3-jalan-ss-62-kelana-jaya-47301-petaling-jaya-selangor",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=e308020f-3cdf-455d-a75c-3917ce191a84&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=e308020f-3cdf-455d-a75c-3917ce191a84&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no18jalanelektroneu16edenaialam40160shahalamselangor",
@@ -32929,7 +32993,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "209668",
 "an_slug": "jalan-kebun-nenas-4vks8-bandar-putera-2-41200-klang-selangor",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=f3a2a853-daa2-4326-b66b-d78d0615a3ec&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=f3a2a853-daa2-4326-b66b-d78d0615a3ec&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "nof164pangsapurisalviajalankenyalang113pju5kotadamansara47810petalingjayaselangor",
@@ -33005,7 +33070,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "466420",
 "an_slug": "molek-pine-2-jalan-molek-127-taman-molek-81100-johor-bahru-johor-466420",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=a63e4e48-c3c4-4bea-bdeb-90b819c9f3f7&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=a63e4e48-c3c4-4bea-bdeb-90b819c9f3f7&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no50jalanponderosa11tamanponderosa81100johorbahrujohor",
@@ -33045,7 +33111,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "207808",
 "an_slug": "jalan-ponderosa-11-taman-ponderosa-81100-johor-bahru-johor",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Individu"
 },
 {
 "id": "no37jalanbestari102tamanbestariindah181800ulutiramjohor",
@@ -33241,7 +33308,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "466416",
 "an_slug": "jalan-sierra-perdana-217-taman-sierra-perdana-81750-masai-johor-466416",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=fa4fd55f-c3c7-4aca-8f2a-d7587e63bb51&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=fa4fd55f-c3c7-4aca-8f2a-d7587e63bb51&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "noc0501surimassuitejalanserantautamandatoonn80350johorbahrujohor",
@@ -33397,7 +33465,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "463657",
 "an_slug": "jalan-ekoflora-112-taman-ekoflora-81100-johor-bahru-johor-463657",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=0a4c8aa5-5a4c-45e0-b614-cc1a5c4ba91c&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=0a4c8aa5-5a4c-45e0-b614-cc1a5c4ba91c&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no1507blokdapartmentsuriamasjalanserantautamandatoonn80350johorbahrujohor",
@@ -33509,7 +33578,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "463654",
 "an_slug": "jalan-lembah-merbok-13-taman-lembah-merbok-08400-merbok-kedah-463654",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no126lorongiringanbayu346precint3tamaniringanbayumambau70300serembannegerisembilan",
@@ -34013,7 +34083,8 @@
 "kaveat": "Nombor Pers: 0799B2024015515 Kaveat Persendirian Atas Petak oleh Public Islamic Bank Berhad didaftarkan pada 28 November 2024",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "13 / Timor Laut / Pulau Pinang",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no18lorongjawa2tamanjawa12000butterworthpenang",
@@ -34133,7 +34204,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "466325",
 "an_slug": "jalan-batu-uban-11700-gelugor-penang-466325",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no16jalanraintree5villaraintreeii14120simpangampatpenang",
@@ -34293,7 +34365,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "209666",
 "an_slug": "persiaran-mayang-pasir-mukim-12-11950-bandar-bayan-baru-penang",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=96ca2008-bb4a-4da2-84d0-51cbd26cdb26&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=96ca2008-bb4a-4da2-84d0-51cbd26cdb26&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no49lorong8ss9bandartasekmutiara14120simpangampatpenang",
@@ -34565,7 +34638,8 @@
 "kaveat": "No. Per : 0799B2021000155 Kaveat Persendirian atas Tanah oleh Ambank (M) Berhad didaftarkan pada 06.01.2021",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "11 / Seberang Perai Utara / Pulau Pinang",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no8a610gatlebuhmacallumkomplekspulaumutiara10300georgetownpenang",
@@ -35613,7 +35687,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "209658",
 "an_slug": "jalan-tasik-23-bandar-seri-alam-81750-masai-johor",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=50e94ea3-5c51-4a73-9be1-9f0d924f03d9&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=50e94ea3-5c51-4a73-9be1-9f0d924f03d9&Inline=true",
+"kaveat_type": "Tidak diketahui"
 },
 {
 "id": "noc1406blockcpangsapurialifutamathealiffresidencesjalantahana81200johorbahrujohor",
@@ -35729,7 +35804,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "209653",
 "an_slug": "pangsapuri-seri-mutiara-persiaran-seri-alam-bandar-seri-alam-81750-masai-johor",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=d4f9b5ec-0bbe-4f9f-9129-a163091c2679&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=d4f9b5ec-0bbe-4f9f-9129-a163091c2679&Inline=true",
+"kaveat_type": "Individu"
 },
 {
 "id": "no0404sripahlawancpangsapuribukitsaujanajalanpanglima80100johorbahrujohor",
@@ -36829,7 +36905,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "209592",
 "an_slug": "jalan-meriam-84000-muar-johor",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=77216a68-4c74-47fe-af75-2eb5eabfc8a5&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=77216a68-4c74-47fe-af75-2eb5eabfc8a5&Inline=true",
+"kaveat_type": "Individu"
 },
 {
 "id": "no190102hilirpayaterubong1tamanserisarimk1311900bayanlepaspenang",
@@ -37294,7 +37371,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "466343",
 "an_slug": "taman-pauh-indah-jalan-pauh-indah-1-13500-permatang-pauh-penang-466343",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=d86ba847-70ee-4b8c-87f5-775dbb4604b8&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=d86ba847-70ee-4b8c-87f5-775dbb4604b8&Inline=true",
+"kaveat_type": "Tidak diketahui"
 },
 {
 "id": "no408blokajalanjawijaya7tamanjawijaya14200sungaijawipenang",
@@ -37334,7 +37412,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "467769",
 "an_slug": "jalan-jawi-jaya-7-taman-jawi-jaya-14200-sungai-jawi-penang-auctionnetwork-467769",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=dd947737-6819-4278-a63f-578e08834ba5&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=dd947737-6819-4278-a63f-578e08834ba5&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "lot2217jalanekorkucingdaerahseberangperaiutarapenang",
@@ -38418,7 +38497,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "210820",
 "an_slug": "jalan-turmalin-tiga-712c-seksyen-7-40000-shah-alam-selangor",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=5df04058-099e-4949-8f40-e9481b91209c&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=5df04058-099e-4949-8f40-e9481b91209c&Inline=true",
+"kaveat_type": "Pendaftar"
 },
 {
 "id": "no36jalanareca6pantaisepangputra43950sungaipelekselangor",
@@ -38498,7 +38578,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "210794",
 "an_slug": "jalan-dm-110-taman-desa-mas-48000-rawang-selangor",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=5f10f970-5abc-43d4-b48a-1fdc44d2f312&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=5f10f970-5abc-43d4-b48a-1fdc44d2f312&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "nobg24blockrumbiapangsapurilaspalmasjalandesariabandarcountryhomes48000rawangselangor",
@@ -38570,7 +38651,8 @@
 "kaveat": "Hong Leong Islamic Bank Berhad pada 18/03/2022 di bawah no. perserahan: 002B4265/2022",
 "sekatan_pos": "Tanah yang diberi milik ini tidak boleh dipindah milik, dipajak atau digadai melainkan dengan kebenaran Pihak Berkuasa Negeri",
 "mukim_daerah": "Bandar Shah Alam / Petaling / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "nog25groundfloorblok4no7persiaransukanlamanseribusinessparkseksyen1340100shahalamselangor",
@@ -38610,7 +38692,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "209193",
 "an_slug": "persiaran-sukan-laman-seri-business-park-seksyen-13-40100-shah-alam-selangor",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "lotpt798blok6pusatperniagaandataranrakyatbandarbarutunjong16010kotabharukelantan",
@@ -40688,7 +40771,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "212349",
 "an_slug": "jalan-setia-jaya-4ku14-kampung-tok-muda-42200-kapar-selangor-1",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=049d6f7a-7aa9-44c9-9a00-4ad1b3ab5709&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=049d6f7a-7aa9-44c9-9a00-4ad1b3ab5709&Inline=true",
+"kaveat_type": "Tidak diketahui"
 },
 {
 "id": "no13jalanredgeview3theridgeviewresidencestamanbukitpermai43000kajangselangor",
@@ -40768,7 +40852,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "452897",
 "an_slug": "pangsapuri-seri-pulai-jalan-ph-4-taman-puchong-hartamas-47100-puchong-selangor-452897",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no27jalanakasia3ks6bandarbotanic41200klangselangor",
@@ -42578,7 +42663,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "209848",
 "an_slug": "jalan-astana-kemensah-taman-astana-kemensah-68000-ampang-selangor",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Pendaftar"
 },
 {
 "id": "no49jalantanjungtenteram3023tamanimpiansuterasection3040460shahalamselangor",
@@ -43854,7 +43940,8 @@
 "kaveat": "Kaveat persendirian dimasukkan oleh AMBANK ISLAMIC BERHAD",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "MUKIM 13 / DAERAH SEBERANG PERAI",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no3321persiaransungaiemasferringhidelimacondominium11100batuferringgipenang",
@@ -44474,7 +44561,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "211425",
 "an_slug": "157-hampshire-no-1-jalan-mayang-sari-50450-kuala-lumpur",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Individu"
 },
 {
 "id": "no21115pangsapuriterataimewahjalanlangkawitamanterataimewah53000kualalumpur",
@@ -44930,7 +45018,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "208841",
 "an_slug": "jalan-setia-impian-u137d-setia-alam-seksyen-u13-40170-shah-alam-selangor",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "noh412lebuhdamarmerahtamanpendamarindah2pandamaran42000klangselangor",
@@ -45010,7 +45099,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "211594",
 "an_slug": "jalan-seri-putra-91-bandar-seri-putra-43000-kajang-selangor",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "nog3a10pangsapurikasuarinapersiarankasuarinaks6bandarbotanik41200klangselangor",
@@ -45478,7 +45568,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "208781",
 "an_slug": "jalan-pjs-1016-jalan-rambutan-46000-petaling-jaya-selangor",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no5jalantopaz217tamanserichanggang2bukitchanggang42700bantingselangor",
@@ -45982,7 +46073,8 @@
 "kaveat": "Nombor Perserahan 33122/2023 didaftarkan pada 2 Ogos 2023",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "Mukim Pulai / Johor Bahru / Johor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Tidak diketahui"
 },
 {
 "id": "no1010blokapangsapurimutiaraidamanjalanidamanutamatamanlarkinidaman80350johorbahrujohor",
@@ -46102,7 +46194,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "209813",
 "an_slug": "jalan-pulasan-bandar-seri-perani-81900-kota-tinggi-johor",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no20jalandenaialam17tamandenaialam81700pasirgudangjohor",
@@ -46182,7 +46275,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "467000",
 "an_slug": "jalan-ciku-1-taman-kota-masai-81700-pasir-gudang-johor-467000",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no0301blokepangsapuriserimutiarabandarserialam81750masaijohor",
@@ -46218,7 +46312,8 @@
 "kaveat": "No.Perserahan: 6913/2023 oleh AMBANK (M) BERHAD didaftarkan pada 19/02/2023",
 "sekatan_pos": "i)Tuan punya tanah tidak dibenarkan menjualkan unit-unit (parcels) bangunan yang akan dibina di atas tanah ini melainkan bangunan telah dibina mengikut pelan yang diluluskan oleh Pihak Berkuasa Tempatan yang berkenaan. ii) Hakmilik tanah apabila dipecahkan kepada Hakmilik 'subsidiary' pecahan hakmilik subsidiary tersebut apabila sahaja bertukar hakmilik kepada seorang Bumiputra maka tidak boleh terkemudian daripada itu dijual, dipajak, digadai dan dipindahmilik dengan apa cara sekalipun kepada orang bukan Bumiputra tanpa persetujuan Pihak Berkuasa Negeri.",
 "mukim_daerah": "PLENTONG / JOHOR BAHRU / Johor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no7jalansw28tamansuterawangibatuberendam75350hangtuahjayamelaka",
@@ -47899,7 +47994,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "465752",
 "an_slug": "sri-putramas-ii-jalan-putramas-51200-kuala-lumpur-465752",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no359jalantbk25tamanbukitkepayang70200serembannegerisembilan",
@@ -48175,7 +48271,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "466578",
 "an_slug": "palm-spring-at-damansara-no-1-jalan-pju-329-kota-damansara-47810-petaling-jaya-selangor-466578",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=5dffb474-cfd9-4d94-b445-a3dd30b76079&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=5dffb474-cfd9-4d94-b445-a3dd30b76079&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no16jalanrakit1948seksyen1940298shahalamselangor",
@@ -48295,7 +48392,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "210915",
 "an_slug": "jalan-langsat-taman-sejahtera-42600-jenjarom-selangor",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Individu"
 },
 {
 "id": "no37jalanpjs1030tamansrisubang46000petalingjayaselatanselangor",
@@ -50482,7 +50580,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "212252",
 "an_slug": "jalan-2144a-taman-bukit-cheras-56000-kuala-lumpur",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=a4b09aa3-79ca-4e7b-858b-6fcc03c301cd&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=a4b09aa3-79ca-4e7b-858b-6fcc03c301cd&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no21810menaraklhcondominiumno2jalankasipillayoff2milesjalanipoh51200kualalumpur",
@@ -50634,7 +50733,8 @@
 "kaveat": "OLEH HONG LEONG BANK BERHAD, NO. PERS: 002B8191/2011 DIDAFTARKAN PADA 24.10.2011 OLEH BANK SIMPANAN NASIONAL, NO. PERS: 002B5144/2021 DIDAFTARKAN PADA 2.4.2021",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "Bandar Baru Bangi / Ulu Langat / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no56jalantps216tamanpelangisemenyih243500semenyihselangor",
@@ -51026,7 +51126,8 @@
 "kaveat": "Kaveat Persendirian dimasukkan oleh AMBANK (M) BERHAD",
 "sekatan_pos": "TIADA",
 "mukim_daerah": "MUKIM 13 / DAERAH TIMOR LAUT / Pulau",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no386tamanterubongindahtingkatpayaterubong511060penang",
@@ -51534,7 +51635,8 @@
 "kaveat": "No. Perserahan 00B17323/2024 Kaveat Persendirian Atas Tanah oleh GOBINATH A/L BELAVANDIRAN, No.KP : 820720-08-5721, Warganegara Malaysia, NO. 12, LORONG KLEDANG UTARA 7, TAMAN GAMELAN, 31450 MENGLEMBU, PERAK didaftarkan pada 14 Ogos 2024 jam 03:15:46 petang",
 "sekatan_pos": "Tanah ini tidak boleh dipindahmilik atau dipajak tanpa kebenaran Menteri Besar Perak.",
 "mukim_daerah": "Hulu Kinta / Kinta / Perak",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Individu"
 },
 {
 "id": "no27tamanmuhibbah32000sitiawanperak",
@@ -51574,7 +51676,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "213755",
 "an_slug": "taman-muhibbah-32000-sitiawan-perak",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=ad8f1321-9c93-47b0-9240-cb8e6c97c211&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=ad8f1321-9c93-47b0-9240-cb8e6c97c211&Inline=true",
+"kaveat_type": "Individu"
 },
 {
 "id": "no13jalanchenderong1tamanchenderongjaya31000batugajahperak",
@@ -54248,7 +54351,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "466135",
 "an_slug": "jalan-st-4-taman-saujana-tehel-ayer-panas-77200-hang-tuah-jaya-melaka-466135",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no38jalanseribuana3tamantanggabatuperdana76400melaka",
@@ -54864,7 +54968,8 @@
 "kaveat": "Kaveat Persendirian oleh Tan Bak Chai di bawah No. Perserahan 001B15354/2018 yang didaftarkan pada 27.03.2018",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "Ulu Langat / Ulu Langat / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Individu"
 },
 {
 "id": "nob0108blokbkelanamahkotacondono2jalanss71947301petalingjayaselangor",
@@ -54900,7 +55005,8 @@
 "kaveat": "Kaveat Persendirian dimasukkan oleh Alliance Bank Malaysia Berhad melalui Perserahan No. 002B7641/2020 yang didaftarkan pada 13/08/2020",
 "sekatan_pos": "Tanah yang diberi milik ini tidak boleh dipindah milik, dipajak atau digadai melainkan dengan kebenaran Pihak Berkuasa Negeri",
 "mukim_daerah": "Bandar Petaling Jaya / Petaling / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no178ajalanu918merahkesumbaseksyenu940150shahalamselangor",
@@ -55172,7 +55278,8 @@
 "kaveat": "Kaveat Persendirian oleh Bank Simpanan Nasional (No. Pers: 002B17835/2023 didaftarkan pada 20.10.2023",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "Bandar Baru Bangi / Ulu Langat / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "nob88towerbamerinresidencepersiaranimpianindahtamanimpianindah43300serikembanganselangor",
@@ -55520,7 +55627,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "209194",
 "an_slug": "persiaran-sukan-laman-seri-business-park-seksyen-13-40100-shah-alam-selangor-1",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no325blok4no7persiaransukanlamanseribusinessparkseksyen1340100shahalamselangor",
@@ -55556,7 +55664,8 @@
 "kaveat": "Hong Leong Islamic Bank Berhad pada 18/03/2022 di bawah no. perserahan: 002B4265/2022",
 "sekatan_pos": "Tanah yang diberi milik ini tidak boleh dipindah milik, dipajak atau digadai melainkan dengan kebenaran Pihak Berkuasa Negeri",
 "mukim_daerah": "Bandar Shah Alam / Petaling / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no125blok4no7persiaransukanlamanseribusinessparkseksyen1340100shahalamselangor",
@@ -55592,7 +55701,8 @@
 "kaveat": "Hong Leong Islamic Bank Berhad pada 18/03/2022 di bawah no. perserahan: 002B4265/2022",
 "sekatan_pos": "Tanah yang diberi milik ini tidak boleh dipindah milik, dipajak atau digadai melainkan dengan kebenaran Pihak Berkuasa Negeri",
 "mukim_daerah": "Bandar Shah Alam / Petaling / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "nob3a2ablokbjalangc3glomaccyberjayacyber1163000cyberjayaselangor",
@@ -55632,7 +55742,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "209196",
 "an_slug": "jalan-gc-3-glomac-cyberjaya-cyber-11-63000-cyberjaya-selangor",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no25jalantulip1aseksyenbs2bukitsentosa48300rawangselangor",
@@ -55820,7 +55931,8 @@
 "kaveat": "No. Perserahan 23688/2023 Kaveat Persendirian atas Tanah oleh AMBANK ISLAMIC BERHAD No. Syarikat 199401009897 (295576-U) didaftarkan pada 11 Jun 2023",
 "sekatan_pos": "Seperti yang tertera di dalam Catatan Carian Persendirian",
 "mukim_daerah": "Plentong / Johor Bahru / Johor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no27jalanmutiara29tamanmutiaramas81300skudaijohor",
@@ -56128,7 +56240,8 @@
 "kaveat": "No. Perserahan : 4358/2020 Kaveat Persendirian atas Tanah oleh AMBANK (M) BERHAD No. Syarikat : 199401009897 (295576-U) didaftarkan pada 27 Januari 2020",
 "sekatan_pos": "Seperti yang tertera di dalam Catatan Carian Persendirian",
 "mukim_daerah": "Plentong / Johor Bahru / Johor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no9jalanlaksamana11tamanungkutunaminah81300skudaijohor",
@@ -56288,7 +56401,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "466123",
 "an_slug": "arowana-apartment-taman-arowana-impian-70300-seremban-negeri-sembilan-466123",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no208lorongjujurkanan15tamanjujur70400serembannegerisembilan",
@@ -57348,7 +57462,8 @@
 "kaveat": "KAVEAT PERSENDIRIAN ATAS TANAH OLEH AFFIN ISLAMIC BANK BERHAD. NO. PERSERAHAN 00B9765/2021.",
 "sekatan_pos": "TIADA",
 "mukim_daerah": "SUNGAI TERAP / KINTA / Perak",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no363bpersiarankledang6tamankledang31100sungaisiputuperak",
@@ -58096,7 +58211,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "212942",
 "an_slug": "locality-of-rifle-range-mukim-of-durian-sebatang-36000-district-of-hilir-perak-perak",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=5bc6bcda-deb9-4eb7-b4f7-e9b3b1eda7f7&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=5bc6bcda-deb9-4eb7-b4f7-e9b3b1eda7f7&Inline=true",
+"kaveat_type": "Tidak diketahui"
 },
 {
 "id": "no53jalanmerusuria8tamanmerusuria30020ipohperak",
@@ -58292,7 +58408,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "212943",
 "an_slug": "jalan-taiping-bagan-serai-34600-kamunting-perak",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=38966cd0-bef3-4849-beb3-88ed575ee785&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=38966cd0-bef3-4849-beb3-88ed575ee785&Inline=true",
+"kaveat_type": "Individu"
 },
 {
 "id": "lotpt8940lot51858tasikbatu383922100setiuterengganu",
@@ -59224,7 +59341,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "209444",
 "an_slug": "lorong-sungai-puloh-10ku6-kawasan-perindustrian-sungai-puloh-42100-klang-selangor",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "noe0524blokeonsiteistowerementaricourtjalanpjs89tamanserimentari46150petalingjayaselangor",
@@ -59416,7 +59534,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "212848",
 "an_slug": "jalan-2244-seksyen-22-46300-petaling-jaya-selangor",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "premisesno1jalanindahgemilang21tamanindahgemilang68100batucavesselangor",
@@ -59691,7 +59810,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "212951",
 "an_slug": "jalan-lembah-21-taman-desa-jaya-81100-johor-bahru-johor",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=f7431ff4-97f8-4aff-813f-7f892337e960&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=f7431ff4-97f8-4aff-813f-7f892337e960&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no0502tingkat5blockamonbiscaapartmentjalanpermas618bandarbarupermasjaya81750masaijohor",
@@ -59843,7 +59963,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "466285",
 "an_slug": "ria-apartment-2-jalan-cenderai-19-bandar-baru-kota-puteri-81750-masai-johor-466285",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no0553blokcempaka15tamancempaka81200johorbahrujohor",
@@ -60039,7 +60160,8 @@
 "kaveat": "Kaveat Persendirian atas Tanah oleh AMBANK ISLAMIC BERHAD , dengan No. Perserahan 4859/2020 didaftarkan pada 27 ogos 2020",
 "sekatan_pos": "-",
 "mukim_daerah": "BANDAR AMANJAYA / KUALA MUDA / Kedah",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no799lorongmahkota192tamanserimahkota09000kulimkedah",
@@ -60231,7 +60353,8 @@
 "kaveat": "Private Caveat lodged by Ong Ah Biau on 18.7.2019 vide Presentation No. 0400B2019003859",
 "sekatan_pos": "Tanah ini tidak dibenarkan dipindahmilik atau dipajak dengan apa cara sekalipun kecuali setelah mendapat kebenaran bertulis daripada Pihak Berkuasa Negeri. Sekatan kepentingan ini dikecualikan bagi pindahmilik atau pajakan pertama.",
 "mukim_daerah": "KAWASAN BANDAR XLI / MELAKA TENGAH",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Individu"
 },
 {
 "id": "no296jalanbss13dbandarserembanselatan71450serembannegerisembilan",
@@ -60311,7 +60434,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "466873",
 "an_slug": "jalan-hijayu-17-hijayu-1-71950-bandar-sri-sendayan-negeri-sembilan-466873",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no145lebuhpadangtembaktamanairitam11400georgetownpenang",
@@ -60431,7 +60555,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "467046",
 "an_slug": "jalan-teluk-kumbar-saujana-heights-11920-bayan-lepas-penang-467046",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Tidak diketahui"
 },
 {
 "id": "no52laluanprisma15tamanpengkalanprisma31550pusingperak",
@@ -60511,7 +60636,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "466582",
 "an_slug": "persiaran-tawas-jaya-3-taman-tawas-jaya-30010-ipoh-perak-466582",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no27laluanpuncakjelapang8puncakjelapangmaju30020ipohperak",
@@ -61576,7 +61702,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "208869",
 "an_slug": "jalan-silibin-pusat-perniagaan-pertama-30100-ipoh-perak",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Tidak diketahui"
 },
 {
 "id": "no16dataransetia4tamanbembansetia31000batugajahperak",
@@ -62044,7 +62171,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "211545",
 "an_slug": "pangsapuri-meridian-medini-jalan-legoland-bandar-medini-iskandar-79250-iskandar-puteri-johor",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no84persiaranpakatanjaya5tamanpakatanjayaulukinta31150ipohperak",
@@ -68304,7 +68432,8 @@
 "kaveat": "NO. PERSERAHAN 00B72605/2024 OLEH AMBANK ISLAMIC BERHAD, NO. SYARIKAT : 199401009897 DIDAFTARKAN PADA 17/10/2024",
 "sekatan_pos": "TIADA",
 "mukim_daerah": "PEKAN BARU SUNGAI BESI / PETALING /",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "premisesno1jalanhamzahalang58offjalankapar42200kaparselangor",
@@ -68500,7 +68629,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "213606",
 "an_slug": "jalan-tualang-indah-1-taman-tualang-indah-28400-mentakab-pahang",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=a1fb49f0-b547-4891-b46d-dbf488119dde&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=a1fb49f0-b547-4891-b46d-dbf488119dde&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no107blok40jalanselayangsatu2727atamanbunganegaraseksyen2740400shahalamselangor",
@@ -68616,7 +68746,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "467662",
 "an_slug": "jalan-sg-9-6-taman-sri-gombak-68100-batu-caves-selangor-auctionnetwork-467662",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "nob603blockbsuriputeriservicedapartmentjalansingaf20fseksyen2040300shahalamselangor",
@@ -68696,7 +68827,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "452882",
 "an_slug": "pangsapuri-pinang-heights-jalan-pinang-raja-182-seksyen-18-40200-shah-alam-selangor-452882",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no62jalanecohill13ksetiaecohill43500semenyihselangor",
@@ -69120,7 +69252,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "457674",
 "an_slug": "jalan-wawasan-220-pusat-bandar-puchong-47160-puchong-selangor-457674",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=b02d4d84-e4c2-4048-96f6-8d644fa6e2a7&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=b02d4d84-e4c2-4048-96f6-8d644fa6e2a7&Inline=true",
+"kaveat_type": "Individu"
 },
 {
 "id": "no44lot281jalankinta2minesresortcity43300serikembanganselangor",
@@ -69160,7 +69293,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "467022",
 "an_slug": "jalan-kinta-2-mines-resort-city-43300-seri-kembangan-selangor-467022",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Individu"
 },
 {
 "id": "no2jalanmutiaraperdana11tamanmutiaraperdana83300batupahatjohor",
@@ -69644,7 +69778,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "465874",
 "an_slug": "jalan-tandop-utama-11-kawasan-perusahaan-tandop-baru-05400-alor-setar-kedah-465874",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=d5b9e104-62f3-45be-9b66-6d84fa7fe94e&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=d5b9e104-62f3-45be-9b66-6d84fa7fe94e&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no266jalanmelor3tamanmelor08000sungaipetanikedah",
@@ -69684,7 +69819,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "213600",
 "an_slug": "jalan-melor-3-taman-melor-08000-sungai-petani-kedah",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=3ee79617-352c-4996-b79d-a2c90c32aee9&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=3ee79617-352c-4996-b79d-a2c90c32aee9&Inline=true",
+"kaveat_type": "Tidak diketahui"
 },
 {
 "id": "no653jalanspsaujanapermai29tamanspsaujanapermai08000sungaipetanikedah",
@@ -70076,7 +70212,8 @@
 "kaveat": "Kaveat Persendirian oleh Amadaldin Bin Hamzah melalui Perserahan No. 41/2024 bertarikh 05 Januari 2024.",
 "sekatan_pos": "TIADA",
 "mukim_daerah": "BESERAH / KUANTAN / Pahang",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Individu"
 },
 {
 "id": "no2112ndfloorblockbpalmcourtapartmentjalandatolimhoelek25200kuantanpahang",
@@ -70544,7 +70681,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "467020",
 "an_slug": "jalan-sempadan-boundary-court-11400-ayer-itam-penang-467020",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no1985tamanserisarihilirpayaterubong1mukim1311900bayanlepaspenang",
@@ -70760,7 +70898,8 @@
 "kaveat": "No. Pers : 0799B2022009582 Kaveat Persendirian atas Petak oleh Ambank Islamic Berhad didaftarkan pada 07.09.2022",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "Bandar Georgetown / Timor Laut / Pulau Pinang",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no4lorongseridesa13tamanseridesa13300tasekgelugorpenang",
@@ -71184,7 +71323,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "210467",
 "an_slug": "desa-green-block-42-jalan-van-praagh-11600-jelutong-penang",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no639jalanresiden318residen3bandarbarusetiaawanperdana32000sitiawanperak",
@@ -71344,7 +71484,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "213617",
 "an_slug": "lorong-hala-zamrud-2-taman-desa-maju-perak-36700-langkap-perak",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=f3b4e17e-5fe0-471a-96a9-173e5ed81854&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=f3b4e17e-5fe0-471a-96a9-173e5ed81854&Inline=true",
+"kaveat_type": "Individu"
 },
 {
 "id": "no4jalanseriwangsa34tamanseriwangsa31000batugajahperak",
@@ -72340,7 +72481,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "467696",
 "an_slug": "jalan-bera-utama-3-taman-bera-utama-28300-triang-pahang-auctionnetwork-467696",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=58e651fd-09bd-4d5b-b448-39a649cf8378&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=58e651fd-09bd-4d5b-b448-39a649cf8378&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no2456persiaranmayangpasir511950bayanlepaspenang",
@@ -72760,7 +72902,8 @@
 "kaveat": "KAVEAT PERSENDIRIAN OLEH MBSB BANK BERHAD (NO. SYARIKAT:200501033981) MELALUI PERSERAHAN NO. 002B21234/2022 DIDAFTARKAN PADA 09 DISEMBER 2022",
 "sekatan_pos": "TIADA",
 "mukim_daerah": "BANDAR CHERAS / HULU LANGAT / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "nosb0907kenanganviewapartmentjalanbukitkenangantamanbukitkenangan43000kajangselangor",
@@ -73144,7 +73287,8 @@
 "kaveat": "\"Kaveat Persendirian yang dimasukkan oleh MBSB Bank Berhad pada 16/12/2024 melalui No. Perserahan 00B88976/2024 \"",
 "sekatan_pos": "TIADA",
 "mukim_daerah": "SELAYANG / GOMBAK / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no51jalangapi5b4perumahanantaragapisungaichik48200serendahselangor",
@@ -73764,7 +73908,8 @@
 "kaveat": "Kaveat Persendirian Perserahan No. 109/2015 oleh Bank Islam Malaysia Bhd",
 "sekatan_pos": "Tanah Rizab Melayu",
 "mukim_daerah": "Pangkal Pisang / Jajahan Kota Bharu / Kelantan",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "lot3237tamanmimikampungpadangterangpasirpekan16250tumpatkelantan",
@@ -74240,7 +74385,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "213344",
 "an_slug": "lorong-zamrud-2-nadi-kota-26400-bandar-tun-abdul-razak-jengka-pahang",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=1c2af422-91c9-487b-96ec-8204bb05198f&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=1c2af422-91c9-487b-96ec-8204bb05198f&Inline=true",
+"kaveat_type": "Tidak diketahui"
 },
 {
 "id": "lot1586jalandulang43300serikembanganselangor",
@@ -74352,7 +74498,8 @@
 "kaveat": "(i) Kaveat Persendirian dimasukkan oleh Foong Yen Capital Sdn Bhd (No. Syarikat: 43318-H) melalui No. Perserahan 001B44128/2021 pada 22/11/2021. (ii) Kaveat Persendirian dimasukkan oleh Akoof Properties Sdn Bhd [No. Syarikat: 201901031280 (1340610-U)] melalui No. Perserahan 001B14808/2023 pada 05/04/2023.",
 "sekatan_pos": "Tanah yang diberi milik ini tidak boleh dipindahmilik, dipajak atau digadai melainkan dengan kebenaran Pihak Berkuasa Negeri",
 "mukim_daerah": "Pekan Kajang / Ulu Langat / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Syarikat"
 },
 {
 "id": "nob4105forestgreenapartmentbandarsungailongrpangsa43000kajangselangor",
@@ -74428,7 +74575,8 @@
 "kaveat": "KAVEAT PERSENDIRIAN ATAS TANAH OLEH MALAYSIA BUILDING SOCIETY BERHAD NO. SYARIKAT: 9417-K MELALUI PERSERAHAN NO. 001B52578/2013 DIDAFTARKAN PADA 03 SEPTEMBER 2013",
 "sekatan_pos": "TIADA",
 "mukim_daerah": "DENGKIL / SEPANG / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no21jalankebunnenas6hks8bandarputera241200klangselangor",
@@ -74668,7 +74816,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "213332",
 "an_slug": "jalan-bestari-442-taman-bestari-indah-1-81800-ulu-tiram-johor-1",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=d9d5931e-8fa6-4dc4-a42d-9aff055603b7&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=d9d5931e-8fa6-4dc4-a42d-9aff055603b7&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no0201blokbpangsapuriserimutiarabandarserialam81750masaijohor",
@@ -74704,7 +74853,8 @@
 "kaveat": "KAVEAT PERSENDIRIAN ATAS PETAK OLEH MBSB BANK BERHAD NO. SYARIKAT : 200501033981 (716122-P) SEBAGAI PEMASUK KAVEAT PERSENDIRIAN MELALUI PERSERAHAN NO. 8280/2024 DIDAFTARKAN PADA 22 FEBRUARI 2024",
 "sekatan_pos": "MENGANDUNGI SEKATAN KEPENTINGAN",
 "mukim_daerah": "PLENTONG / JOHOR BAHRU / Johor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no0406blokbpangsapuripersiarantanjungjalanpersiarantanjungtamanbukitalif81200johorbahrujohor",
@@ -74780,7 +74930,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "208770",
 "an_slug": "pangsapuri-bistari-impian-jalan-serantau-taman-dato-onn-80350-johor-bahru-johor",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no1706blokcpangsapuriserimutiarajalanpersiaranserialambandarserialam81750masaijohor",
@@ -75400,7 +75551,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "210529",
 "an_slug": "jalan-tasik-senangin-165-bandar-tasik-senangin-71750-lenggeng-negeri-sembilan",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no1410jalannusariaman54nusariaman271950bandarsrisendayannegerisembilan",
@@ -75812,7 +75964,8 @@
 "kaveat": "Eco Meadows Development Sdn Bhd (1002282-W)",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "14 / Seberang Perai Selatan / Pulau Pinang",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Syarikat"
 },
 {
 "id": "no22a34pesiaranmayangpasir5mk12bandarbayanbaru11950penang",
@@ -76288,7 +76441,8 @@
 "kaveat": "KAVEAT PENDAFTAR NO. PERSERAHAN 00B3348/2022 BERTARIKH 07/03/2022",
 "sekatan_pos": "TANAH INI TIDAK BOLEH DIPINDAHMILIK, DIPAJAK, DICAGAR ATAU DIBEBANKAN TANPA KEBENARAN MENTERI BESAR PERAK",
 "mukim_daerah": "SITIAWAN / MANJUNG / Perak",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Pendaftar"
 },
 {
 "id": "no475laluankledang53tamankledang31100sungaisiputuperak",
@@ -76700,7 +76854,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "213789",
 "an_slug": "laluan-hulu-bercham-10-bandar-baru-putra-31400-ipoh-perak",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=845c85a5-5882-4ba7-abdb-2181c0cddf2c&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=845c85a5-5882-4ba7-abdb-2181c0cddf2c&Inline=true",
+"kaveat_type": "Pendaftar"
 },
 {
 "id": "no107lapanganperdana24panoramalapanganperdana31350ipohperak",
@@ -76740,7 +76895,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "211428",
 "an_slug": "lapangan-perdana-24-panorama-lapangan-perdana-31350-ipoh-perak",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no100lorongmanjungbaru5tamanmanjungbaru32040serimanjungperak",
@@ -77116,7 +77272,8 @@
 "kaveat": "Kaveat Persendirian oleh Bank Islam Malaysia Berhad melalui Nombor Perserahan : 00B2448/2024 bertarikh 7 Februari 2024",
 "sekatan_pos": "Tanah ini hanya boleh dipindahmilik atau dipajak dengan kebenaran bertulis oleh Pihak Berkuasa Negeri",
 "mukim_daerah": "MUKIM HULU KINTA / KINTA / Perak",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no2alaluantronohuniversiti20tamantronohuniversiti31750tronohperak",
@@ -77300,7 +77457,8 @@
 "kaveat": "Kaveat Persendirian atas tanah oleh AmBank (M) Berhad didaftarkan pada 7/4/2022 No. Perserahan 00B5522/2022.",
 "sekatan_pos": "Tanah ini boleh dipindahmilik atau dipajak dengan kebenaran bertulis oleh Pihak Berkuasa Negeri",
 "mukim_daerah": "Kamunting / Larut Matang / Perak",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no47lorongperdana13tamankamuntingperdana34600kamuntingperak",
@@ -80071,7 +80229,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "213787",
 "an_slug": "jalan-sierra-38-bandar-16-sierra-47120-puchong-selangor",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=c24c24bb-3831-4c88-a46a-19e76fe09ee5&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=c24c24bb-3831-4c88-a46a-19e76fe09ee5&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "noa82aonsiteisno82ajalanosoneselayang68100batucavesselangor",
@@ -80183,7 +80342,8 @@
 "kaveat": "Kaveat Persendirian atas tanah oleh CIMB Islamic Bank Berhad melalui Perserahan No. 001B26722/2023 dan didaftarkan pada 21 Jun 2023.",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "Pekan Semenyih / Ulu Langat / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no10jalankeli12tamanseriputera42700bantingselangor",
@@ -80259,7 +80419,8 @@
 "kaveat": "002B12383/2023 Kaveat Persendirian atas Kepentingan oleh Ambank (M) Berhad",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "Pekan Kampung Sungai Tangkas / Ulu Langat /",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no3jalanbaiduri12tamanbaiduri42700bantingselangor",
@@ -83465,7 +83626,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "213899",
 "an_slug": "palm-spring-at-damansara-no-1-jalan-pju-329-kota-damansara-47810-petaling-jaya-selangor-3",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=d474cbf4-c5aa-4745-920e-adef0564f814&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=d474cbf4-c5aa-4745-920e-adef0564f814&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no33apersiaranrejangtamansetapakjaya53300kualalumpur",
@@ -83729,7 +83891,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "213888",
 "an_slug": "jalan-semenyih-integrated-2-semenyih-integrated-industrial-park-43500-semenyih-selangor",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=7a627af8-b4a5-4c57-886f-353d32dd9997&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=7a627af8-b4a5-4c57-886f-353d32dd9997&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no3b901pangsapuripuriaiyujalanjubliperak221seksyen2240300shahalamselangor",
@@ -83921,7 +84084,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "213870",
 "an_slug": "jalan-pju-317a-47810-petaling-jaya-selangor",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=3ac54b08-828a-45ad-84a7-0351f1a246e3&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=3ac54b08-828a-45ad-84a7-0351f1a246e3&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no58jalankejora2tamansrikejora43000kajangselangor",
@@ -84389,7 +84553,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "213864",
 "an_slug": "lebuh-relau-6-mukim-13-11900-bayan-lepas-penang-1",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=21e4f9bb-2b11-4799-8fd1-66ce8f1a68a0&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=21e4f9bb-2b11-4799-8fd1-66ce8f1a68a0&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no29jalankledangraya25tamanmalcop30100ipohperak",
@@ -85033,7 +85198,8 @@
 "kaveat": "No. Perserahan 00B15181/2014 Kaveat Pendaftar Atas Tanah didaftarkan pada 15 Oktober 2014",
 "sekatan_pos": "Tanah ini tidak boleh dipindahmilik tanpa kebenaran Menteri Besar Perak",
 "mukim_daerah": "Hulu Kinta / Kinta / Perak",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Pendaftar"
 },
 {
 "id": "noa915jalanpusatperniagaanfalimresidensiprimafalim30200ipohperak",
@@ -85293,7 +85459,8 @@
 "kaveat": "'Kaveat Persendirian atas Tanah' by Public Bank Berhad vide Presentation No. 00B12160/2016, Suratkuasa Wakil: 00SW134/2013, registered on 08 September 2016.",
 "sekatan_pos": "Tanah ini boleh dipindahmilik atau dipajak dengan kebenaran bertulis oleh Pihak Berkuasa Negeri.",
 "mukim_daerah": "Sitiawan / Manjung / Perak",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no35loronglagenda41seksyen3bandarlagendatelukintan36000telukintanperak",
@@ -86097,7 +86264,8 @@
 "kaveat": "Kaveat Pendaftar Perserahan No. 328/2020.",
 "sekatan_pos": "Sekatan khas bagi pindahmilik hartanah Kelantan yang tertakluk kepada kelulusan Pihak Berkuasa Negeri kepada Bukan Melayu dan Bukan Anak Kelantan. Tawaran untuk bidaan tidak boleh dibuat melainkan dengan kebenaran Pihak Berkuasa Negeri yang perlu diperolehi sebelum jualan atau lelongan dibenarkan.",
 "mukim_daerah": "Kuala Nal / Jajahan Kuala Krai / Kelantan",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Pendaftar"
 },
 {
 "id": "lot603622mukimluboktembusu16090bachokkelantan",
@@ -86350,7 +86518,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "213969",
 "an_slug": "mentari-court-jalan-pjs-89-taman-seri-mentari-46150-petaling-jaya-selangor-6",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=c6cae280-fd05-4875-9e6f-8e18d5581538&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=c6cae280-fd05-4875-9e6f-8e18d5581538&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no511109rumahpangsakosrendahseksyen7seksyen740000shahalamselangor",
@@ -86390,7 +86559,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "212065",
 "an_slug": "rumah-pangsa-kos-rendah-seksyen-7-seksyen-7-40000-shah-alam-selangor",
-"pos_an": null
+"pos_an": null,
+"kaveat_type": "Bank"
 },
 {
 "id": "no7tingkat3blokkjalanss131d47500subangjayaselangor",
@@ -86546,7 +86716,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "213941",
 "an_slug": "vista-hijauan-bandar-sg-long-rpangsa-43000-kajang-selangor",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=040dfe08-0b4b-425a-9c48-fc221a9e5e85&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=040dfe08-0b4b-425a-9c48-fc221a9e5e85&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "nob33tropikaparadisecondojalanusj17847630subangjayaselangor",
@@ -87066,7 +87237,8 @@
 "pos_checked": "2026-10-09",
 "an_id": "213997",
 "an_slug": "lintang-tembaga-taman-guan-joo-seng-11600-jelutong-penang",
-"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=4dbdcf69-e627-4660-b94d-5aa70b5ffcc2&Inline=true"
+"pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=4dbdcf69-e627-4660-b94d-5aa70b5ffcc2&Inline=true",
+"kaveat_type": "Bank"
 },
 {
 "id": "no86lorongmurni20tamandesamurni13800butterworthpenang",
@@ -87362,7 +87534,8 @@
 "kaveat": "Kaveat Persendirian atas Petak oleh Bank Simpanan Nasional melalui Nombor Pers 0704B2012001158",
 "sekatan_pos": "TIADA",
 "mukim_daerah": "13 / Timor Laut / Pulau Pinang",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no41persiaranpm35seksyeniii32040pusatbandarsrimanjungperak",
@@ -88135,7 +88308,8 @@
 "kaveat": "No. Perserahan 00B924/2024 Kaveat Persendirian Atas Tanah Oleh Bank Simpanan Nasional",
 "sekatan_pos": "Tanah ini tidak boleh dipindahmilik tanpa kebenaran Pihak Berkuasa Negeri",
 "mukim_daerah": "Mukim Beriah / Kerian / Perak",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no47tamandesasalak31050sungaisiputperak",
@@ -88279,7 +88453,8 @@
 "kaveat": "NO. PERSERAHAN 00B24456/2024 OLEH M ELEMENT & RESOURCES SDN BHD",
 "sekatan_pos": "TIADA",
 "mukim_daerah": "HULU BERNAM TIMUR / MUALIM / Perak",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Syarikat"
 },
 {
 "id": "no305blockcpangsapuripauhdamaijalanpauh1permatangpauhpenang",
@@ -88353,7 +88528,8 @@
 "no": 2362,
 "kaveat": "Kaveat Persendirian atas Petak oleh Bank Simpanan Nasional melalui Nombor Pers 0704B2012001158",
 "mukim_daerah": "13 / Timor Laut / Pulau Pinang",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no111b2172jalanbukitpenaratamanbalikpulau11000balikpulaupenang",
@@ -94636,7 +94812,8 @@
 "no": 2541,
 "kaveat": "Kaveat Persendirian atas tanah oleh CIMB Islamic Bank Berhad melalui Perserahan No. 001B26722/2023 dan didaftarkan pada 21 Jun 2023.",
 "mukim_daerah": "Pekan Semenyih / Ulu Langat / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no7lorongmerantipayajalanbukitlagi0100kangarperlis",
@@ -98279,7 +98456,8 @@
 "no": 2644,
 "kaveat": "\"Kaveat Persendirian yang dimasukkan oleh MBSB Bank Berhad pada 16/12/2024 melalui No. Perserahan 00B88976/2024 \"",
 "mukim_daerah": "SELAYANG / GOMBAK / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no30jalankesuma83fbandartasikkesuma43700beranangselangor",
@@ -98538,7 +98716,8 @@
 "no": 2651,
 "kaveat": "KAVEAT PERSENDIRIAN OLEH MBSB BANK BERHAD (NO. SYARIKAT:200501033981) MELALUI PERSERAHAN NO. 002B21234/2022 DIDAFTARKAN PADA 09 DISEMBER 2022",
 "mukim_daerah": "BANDAR CHERAS / HULU LANGAT / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no8jalanulekmayang6eku5bandarbukitraja41050klangselangor",
@@ -101027,7 +101206,8 @@
 "no": 2722,
 "kaveat": "Eco Meadows Development Sdn Bhd (1002282-W)",
 "mukim_daerah": "14 / Seberang Perai Selatan / Pulau Pinang",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Syarikat"
 },
 {
 "id": "no22a34block22apersiaranmayangpasir5bandarbayanbaru11950bayanlepaspenang",
@@ -106146,7 +106326,8 @@
 "no": 2867,
 "kaveat": "KAVEAT PERSENDIRIAN ATAS TANAH OLEH MALAYSIA BUILDING SOCIETY BERHAD NO. SYARIKAT: 9417-K MELALUI PERSERAHAN NO. 001B52578/2013 DIDAFTARKAN PADA 03 SEPTEMBER 2013",
 "mukim_daerah": "DENGKIL / SEPANG / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no316923jalanbukitgambirmukim1311700penang",
@@ -108843,7 +109024,8 @@
 "no": 2944,
 "kaveat": "(i) Kaveat Persendirian dimasukkan oleh Foong Yen Capital Sdn Bhd (No. Syarikat: 43318-H) melalui No. Perserahan 001B44128/2021 pada 22/11/2021. (ii) Kaveat Persendirian dimasukkan oleh Akoof Properties Sdn Bhd [No. Syarikat: 201901031280 (1340610-U)] melalui No. Perserahan 001B14808/2023 pada 05/04/2023.",
 "mukim_daerah": "Pekan Kajang / Ulu Langat / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Syarikat"
 },
 {
 "id": "no277lorongkangkong11tamankangkongserikangkong09600lunaskedah",
@@ -111764,7 +111946,8 @@
 "no": 3027,
 "kaveat": "Private Caveat lodged by Ong Ah Biau on 18.7.2019 vide Presentation No. 0400B2019003859",
 "mukim_daerah": "KAWASAN BANDAR XLI / MELAKA TENGAH",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Individu"
 },
 {
 "id": "nom7blockorkidlengkokkelicaptamanmutiaraperdana11900bayanlepaspenang",
@@ -112457,7 +112640,8 @@
 "no": 3046,
 "kaveat": "Kaveat Persendirian oleh Bank Simpanan Nasional (No. Pers: 002B17835/2023 didaftarkan pada 20.10.2023",
 "mukim_daerah": "Bandar Baru Bangi / Ulu Langat / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "lotno1461lutongcommercialcentre98100lutongmirisarawak",
@@ -113587,7 +113771,8 @@
 "no": 3078,
 "kaveat": "OLEH HONG LEONG BANK BERHAD, NO. PERS: 002B8191/2011 DIDAFTARKAN PADA 24.10.2011 OLEH BANK SIMPANAN NASIONAL, NO. PERS: 002B5144/2021 DIDAFTARKAN PADA 2.4.2021",
 "mukim_daerah": "Bandar Baru Bangi / Ulu Langat / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "noc803blockckondominiumsunwaysuterajalantropicanautarasunwaydamansara47810petalingjayaselangor",
@@ -117986,7 +118171,8 @@
 "no": 3201,
 "kaveat": "Kaveat Persendirian oleh Tan Bak Chai di bawah No. Perserahan 001B15354/2018 yang didaftarkan pada 27.03.2018",
 "mukim_daerah": "Ulu Langat / Ulu Langat / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Individu"
 },
 {
 "id": "no43jalansetiaindahu1311qsectionu13setiaalam40170shahalamselangor",
@@ -126989,7 +127175,8 @@
 "no": 3456,
 "kaveat": "Kaveat Persendirian atas Tanah - Perserahan No. 768/2012",
 "mukim_daerah": "Padang Enggang / Kota Bharu / Kelantan",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Tidak diketahui"
 },
 {
 "id": "noblok27215jalanselayangsatu2727atamanbunganegaraseksyen262740000shahalamselangor",
@@ -127487,7 +127674,8 @@
 "no": 3470,
 "kaveat": "Kaveat Persendirian melalui No. Perserahan : 002B11292/2017 didaftarkan pada 1/11/2017 oleh TX 10 Management Sdn Bhd",
 "mukim_daerah": "Pekan Baru Sungai Buloh / Petaling / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Syarikat"
 },
 {
 "id": "noa1135titiwangsasentralno1jalanchemur50400kualalumpur",
@@ -129352,7 +129540,8 @@
 "no": 3523,
 "kaveat": "Kaveat Persendirian No. Perserahan 06B461/2024 bertarikh 5-6-2024",
 "mukim_daerah": "Pulau Kerengga / Marang / Terengganu",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Tidak diketahui"
 },
 {
 "id": "lotno60510kampunggongpipitgelugurkedai20050kualaterengganuterengganu",
@@ -132151,7 +132340,8 @@
 "no": 3602,
 "kaveat": "Kaveat Persendirian Oleh Bank Simpanan Nasional Yang Didaftarkan Pada 07 Ogos 2024 dengan No. Pendaftaran 00B51604/2024",
 "mukim_daerah": "Bandar Sunway / Daerah Petaling / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no31jalansiantantemplervillasperangsangtemplergolf48000rawangselangor",
@@ -132614,7 +132804,8 @@
 "no": 3615,
 "kaveat": "NO. PERSERAHAN 00B78134/2024 KAVEAT PERSENDIRIAN ATAS TANAH OLEH RHB BANK BERHAD DIDAFTARKAN PADA 08 NOVEMBER 2024",
 "mukim_daerah": "BANDAR CHERAS / ULU LANGAT / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no3jalanbayam1243aseksyen24shahalamselangor",
@@ -135060,7 +135251,8 @@
 "no": 3684,
 "kaveat": "Kaveat persendirian atas kepentingan oleh Ambank (M) Berhad (8515-D) melalui No. Perserahan 002B3713/2021 didaftarkan pada 12.03.2021",
 "mukim_daerah": "Pekan Baru Sungai Buloh / Petaling / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "noa0706pv8platinumhillcondominiumblockajalanmelatiutamatamanmelatiutama53100kualalumpur",
@@ -135350,7 +135542,8 @@
 "no": 3692,
 "kaveat": "Kaveat Persendirian telah dimasukkan oleh Affin Bank Berhad melalui no perserahan PDB12175/2022 bertarikh 19.09.2022",
 "mukim_daerah": "Kuala Lumpur / Kuala Lumpur / Wilayah",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "nob2a715onsiteisb2715atower2persiaranputeri1tamanputerivenicehills43200cherasselangor",
@@ -135498,7 +135691,8 @@
 "no": 3696,
 "kaveat": "DIKAVEATKAN OLEH BANK ISLAM MALAYSIA BERHAD NO. PER . 0400B2002003951 BERTARIKH 8.8.2002",
 "mukim_daerah": "MUKIM DURIAN TUNGGAL / ALOR GAJAH /",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no25jalansricahayatamansricahaya31000batugajahperak",
@@ -135825,7 +136019,8 @@
 "no": 3705,
 "kaveat": "9040/2018 Kaveat Persendirian Atas Tanah oleh HONG LEONG BANK BERHAD didaftarkan pada 15 Mac 2018",
 "mukim_daerah": "Tebrau / Johor Bahru / Johor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "nosi191jalanserulingjaya6tamanserulingjaya78300masjidtanahmelaka",
@@ -135973,7 +136168,8 @@
 "no": 3709,
 "kaveat": "Kaveat Persendirian",
 "mukim_daerah": "BUKIT KATIL / MELAKA TENGAH / Melaka",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Tidak diketahui"
 },
 {
 "id": "nob19blockbpangsapurivistapinggiranjalanpinggiranputra1tamanpinggiranputraseksyen243300serikembanganselangor",
@@ -136156,7 +136352,8 @@
 "no": 3714,
 "kaveat": "KAVEAT PERSENDIRIAN OLEH YAYASAN EKONOMI KEWANGAN ANTARABANGSA (INTERNATIONAL FINANCIAL ECONOMY) MELALUI NO PERSERAHAN NO.PDB13435/2022 DAN DIDAFTARKAN PADA 13.10.2022",
 "mukim_daerah": "MUKIM BATU / KUALA LUMPUR / Wilayah",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no10813greenlaneheightsblocke1loronggangsa11600jelutongpenang",
@@ -136477,7 +136674,8 @@
 "no": 3723,
 "kaveat": "KAVEAT PERSENDIRIAN DI BAWAH NOMBOR PERSERAHAN 00B80069/2024 YANG DIMASUKKAN OLEH RHB ISLAMIC BANK BERHAD DAN DIDAFTARKAN PADA 14/11/2024",
 "mukim_daerah": "PETALING / PETALING / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no76jalanalamsuria1522section1542300bandarpuncakalamselangor",
@@ -137117,7 +137315,8 @@
 "no": 3741,
 "kaveat": "Kaveat oleh Hong Leong Islamic Bank Berhad melalui Pers. No 001B50185 didaftarkan pada 20.10.2022",
 "mukim_daerah": "Mukim Ijok / Kuala Selangor / Selangor",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "nob269pangsapuriakasajalanakasaakasacherasselatan43300serikembanganselangor",
@@ -141185,7 +141384,8 @@
 "no": 3857,
 "kaveat": "Kaveat Persendirian dimasukkan oleh Alliance Islamic Bank Berhad melalui Perserahan No. PDB10190/2019 yang didaftarkan pada 19/08/2019",
 "mukim_daerah": "Petaling / Kuala Lumpur / Wilayah Persekutuan",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no42laluanmewahindah3tamanmewahindah31000batugajahperak",
@@ -141329,7 +141529,8 @@
 "no": 3861,
 "kaveat": "KAVEAT PERSENDIRIAN ATAS TANAH OLEH AMBANK ISLAMIC BERHAD TELAH DIDAFTARKAN MELALUI NO PERS 9695/2021 BERTARIKH 19.11.2021",
 "mukim_daerah": "PEKAN SEREMBAN JAYA / SEREMBAN /",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "noc13a08blockcassiavistamillenniumcondominiumjalandm1tamandesamillennia47150puchongselangor",
@@ -142669,7 +142870,8 @@
 "no": 3899,
 "kaveat": "Nombor Pers: 0799B2024015515 Kaveat Persendirian Atas Petak oleh Public Islamic Bank Berhad didaftarkan pada 28 November 2024",
 "mukim_daerah": "13 / Timor Laut / Pulau Pinang",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "no22tingkatimpianindah2tamanimpianindah14000bukitmertajampenang",
@@ -150122,7 +150324,8 @@
 "no": 4111,
 "kaveat": "KAVEAT PERSENDIRIAN ATAS TANAH OLEH MAYBANK ISLAMIC BERHAD YANG DIDAFTARKAN PADA 19 MEI 2015",
 "mukim_daerah": "BANDAR ALOR SETAR / KOTA SETAR / Kedah",
-"pos_checked": "2026-10-09"
+"pos_checked": "2026-10-09",
+"kaveat_type": "Bank"
 },
 {
 "id": "noa5b9manhattancondominiumoffjalanpasirputih31650ipohperak",
