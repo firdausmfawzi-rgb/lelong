@@ -61,6 +61,14 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .more dd{margin:0 0 4px;overflow-wrap:anywhere}
 .card.open .more{display:grid}
 .acts{display:flex;gap:8px}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.hd h1{min-width:0}
+.share-all{min-height:40px;padding:0 16px;background:var(--surface);color:var(--accent);border-color:var(--accent)}
+.acts .sh{flex:0 0 auto;padding:0 14px}
+.shared-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--ok-bg);color:var(--accent);border-radius:10px;padding:8px 12px;margin:8px 0;font-weight:600;font-size:.9rem}
+.shared-bar button{border:0;background:var(--accent);color:var(--accent-fg);border-radius:8px;padding:0 12px;min-height:38px;font-weight:600}
+.card.hl{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(90px + env(safe-area-inset-bottom,0px));background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:10px;z-index:30;font-weight:600;font-size:.9rem}
 .acts a,.acts button{flex:1;text-align:center;text-decoration:none;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:10px;min-height:44px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:.88rem}
 .acts a.map{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
 .empty{text-align:center;padding:50px 16px;color:var(--muted)}
@@ -90,13 +98,15 @@ body{padding-block-end:100px}
 </head>
 <body>
 <div class="wrap">
-<h1>Auction List</h1>
+<div class="hd"><h1>Auction List</h1><button class="btn share-all" id="shareAll" type="button">Share</button></div>
 <p class="upd" id="upd"></p>
 <p class="sub">Interested? Contact Firdaus Jay: 019-6522361</p>
 <div class="top">
 <input id="q" type="search" placeholder="Search address or bank" aria-label="Search address or bank">
 <button class="btn" id="openTop" type="button">Filter<span class="badge" hidden></span></button>
 </div>
+<div class="shared-bar" id="sharedBar" hidden><span>Showing a shared unit</span><button type="button" id="viewAll">View all listings</button></div>
+<div class="toast" id="toast" role="status" hidden></div>
 <div class="seg" id="statusSeg" role="group" aria-label="Listing status"></div>
 <div class="status"><span id="count">Loading listings…</span><span style="display:flex;gap:8px;align-items:center"><button class="reset-inline" id="resetInline" type="button" hidden>Reset</button><select id="sort" aria-label="Sort"><option value="bmv">Highest Below Market</option><option value="tarikh">Nearest date</option><option value="harga">Lowest price</option></select></span></div>
 <div class="list" id="list"></div>
@@ -120,7 +130,7 @@ body{padding-block-end:100px}
 </div>
 
 <script>
-const FIELDS=["no", "address", "state", "district", "maps", "type", "bmv", "price", "market_value", "tenure", "land", "built_up", "auction_date", "auction_time", "auction_count", "restrictions", "bank", "laca","category","completion_year"];
+const FIELDS=["no", "address", "state", "district", "maps", "type", "bmv", "price", "market_value", "tenure", "land", "built_up", "auction_date", "auction_time", "auction_count", "restrictions", "bank", "laca","category","completion_year","id"];
 function boot(DATA,META){
 const $=id=>document.getElementById(id);
 const num=s=>parseFloat(String(s||'').replace(/[^0-9.]/g,''))||0;
@@ -132,6 +142,20 @@ fill($('negeri'),uniq(2),'All states');
 fill($('jenis'),uniq(5),'All types');
 fill($('tarikh'),[...new Set(DATA.map(r=>r[12]))].sort((a,b)=>dt(a)-dt(b)),'All dates');
 let bmv=0,laca='',status='active';
+let sharedId=(location.hash||'').slice(1)||null;
+if(sharedId&&!DATA.some(r=>r[20]===sharedId))sharedId=null;
+const track=(n,p)=>{try{if(window.gtag)gtag('event',n,p||{})}catch(e){}};
+const BASE=location.origin+location.pathname;
+function toast(m){const el=$('toast');el.textContent=m;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,2500)}
+async function doShare(kind,r){
+ const url=BASE+'?utm_source=share&utm_medium='+(r?'unit':'list')+'&utm_campaign=client_share'+(r?'#'+r[20]:'');
+ const text=r?(dash(r[5])+' in '+dash(r[3])+', '+dash(r[2])+'. '+dash(r[7])+' ('+String(r[6]).replace('BMV','below market')+'). Auction '+dash(r[12])+'.'):'Bank auction properties below market value. Contact Firdaus Jay: 019-6522361';
+ track('share_click',{share_type:kind,unit_id:r?r[20]:'list',category:r?(r[21]||''):''});
+ if(navigator.share){try{await navigator.share({title:'Auction List',text:text,url:url});track('share_done',{share_type:kind});return}catch(e){if(e&&e.name==='AbortError')return}}
+ const wa='https://wa.me/?text='+encodeURIComponent(text+'\n'+url);
+ try{await navigator.clipboard.writeText(url);toast('Link copied')}catch(e){}
+ window.open(wa,'_blank','noopener');
+}
 const CATS=['Condominium / Apartment / SOHO','Terrace / Linkhouse','Bungalow / Semi-Detached','Factory / Warehouse','Shoplot / Offices','Flat'];
 function catOf(r){if(r[18]&&CATS.includes(r[18]))return r[18];const s=String(r[5]||'').toLowerCase();
  if(/factory|warehouse|workshop|industrial/.test(s))return CATS[3];
@@ -142,8 +166,8 @@ function catOf(r){if(r[18]&&CATS.includes(r[18]))return r[18];const s=String(r[5
  if(/bungalow|semi|detached|villa/.test(s))return CATS[2];
  if(/cluster/.test(s))return CATS[1];
  return '';}
-DATA.forEach(r=>{r[20]=catOf(r)});
-$('cat').innerHTML='<option value="">All categories</option>'+CATS.map(c=>'<option value="'+c+'">'+c+' ('+DATA.filter(r=>r[20]===c).length+')</option>').join('');
+DATA.forEach(r=>{r[21]=catOf(r)});
+$('cat').innerHTML='<option value="">All categories</option>'+CATS.map(c=>'<option value="'+c+'">'+c+' ('+DATA.filter(r=>r[21]===c).length+')</option>').join('');
 const T0=(()=>{const d=new Date();d.setHours(0,0,0,0);return d.getTime()})();
 const isExp=r=>{const d=dt(r[12]);return d>0&&d<T0};
 const nA=DATA.filter(r=>!isExp(r)).length,nE=DATA.length-nA;
@@ -163,19 +187,20 @@ function daerahOpts(){const n=$('negeri').value,cur=$('daerah').value;
  fill($('daerah'),v,'All districts');if(v.includes(cur))$('daerah').value=cur}
 daerahOpts();
 function filtered(){
+ if(sharedId)return DATA.filter(r=>r[20]===sharedId);
  const q=$('q').value.trim().toLowerCase(),n=$('negeri').value,d=$('daerah').value,j=$('jenis').value,t=$('tarikh').value;
- return DATA.filter(r=>(!q||(r[1]+' '+r[16]).toLowerCase().includes(q))&&(!n||r[2]===n)&&(!d||r[3]===d)&&(!j||r[5]===j)&&(!bmv||num(r[6])>=bmv)&&(!laca||r[17]===laca)&&(!t||r[12]===t)&&(!$('cat').value||r[20]===$('cat').value)&&(status==='all'||(status==='expired')===isExp(r)));
+ return DATA.filter(r=>(!q||(r[1]+' '+r[16]).toLowerCase().includes(q))&&(!n||r[2]===n)&&(!d||r[3]===d)&&(!j||r[5]===j)&&(!bmv||num(r[6])>=bmv)&&(!laca||r[17]===laca)&&(!t||r[12]===t)&&(!$('cat').value||r[21]===$('cat').value)&&(status==='all'||(status==='expired')===isExp(r)));
 }
 function activeN(){return [$('q').value!=='',$('negeri').value,$('daerah').value,$('jenis').value,$('tarikh').value,$('cat').value,bmv,laca].filter(Boolean).length}
 const dash=v=>(v&&v!=='-'&&v!=='N/A')?esc(v):'N/A';
 function card(r,i){
- const ex=isExp(r);return '<article class="card'+(ex?' expired':'')+'" data-k="'+i+'">'+(ex?'<div class="exp-tag">Expired · auction date passed</div>':'')+'<div class="row1"><div><div class="price">'+dash(r[7])+(ex?'':' 🔥')+'</div><div class="mv">Market value '+dash(r[8])+'</div></div><div class="bmv">'+dash(r[6]).replace('BMV','Below Market')+'</div></div>'
+ const ex=isExp(r);return '<article class="card'+(ex?' expired':'')+(sharedId?' hl':'')+'" data-k="'+i+'" data-id="'+esc(r[20])+'">'+(ex?'<div class="exp-tag">Expired · auction date passed</div>':'')+'<div class="row1"><div><div class="price">'+dash(r[7])+(ex?'':' 🔥')+'</div><div class="mv">Market value '+dash(r[8])+'</div></div><div class="bmv">'+dash(r[6]).replace('BMV','Below Market')+'</div></div>'
  +'<div class="addr">'+esc(r[1])+'</div>'
- +((r[20]===CATS[0]||r[20]===CATS[5])?'<div class="dims"><div><span>Built Up</span><b>'+dash(r[11])+'</b></div><div><span>Completion Year</span><b>'+dash(r[19])+'</b></div></div>':'<div class="dims"><div><span>Land Size</span><b>'+dash(r[10])+'</b></div><div><span>Built Up</span><b>'+dash(r[11])+'</b></div></div>')
+ +((r[21]===CATS[0]||r[21]===CATS[5])?'<div class="dims"><div><span>Built Up</span><b>'+dash(r[11])+'</b></div><div><span>Completion Year</span><b>'+dash(r[19])+'</b></div></div>':'<div class="dims"><div><span>Land Size</span><b>'+dash(r[10])+'</b></div><div><span>Built Up</span><b>'+dash(r[11])+'</b></div></div>')
  +'<div class="chips"><span class="chip">'+dash(r[5])+'</span><span class="chip">'+dash(r[9])+'</span>'+(r[17]?'<span class="chip '+(r[17]==='LACA'?'ok':'non')+'">'+r[17]+'</span>':'')+(r[15]&&r[15]!=='-'?'<span class="chip red">'+esc(r[15])+'</span>':'')+'</div>'
  +'<div class="when"><span><b>'+esc(r[12])+'</b>'+(r[13]&&r[13]!=='-'?' · '+esc(r[13]):'')+'</span><span>Auction '+dash(r[14])+'</span></div>'
  +'<dl class="more"><div><dt>District</dt><dd>'+dash(r[3])+'</dd></div><div><dt>State</dt><dd>'+dash(r[2])+'</dd></div><div style="grid-column:1/-1"><dt>Bank</dt><dd>'+dash(r[16])+'</dd></div></dl>'
- +'<div class="acts">'+(r[4]?'<a class="map" href="'+esc(r[4])+'" target="_blank" rel="noopener">Google Maps</a>':'')+'<button type="button" class="tg">More Info</button></div></article>';
+ +'<div class="acts">'+(r[4]?'<a class="map" href="'+esc(r[4])+'" target="_blank" rel="noopener">Google Maps</a>':'')+'<button type="button" class="tg">More Info</button><button type="button" class="sh" data-id="'+esc(r[20])+'" aria-label="Share this unit">Share</button></div></article>';
 }
 function render(){
  let rows=filtered();const s=$('sort').value;
@@ -187,17 +212,24 @@ function render(){
  $('resetInline').hidden=!a;$('resetBar').hidden=!a;
  $('empty').hidden=rows.length>0;
  $('apply').textContent='Show '+rows.length+' units';
+ $('sharedBar').hidden=!sharedId;
 }
-function reset(){status='active';['q','negeri','jenis','tarikh','cat'].forEach(k=>$(k).value='');daerahOpts();$('daerah').value='';bmv=0;laca='';paint();render()}
+function clearShared(){if(!sharedId)return;sharedId=null;try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}
+function reset(){clearShared();status='active';['q','negeri','jenis','tarikh','cat'].forEach(k=>$(k).value='');daerahOpts();$('daerah').value='';bmv=0;laca='';paint();render()}
 document.querySelectorAll('.rs').forEach(b=>b.onclick=reset);
 $('resetInline').onclick=reset;$('resetBar').onclick=reset;
-$('list').onclick=e=>{const b=e.target.closest('.tg');if(!b)return;const c=b.closest('.card');c.classList.toggle('open');b.textContent=c.classList.contains('open')?'Close':'More Info'};
+$('list').onclick=e=>{const s=e.target.closest('.sh');if(s){const r=DATA.find(x=>x[20]===s.dataset.id);doShare('unit',r);return}
+ const m=e.target.closest('a.map');if(m){const c=m.closest('.card');track('maps_click',{unit_id:c&&c.dataset.id});return}
+ const b=e.target.closest('.tg');if(!b)return;track('more_info_click',{unit_id:b.closest('.card').dataset.id});const c=b.closest('.card');c.classList.toggle('open');b.textContent=c.classList.contains('open')?'Close':'More Info'};
 function sheet(o){$('sheet').hidden=!o;$('scrim').hidden=!o}
 $('openFab').onclick=$('openTop').onclick=()=>sheet(true);
 $('close').onclick=$('apply').onclick=$('scrim').onclick=()=>sheet(false);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')sheet(false)});
 $('negeri').onchange=()=>{$('daerah').value='';daerahOpts();render()};
 ['q','daerah','jenis','tarikh','cat','sort'].forEach(k=>$(k).addEventListener('input',render));
+$('shareAll').onclick=()=>doShare('list',null);
+$('viewAll').onclick=()=>{clearShared();render();window.scrollTo(0,0)};
+if(sharedId)track('shared_unit_open',{unit_id:sharedId});
 paint();render();
 }
 fetch('data.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{boot(j.listings.map(o=>FIELDS.map(f=>o[f])),j);}).catch(()=>{document.getElementById('count').textContent='Could not load listings. Refresh the page to try again.'});
