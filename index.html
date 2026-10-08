@@ -120,7 +120,7 @@ body{padding-block-end:100px}
 </div>
 
 <script>
-const FIELDS=["no", "address", "state", "district", "maps", "type", "bmv", "price", "market_value", "tenure", "land", "built_up", "auction_date", "auction_time", "auction_count", "restrictions", "bank", "laca","category"];
+const FIELDS=["no", "address", "state", "district", "maps", "type", "bmv", "price", "market_value", "tenure", "land", "built_up", "auction_date", "auction_time", "auction_count", "restrictions", "bank", "laca","category","completion_year"];
 function boot(DATA,META){
 const $=id=>document.getElementById(id);
 const num=s=>parseFloat(String(s||'').replace(/[^0-9.]/g,''))||0;
@@ -142,8 +142,8 @@ function catOf(r){if(r[18]&&CATS.includes(r[18]))return r[18];const s=String(r[5
  if(/bungalow|semi|detached|villa/.test(s))return CATS[2];
  if(/cluster/.test(s))return CATS[1];
  return '';}
-DATA.forEach(r=>{r[19]=catOf(r)});
-$('cat').innerHTML='<option value="">All categories</option>'+CATS.map(c=>'<option value="'+c+'">'+c+' ('+DATA.filter(r=>r[19]===c).length+')</option>').join('');
+DATA.forEach(r=>{r[20]=catOf(r)});
+$('cat').innerHTML='<option value="">All categories</option>'+CATS.map(c=>'<option value="'+c+'">'+c+' ('+DATA.filter(r=>r[20]===c).length+')</option>').join('');
 const T0=(()=>{const d=new Date();d.setHours(0,0,0,0);return d.getTime()})();
 const isExp=r=>{const d=dt(r[12]);return d>0&&d<T0};
 const nA=DATA.filter(r=>!isExp(r)).length,nE=DATA.length-nA;
@@ -164,14 +164,14 @@ function daerahOpts(){const n=$('negeri').value,cur=$('daerah').value;
 daerahOpts();
 function filtered(){
  const q=$('q').value.trim().toLowerCase(),n=$('negeri').value,d=$('daerah').value,j=$('jenis').value,t=$('tarikh').value;
- return DATA.filter(r=>(!q||(r[1]+' '+r[16]).toLowerCase().includes(q))&&(!n||r[2]===n)&&(!d||r[3]===d)&&(!j||r[5]===j)&&(!bmv||num(r[6])>=bmv)&&(!laca||r[17]===laca)&&(!t||r[12]===t)&&(!$('cat').value||r[19]===$('cat').value)&&(status==='all'||(status==='expired')===isExp(r)));
+ return DATA.filter(r=>(!q||(r[1]+' '+r[16]).toLowerCase().includes(q))&&(!n||r[2]===n)&&(!d||r[3]===d)&&(!j||r[5]===j)&&(!bmv||num(r[6])>=bmv)&&(!laca||r[17]===laca)&&(!t||r[12]===t)&&(!$('cat').value||r[20]===$('cat').value)&&(status==='all'||(status==='expired')===isExp(r)));
 }
 function activeN(){return [$('q').value!=='',$('negeri').value,$('daerah').value,$('jenis').value,$('tarikh').value,$('cat').value,bmv,laca].filter(Boolean).length}
 const dash=v=>(v&&v!=='-')?esc(v):'-';
 function card(r,i){
  const ex=isExp(r);return '<article class="card'+(ex?' expired':'')+'" data-k="'+i+'">'+(ex?'<div class="exp-tag">Expired · auction date passed</div>':'')+'<div class="row1"><div><div class="price">'+esc(r[7])+(ex?'':' 🔥')+'</div><div class="mv">Market value '+esc(r[8])+'</div></div><div class="bmv">'+esc(r[6]).replace('BMV','Below Market')+'</div></div>'
  +'<div class="addr">'+esc(r[1])+'</div>'
- +'<div class="dims"><div><span>Land Size</span><b>'+dash(r[10])+'</b></div><div><span>Built Up</span><b>'+dash(r[11])+'</b></div></div>'
+ +((r[20]===CATS[0]||r[20]===CATS[5])?'<div class="dims"><div><span>Built Up</span><b>'+dash(r[11])+'</b></div><div><span>Completion Year</span><b>'+dash(r[19])+'</b></div></div>':'<div class="dims"><div><span>Land Size</span><b>'+dash(r[10])+'</b></div><div><span>Built Up</span><b>'+dash(r[11])+'</b></div></div>')
  +'<div class="chips"><span class="chip">'+esc(r[5])+'</span><span class="chip">'+esc(r[9])+'</span>'+(r[17]?'<span class="chip '+(r[17]==='LACA'?'ok':'non')+'">'+r[17]+'</span>':'')+(r[15]&&r[15]!=='-'?'<span class="chip red">'+esc(r[15])+'</span>':'')+'</div>'
  +'<div class="when"><span><b>'+esc(r[12])+'</b>'+(r[13]&&r[13]!=='-'?' · '+esc(r[13]):'')+'</span><span>Auction '+esc(r[14])+'</span></div>'
  +'<dl class="more"><div><dt>District</dt><dd>'+dash(r[3])+'</dd></div><div><dt>State</dt><dd>'+dash(r[2])+'</dd></div><div style="grid-column:1/-1"><dt>Bank</dt><dd>'+dash(r[16])+'</dd></div></dl>'
