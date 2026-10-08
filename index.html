@@ -69,13 +69,14 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .hd{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .hd h1{min-width:0}
 .share-all{min-height:40px;padding:0 16px;background:var(--surface);color:var(--accent);border-color:var(--accent)}
-.acts .sh{flex:0 0 auto;padding:0 14px}
+.acts .sh{flex:0 0 auto;padding:0 12px}
 .shared-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--ok-bg);color:var(--accent);border-radius:10px;padding:8px 12px;margin:8px 0;font-weight:600;font-size:.9rem}
 .shared-bar button{border:0;background:var(--accent);color:var(--accent-fg);border-radius:8px;padding:0 12px;min-height:38px;font-weight:600}
 .card.hl{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(90px + env(safe-area-inset-bottom,0px));background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:10px;z-index:30;font-weight:600;font-size:.9rem}
-.acts a,.acts button{flex:1;text-align:center;text-decoration:none;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:12px;min-height:50px;display:flex;align-items:center;justify-content:center;gap:6px;font-weight:700;font-size:1rem}
-.acts a.map{flex:1.35;background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+.acts a,.acts button{flex:1;text-align:center;white-space:nowrap;padding:0 8px;text-decoration:none;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:12px;min-height:50px;display:flex;align-items:center;justify-content:center;gap:6px;font-weight:700;font-size:1rem}
+.acts a.map .pin{width:22px;height:22px;flex:0 0 auto;filter:drop-shadow(0 1px 1px rgba(0,0,0,.25))}
+.acts a.map{flex:1.6;white-space:nowrap;padding:0 10px;background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
 .empty{text-align:center;padding:50px 16px;color:var(--muted)}
 .empty .btn{margin-top:12px}
 /* bottom sheet */
@@ -227,7 +228,7 @@ function card(r,i){
  +'<div class="when"><span class="dt">📅 <b>'+esc(r[12])+'</b>'+(r[13]&&r[13]!=='-'?'<span>'+esc(r[13])+'</span>':'')+'</span><span class="cnt">'+(r[14]&&r[14]!=='-'?esc(r[14])+' auction':'')+'</span></div>'
  +((r[17]||(r[15]&&r[15]!=='-'))?'<div class="chips">'+(r[17]?'<span class="chip '+(r[17]==='LACA'?'ok':'non')+'">'+r[17]+'</span>':'')+(r[15]&&r[15]!=='-'?'<span class="chip red">'+esc(r[15])+'</span>':'')+'</div>':'')
  +'<dl class="more"><div><dt>District</dt><dd>'+dash(r[3])+'</dd></div><div><dt>State</dt><dd>'+dash(r[2])+'</dd></div><div style="grid-column:1/-1"><dt>Bank</dt><dd>'+dash(r[16])+'</dd></div></dl>'
- +'<div class="acts">'+(r[4]?'<a class="map" href="'+esc(r[4])+'" target="_blank" rel="noopener">Google Maps</a>':'')+'<button type="button" class="tg">More Info</button><button type="button" class="sh" data-id="'+esc(r[20])+'" aria-label="Share this unit">Share</button></div></article>';
+ +'<div class="acts">'+(r[4]?'<a class="map" href="'+esc(r[4])+'" target="_blank" rel="noopener"><svg class="pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7z" fill="#e53935"/><circle cx="12" cy="9" r="2.6" fill="#fff"/></svg>Google Maps</a>':'')+'<button type="button" class="tg">More Info</button><button type="button" class="sh" data-id="'+esc(r[20])+'" aria-label="Share this unit">Share</button></div></article>';
 }
 let ROWS=[],SHOWN=0;const PAGE=60;
 function moreBtn(){const b=$('more');b.hidden=SHOWN>=ROWS.length;b.textContent='Show more ('+(ROWS.length-SHOWN)+' more)'}
