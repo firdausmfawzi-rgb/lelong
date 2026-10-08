@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Auction List | Firdaus Jay</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XCVJ1YB5QR"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XCVJ1YB5QR',{send_page_view:true});
+(function(){try{var q=new URLSearchParams(location.search);if(q.get('utm_source')==='share'){gtag('event','shared_link_open',{share_medium:q.get('utm_medium')||''})}}catch(e){}})();</script>
+
 <meta name="description" content="Bank auction properties below market value. Contact Firdaus Jay: 019-6522361">
 <meta property="og:title" content="Auction List | Firdaus Jay">
 <meta property="og:description" content="Bank auction properties below market value. Contact Firdaus Jay: 019-6522361">
@@ -262,10 +266,10 @@ async function access(){
  try{ACCESS=await fetch('access.json',{cache:'no-store'}).then(r=>r.ok?r.json():null)}catch(e){ACCESS=null}
  if(!ACCESS||!ACCESS.codes||!Object.keys(ACCESS.codes).length)return true;   // no codes published yet = open
  const u=new URL(location.href);let code=u.searchParams.get('c')||'';let stored='';try{stored=localStorage.getItem('lelong.code')||''}catch(e){}
- for(const c of [code,stored]){if(!c)continue;const e=await checkCode(c);if(e&&e!=='expired'){CLIENT=e.label||'';try{localStorage.setItem('lelong.code',c.trim().toUpperCase())}catch(x){}if(u.searchParams.has('c')){u.searchParams.delete('c');try{history.replaceState(null,'',u.pathname+(u.search||'')+u.hash)}catch(x){}}gtrack('access_ok',{client:CLIENT});return true}
+ for(const c of [code,stored]){if(!c)continue;const e=await checkCode(c);if(e&&e!=='expired'){CLIENT=e.label||'';try{gtag('set','user_properties',{client:CLIENT})}catch(x){}try{localStorage.setItem('lelong.code',c.trim().toUpperCase())}catch(x){}if(u.searchParams.has('c')){u.searchParams.delete('c');try{history.replaceState(null,'',u.pathname+(u.search||'')+u.hash)}catch(x){}}gtrack('access_ok',{client:CLIENT});return true}
   if(e==='expired'){openGate('This access code has expired. Please ask Firdaus Jay for a new one.');return false}}
  openGate(code?'That code is not valid.':'');gtrack('access_gate',{});return false}
-G('gateForm').addEventListener('submit',async ev=>{ev.preventDefault();const c=G('gateCode').value;const e=await checkCode(c);if(e&&e!=='expired'){CLIENT=e.label||'';try{localStorage.setItem('lelong.code',c.trim().toUpperCase())}catch(x){}G('gate').hidden=true;gtrack('access_ok',{client:CLIENT});start()}else G('gateErr').textContent=e==='expired'?'This code has expired. Ask Firdaus Jay for a new one.':'Code not recognised. Check the code or request access on WhatsApp.'});
+G('gateForm').addEventListener('submit',async ev=>{ev.preventDefault();const c=G('gateCode').value;const e=await checkCode(c);if(e&&e!=='expired'){CLIENT=e.label||'';try{gtag('set','user_properties',{client:CLIENT})}catch(x){}try{localStorage.setItem('lelong.code',c.trim().toUpperCase())}catch(x){}G('gate').hidden=true;gtrack('access_ok',{client:CLIENT});start()}else G('gateErr').textContent=e==='expired'?'This code has expired. Ask Firdaus Jay for a new one.':'Code not recognised. Check the code or request access on WhatsApp.'});
 let STARTED=false;
 function start(){if(STARTED)return;STARTED=true;fetch('data.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{boot(j.listings.map(o=>FIELDS.map(f=>o[f])),j);}).catch(()=>{document.getElementById('count').textContent='Could not load listings. Refresh the page to try again.'})}
 access().then(ok=>{if(ok)start()});
