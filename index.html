@@ -108,7 +108,7 @@ body{padding-block-end:100px}
 <div class="shared-bar" id="sharedBar" hidden><span>Showing a shared unit</span><button type="button" id="viewAll">View all listings</button></div>
 <div class="toast" id="toast" role="status" hidden></div>
 <div class="seg" id="statusSeg" role="group" aria-label="Listing status"></div>
-<div class="status"><span id="count">Loading listings…</span><span style="display:flex;gap:8px;align-items:center"><button class="reset-inline" id="resetInline" type="button" hidden>Reset</button><select id="sort" aria-label="Sort"><option value="bmv">Highest Below Market</option><option value="tarikh">Nearest date</option><option value="harga">Lowest price</option></select></span></div>
+<div class="status"><span id="count">Loading listings…</span><span style="display:flex;gap:8px;align-items:center"><button class="reset-inline" id="resetInline" type="button" hidden>Reset</button><select id="sort" aria-label="Sort"><option value="bmv">Highest Below Market</option><option value="tarikh">Nearest date</option><option value="harga">Lowest price</option><option value="hharga">Highest price</option><option value="lbmv">Lowest Below Market</option><option value="new">Newest Listing</option></select></span></div>
 <div class="list" id="list"></div>
 <div class="empty" id="empty" hidden>No units match these filters.<br><button class="btn primary rs" type="button">Reset all filters</button></div>
 </div>
@@ -130,7 +130,7 @@ body{padding-block-end:100px}
 </div>
 
 <script>
-const FIELDS=["no", "address", "state", "district", "maps", "type", "bmv", "price", "market_value", "tenure", "land", "built_up", "auction_date", "auction_time", "auction_count", "restrictions", "bank", "laca","category","completion_year","id"];
+const FIELDS=["no", "address", "state", "district", "maps", "type", "bmv", "price", "market_value", "tenure", "land", "built_up", "auction_date", "auction_time", "auction_count", "restrictions", "bank", "laca","category","completion_year","id","first_seen"];
 function boot(DATA,META){
 const $=id=>document.getElementById(id);
 const num=s=>parseFloat(String(s||'').replace(/[^0-9.]/g,''))||0;
@@ -204,7 +204,7 @@ function card(r,i){
 }
 function render(){
  let rows=filtered();const s=$('sort').value;
- rows=rows.slice().sort((a,b)=>s==='bmv'?num(b[6])-num(a[6]):s==='harga'?num(a[7])-num(b[7]):(dt(a[12])||9e15)-(dt(b[12])||9e15));
+ rows=rows.slice().sort((a,b)=>s==='bmv'?num(b[6])-num(a[6]):s==='lbmv'?num(a[6])-num(b[6]):s==='harga'?num(a[7])-num(b[7]):s==='hharga'?num(b[7])-num(a[7]):s==='new'?((b[22]||'').localeCompare(a[22]||'')||DATA.indexOf(b)-DATA.indexOf(a)):(dt(a[12])||9e15)-(dt(b[12])||9e15));
  $('list').innerHTML=rows.map(card).join('');
  $('count').textContent=rows.length+' / '+DATA.length+' units';
  const a=activeN();
