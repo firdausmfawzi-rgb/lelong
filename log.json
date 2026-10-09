@@ -82,6 +82,46 @@
    "purged": 0,
    "total": 3704,
    "by": "Dedupe"
+  },
+  {
+   "date": "2026-10-10",
+   "time": "00:43",
+   "source": "bidnow",
+   "label": "BidNow active listings",
+   "scraped": 283,
+   "added": 232,
+   "updated": 51,
+   "purged": 0,
+   "total": 3936,
+   "active": 3868,
+   "expired": 68,
+   "by": "Auto carian"
+  },
+  {
+   "date": "2026-10-10",
+   "time": "00:44",
+   "source": "masterlist",
+   "label": "Duplicate check: merged same unit listed on two websites",
+   "added": 0,
+   "updated": 45,
+   "purged": 0,
+   "total": 3891,
+   "active": 3823,
+   "expired": 68,
+   "by": "Dedupe"
+  },
+  {
+   "date": "2026-10-10",
+   "time": "00:44",
+   "source": "auctionnetwork",
+   "label": "Auctionnetwork skipped: website error (HTTP 500, disk quota exceeded on their server)",
+   "added": 0,
+   "updated": 0,
+   "purged": 0,
+   "total": 3891,
+   "active": 3823,
+   "expired": 68,
+   "by": "Auto carian"
   }
  ]
 }
