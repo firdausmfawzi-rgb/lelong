@@ -135,6 +135,17 @@
    "active": 3847,
    "expired": 68,
    "by": "Excel upload"
+  },
+  {
+   "date": "2026-10-10",
+   "time": "",
+   "source": "masterlist",
+   "label": "Google Maps links shortened (building/street name instead of full address), GPS links kept",
+   "added": 0,
+   "updated": 2783,
+   "purged": 0,
+   "total": 3915,
+   "by": "Maps fix"
   }
  ]
 }
