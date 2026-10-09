@@ -122,6 +122,19 @@
    "active": 3823,
    "expired": 68,
    "by": "Auto carian"
+  },
+  {
+   "date": "2026-10-10",
+   "time": "",
+   "source": "masterlist",
+   "label": "Terrace / Condo / Bungalow masterlist 06/10/2026 (new units only, existing kept)",
+   "added": 24,
+   "updated": 0,
+   "purged": 0,
+   "total": 3915,
+   "active": 3847,
+   "expired": 68,
+   "by": "Excel upload"
   }
  ]
 }
