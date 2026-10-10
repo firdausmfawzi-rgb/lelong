@@ -53,9 +53,9 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .dims b{font-size:1.1rem;overflow-wrap:anywhere}
 .upd{margin:0 0 8px;color:var(--muted);font-size:.8rem}
 #statusSeg{margin:4px 0 2px}
-.card.expired{opacity:.62}
+.card.expired>*:not(.exp-tag.sold){opacity:.62}
 .exp-tag{align-self:flex-start;background:var(--line);color:var(--fg);border-radius:6px;padding:4px 10px;font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
-.exp-tag.sold{background:var(--ok-bg);color:var(--fg)}
+.exp-tag.sold{background:var(--accent);color:var(--accent-fg);border-radius:10px;padding:7px 14px;font-size:1.05rem;font-weight:800;letter-spacing:.05em}
 .exp-tag.calloff{background:var(--red-bg);color:var(--red)}
 .exp-tag.unsold{background:var(--warn-bg);color:var(--warn)}
 .unsold-note{background:var(--warn-bg);color:var(--warn);border-radius:10px;padding:10px 12px;font-size:.95rem;line-height:1.4;display:flex;flex-direction:column;gap:2px}
