@@ -238,6 +238,17 @@
    "purged": 0,
    "total": 7508,
    "by": "Maps fix"
+  },
+  {
+   "date": "2026-10-10",
+   "time": "14:14",
+   "source": "masterlist",
+   "label": "Google Maps links: address search for all listings (GPS no longer used)",
+   "added": 0,
+   "updated": 1429,
+   "purged": 0,
+   "total": 7508,
+   "by": "Maps fix"
   }
  ]
 }
