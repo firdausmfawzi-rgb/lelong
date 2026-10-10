@@ -249,6 +249,19 @@
    "purged": 0,
    "total": 7508,
    "by": "Maps fix"
+  },
+  {
+   "date": "2026-10-10",
+   "time": "14:30",
+   "source": "masterlist",
+   "label": "Ended listings older than 30 days removed",
+   "added": 0,
+   "updated": 0,
+   "purged": 1274,
+   "total": 6234,
+   "active": 3823,
+   "expired": 2411,
+   "by": "Retention"
   }
  ]
 }
