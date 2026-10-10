@@ -306,6 +306,61 @@
    "purged": 0,
    "total": 6234,
    "by": "Maps fix"
+  },
+  {
+   "date": "2026-10-11",
+   "time": "03:06",
+   "source": "bidnow",
+   "label": "BidNow active listings",
+   "scraped": 1891,
+   "added": 2,
+   "updated": 1887,
+   "purged": 36,
+   "total": 6200,
+   "active": 3827,
+   "expired": 2373,
+   "by": "Auto carian"
+  },
+  {
+   "date": "2026-10-11",
+   "time": "03:08",
+   "source": "auctionnetwork",
+   "label": "Auctionnetwork latest listings",
+   "scraped": 261,
+   "added": 247,
+   "updated": 0,
+   "purged": 0,
+   "total": 6445,
+   "active": 4072,
+   "expired": 2373,
+   "by": "Auto carian"
+  },
+  {
+   "date": "2026-10-11",
+   "time": "03:11",
+   "source": "bidnow",
+   "label": "BidNow outcome check (Sold / Call Off / Unsold)",
+   "scraped": 6000,
+   "added": 0,
+   "updated": 0,
+   "purged": 0,
+   "total": 6444,
+   "active": 4068,
+   "expired": 2376,
+   "by": "Auto carian"
+  },
+  {
+   "date": "2026-10-11",
+   "time": "03:13",
+   "source": "masterlist",
+   "label": "Duplicate check: merged same unit listed on two websites",
+   "added": 0,
+   "updated": 3,
+   "purged": 0,
+   "total": 6444,
+   "active": 4068,
+   "expired": 2376,
+   "by": "Dedupe"
   }
  ]
 }
