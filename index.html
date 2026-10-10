@@ -58,6 +58,8 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .exp-tag.sold{background:var(--ok-bg);color:var(--fg)}
 .exp-tag.calloff{background:var(--red-bg);color:var(--red)}
 .exp-tag.unsold{background:var(--warn-bg);color:var(--warn)}
+.unsold-note{background:var(--warn-bg);color:var(--warn);border-radius:10px;padding:10px 12px;font-size:.95rem;line-height:1.4;display:flex;flex-direction:column;gap:2px}
+.unsold-note span{color:var(--fg)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{font-size:.9rem;background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:4px 12px;color:var(--fg)}
 .chip.ok{background:var(--ok-bg);color:var(--accent);border-color:transparent}
@@ -235,6 +237,9 @@ const OUTC={unsold:1,calloff:1,sold:1};
 const stOf=r=>OUTC[r[26]]?r[26]:(isExp(r)?'expired':'active');
 const cnt={active:0,unsold:0,calloff:0,sold:0,expired:0};DATA.forEach(r=>{cnt[stOf(r)]++});
 const nA=cnt.active;
+// Unsold = nobody bid; it goes to another auction, normally at a lower reserve. Estimate = price less 10%.
+const unsoldNote=r=>{const p=num(r[7]);const np=p>0?'RM '+Math.round(p*0.9).toLocaleString('en-US'):'';
+ return '<div class="unsold-note"><b>No bidder, Pending Next Auction</b><span>Price might reduce 10%'+(np?' - New Price: <b>'+np+'</b> (Estimate)':'')+'</span></div>'};
 const tagText=(r,st)=>st==='sold'?'Sold'+(r[27]&&r[27]!=='-'?' · '+esc(r[27]):''):st==='calloff'?'Call Off · auction cancelled':st==='unsold'?'Unsold · no sale at auction':'Expired · auction date passed';
 $('upd').textContent='Updated '+new Date(META.updated).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
 function seg(el,opts,get,set){el.innerHTML=opts.map(o=>'<button type="button" data-v="'+o[0]+'">'+o[1]+'</button>').join('');
@@ -269,12 +274,12 @@ function filtered(skip){
 function activeN(){return [$('q').value!=='',$('negeri').value,selD.size,$('jenis').value,$('tarikh').value,$('cat').value,bmv,laca].filter(Boolean).length}
 const dash=v=>(v&&v!=='-'&&v!=='N/A')?esc(v):'N/A';
 function card(r,i){
- const st=stOf(r),ex=st!=='active';const condo=(r[21]===CATS[0]||r[21]===CATS[5]);
+ const st=stOf(r),ex=st!=='active'&&st!=='unsold';const condo=(r[21]===CATS[0]||r[21]===CATS[5]);
  const bmv=dash(r[6]).replace(/^\s*(\d+(?:\.\d+)?%)\s*BMV\s*$/i,'$1 below market value');
  return '<article class="card'+(ex?' expired':'')+(sharedId?' hl':'')+'" data-k="'+i+'" data-id="'+esc(r[20])+'">'+(ex?'<div class="exp-tag '+st+'">'+tagText(r,st)+'</div>':'')
  +'<div class="kind"><span class="num">'+(i+1)+'</span><span class="kindt">'+dash(r[5])+(r[9]&&r[9]!=='-'?' · '+esc(r[9]):'')+'</span></div>'
  +'<div class="addr">'+esc(r[1])+'</div>'
- +'<div class="pricebox"><span class="pl">Auction Price</span><div class="price">'+dash(r[7])+(ex?'':' 🔥')+'</div><div class="mv"><small>Market value</small> '+dash(r[8])+'</div>'+(bmv!=='N/A'&&!/^0%/.test(bmv)?'<div class="bmv">'+bmv+'</div>':'')+'</div>'
+ +'<div class="pricebox"><span class="pl">Auction Price</span><div class="price">'+dash(r[7])+(ex?'':' 🔥')+'</div><div class="mv"><small>Market value</small> '+dash(r[8])+'</div>'+(bmv!=='N/A'&&!/^0%/.test(bmv)?'<div class="bmv">'+bmv+'</div>':'')+'</div>'+(st==='unsold'?unsoldNote(r):'')
  +(condo?'<div class="dims"><div><span>Built Up</span><b>'+dash(r[11])+'</b></div><div><span>Completion Year</span><b>'+dash(r[19])+'</b></div></div><div class="dims d3"><div><span>Bedroom</span><b>'+dash(r[23])+'</b></div><div><span>Bathroom</span><b>'+dash(r[24])+'</b></div><div><span>Carpark</span><b>'+dash(r[25])+'</b></div></div>':'<div class="dims"><div><span>Land Size</span><b>'+dash(r[10])+'</b></div><div><span>Built Up</span><b>'+dash(r[11])+'</b></div></div>')
  +'<div class="when"><span class="dt">📅 <b>'+esc(r[12])+'</b>'+(r[13]&&r[13]!=='-'?'<span>'+esc(r[13])+'</span>':'')+'</span><span class="cnt">'+(r[14]&&r[14]!=='-'?esc(r[14])+' auction':'')+'</span></div>'
  +((r[17]||(r[15]&&r[15]!=='-'))?'<div class="chips">'+(r[17]?'<span class="chip '+(r[17]==='LACA'?'ok':'non')+'">'+r[17]+'</span>':'')+(r[15]&&r[15]!=='-'?'<span class="chip red">'+esc(r[15])+'</span>':'')+'</div>':'')
