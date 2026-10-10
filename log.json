@@ -295,6 +295,17 @@
    "purged": 0,
    "total": 6234,
    "by": "Maps fix"
+  },
+  {
+   "date": "2026-10-10",
+   "time": "18:50",
+   "source": "masterlist",
+   "label": "Google Maps links (landed): house, street, postcode town, state - fixes wrong-state results",
+   "added": 0,
+   "updated": 50,
+   "purged": 0,
+   "total": 6234,
+   "by": "Maps fix"
   }
  ]
 }
