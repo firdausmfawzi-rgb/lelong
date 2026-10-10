@@ -227,6 +227,17 @@
    "active": 3823,
    "expired": 3685,
    "by": "Dedupe"
+  },
+  {
+   "date": "2026-10-10",
+   "time": "14:07",
+   "source": "masterlist",
+   "label": "Google Maps links for Condo / Flat: search by building name (replaces GPS)",
+   "added": 0,
+   "updated": 1505,
+   "purged": 0,
+   "total": 7508,
+   "by": "Maps fix"
   }
  ]
 }
