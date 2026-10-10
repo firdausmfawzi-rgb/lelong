@@ -262,6 +262,17 @@
    "active": 3823,
    "expired": 2411,
    "by": "Retention"
+  },
+  {
+   "date": "2026-10-10",
+   "time": "14:47",
+   "source": "masterlist",
+   "label": "Google Maps links: house number always included for landed, factory, shoplot and others",
+   "added": 0,
+   "updated": 249,
+   "purged": 0,
+   "total": 6234,
+   "by": "Maps fix"
   }
  ]
 }
