@@ -278,12 +278,15 @@ function filtered(skip){
 function activeN(){return [$('q').value!=='',$('negeri').value,selD.size,$('jenis').value,$('tarikh').value,$('cat').value,bmv,laca].filter(Boolean).length}
 const dash=v=>(v&&v!=='-'&&v!=='N/A')?esc(v):'N/A';
 function card(r,i){
- const st=stOf(r),ex=st!=='active'&&st!=='unsold';const condo=(r[21]===CATS[0]||r[21]===CATS[5]);
+ const st=stOf(r),ex=st!=='active'&&st!=='unsold';
+ // 🔥 only for a real discount: not shown for 0-9% below market value (or for ended units)
+ const fire=!ex&&(!/\d/.test(String(r[6]||''))||num(r[6])>=10);
+ const condo=(r[21]===CATS[0]||r[21]===CATS[5]);
  const bmv=(suspect(r)?'N/A':dash(r[6])).replace(/^\s*(\d+(?:\.\d+)?%)\s*BMV\s*$/i,'$1 below market value');
  return '<article class="card'+(ex?' expired':'')+(sharedId?' hl':'')+'" data-k="'+i+'" data-id="'+esc(r[20])+'">'+(ex?'<div class="exp-tag '+st+'">'+tagText(r,st)+'</div>':'')
  +'<div class="kind"><span class="num">'+(i+1)+'</span><span class="kindt">'+dash(r[5])+(r[9]&&r[9]!=='-'?' · '+esc(r[9]):'')+'</span></div>'
  +'<div class="addr">'+esc(r[1])+'</div>'
- +'<div class="pricebox"><span class="pl">Auction Price</span><div class="price">'+dash(r[7])+(ex?'':' 🔥')+'</div><div class="mv"><small>Market value</small> '+(suspect(r)?'N/A':dash(r[8]))+'</div>'+(bmv!=='N/A'&&!/^0%/.test(bmv)?'<div class="bmv">'+bmv+'</div>':'')+'</div>'+(st==='unsold'?unsoldNote(r):'')
+ +'<div class="pricebox"><span class="pl">Auction Price</span><div class="price">'+dash(r[7])+(fire?' 🔥':'')+'</div><div class="mv"><small>Market value</small> '+(suspect(r)?'N/A':dash(r[8]))+'</div>'+(bmv!=='N/A'&&!/^0%/.test(bmv)?'<div class="bmv">'+bmv+'</div>':'')+'</div>'+(st==='unsold'?unsoldNote(r):'')
  +(condo?'<div class="dims"><div><span>Built Up</span><b>'+dash(r[11])+'</b></div><div><span>Completion Year</span><b>'+dash(r[19])+'</b></div></div><div class="dims d3"><div><span>Bedroom</span><b>'+dash(r[23])+'</b></div><div><span>Bathroom</span><b>'+dash(r[24])+'</b></div><div><span>Carpark</span><b>'+dash(r[25])+'</b></div></div>':'<div class="dims"><div><span>Land Size</span><b>'+dash(r[10])+'</b></div><div><span>Built Up</span><b>'+dash(r[11])+'</b></div></div>')
  +'<div class="when"><span class="dt">📅 <b>'+esc(r[12])+'</b>'+(r[13]&&r[13]!=='-'?'<span>'+esc(r[13])+'</span>':'')+'</span><span class="cnt">'+(r[14]&&r[14]!=='-'?esc(r[14])+' auction':'')+'</span></div>'
  +((r[17]||(r[15]&&r[15]!=='-'))?'<div class="chips">'+(r[17]?'<span class="chip '+(r[17]==='LACA'?'ok':'non')+'">'+r[17]+'</span>':'')+(r[15]&&r[15]!=='-'?'<span class="chip red">'+esc(r[15])+'</span>':'')+'</div>':'')
