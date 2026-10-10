@@ -95,6 +95,13 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .seg{display:flex;flex-wrap:wrap;gap:8px}
 .seg button{border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:99px;padding:0 16px;min-height:42px}
 .seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+/* multi-select district list */
+.ms{max-height:min(38vh,260px);overflow:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:4px;overscroll-behavior:contain}
+.ms label{display:flex;gap:12px;align-items:center;min-height:44px;padding:6px 10px;border-radius:8px;cursor:pointer;overflow-wrap:anywhere}
+.ms label:hover{background:var(--bg)}
+.ms input{width:20px;height:20px;padding:0;flex:none;accent-color:var(--accent)}
+.ms .none{padding:12px 10px;color:var(--muted)}
+.ms-foot{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:6px;font-size:.9rem;color:var(--muted)}
 /* floating filter button */
 .dock{position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -6px 18px rgba(0,0,0,.18);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:flex;gap:10px}
 .dock .btn{min-height:52px;font-size:1.05rem;border-radius:12px}
@@ -144,7 +151,10 @@ body{padding-block-end:100px}
 <div class="sh-head"><h2>Filter</h2><button class="btn" id="close" type="button">Close</button></div>
 <div class="sh-body">
 <label class="fld"><span>State</span><select id="negeri"></select></label>
-<label class="fld"><span>District</span><select id="daerah"></select></label>
+<div class="fld"><span id="daerahLbl">District (select one or more)</span>
+<input id="daerahQ" type="search" placeholder="Search district" aria-label="Search district" autocomplete="off">
+<div class="ms" id="daerah" role="group" aria-labelledby="daerahLbl"></div>
+<div class="ms-foot"><span id="daerahN">All districts</span><button type="button" class="reset-inline" id="daerahClear" hidden>Clear districts</button></div></div>
 <label class="fld"><span>Property Category</span><select id="cat"></select></label>
 <label class="fld"><span>Type</span><select id="jenis"></select></label>
 <label class="fld"><span>Auction Date</span><select id="tarikh"></select></label>
@@ -214,16 +224,23 @@ function paint(){
  [...$('statusSeg').children].forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===status)));
  [...$('lacaSeg').children].forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===laca)));
 }
-function daerahOpts(){const n=$('negeri').value,cur=$('daerah').value;
- const v=[...new Set(DATA.filter(r=>!n||r[2]===n).map(r=>r[3]).filter(Boolean))].sort();
- fill($('daerah'),v,'All districts');if(v.includes(cur))$('daerah').value=cur}
+// District filter: any number of districts can be ticked at once. Options that are not a place name (unit codes, stray punctuation) are not offered.
+const selD=new Set();
+function daerahMeta(){$('daerahN').textContent=selD.size?selD.size+' selected':'All districts';$('daerahClear').hidden=!selD.size}
+function daerahOpts(){const n=$('negeri').value;
+ const v=[...new Set(DATA.filter(r=>!n||r[2]===n).map(r=>r[3]).filter(x=>x&&/^[A-Za-z]/.test(x)))].sort((a,b)=>a.localeCompare(b));
+ [...selD].forEach(x=>{if(!v.includes(x))selD.delete(x)});
+ const q=$('daerahQ').value.trim().toLowerCase();
+ const show=v.filter(x=>!q||x.toLowerCase().includes(q));
+ $('daerah').innerHTML=show.length?show.map(x=>'<label><input type="checkbox" value="'+esc(x)+'"'+(selD.has(x)?' checked':'')+'><span>'+esc(x)+'</span></label>').join(''):'<div class="none">No district found</div>';
+ daerahMeta()}
 daerahOpts();
 function filtered(){
  if(sharedId)return DATA.filter(r=>r[20]===sharedId);
- const q=$('q').value.trim().toLowerCase(),n=$('negeri').value,d=$('daerah').value,j=$('jenis').value,t=$('tarikh').value;
- return DATA.filter(r=>(!q||(r[1]+' '+r[16]).toLowerCase().includes(q))&&(!n||r[2]===n)&&(!d||r[3]===d)&&(!j||r[5]===j)&&(!bmv||num(r[6])>=bmv)&&(!laca||r[17]===laca)&&(!t||r[12]===t)&&(!$('cat').value||r[21]===$('cat').value)&&(status==='all'||stOf(r)===status));
+ const q=$('q').value.trim().toLowerCase(),n=$('negeri').value,j=$('jenis').value,t=$('tarikh').value;
+ return DATA.filter(r=>(!q||(r[1]+' '+r[16]).toLowerCase().includes(q))&&(!n||r[2]===n)&&(!selD.size||selD.has(r[3]))&&(!j||r[5]===j)&&(!bmv||num(r[6])>=bmv)&&(!laca||r[17]===laca)&&(!t||r[12]===t)&&(!$('cat').value||r[21]===$('cat').value)&&(status==='all'||stOf(r)===status));
 }
-function activeN(){return [$('q').value!=='',$('negeri').value,$('daerah').value,$('jenis').value,$('tarikh').value,$('cat').value,bmv,laca].filter(Boolean).length}
+function activeN(){return [$('q').value!=='',$('negeri').value,selD.size,$('jenis').value,$('tarikh').value,$('cat').value,bmv,laca].filter(Boolean).length}
 const dash=v=>(v&&v!=='-'&&v!=='N/A')?esc(v):'N/A';
 function card(r,i){
  const st=stOf(r),ex=st!=='active';const condo=(r[21]===CATS[0]||r[21]===CATS[5]);
@@ -253,7 +270,7 @@ function render(){
  $('sharedBar').hidden=!sharedId;
 }
 function clearShared(){if(!sharedId)return;sharedId=null;try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}
-function reset(){clearShared();status='active';['q','negeri','jenis','tarikh','cat'].forEach(k=>$(k).value='');daerahOpts();$('daerah').value='';bmv=0;laca='';paint();render()}
+function reset(){clearShared();status='active';['q','negeri','jenis','tarikh','cat'].forEach(k=>$(k).value='');selD.clear();$('daerahQ').value='';daerahOpts();bmv=0;laca='';paint();render()}
 document.querySelectorAll('.rs').forEach(b=>b.onclick=reset);
 $('resetInline').onclick=reset;$('resetBar').onclick=reset;
 $('list').onclick=e=>{const s=e.target.closest('.sh');if(s){const r=DATA.find(x=>x[20]===s.dataset.id);doShare('unit',r);return}
@@ -263,8 +280,11 @@ function sheet(o){$('sheet').hidden=!o;$('scrim').hidden=!o}
 $('openFab').onclick=$('openTop').onclick=()=>sheet(true);
 $('close').onclick=$('apply').onclick=$('scrim').onclick=()=>sheet(false);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')sheet(false)});
-$('negeri').onchange=()=>{$('daerah').value='';daerahOpts();render()};
-['q','daerah','jenis','tarikh','cat','sort'].forEach(k=>$(k).addEventListener('input',render));
+$('negeri').onchange=()=>{daerahOpts();render()};
+['q','jenis','tarikh','cat','sort'].forEach(k=>$(k).addEventListener('input',render));
+$('daerah').addEventListener('change',e=>{const c=e.target;if(!c||c.type!=='checkbox')return;c.checked?selD.add(c.value):selD.delete(c.value);daerahMeta();track('filter_district',{count:selD.size});render()});
+$('daerahQ').addEventListener('input',daerahOpts);
+$('daerahClear').onclick=()=>{selD.clear();daerahOpts();render()};
 $('more').onclick=()=>{const n=Math.min(SHOWN+PAGE,ROWS.length);$('list').insertAdjacentHTML('beforeend',ROWS.slice(SHOWN,n).map((r,j)=>card(r,SHOWN+j)).join(''));SHOWN=n;moreBtn()};
 $('shareAll').onclick=()=>doShare('list',null);
 $('viewAll').onclick=()=>{clearShared();render();window.scrollTo(0,0)};
