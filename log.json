@@ -187,6 +187,19 @@
    "active": 3833,
    "expired": 71,
    "by": "Dedupe"
+  },
+  {
+   "date": "2026-10-10",
+   "time": "13:19",
+   "source": "masterlist",
+   "label": "District names standardised (one spelling per area)",
+   "added": 0,
+   "updated": 112,
+   "purged": 0,
+   "total": 3904,
+   "active": 3833,
+   "expired": 71,
+   "by": "District fix"
   }
  ]
 }
