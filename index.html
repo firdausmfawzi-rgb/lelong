@@ -213,11 +213,21 @@ function catOf(r){if(r[18]&&r[18]!=='-')return r[18];const s=String(r[5]||'').to
  return 'Others';}
 DATA.forEach(r=>{r[21]=catOf(r)});
 DATA.forEach(r=>{if(!CATS.includes(r[21]))CATS.push(r[21])});
-// Category counts follow the current State / District / status / other filters, so the number shown is what you get when you pick it.
-function catOpts(){const cur=$('cat').value,rows=filtered(true),cnt={};
- rows.forEach(r=>{cnt[r[21]]=(cnt[r[21]]||0)+1});
- $('cat').innerHTML='<option value="">All categories ('+rows.length+')</option>'+CATS.map(c=>'<option value="'+c+'">'+c+' ('+(cnt[c]||0)+')</option>').join('');
- $('cat').value=cur}
+// Category / Type / Auction Date only offer values that exist for the current State, District, status and other filters,
+// each with the number of units you will get when you pick it. A pick that no longer exists falls back to "All".
+function facetOpts(){
+ const cur={cat:$('cat').value,jenis:$('jenis').value,tarikh:$('tarikh').value};
+ const count=(skip,idx)=>{const m=new Map();filtered(skip).forEach(r=>{const v=r[idx];if(v)m.set(v,(m.get(v)||0)+1)});return m};
+ const fillOpt=(id,all,list,m,keep)=>{const el=$(id);
+  el.innerHTML='<option value="">'+all+'</option>'+list.map(v=>'<option value="'+esc(v)+'">'+esc(v)+' ('+m.get(v)+')</option>').join('');
+  el.value=list.includes(keep)?keep:''};
+ const cm=count('cat',21);
+ fillOpt('cat','All categories ('+filtered('cat').length+')',CATS.filter(c=>cm.get(c)),cm,cur.cat);
+ const tm=count('jenis',5);
+ fillOpt('jenis','All types ('+filtered('jenis').length+')',[...tm.keys()].sort((a,b)=>a.localeCompare(b)),tm,cur.jenis);
+ const dm=count('tarikh',12);
+ fillOpt('tarikh','All dates ('+filtered('tarikh').length+')',[...dm.keys()].sort((a,b)=>dt(a)-dt(b)),dm,cur.tarikh);
+}
 const T0=(()=>{const d=new Date();d.setHours(0,0,0,0);return d.getTime()})();
 const isExp=r=>{const d=dt(r[12]);return d>0&&d<T0};
 // A checked outcome (Sold / Call Off / Unsold) wins over the auction date. No outcome + date passed = plain Expired.
@@ -251,10 +261,10 @@ function daerahOpts(){const n=$('negeri').value;
  $('daerah').innerHTML=show.length?show.map(x=>'<label><input type="checkbox" value="'+esc(x)+'"'+(selD.has(x)?' checked':'')+'><span>'+esc(x)+'</span></label>').join(''):'<div class="none">No district found</div>';
  daerahMeta()}
 daerahOpts();
-function filtered(skipCat){
- if(sharedId&&!skipCat)return DATA.filter(r=>r[20]===sharedId);
+function filtered(skip){
+ if(sharedId&&!skip)return DATA.filter(r=>r[20]===sharedId);
  const q=$('q').value.trim().toLowerCase(),n=$('negeri').value,j=$('jenis').value,t=$('tarikh').value;
- return DATA.filter(r=>(!q||(r[1]+' '+r[16]).toLowerCase().includes(q))&&(!n||r[2]===n)&&(!selD.size||selD.has(r[3]))&&(!j||r[5]===j)&&(!bmv||num(r[6])>=bmv)&&(!laca||r[17]===laca)&&(!t||r[12]===t)&&(skipCat||!$('cat').value||r[21]===$('cat').value)&&(status==='all'||stOf(r)===status));
+ return DATA.filter(r=>(!q||(r[1]+' '+r[16]).toLowerCase().includes(q))&&(!n||r[2]===n)&&(!selD.size||selD.has(r[3]))&&(skip==='jenis'||!j||r[5]===j)&&(!bmv||num(r[6])>=bmv)&&(!laca||r[17]===laca)&&(skip==='tarikh'||!t||r[12]===t)&&(skip==='cat'||!$('cat').value||r[21]===$('cat').value)&&(status==='all'||stOf(r)===status));
 }
 function activeN(){return [$('q').value!=='',$('negeri').value,selD.size,$('jenis').value,$('tarikh').value,$('cat').value,bmv,laca].filter(Boolean).length}
 const dash=v=>(v&&v!=='-'&&v!=='N/A')?esc(v):'N/A';
@@ -273,7 +283,7 @@ function card(r,i){
 }
 let ROWS=[],SHOWN=0;const PAGE=60;
 function moreBtn(){const b=$('more');b.hidden=SHOWN>=ROWS.length;b.textContent='Show more ('+(ROWS.length-SHOWN)+' more)'}
-function render(){catOpts();
+function render(){facetOpts();
  let rows=filtered();const s=$('sort').value;
  rows=rows.slice().sort((a,b)=>s==='bmv'?num(b[6])-num(a[6]):s==='lbmv'?num(a[6])-num(b[6]):s==='harga'?num(a[7])-num(b[7]):s==='hharga'?num(b[7])-num(a[7]):s==='new'?((b[22]||'').localeCompare(a[22]||'')||DATA.indexOf(b)-DATA.indexOf(a)):(dt(a[12])||9e15)-(dt(b[12])||9e15));
  ROWS=rows;SHOWN=Math.min(PAGE,rows.length);$('list').innerHTML=rows.slice(0,SHOWN).map((r,j)=>card(r,j)).join('');moreBtn();

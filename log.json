@@ -200,6 +200,33 @@
    "active": 3833,
    "expired": 71,
    "by": "District fix"
+  },
+  {
+   "date": "2026-10-10",
+   "time": "13:46",
+   "source": "bidnow",
+   "label": "BidNow expired listings, last 60 days (Sold / Call Off / Unsold)",
+   "scraped": 7414,
+   "added": 3617,
+   "updated": 18,
+   "purged": 0,
+   "total": 7521,
+   "active": 3833,
+   "expired": 3688,
+   "by": "Auto carian"
+  },
+  {
+   "date": "2026-10-10",
+   "time": "13:46",
+   "source": "masterlist",
+   "label": "Duplicate check: merged same unit listed on two websites",
+   "added": 0,
+   "updated": 13,
+   "purged": 0,
+   "total": 7508,
+   "active": 3823,
+   "expired": 3685,
+   "by": "Dedupe"
   }
  ]
 }
