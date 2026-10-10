@@ -160,6 +160,33 @@
    "active": 3844,
    "expired": 71,
    "by": "Auto carian"
+  },
+  {
+   "date": "2026-10-10",
+   "time": "13:07",
+   "source": "bidnow",
+   "label": "BidNow active listings",
+   "scraped": 1773,
+   "added": 14,
+   "updated": 1757,
+   "purged": 2,
+   "total": 3927,
+   "active": 3859,
+   "expired": 68,
+   "by": "Auto carian"
+  },
+  {
+   "date": "2026-10-10",
+   "time": "13:14",
+   "source": "masterlist",
+   "label": "Duplicate check: merged same unit listed on two websites",
+   "added": 0,
+   "updated": 23,
+   "purged": 0,
+   "total": 3904,
+   "active": 3833,
+   "expired": 71,
+   "by": "Dedupe"
   }
  ]
 }
