@@ -273,6 +273,17 @@
    "purged": 0,
    "total": 6234,
    "by": "Maps fix"
+  },
+  {
+   "date": "2026-10-10",
+   "time": "14:55",
+   "source": "masterlist",
+   "label": "Google Maps links: landed search = house number + street line only",
+   "added": 0,
+   "updated": 2563,
+   "purged": 0,
+   "total": 6234,
+   "by": "Maps fix"
   }
  ]
 }
