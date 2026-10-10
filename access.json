@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-09",
+ "updated": "2026-10-10",
  "codes": {
   "131b35b318dcb61ed140cc977fc6357d4ad2c007a247e3825cc4762f99c96c46": {
    "label": "FJ02",
@@ -15,6 +15,10 @@
   },
   "2676cafb28abf5ab76487fe3d05b4cbf336223dd398280658cf37a6baa29a16a": {
    "label": "T05",
+   "exp": null
+  },
+  "a85dcbcad6559723b7416a729d1273a962887a16a682cb0bf528511da7aa5b37": {
+   "label": "S06",
    "exp": null
   }
  }
