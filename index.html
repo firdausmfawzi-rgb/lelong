@@ -206,7 +206,7 @@ async function doShare(kind,r){
  try{await navigator.clipboard.writeText(url);toast('Link copied')}catch(e){}
  window.open(wa,'_blank','noopener');
 }
-const CATS=['Condominium / Apartment / SOHO','Terrace / Linkhouse','Bungalow / Semi-Detached','Factory / Warehouse','Shoplot / Offices','Flat','Land'];
+const CATS=['Condominium / Apartment / SOHO','Terrace / Linkhouse / Townhouse','Bungalow / Semi-Detached','Factory / Warehouse','Shoplot / Offices','Flat','Land'];
 function catOf(r){if(r[18]&&r[18]!=='-')return r[18];const s=String(r[5]||'').toLowerCase();
  if(/factory|warehouse|workshop|industrial/.test(s))return CATS[3];
  if(/shop|office|retail|commercial/.test(s))return CATS[4];
