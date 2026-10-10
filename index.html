@@ -191,7 +191,7 @@ function fill(sel,vals,all){sel.innerHTML='<option value="">'+all+'</option>'+va
 fill($('negeri'),uniq(2),'All states');
 fill($('jenis'),uniq(5),'All types');
 fill($('tarikh'),[...new Set(DATA.map(r=>r[12]))].sort((a,b)=>dt(a)-dt(b)),'All dates');
-let bmv=0,laca='',status='active';
+let bmv=0,laca='',status='available';   // 'available' = Active + Unsold: what a client's search shows by default
 let sharedId=(location.hash||'').slice(1)||null;
 if(sharedId&&!DATA.some(r=>r[20]===sharedId))sharedId=null;
 const track=(n,p)=>{try{if(window.gtag)gtag('event',n,p||{})}catch(e){}};
@@ -249,7 +249,7 @@ $('upd').textContent='Updated '+new Date(META.updated).toLocaleDateString('en-GB
 function seg(el,opts,get,set){el.innerHTML=opts.map(o=>'<button type="button" data-v="'+o[0]+'">'+o[1]+'</button>').join('');
  el.onclick=e=>{const b=e.target.closest('button');if(!b)return;set(b.dataset.v);paint();render()};}
 seg($('bmvSeg'),[[0,'All'],[10,'10%+'],[20,'20%+'],[30,'30%+'],[40,'40%+'],[50,'50%+']],0,v=>bmv=+v);
-seg($('statusSeg'),[['active','Active ('+cnt.active+')'],['unsold','Unsold ('+cnt.unsold+')'],['calloff','Call Off ('+cnt.calloff+')'],['sold','Sold ('+cnt.sold+')']].concat(cnt.expired?[['expired','Expired ('+cnt.expired+')']]:[],[['all','All']]),0,v=>status=v);
+seg($('statusSeg'),[['available','Active + Unsold ('+(cnt.active+cnt.unsold)+')'],['active','Active ('+cnt.active+')'],['unsold','Unsold ('+cnt.unsold+')'],['calloff','Call Off ('+cnt.calloff+')'],['sold','Sold ('+cnt.sold+')']],0,v=>status=v);
 seg($('lacaSeg'),[['','All'],['LACA','LACA'],['Non-LACA','Non-LACA']],0,v=>laca=v);
 function paint(){
  [...$('bmvSeg').children].forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.v===bmv)));
@@ -273,7 +273,7 @@ daerahOpts();
 function filtered(skip){
  if(sharedId&&!skip)return DATA.filter(r=>r[20]===sharedId);
  const q=$('q').value.trim().toLowerCase(),n=$('negeri').value,j=$('jenis').value,t=$('tarikh').value;
- return DATA.filter(r=>(!q||(r[1]+' '+r[16]).toLowerCase().includes(q))&&(!n||r[2]===n)&&(!selD.size||selD.has(r[3]))&&(skip==='jenis'||!j||r[5]===j)&&(!bmv||bmvv(r)>=bmv)&&(!laca||r[17]===laca)&&(skip==='tarikh'||!t||r[12]===t)&&(skip==='cat'||!$('cat').value||r[21]===$('cat').value)&&(status==='all'||stOf(r)===status));
+ return DATA.filter(r=>(!q||(r[1]+' '+r[16]).toLowerCase().includes(q))&&(!n||r[2]===n)&&(!selD.size||selD.has(r[3]))&&(skip==='jenis'||!j||r[5]===j)&&(!bmv||bmvv(r)>=bmv)&&(!laca||r[17]===laca)&&(skip==='tarikh'||!t||r[12]===t)&&(skip==='cat'||!$('cat').value||r[21]===$('cat').value)&&(status==='all'||(status==='available'?(stOf(r)==='active'||stOf(r)==='unsold'):stOf(r)===status)));
 }
 function activeN(){return [$('q').value!=='',$('negeri').value,selD.size,$('jenis').value,$('tarikh').value,$('cat').value,bmv,laca].filter(Boolean).length}
 const dash=v=>(v&&v!=='-'&&v!=='N/A')?esc(v):'N/A';
@@ -308,7 +308,7 @@ function render(){facetOpts();
  $('sharedBar').hidden=!sharedId;
 }
 function clearShared(){if(!sharedId)return;sharedId=null;try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}
-function reset(){clearShared();status='active';['q','negeri','jenis','tarikh','cat'].forEach(k=>$(k).value='');selD.clear();$('daerahQ').value='';daerahOpts();bmv=0;laca='';paint();render()}
+function reset(){clearShared();status='available';['q','negeri','jenis','tarikh','cat'].forEach(k=>$(k).value='');selD.clear();$('daerahQ').value='';daerahOpts();bmv=0;laca='';paint();render()}
 document.querySelectorAll('.rs').forEach(b=>b.onclick=reset);
 $('resetInline').onclick=reset;$('resetBar').onclick=reset;
 $('list').onclick=e=>{const s=e.target.closest('.sh');if(s){const r=DATA.find(x=>x[20]===s.dataset.id);doShare('unit',r);return}
@@ -345,7 +345,11 @@ async function access(){
  openGate(code?'That code is not valid.':'');gtrack('access_gate',{});return false}
 G('gateForm').addEventListener('submit',async ev=>{ev.preventDefault();const c=G('gateCode').value;const e=await checkCode(c);if(e&&e!=='expired'){CLIENT=e.label||'';try{gtag('set','user_properties',{client:CLIENT})}catch(x){}try{localStorage.setItem('lelong.code',c.trim().toUpperCase())}catch(x){}G('gate').hidden=true;gtrack('access_ok',{client:CLIENT});start()}else G('gateErr').textContent=e==='expired'?'This code has expired. Ask Firdaus Jay for a new one.':'Code not recognised. Check the code or request access on WhatsApp.'});
 let STARTED=false;
-function start(){if(STARTED)return;STARTED=true;fetch('data.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{boot(j.listings.map(o=>FIELDS.map(f=>o[f])),j);}).catch(()=>{document.getElementById('count').textContent='Could not load listings. Refresh the page to try again.'})}
+function start(){if(STARTED)return;STARTED=true;fetch('data.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{// Only Active units and units with a recorded result (Sold / Call Off / Unsold) are shown. A unit whose auction date has passed
+// and has no result is not listed (a result usually appears within a day or two and the unit then comes back under its tab).
+const t0=new Date();t0.setHours(0,0,0,0);
+const listed=o=>o.outcome||!(Date.parse(o.auction_date)>0&&Date.parse(o.auction_date)<t0.getTime());
+boot(j.listings.filter(listed).map(o=>FIELDS.map(f=>o[f])),j);}).catch(()=>{document.getElementById('count').textContent='Could not load listings. Refresh the page to try again.'})}
 access().then(ok=>{if(ok)start()});
 </script>
 
