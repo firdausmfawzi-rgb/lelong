@@ -8244,7 +8244,8 @@
 "aliases": [
 "nob1609blockbresidensililitamanbucidahijauan71800nilainegerisembilan"
 ],
-"type_raw": "Apartment"
+"type_raw": "Apartment",
+"outcome": "unsold"
 },
 {
 "no": 212,
@@ -8284,7 +8285,8 @@
 "aliases": [
 "unitnob2713a27thfloorblockblandmarkresidence2jalanlandmarkresidences43000kajangselangor"
 ],
-"type_raw": "SOHO"
+"type_raw": "SOHO",
+"outcome": "unsold"
 },
 {
 "no": 213,
@@ -9178,7 +9180,8 @@
 "bidnow"
 ],
 "kaveat": "-",
-"type_raw": "Apartment"
+"type_raw": "Apartment",
+"outcome": "unsold"
 },
 {
 "no": 236,
@@ -17649,7 +17652,8 @@
 "bidnow"
 ],
 "kaveat": "-",
-"type_raw": "1 Storey Terrace House"
+"type_raw": "1 Storey Terrace House",
+"outcome": "calloff"
 },
 {
 "id": "no7a1210desaintanlebuhrayatheantekbandarbaruayeritam11500ayeritampenang",
@@ -40279,7 +40283,8 @@
 "aliases": [
 "lotno102tamanbersatumile7airportroad90000sandakansabah"
 ],
-"type_raw": "3 Storey Terrace House"
+"type_raw": "3 Storey Terrace House",
+"outcome": "unsold"
 },
 {
 "id": "nop10lotno110blockplorongganangvilla4phase1ganangvillaoffjalanlintaskepayan88200penampangsabah",
@@ -40319,7 +40324,8 @@
 "aliases": [
 "unitnop10lotno110blockplorongganangvilla4phase1ganangvillaoffjalanlintaskepayan88200penampangsabah"
 ],
-"type_raw": "3 Storey Terrace House"
+"type_raw": "3 Storey Terrace House",
+"outcome": "calloff"
 },
 {
 "id": "lot2tb4670tamansuriajalansalleh91000tawausabah",
@@ -40353,7 +40359,8 @@
 "bidnow"
 ],
 "kaveat": "-",
-"type_raw": "2 Storey Semi Detached House"
+"type_raw": "2 Storey Semi Detached House",
+"outcome": "calloff"
 },
 {
 "id": "lotnoa1206block1level12typebkingfisherputatancondominiumphase1b88200putatansabah",
@@ -40394,7 +40401,8 @@
 "aliases": [
 "lotnoc0103ablockclevel1typeakingfisherputatancondominiumphase2b88200putatansabah"
 ],
-"type_raw": "Condominium"
+"type_raw": "Condominium",
+"outcome": "calloff"
 },
 {
 "id": "lot360tb13434bandarsriindahphase1offkm16jalanapas91000tawausabah",
@@ -40428,7 +40436,8 @@
 "bidnow"
 ],
 "kaveat": "-",
-"type_raw": "2 Storey Terrace House"
+"type_raw": "2 Storey Terrace House",
+"outcome": "calloff"
 },
 {
 "id": "lot192tb13266bandarsriindahphase1offkm16jalanapas91000tawausabah",
@@ -40462,7 +40471,8 @@
 "bidnow"
 ],
 "kaveat": "-",
-"type_raw": "2 Storey Terrace House"
+"type_raw": "2 Storey Terrace House",
+"outcome": "calloff"
 },
 {
 "id": "parcellotnob3807blockblevel38jesseltontwintowersmenaraberkembarjesseltonoffjalanlintas88300kotakinabalusabah",
@@ -40496,7 +40506,8 @@
 "bidnow"
 ],
 "kaveat": "-",
-"type_raw": "Condominium"
+"type_raw": "Condominium",
+"outcome": "calloff"
 },
 {
 "id": "no1101blockapangsapuriaustinperdanajalanaustinperdanautamatamanaustinperdana81100johorbahrujohor",
@@ -40536,7 +40547,8 @@
 "aliases": [
 "unitno1101blokcpangsapuriaustinperdanajalanaustinperdanautamatamanaustinperdana81100johorbahrujohor"
 ],
-"type_raw": "Service Apartment"
+"type_raw": "Service Apartment",
+"outcome": "unsold"
 },
 {
 "id": "noc0104apartmentvillabestarijalannb2102tamannusabestari279150iskandarputerijohor",
@@ -40576,7 +40588,8 @@
 "aliases": [
 "unitnoc0104apartmentvillabestarijalannb2102tamannusabestari279150iskandarputerijohor"
 ],
-"type_raw": "Apartment"
+"type_raw": "Apartment",
+"outcome": "unsold"
 },
 {
 "id": "nob101012alsoknownonsiteasunitno8915slblokbbukitmerahlaketown34400spgampatsemanggolperak",
@@ -40610,7 +40623,8 @@
 "bidnow"
 ],
 "kaveat": "-",
-"type_raw": "Apartment"
+"type_raw": "Apartment",
+"outcome": "calloff"
 },
 {
 "id": "no3305pangsapuriecobloomtingkatecomeadows114100simpangampatpenang",
@@ -40650,7 +40664,8 @@
 "an_id": "210552",
 "an_slug": "pangsapuri-eco-bloom-tingkat-eco-meadows-1-14100-simpang-ampat-penang",
 "pos_an": null,
-"type_raw": "Apartment, Corner Unit"
+"type_raw": "Apartment, Corner Unit",
+"outcome": "unsold"
 },
 {
 "id": "nod707menaramahkotaimpianpusatperniagaanmahkotaimpian14000bukitmertajampenang",
@@ -40690,7 +40705,8 @@
 "an_id": "210546",
 "an_slug": "pusat-perniagaan-mahkota-impian-14000-bukit-mertajam-penang",
 "pos_an": null,
-"type_raw": "Serviced Apartment"
+"type_raw": "Serviced Apartment",
+"outcome": "unsold"
 },
 {
 "id": "no18lorongpuncakpinangsierrapinang11010balikpulaupenang",
@@ -40726,7 +40742,8 @@
 "kaveat": "-",
 "sekatan_pos": "-",
 "pos_checked": "2026-10-09",
-"type_raw": "3 Storey Cluster House"
+"type_raw": "3 Storey Cluster House",
+"outcome": "calloff"
 },
 {
 "id": "no5jalanvervea1vervea14110bandarcassiapenang",
@@ -40988,7 +41005,8 @@
 "aliases": [
 "noa1708landmarkresidence1jalanlandmarkresidence43000kajangselangor"
 ],
-"type_raw": "Serviced Apartment"
+"type_raw": "Serviced Apartment",
+"outcome": "calloff"
 },
 {
 "id": "noc2707level27uptownresidencejalantampin1ku1offjalangohhockhuat41200klangselangor",
@@ -41022,7 +41040,8 @@
 "bidnow"
 ],
 "kaveat": "-",
-"type_raw": "Service Apartment"
+"type_raw": "Service Apartment",
+"outcome": "calloff"
 },
 {
 "id": "no601pangsapuricantikpermaimarmintonhomestamancantiklorongcantikpermai113400butterworthpenang",
@@ -41436,7 +41455,8 @@
 "bidnow"
 ],
 "kaveat": "-",
-"type_raw": "2 Storey Terrace House, Corner Lot"
+"type_raw": "2 Storey Terrace House, Corner Lot",
+"outcome": "calloff"
 },
 {
 "id": "no30jalankolamairlamabampangjaya68000ampangselangor",
@@ -87478,7 +87498,8 @@
 "bidnow"
 ],
 "kaveat": "-",
-"type_raw": "Flat"
+"type_raw": "Flat",
+"outcome": "calloff"
 },
 {
 "id": "no16123aserinabayhilirsungaipinang11600jelutongpenang",

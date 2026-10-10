@@ -146,6 +146,20 @@
    "purged": 0,
    "total": 3915,
    "by": "Maps fix"
+  },
+  {
+   "date": "2026-10-10",
+   "time": "12:54",
+   "source": "bidnow",
+   "label": "BidNow outcome check (Sold / Call Off / Unsold)",
+   "scraped": 8152,
+   "added": 0,
+   "updated": 21,
+   "purged": 0,
+   "total": 3915,
+   "active": 3844,
+   "expired": 71,
+   "by": "Auto carian"
   }
  ]
 }
