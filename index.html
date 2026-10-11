@@ -106,7 +106,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .ms-foot{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:8px;font-size:.9rem;color:var(--muted)}
 .ms-btn{display:flex;width:100%;align-items:center;justify-content:space-between;gap:10px;font:inherit;font-size:16px;text-align:left;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:11px 12px;min-height:46px}
 .ms-btn[aria-expanded="true"]{border-color:var(--accent)}
-.ms-btn #daerahN{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ms-btn #daerahN,.ms-btn #tarikhN{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ms-btn .chev{flex:none;color:var(--muted);transition:transform .15s}
 .ms-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
 .ms-panel{margin-top:8px;display:flex;flex-direction:column;gap:8px}
@@ -168,7 +168,12 @@ body{padding-block-end:100px}
 </div></div>
 <label class="fld"><span>Property Category</span><select id="cat"></select></label>
 <label class="fld"><span>Type</span><select id="jenis"></select></label>
-<label class="fld"><span>Auction Date</span><select id="tarikh"></select></label>
+<div class="fld"><span id="tarikhLbl">Auction Date</span>
+<button type="button" class="ms-btn" id="tarikhBtn" aria-haspopup="true" aria-expanded="false" aria-controls="tarikhPanel"><span id="tarikhN">All dates</span><span class="chev" aria-hidden="true">▾</span></button>
+<div class="ms-panel" id="tarikhPanel" hidden>
+<div class="ms" id="tarikhList" role="group" aria-labelledby="tarikhLbl"></div>
+<div class="ms-foot"><button type="button" class="reset-inline" id="tarikhClear" hidden>Clear dates</button><button type="button" class="btn" id="tarikhDone">Done</button></div>
+</div></div>
 <div class="fld"><span>Minimum Below Market Value %</span><div class="seg" id="bmvSeg"></div></div>
 <div class="fld"><span>LACA</span><div class="seg" id="lacaSeg"></div></div>
 </div>
@@ -190,7 +195,7 @@ const uniq=i=>[...new Set(DATA.map(r=>r[i]).filter(Boolean))].sort();
 function fill(sel,vals,all){sel.innerHTML='<option value="">'+all+'</option>'+vals.map(v=>'<option>'+esc(v)+'</option>').join('')}
 fill($('negeri'),uniq(2),'All states');
 fill($('jenis'),uniq(5),'All types');
-fill($('tarikh'),[...new Set(DATA.map(r=>r[12]))].sort((a,b)=>dt(a)-dt(b)),'All dates');
+const selT=new Set();   // Auction Date: any number of dates can be ticked at once
 let bmv=0,laca='',status='available';   // 'available' = Active + Unsold: what a client's search shows by default
 let sharedId=(location.hash||'').slice(1)||null;
 if(sharedId&&!DATA.some(r=>r[20]===sharedId))sharedId=null;
@@ -222,7 +227,7 @@ DATA.forEach(r=>{if(!CATS.includes(r[21]))CATS.push(r[21])});
 // Category / Type / Auction Date only offer values that exist for the current State, District, status and other filters,
 // each with the number of units you will get when you pick it. A pick that no longer exists falls back to "All".
 function facetOpts(){
- const cur={cat:$('cat').value,jenis:$('jenis').value,tarikh:$('tarikh').value};
+ const cur={cat:$('cat').value,jenis:$('jenis').value};
  const count=(skip,idx)=>{const m=new Map();filtered(skip).forEach(r=>{const v=r[idx];if(v)m.set(v,(m.get(v)||0)+1)});return m};
  const fillOpt=(id,all,list,m,keep)=>{const el=$(id);
   el.innerHTML='<option value="">'+all+'</option>'+list.map(v=>'<option value="'+esc(v)+'">'+esc(v)+' ('+m.get(v)+')</option>').join('');
@@ -231,9 +236,16 @@ function facetOpts(){
  fillOpt('cat','All categories ('+filtered('cat').length+')',CATS.filter(c=>cm.get(c)),cm,cur.cat);
  const tm=count('jenis',5);
  fillOpt('jenis','All types ('+filtered('jenis').length+')',[...tm.keys()].sort((a,b)=>a.localeCompare(b)),tm,cur.jenis);
- const dm=count('tarikh',12);
- fillOpt('tarikh','All dates ('+filtered('tarikh').length+')',[...dm.keys()].sort((a,b)=>dt(a)-dt(b)),dm,cur.tarikh);
+ const dm=count('tarikh',12),dl=[...dm.keys()].sort((a,b)=>dt(a)-dt(b));
+ [...selT].forEach(x=>{if(!dm.has(x))selT.delete(x)});
+ const tl=$('tarikhList'),top=tl.scrollTop;
+ tl.innerHTML=dl.length?dl.map(v=>'<label><input type="checkbox" value="'+esc(v)+'"'+(selT.has(v)?' checked':'')+'><span>'+esc(v)+' ('+dm.get(v)+')</span></label>').join(''):'<div class="none">No dates found</div>';
+ tl.scrollTop=top;
+ const sd=[...selT].sort((a,b)=>dt(a)-dt(b));
+ $('tarikhN').textContent=!sd.length?'All dates ('+filtered('tarikh').length+')':sd.length<=2?sd.join(', '):sd.length+' dates selected';
+ $('tarikhClear').hidden=!sd.length;
 }
+function tarikhToggle(open){const p=$('tarikhPanel');p.hidden=!open;$('tarikhBtn').setAttribute('aria-expanded',String(open));if(open){setTimeout(()=>{try{p.scrollIntoView({block:'nearest'})}catch(e){}},30)}}
 const T0=(()=>{const d=new Date();d.setHours(0,0,0,0);return d.getTime()})();
 const isExp=r=>{const d=dt(r[12]);return d>0&&d<T0};
 // A checked outcome (Sold / Call Off / Unsold) wins over the auction date. No outcome + date passed = plain Expired.
@@ -272,10 +284,10 @@ function daerahOpts(){const n=$('negeri').value;
 daerahOpts();
 function filtered(skip){
  if(sharedId&&!skip)return DATA.filter(r=>r[20]===sharedId);
- const q=$('q').value.trim().toLowerCase(),n=$('negeri').value,j=$('jenis').value,t=$('tarikh').value;
- return DATA.filter(r=>(!q||(r[1]+' '+r[16]).toLowerCase().includes(q))&&(!n||r[2]===n)&&(!selD.size||selD.has(r[3]))&&(skip==='jenis'||!j||r[5]===j)&&(!bmv||bmvv(r)>=bmv)&&(!laca||r[17]===laca)&&(skip==='tarikh'||!t||r[12]===t)&&(skip==='cat'||!$('cat').value||r[21]===$('cat').value)&&(status==='all'||(status==='available'?(stOf(r)==='active'||stOf(r)==='unsold'):stOf(r)===status)));
+ const q=$('q').value.trim().toLowerCase(),n=$('negeri').value,j=$('jenis').value;
+ return DATA.filter(r=>(!q||(r[1]+' '+r[16]).toLowerCase().includes(q))&&(!n||r[2]===n)&&(!selD.size||selD.has(r[3]))&&(skip==='jenis'||!j||r[5]===j)&&(!bmv||bmvv(r)>=bmv)&&(!laca||r[17]===laca)&&(skip==='tarikh'||!selT.size||selT.has(r[12]))&&(skip==='cat'||!$('cat').value||r[21]===$('cat').value)&&(status==='all'||(status==='available'?(stOf(r)==='active'||stOf(r)==='unsold'):stOf(r)===status)));
 }
-function activeN(){return [$('q').value!=='',$('negeri').value,selD.size,$('jenis').value,$('tarikh').value,$('cat').value,bmv,laca].filter(Boolean).length}
+function activeN(){return [$('q').value!=='',$('negeri').value,selD.size,$('jenis').value,selT.size,$('cat').value,bmv,laca].filter(Boolean).length}
 const dash=v=>(v&&v!=='-'&&v!=='N/A')?esc(v):'N/A';
 function card(r,i){
  const st=stOf(r),ex=st!=='active'&&st!=='unsold';
@@ -308,7 +320,7 @@ function render(){facetOpts();
  $('sharedBar').hidden=!sharedId;
 }
 function clearShared(){if(!sharedId)return;sharedId=null;try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}
-function reset(){clearShared();status='available';['q','negeri','jenis','tarikh','cat'].forEach(k=>$(k).value='');selD.clear();$('daerahQ').value='';daerahOpts();bmv=0;laca='';paint();render()}
+function reset(){clearShared();status='available';['q','negeri','jenis','cat'].forEach(k=>$(k).value='');selD.clear();selT.clear();tarikhToggle(false);$('daerahQ').value='';daerahOpts();bmv=0;laca='';paint();render()}
 document.querySelectorAll('.rs').forEach(b=>b.onclick=reset);
 $('resetInline').onclick=reset;$('resetBar').onclick=reset;
 $('list').onclick=e=>{const s=e.target.closest('.sh');if(s){const r=DATA.find(x=>x[20]===s.dataset.id);doShare('unit',r);return}
@@ -319,7 +331,11 @@ $('openFab').onclick=$('openTop').onclick=()=>sheet(true);
 $('close').onclick=$('apply').onclick=$('scrim').onclick=()=>sheet(false);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')sheet(false)});
 $('negeri').onchange=()=>{daerahOpts();render()};
-['q','jenis','tarikh','cat','sort'].forEach(k=>$(k).addEventListener('input',render));
+['q','jenis','cat','sort'].forEach(k=>$(k).addEventListener('input',render));
+$('tarikhList').addEventListener('change',e=>{const c=e.target;if(!c||c.type!=='checkbox')return;c.checked?selT.add(c.value):selT.delete(c.value);track('filter_date',{count:selT.size});render()});
+$('tarikhClear').onclick=()=>{selT.clear();render()};
+$('tarikhBtn').onclick=()=>tarikhToggle($('tarikhPanel').hidden);
+$('tarikhDone').onclick=()=>tarikhToggle(false);
 $('daerah').addEventListener('change',e=>{const c=e.target;if(!c||c.type!=='checkbox')return;c.checked?selD.add(c.value):selD.delete(c.value);daerahMeta();track('filter_district',{count:selD.size});render()});
 $('daerahQ').addEventListener('input',daerahOpts);
 $('daerahClear').onclick=()=>{selD.clear();daerahOpts();render()};
