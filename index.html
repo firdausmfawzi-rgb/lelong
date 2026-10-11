@@ -97,6 +97,8 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .seg{display:flex;flex-wrap:wrap;gap:8px}
 .seg button{border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:99px;padding:0 16px;min-height:42px}
 .seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+/* price range (budget) */
+.pr{display:flex;gap:10px;align-items:center}.pr input{flex:1;min-width:0}.pr-to{flex:none;color:var(--muted);font-weight:600}
 /* multi-select district list */
 .ms{max-height:min(38vh,260px);overflow:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:4px;overscroll-behavior:contain}
 .ms label{display:flex;gap:12px;align-items:center;min-height:44px;padding:6px 10px;border-radius:8px;cursor:pointer;overflow-wrap:anywhere}
@@ -174,6 +176,7 @@ body{padding-block-end:100px}
 <div class="ms" id="tarikhList" role="group" aria-labelledby="tarikhLbl"></div>
 <div class="ms-foot"><button type="button" class="reset-inline" id="tarikhClear" hidden>Clear dates</button><button type="button" class="btn" id="tarikhDone">Done</button></div>
 </div></div>
+<div class="fld"><span id="priceLbl">Auction Price (RM) - your budget</span><div class="pr"><input id="pMin" type="text" inputmode="numeric" placeholder="From, e.g. 100,000" autocomplete="off" aria-label="Minimum auction price in RM"><b class="pr-to" aria-hidden="true">to</b><input id="pMax" type="text" inputmode="numeric" placeholder="To, e.g. 300,000" autocomplete="off" aria-label="Maximum auction price in RM"></div></div>
 <div class="fld"><span>Minimum Below Market Value %</span><div class="seg" id="bmvSeg"></div></div>
 <div class="fld"><span>LACA</span><div class="seg" id="lacaSeg"></div></div>
 </div>
@@ -285,9 +288,12 @@ daerahOpts();
 function filtered(skip){
  if(sharedId&&!skip)return DATA.filter(r=>r[20]===sharedId);
  const q=$('q').value.trim().toLowerCase(),n=$('negeri').value,j=$('jenis').value;
- return DATA.filter(r=>(!q||(r[1]+' '+r[16]).toLowerCase().includes(q))&&(!n||r[2]===n)&&(!selD.size||selD.has(r[3]))&&(skip==='jenis'||!j||r[5]===j)&&(!bmv||bmvv(r)>=bmv)&&(!laca||r[17]===laca)&&(skip==='tarikh'||!selT.size||selT.has(r[12]))&&(skip==='cat'||!$('cat').value||r[21]===$('cat').value)&&(status==='all'||(status==='available'?(stOf(r)==='active'||stOf(r)==='unsold'):stOf(r)===status)));
+ return DATA.filter(r=>inPrice(r)&&(!q||(r[1]+' '+r[16]).toLowerCase().includes(q))&&(!n||r[2]===n)&&(!selD.size||selD.has(r[3]))&&(skip==='jenis'||!j||r[5]===j)&&(!bmv||bmvv(r)>=bmv)&&(!laca||r[17]===laca)&&(skip==='tarikh'||!selT.size||selT.has(r[12]))&&(skip==='cat'||!$('cat').value||r[21]===$('cat').value)&&(status==='all'||(status==='available'?(stOf(r)==='active'||stOf(r)==='unsold'):stOf(r)===status)));
 }
-function activeN(){return [$('q').value!=='',$('negeri').value,selD.size,$('jenis').value,selT.size,$('cat').value,bmv,laca].filter(Boolean).length}
+// Budget: auction price between From and To (either may be empty). A unit with no price is left out while a range is set.
+const priceLo=()=>num($('pMin').value),priceHi=()=>num($('pMax').value);
+const inPrice=r=>{const lo=priceLo(),hi=priceHi();if(!lo&&!hi)return true;const p=num(r[7]);return p>0&&p>=lo&&(!hi||p<=hi)};
+function activeN(){return [$('q').value!=='',$('negeri').value,selD.size,$('jenis').value,selT.size,$('cat').value,bmv,laca,priceLo()||priceHi()].filter(Boolean).length}
 const dash=v=>(v&&v!=='-'&&v!=='N/A')?esc(v):'N/A';
 function card(r,i){
  const st=stOf(r),ex=st!=='active'&&st!=='unsold';
@@ -320,7 +326,7 @@ function render(){facetOpts();
  $('sharedBar').hidden=!sharedId;
 }
 function clearShared(){if(!sharedId)return;sharedId=null;try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}
-function reset(){clearShared();status='available';['q','negeri','jenis','cat'].forEach(k=>$(k).value='');selD.clear();selT.clear();tarikhToggle(false);$('daerahQ').value='';daerahOpts();bmv=0;laca='';paint();render()}
+function reset(){clearShared();status='available';['q','negeri','jenis','cat'].forEach(k=>$(k).value='');selD.clear();selT.clear();tarikhToggle(false);$('daerahQ').value='';daerahOpts();$('pMin').value='';$('pMax').value='';bmv=0;laca='';paint();render()}
 document.querySelectorAll('.rs').forEach(b=>b.onclick=reset);
 $('resetInline').onclick=reset;$('resetBar').onclick=reset;
 $('list').onclick=e=>{const s=e.target.closest('.sh');if(s){const r=DATA.find(x=>x[20]===s.dataset.id);doShare('unit',r);return}
@@ -332,6 +338,7 @@ $('close').onclick=$('apply').onclick=$('scrim').onclick=()=>sheet(false);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')sheet(false)});
 $('negeri').onchange=()=>{daerahOpts();render()};
 ['q','jenis','cat','sort'].forEach(k=>$(k).addEventListener('input',render));
+['pMin','pMax'].forEach(id=>$(id).addEventListener('input',e=>{const el=e.target,d=el.value.replace(/[^0-9]/g,'');el.value=d?Number(d).toLocaleString('en-US'):'';track('filter_price',{from:priceLo(),to:priceHi()});render()}));
 $('tarikhList').addEventListener('change',e=>{const c=e.target;if(!c||c.type!=='checkbox')return;c.checked?selT.add(c.value):selT.delete(c.value);track('filter_date',{count:selT.size});render()});
 $('tarikhClear').onclick=()=>{selT.clear();render()};
 $('tarikhBtn').onclick=()=>tarikhToggle($('tarikhPanel').hidden);
