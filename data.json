@@ -40267,7 +40267,8 @@
 "unitnop10lotno110blockplorongganangvilla4phase1ganangvillaoffjalanlintaskepayan88200penampangsabah"
 ],
 "type_raw": "3 Storey Terrace House",
-"outcome": "calloff"
+"outcome": "calloff",
+"outcome_src": "auctionnetwork"
 },
 {
 "id": "lot2tb4670tamansuriajalansalleh91000tawausabah",
@@ -40344,7 +40345,8 @@
 "lotnoc0103ablockclevel1typeakingfisherputatancondominiumphase2b88200putatansabah"
 ],
 "type_raw": "Condominium",
-"outcome": "calloff"
+"outcome": "calloff",
+"outcome_src": "auctionnetwork"
 },
 {
 "id": "lot360tb13434bandarsriindahphase1offkm16jalanapas91000tawausabah",
@@ -40949,7 +40951,8 @@
 "noa1708landmarkresidence1jalanlandmarkresidence43000kajangselangor"
 ],
 "type_raw": "Serviced Apartment",
-"outcome": "calloff"
+"outcome": "calloff",
+"outcome_src": "auctionnetwork"
 },
 {
 "id": "noc2707level27uptownresidencejalantampin1ku1offjalangohhockhuat41200klangselangor",
