@@ -522,6 +522,19 @@
    "active": 4030,
    "expired": 2358,
    "by": "Dedupe"
+  },
+  {
+   "date": "2026-10-11",
+   "time": "23:05",
+   "source": "masterlist",
+   "label": "Duplicate check: merged same unit listed on two websites",
+   "added": 0,
+   "updated": 0,
+   "purged": 0,
+   "total": 6388,
+   "active": 4030,
+   "expired": 2358,
+   "by": "Dedupe"
   }
  ]
 }
