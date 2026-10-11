@@ -415,6 +415,33 @@
    "active": 4062,
    "expired": 2382,
    "by": "Dedupe"
+  },
+  {
+   "date": "2026-10-11",
+   "time": "14:42",
+   "source": "bidnow",
+   "label": "Newer auction rounds (BidNow / Auctionnetwork, whichever is ahead)",
+   "scraped": 40,
+   "added": 0,
+   "updated": 40,
+   "purged": 0,
+   "total": 6444,
+   "active": 4086,
+   "expired": 2358,
+   "by": "Auto carian"
+  },
+  {
+   "date": "2026-10-11",
+   "time": "14:42",
+   "source": "masterlist",
+   "label": "Duplicate check: merged same unit listed on two websites",
+   "added": 0,
+   "updated": 0,
+   "purged": 0,
+   "total": 6426,
+   "active": 4068,
+   "expired": 2358,
+   "by": "Dedupe"
   }
  ]
 }
