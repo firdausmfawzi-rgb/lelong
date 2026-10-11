@@ -442,6 +442,46 @@
    "active": 4068,
    "expired": 2358,
    "by": "Dedupe"
+  },
+  {
+   "date": "2026-10-11",
+   "time": "15:34",
+   "source": "auctionnetwork",
+   "label": "Auctionnetwork latest listings",
+   "scraped": 16,
+   "added": 15,
+   "updated": 0,
+   "purged": 0,
+   "total": 6441,
+   "active": 4092,
+   "expired": 2349,
+   "by": "Auto carian"
+  },
+  {
+   "date": "2026-10-11",
+   "time": "15:34",
+   "source": "masterlist",
+   "label": "Duplicate check: merged same unit listed on two websites",
+   "added": 0,
+   "updated": 0,
+   "purged": 0,
+   "total": 6441,
+   "active": 4083,
+   "expired": 2358,
+   "by": "Dedupe"
+  },
+  {
+   "date": "2026-10-11",
+   "time": "15:35",
+   "source": "masterlist",
+   "label": "Duplicate check: merged same unit listed on two websites",
+   "added": 0,
+   "updated": 0,
+   "purged": 0,
+   "total": 6385,
+   "active": 4027,
+   "expired": 2358,
+   "by": "Dedupe"
   }
  ]
 }

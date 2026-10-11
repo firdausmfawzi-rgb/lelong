@@ -6383,10 +6383,15 @@
 "last_seen": "2026-10-11",
 "bidnow_id": 282581,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "kaveat": "-",
-"type_raw": "Low Cost Apartment"
+"type_raw": "Low Cost Apartment",
+"aliases": [
+"jalanap2e1kenaricourtalamperdana42300bandarpuncakalamselangor"
+],
+"an_slug": "jalan-ap-2e1-kenari-court-alam-perdana-42300-bandar-puncak-alam-selangor"
 },
 {
 "no": 163,
@@ -57277,13 +57282,18 @@
 "last_seen": "2026-10-11",
 "no": 1419,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "kaveat": "Tiada",
 "sekatan_pos": "TIADA",
 "mukim_daerah": "Mentakab / Temerloh / Pahang",
 "pos_checked": "2026-10-09",
-"type_raw": "Terrace"
+"type_raw": "Terrace",
+"aliases": [
+"jalansrilayang43tamansrilayang28400mentakabpahang"
+],
+"an_slug": "jalan-sri-layang-43-taman-sri-layang-28400-mentakab-pahang"
 },
 {
 "id": "no3603cendanajalancendanaoffjalansultanismail50250kualalumpur",
@@ -65801,10 +65811,15 @@
 "last_seen": "2026-10-11",
 "no": 1626,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "kaveat": "-",
-"type_raw": "1 Storey Terrace House"
+"type_raw": "1 Storey Terrace House",
+"aliases": [
+"jalanbidorbistari4tamanbidorbistari35500bidorperak"
+],
+"an_slug": "jalan-bidor-bistari-4-taman-bidor-bistari-35500-bidor-perak"
 },
 {
 "id": "nob62lorongjayagading31jalangading26070kuantanpahang",
@@ -67093,10 +67108,15 @@
 "last_seen": "2026-10-11",
 "no": 1659,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "kaveat": "-",
-"type_raw": "Serviced Apartment"
+"type_raw": "Serviced Apartment",
+"aliases": [
+"northwoodsuiteeduspheresuiteseduspherecyber1163000cyberjayaselangor"
+],
+"an_slug": "northwood-suite-edusphere-suites-edusphere-cyber-11-63000-cyberjaya-selangor-1"
 },
 {
 "id": "not223a13ablockt2thirdavenuejalanteknokrat3cyber468000sepangselangor",
@@ -67195,10 +67215,15 @@
 "last_seen": "2026-10-11",
 "no": 1662,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "kaveat": "-",
-"type_raw": "Small Office Home Office"
+"type_raw": "Small Office Home Office",
+"aliases": [
+"jalansimfoni2balakong43300serikembanganselangor"
+],
+"an_slug": "jalan-simfoni-2-balakong-43300-seri-kembangan-selangor-1"
 },
 {
 "id": "nob2209koiprimajalanpinggiranmastamanmaslangat47130puchongselangor",
@@ -67229,10 +67254,15 @@
 "last_seen": "2026-10-11",
 "no": 1663,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "kaveat": "-",
-"type_raw": "Condominium"
+"type_raw": "Condominium",
+"aliases": [
+"koiprimajalanpinggiranmastamanmaslangat47130puchongselangor"
+],
+"an_slug": "koi-prima-jalan-pinggiran-mas-taman-mas-langat-47130-puchong-selangor-3"
 },
 {
 "id": "no7jalantembusuu5208kgmelayusubangseksyenu540150shahalamselangor",
@@ -67365,10 +67395,15 @@
 "last_seen": "2026-10-11",
 "no": 1667,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "kaveat": "-",
-"type_raw": "Condominium"
+"type_raw": "Condominium",
+"aliases": [
+"southernheightsapartmenttamanbukitmewahbukitantarabangsa68000ampangselangor"
+],
+"an_slug": "southern-heights-apartment-taman-bukit-mewah-bukit-antarabangsa-68000-ampang-selangor"
 },
 {
 "id": "no2lorongpinggiranputra3123pinggiranputra326060kuantanpahang",
@@ -68239,10 +68274,15 @@
 "last_seen": "2026-10-11",
 "no": 1690,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "kaveat": "-",
-"type_raw": "Serviced Apartment"
+"type_raw": "Serviced Apartment",
+"aliases": [
+"emerald9cheraspersiaranawana43200cherasselangor"
+],
+"an_slug": "emerald-9-cheras-persiaran-awana-43200-cheras-selangor-3"
 },
 {
 "id": "noa2313blokamirairesidencesresidensimeriahpersiarankajang2kajang243000kajangselangor",
@@ -68307,10 +68347,15 @@
 "last_seen": "2026-10-11",
 "no": 1692,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "kaveat": "-",
-"type_raw": "2 Storey Terrace House"
+"type_raw": "2 Storey Terrace House",
+"aliases": [
+"jalansp56seripristana47000sungaibulohselangor"
+],
+"an_slug": "jalan-sp-56-seri-pristana-47000-sungai-buloh-selangor"
 },
 {
 "id": "no14jalanmerantiputih4aku10tamandesapermai241050klangselangor",
@@ -69384,10 +69429,15 @@
 "last_seen": "2026-10-11",
 "no": 1720,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "kaveat": "-",
-"type_raw": "2 Storey Terraced House, Extended, End Lot"
+"type_raw": "2 Storey Terraced House, Extended, End Lot",
+"aliases": [
+"jalanhilir4tamansriangsanahilir55100kualalumpur"
+],
+"an_slug": "jalan-hilir-4-taman-sri-angsana-hilir-55100-kuala-lumpur-1"
 },
 {
 "id": "no88734apartmentabdullahhukum1kghajiabdullahhukumoffjalanbangsar59200kualalumpur",
@@ -74868,7 +74918,10 @@
 "an_id": "213615",
 "an_slug": "hala-keledang-emas-11a-taman-keledang-emas-30100-ipoh-perak",
 "pos_an": "https://efs.kehakiman.gov.my/EFSWeb/DocDownloader.aspx?DocumentID=cc00ab58-6b4a-4c52-9a3e-775a62a4f608&Inline=true",
-"type_raw": "Terrace"
+"type_raw": "Terrace",
+"aliases": [
+"halakeledangemas11atamankeledangemas30100ipohperak"
+]
 },
 {
 "id": "no24jalanperpaduandamai5lembahperpaduandamai31150ulukintaperak",
@@ -80397,13 +80450,18 @@
 "last_seen": "2026-10-09",
 "no": 1994,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "kaveat": "Tiada",
 "sekatan_pos": "Tanah ini tidak boleh dipindahmilik, dipajak, dicagar atau dibebankan tanpa kebenaran Menteri Besar Perak.",
 "mukim_daerah": "Sitiawan / Manjung / Perak",
 "pos_checked": "2026-10-09",
-"type_raw": "1 Storey Terrace House"
+"type_raw": "1 Storey Terrace House",
+"aliases": [
+"jalanresiden23residen2bandarbarusetiaawanperdana32000sitiawanperak"
+],
+"an_slug": "jalan-residen-23-residen-2-bandar-baru-setia-awan-perdana-32000-sitiawan-perak-1"
 },
 {
 "id": "no1laluanwawasan6tamanwawasantronoh31750tronohperak",
@@ -81150,13 +81208,18 @@
 "last_seen": "2026-10-09",
 "no": 2013,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "kaveat": "Tiada",
 "sekatan_pos": "TIADA",
 "mukim_daerah": "HULU KINTA / KINTA / Perak",
 "pos_checked": "2026-10-09",
-"type_raw": "1 Storey Terrace House"
+"type_raw": "1 Storey Terrace House",
+"aliases": [
+"laluanhulubercham12bandarbaruputra31400ipohperak"
+],
+"an_slug": "laluan-hulu-bercham-12-bandar-baru-putra-31400-ipoh-perak"
 },
 {
 "id": "no257tamanlintang31100sungaisiputuperak",
@@ -83680,13 +83743,18 @@
 "last_seen": "2026-10-09",
 "no": 2078,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "kaveat": "Tiada",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "Kuala Kuantan / Kuantan / Pahang",
 "pos_checked": "2026-10-09",
-"type_raw": "Terrace"
+"type_raw": "Terrace",
+"aliases": [
+"jalantas40perumahantas25150kuantanpahang"
+],
+"an_slug": "jalan-tas-40-perumahan-tas-25150-kuantan-pahang"
 },
 {
 "id": "no34lorongipj12perumahanmakmurinderapurajaya25150kuantanpahang",
@@ -92387,6 +92455,7 @@
 "last_seen": "2026-10-09",
 "no": 2308,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "kaveat": "No. Perserahan 00B924/2024 Kaveat Persendirian Atas Tanah Oleh Bank Simpanan Nasional",
@@ -92394,7 +92463,11 @@
 "mukim_daerah": "Mukim Beriah / Kerian / Perak",
 "pos_checked": "2026-10-09",
 "kaveat_type": "Bank",
-"type_raw": "Terrace"
+"type_raw": "Terrace",
+"aliases": [
+"jalanlb14lembahberiah134310baganseraiperak"
+],
+"an_slug": "jalan-lb-14-lembah-beriah-1-34310-bagan-serai-perak"
 },
 {
 "id": "no47tamandesasalak31050sungaisiputperak",
@@ -141975,12 +142048,17 @@
 "carpark": "-",
 "bidnow_id": 283359,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-11",
 "no": 3677,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"plazakltsblockbjalangombaksetapak53000kualalumpur"
+],
+"an_slug": "plaza-klts-block-b-jalan-gombak-setapak-53000-kuala-lumpur-1"
 },
 {
 "id": "no282plazakltsblockbjalangombaksetapak53000kualalumpur",
@@ -142043,12 +142121,17 @@
 "carpark": "-",
 "bidnow_id": 283361,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-11",
 "no": 3679,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"pangsapuriserisuriaseksyen3440470shahalamselangor"
+],
+"an_slug": "pangsapuri-seri-suria-seksyen-34-40470-shah-alam-selangor"
 },
 {
 "id": "nob1g01groundfloorblokb1pangsapuribukitberuangutama75450hangtuahjayabukitberuangmelaka",
@@ -142077,12 +142160,17 @@
 "carpark": "-",
 "bidnow_id": 283364,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-11",
 "no": 3680,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"pangsapuribukitberuangutama75450hangtuahjayabukitberuangmelaka"
+],
+"an_slug": "pangsapuri-bukit-beruang-utama-75450-hang-tuah-jaya-bukit-beruang-melaka"
 },
 {
 "id": "noa3907blockaresidensixtrememeridianastoriaampangjalanbembanoffjalanampang55000kualalumpur",
@@ -143373,12 +143461,17 @@
 "carpark": "-",
 "bidnow_id": 283403,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-11",
 "no": 3718,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"pangsapuridamaijalantokoh2528tamansrimudasection2540400shahalamselangor"
+],
+"an_slug": "pangsapuri-damai-jalan-tokoh-2528-taman-sri-muda-section-25-40400-shah-alam-selangor-1"
 },
 {
 "id": "no011610pangsapuridepalmano6persiaransetiamakmursetiaalamseksyenu1340170shahalamselangor",
@@ -143441,12 +143534,17 @@
 "carpark": "-",
 "bidnow_id": 283405,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-11",
 "no": 3720,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"pangsapuriindahriapersiaranjubliperaksection2240300shahalamselangor"
+],
+"an_slug": "pangsapuri-indahria-persiaran-jubli-perak-section-22-40300-shah-alam-selangor"
 },
 {
 "id": "noa6eimpianacondovillakampungtelokpanjijalanrajaperempuanzainabii16100kotabharukelantan",
@@ -145079,6 +145177,7 @@
 "carpark": "-",
 "bidnow_id": 283449,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
@@ -145087,7 +145186,11 @@
 "kaveat": "Tiada",
 "sekatan_pos": "Tanah yang terkandung di dalam hakmilik ini tidak boleh dijual atau dipindahmilik dengan apa cara sekalipun kepada Bukan Warganegara/Syarikat Asing tanpa persetujuan Pihak Berkuasa Negeri",
 "mukim_daerah": "Kluang / Kluang / Johor",
-"pos_checked": "2026-10-11"
+"pos_checked": "2026-10-11",
+"aliases": [
+"jalansaujanaimpian4tamansaujana86000kluangjohor"
+],
+"an_slug": "jalan-saujana-impian-4-taman-saujana-86000-kluang-johor"
 },
 {
 "id": "no5jalanbayu14tamanseribayu83700yongpengjohor",
@@ -145153,6 +145256,7 @@
 "carpark": "-",
 "bidnow_id": 283451,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
@@ -145162,7 +145266,11 @@
 "sekatan_pos": "Tanah yang diberimilik ini tidak boleh dipindahmilik, dipajak, digadai melainkan dengan kebenaran bertulis daripada Pihak Berkuasa Negeri",
 "mukim_daerah": "Bandar Sri Sendayan / Seremban / Negeri Sembilan",
 "pos_checked": "2026-10-11",
-"kaveat_type": "Individu"
+"kaveat_type": "Individu",
+"aliases": [
+"jalanhijayuaman21hijayuamanbandarsrisendayan71950serembannegerisembilan"
+],
+"an_slug": "jalan-hijayu-aman-21-hijayu-aman-bandar-sri-sendayan-71950-seremban-negeri-sembilan"
 },
 {
 "id": "no22ajalanbaganlallang3tamanbaganlallang13400butterworthpenang",
@@ -145191,6 +145299,7 @@
 "carpark": "-",
 "bidnow_id": 283453,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
@@ -145199,7 +145308,11 @@
 "kaveat": "Tiada",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "Mukim 16 / Seberang Perai Utara / Pulau Pinang",
-"pos_checked": "2026-10-11"
+"pos_checked": "2026-10-11",
+"aliases": [
+"jalanbaganlallang3tamanbaganlallang13400butterworthpenang"
+],
+"an_slug": "jalan-bagan-lallang-3-taman-bagan-lallang-13400-butterworth-penang"
 },
 {
 "id": "no16lorongsejahtera19tamansejahtera14000bukitmertajampenang",
@@ -145228,6 +145341,7 @@
 "carpark": "-",
 "bidnow_id": 283455,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
@@ -145237,7 +145351,11 @@
 "sekatan_pos": "TIADA",
 "mukim_daerah": "Mukim 15 / Seberang Perai Tengah / Pulau Pinang",
 "pos_checked": "2026-10-11",
-"kaveat_type": "Individu"
+"kaveat_type": "Individu",
+"aliases": [
+"lorongsejahtera19tamansejahtera14000bukitmertajampenang"
+],
+"an_slug": "lorong-sejahtera-19-taman-sejahtera-14000-bukit-mertajam-penang"
 },
 {
 "id": "no10708jelutongparklintangmadrasah11600jelutongpenang",
@@ -145383,6 +145501,7 @@
 "carpark": "-",
 "bidnow_id": 283465,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
@@ -145391,7 +145510,11 @@
 "kaveat": "Tiada",
 "sekatan_pos": "Tiada",
 "mukim_daerah": "Mukim 14 / Seberang Perai Tengah / Pulau Pinang",
-"pos_checked": "2026-10-11"
+"pos_checked": "2026-10-11",
+"aliases": [
+"lorongkotapermai12tamankotapermai14000bukitmertajampenang"
+],
+"an_slug": "lorong-kota-permai-12-taman-kota-permai-14000-bukit-mertajam-penang"
 },
 {
 "id": "no31911desabistarilintangpantaijerjakmukim1311700glugorpenang",
@@ -146269,12 +146392,17 @@
 "carpark": "-",
 "bidnow_id": 283502,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3796,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"jalanmerahpelangisatuu919amonterezgolfcountryclub40150shahalamselangor"
+],
+"an_slug": "jalan-merah-pelangi-satu-u919a-monterez-golf-country-club-40150-shah-alam-selangor"
 },
 {
 "id": "no17jalan33157bseksyen3340400shahalamselangor",
@@ -146337,12 +146465,17 @@
 "carpark": "-",
 "bidnow_id": 283504,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3798,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"pangsapuriserulingjalanastaka1ku2bandarbukitraja41050klangselangor"
+],
+"an_slug": "pangsapuri-seruling-jalan-astaka-1ku2-bandar-bukit-raja-41050-klang-selangor"
 },
 {
 "id": "no15jalankonsulu110seksyenu140150shahalamselangor",
@@ -146445,12 +146578,17 @@
 "carpark": "-",
 "bidnow_id": 283508,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3801,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"jalanub13btamanukaybistari68000ampangselangor"
+],
+"an_slug": "jalan-ub-13b-taman-ukay-bistari-68000-ampang-selangor-1"
 },
 {
 "id": "noa301blokapangsapurisricempakabandarpuchongjaya47170puchongselangor",
@@ -146479,12 +146617,17 @@
 "carpark": "-",
 "bidnow_id": 283509,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3802,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"pangsapurisricempakabandarpuchongjaya47170puchongselangor"
+],
+"an_slug": "pangsapuri-sri-cempaka-bandar-puchong-jaya-47170-puchong-selangor"
 },
 {
 "id": "no22301villapandan2pandanvillecondominiumjalanpandanindah116pandanindah55100kualalumpurkualalumpur",
@@ -146695,12 +146838,17 @@
 "carpark": "-",
 "bidnow_id": 283519,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3808,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"menaraalot15jalanss16147500subangjayaselangor"
+],
+"an_slug": "menara-a-lot-15-jalan-ss-161-47500-subang-jaya-selangor"
 },
 {
 "id": "no102blokdkondokelanadputerano19jalanss726kelanajaya47301petalingjayaselangor",
@@ -146911,12 +147059,17 @@
 "carpark": "-",
 "bidnow_id": 283525,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3814,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"jalanbestari542tamanbestariindah81800ulutiramjohor"
+],
+"an_slug": "jalan-bestari-542-taman-bestari-indah-81800-ulu-tiram-johor"
 },
 {
 "id": "no25jalandelima19tamankotamasai81700pasirgudangjohor",
@@ -147025,12 +147178,17 @@
 "carpark": "-",
 "bidnow_id": 283528,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3817,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"jalantenang5tamandamaijaya81300skudaijohor"
+],
+"an_slug": "jalan-tenang-5-taman-damai-jaya-81300-skudai-johor"
 },
 {
 "id": "noa0211blokajalantasekpangsapurisriilhambandarserialam81750masaijohor",
@@ -147099,12 +147257,17 @@
 "carpark": "-",
 "bidnow_id": 283531,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3819,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"jalankencana1a26tamanpurakencanasrigading83300batupahatjohor"
+],
+"an_slug": "jalan-kencana-1a26-taman-pura-kencana-sri-gading-83300-batu-pahat-johor"
 },
 {
 "id": "no19jalansemerbak13tamanbukitdahlia81700pasirgudangjohor",
@@ -147133,12 +147296,17 @@
 "carpark": "-",
 "bidnow_id": 283532,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3820,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"jalansemerbak13tamanbukitdahlia81700pasirgudangjohor"
+],
+"an_slug": "jalan-semerbak-13-taman-bukit-dahlia-81700-pasir-gudang-johor"
 },
 {
 "id": "no6jalandenai11tamanbukitjaya81800ulutiramjohor",
@@ -147235,12 +147403,17 @@
 "carpark": "-",
 "bidnow_id": 283538,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3823,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"pangsapuriserimutiarajalanpersiaranserialambandarserialam81750masaijohor"
+],
+"an_slug": "pangsapuri-seri-mutiara-jalan-persiaran-seri-alam-bandar-seri-alam-81750-masai-johor-6"
 },
 {
 "id": "no27jalanekoflora29tamanekoflora81100johorbahrujohor",
@@ -147269,12 +147442,17 @@
 "carpark": "-",
 "bidnow_id": 283539,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3824,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"jalanekoflora29tamanekoflora81100johorbahrujohor"
+],
+"an_slug": "jalan-ekoflora-29-taman-ekoflora-81100-johor-bahru-johor"
 },
 {
 "id": "no3207menarad2pangsapuripuncakkempasutamajalankempasutama26tamankempasutama81300johorbahrujohor",
@@ -147303,12 +147481,17 @@
 "carpark": "-",
 "bidnow_id": 283540,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3825,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"pangsapuripuncakkempasutamajalankempasutama26tamankempasutama81300johorbahrujohor"
+],
+"an_slug": "menara-d2-pangsapuri-puncak-kempas-utama-jalan-kempas-utama-26-taman-kempas-utama-81300-johor-bahru-johor"
 },
 {
 "id": "no17jalankemboja19bandarbestariperdana81700pasirgudangjohor",
@@ -147417,12 +147600,17 @@
 "carpark": "-",
 "bidnow_id": 283544,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3828,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"jalansaga13tamandesacemerlang81800ulutiramjohor"
+],
+"an_slug": "jalan-saga-13-taman-desa-cemerlang-81800-ulu-tiram-johor"
 },
 {
 "id": "no0201tkt2blokjriaapartment2jalancenderai19bandarbarukotaputeri81750masaijohor",
@@ -147485,12 +147673,17 @@
 "carpark": "-",
 "bidnow_id": 283547,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3830,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"jalansamping1tamanbukitjaya81800ulutiramjohor"
+],
+"an_slug": "jalan-samping-1-taman-bukit-jaya-81800-ulu-tiram-johor"
 },
 {
 "id": "no1704onsite173ablockcpangsapuriserimutiaraalsoknownasserimutiaraapartmentsjalanpersiaranserialambandarserialam81750masaijohor",
@@ -147519,12 +147712,17 @@
 "carpark": "-",
 "bidnow_id": 283548,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3831,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"pangsapuriserimutiaraalsoknownasserimutiaraapartmentsjalanpersiaranserialambandarserialam81750masaijohor"
+],
+"an_slug": "pangsapuri-seri-mutiara-also-known-as-seri-mutiara-apartments-jalan-persiaran-seri-alam-bandar-seri-alam-81750-masai-johor"
 },
 {
 "id": "no30jalantenteram5tamannusadamai81700pasirgudangjohor",
@@ -147553,12 +147751,17 @@
 "carpark": "-",
 "bidnow_id": 283549,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3832,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"jalantenteram5tamannusadamai81700pasirgudangjohor"
+],
+"an_slug": "jalan-tenteram-5-taman-nusa-damai-81700-pasir-gudang-johor"
 },
 {
 "id": "no5jalanrambai16tamankotamasai81700pasirgudangjohor",
@@ -147621,12 +147824,17 @@
 "carpark": "-",
 "bidnow_id": 283552,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3834,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"jalanpulaimutiara53tamanpulaimutiara81300johorbahrujohor"
+],
+"an_slug": "jalan-pulai-mutiara-53-taman-pulai-mutiara-81300-johor-bahru-johor"
 },
 {
 "id": "no5jalansejati9tamantasiksejati85010bulohkasapsegamatjohor",
@@ -147689,12 +147897,17 @@
 "carpark": "-",
 "bidnow_id": 283554,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3836,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"pangsapurilagendatasekjalantunabdulrazaksusur6tamansuriamuafakat81200johorbahrujohor"
+],
+"an_slug": "pangsapuri-lagenda-tasek-jalan-tun-abdul-razak-susur-6-taman-suria-muafakat-81200-johor-bahru-johor"
 },
 {
 "id": "no1309blokckipvillaindahjalantitiwangsa1tamantampoiindah81200johorbahrujohor",
@@ -147723,12 +147936,17 @@
 "carpark": "-",
 "bidnow_id": 283555,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3837,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"kipvillaindahjalantitiwangsa1tamantampoiindah81200johorbahrujohor"
+],
+"an_slug": "kip-villa-indah-jalan-titiwangsa-1-taman-tampoi-indah-81200-johor-bahru-johor"
 },
 {
 "id": "no6jalanperjiranan1125bandardatoonn81100johorbahrujohor",
@@ -147831,12 +148049,17 @@
 "carpark": "-",
 "bidnow_id": 283558,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3840,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"menarad2pangsapuripuncakkempasutamajalankempasutama26tamankempasutama81300johorbahrujohor"
+],
+"an_slug": "menara-d2-pangsapuri-puncak-kempas-utama-jalan-kempas-utama-26taman-kempas-utama-81300-johor-bahru-johor-2"
 },
 {
 "id": "noe0403tingkat4blokepangsapuriserialamjalanpersiaranserialambandarserialam81750masaijohor",
@@ -147865,12 +148088,17 @@
 "carpark": "-",
 "bidnow_id": 283559,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3841,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"pangsapuriserialamjalanpersiaranserialambandarserialam81750masaijohor"
+],
+"an_slug": "pangsapuri-seri-alam-jalan-persiaran-seri-alam-bandar-seri-alam-81750-masai-johor-1"
 },
 {
 "id": "no0807blokapangsapuriserialamjalanpersiaranserialambandarserialam81750masaijohor",
@@ -147933,12 +148161,17 @@
 "carpark": "-",
 "bidnow_id": 283561,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3843,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"jalanmustikakampungmelayumajidee81100johorbahrujohor"
+],
+"an_slug": "jalan-mustika-kampung-melayu-majidee-81100-johor-bahru-johor"
 },
 {
 "id": "no43jalanpakistigatamansripulai81300skudaijohor",
@@ -147967,12 +148200,17 @@
 "carpark": "-",
 "bidnow_id": 283562,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3844,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"jalanpakistigatamansripulai81300skudaijohor"
+],
+"an_slug": "jalan-pakis-tiga-taman-sri-pulai-81300-skudai-johor"
 },
 {
 "id": "noa1107pangsapuripermataaustinjalanaustinperdana1tamanaustinperdana81100johorbahrujohor",
@@ -148001,12 +148239,17 @@
 "carpark": "-",
 "bidnow_id": 283563,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3845,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"pangsapuripermataaustinjalanaustinperdana1tamanaustinperdana81100johorbahrujohor"
+],
+"an_slug": "pangsapuri-permata-austin-jalan-austin-perdana-1-taman-austin-perdana-81100-johor-bahru-johor"
 },
 {
 "id": "no86jalanindahutama12bandarputra81000kulaijohor",
@@ -148035,12 +148278,17 @@
 "carpark": "-",
 "bidnow_id": 283564,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3846,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"jalanindahutama12bandarputra81000kulaijohor"
+],
+"an_slug": "jalan-indah-utama-12-bandar-putra-81000-kulai-johor"
 },
 {
 "id": "nob263jalantembusu8tamanbandarbarudua06400pokoksenakedah",
@@ -148477,12 +148725,17 @@
 "carpark": "-",
 "bidnow_id": 283579,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3859,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"lorongria31tamanria09400padangseraikedah"
+],
+"an_slug": "lorong-ria-31-taman-ria-09400-padang-serai-kedah"
 },
 {
 "id": "no921lorongharmoni8bandarutama08000sungaipetanikedah",
@@ -148755,12 +149008,17 @@
 "carpark": "-",
 "bidnow_id": 283590,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3867,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"twintowerspersiarantanjungbungah11200tanjungbungahpenang"
+],
+"an_slug": "twin-towers-persiaran-tanjung-bungah-11200-tanjung-bungah-penang"
 },
 {
 "id": "nog129loronghelang3mk1311700gelugorpenang",
@@ -148789,12 +149047,17 @@
 "carpark": "-",
 "bidnow_id": 283591,
 "sources": [
+"auctionnetwork",
 "bidnow"
 ],
 "first_seen": "2026-10-10",
 "last_seen": "2026-10-10",
 "no": 3868,
-"kaveat": "-"
+"kaveat": "-",
+"aliases": [
+"loronghelang3mk1311700gelugorpenang"
+],
+"an_slug": "lorong-helang-3-mk-13-11700-gelugor-penang"
 },
 {
 "id": "no7soloktemenggong3tamankoskam13200kepalabataspenang",
@@ -231820,186 +232083,6 @@
 "kaveat": "-"
 },
 {
-"id": "menaraalot15jalanss16147500subangjayaselangor",
-"address": "Menara A, Lot 15, Jalan SS 16/1, 47500, Subang Jaya, Selangor",
-"state": "Selangor",
-"district": "Subang Jaya",
-"maps": "https://www.google.com/maps/search/?api=1&query=Menara%20A%2C%20Jalan%20SS%2016/1",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 620,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "-",
-"built_up": "624 Sq.ft",
-"auction_date": "Nov 16, 2026",
-"auction_time": "9:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214260",
-"an_slug": "menara-a-lot-15-jalan-ss-161-47500-subang-jaya-selangor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6199,
-"kaveat": "-"
-},
-{
-"id": "jalanub13btamanukaybistari68000ampangselangor",
-"address": "Jalan UB 13B, Taman Ukay Bistari, 68000, Ampang, Selangor",
-"state": "Selangor",
-"district": "Ampang",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20UB%2013B%2C%2068000%20Ampang%2C%20Selangor",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 700,000",
-"market_value": "-",
-"tenure": "Leasehold",
-"land": "1,400 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 16, 2026",
-"auction_time": "9:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214265",
-"an_slug": "jalan-ub-13b-taman-ukay-bistari-68000-ampang-selangor-1",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6200,
-"kaveat": "-"
-},
-{
-"id": "pangsapurisricempakabandarpuchongjaya47170puchongselangor",
-"address": "Pangsapuri Sri Cempaka, Bandar Puchong Jaya, 47170, Puchong, Selangor",
-"state": "Selangor",
-"district": "Puchong",
-"maps": "https://www.google.com/maps/search/?api=1&query=Pangsapuri%20Sri%20Cempaka%2C%20Bandar%20Puchong%20Jaya",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 260,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "-",
-"built_up": "807 Sq.ft",
-"auction_date": "Nov 16, 2026",
-"auction_time": "9:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214263",
-"an_slug": "pangsapuri-sri-cempaka-bandar-puchong-jaya-47170-puchong-selangor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6201,
-"kaveat": "-"
-},
-{
-"id": "pangsapuriserulingjalanastaka1ku2bandarbukitraja41050klangselangor",
-"address": "Pangsapuri Seruling, Jalan Astaka 1/KU2, Bandar Bukit Raja, 41050, Klang, Selangor",
-"state": "Selangor",
-"district": "Klang",
-"maps": "https://www.google.com/maps/search/?api=1&query=Pangsapuri%20Seruling%2C%20Jalan%20Astaka%201/KU2",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 360,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "-",
-"built_up": "1,001 Sq.ft",
-"auction_date": "Nov 16, 2026",
-"auction_time": "9:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214261",
-"an_slug": "pangsapuri-seruling-jalan-astaka-1ku2-bandar-bukit-raja-41050-klang-selangor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6202,
-"kaveat": "-"
-},
-{
-"id": "jalanmerahpelangisatuu919amonterezgolfcountryclub40150shahalamselangor",
-"address": "Jalan Merah Pelangi Satu U9/19A, Monterez Golf & Country Club, 40150, Shah Alam, Selangor",
-"state": "Selangor",
-"district": "Shah Alam",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Merah%20Pelangi%20Satu%20U9/19A%2C%2040150%20Shah%20Alam%2C%20Selangor",
-"type": "Semi-Detached / Bungalow / Villa",
-"type_raw": "Semi Detached/ Bungalow/ Villa",
-"bmv": "-",
-"price": "RM 1,640,700",
-"market_value": "-",
-"tenure": "Leasehold",
-"land": "5,005 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 16, 2026",
-"auction_time": "9:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Bungalow / Semi-Detached",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214262",
-"an_slug": "jalan-merah-pelangi-satu-u919a-monterez-golf-country-club-40150-shah-alam-selangor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6203,
-"kaveat": "-"
-},
-{
 "id": "jalanbayu14tamanseribayu83700yongpengjohor",
 "address": "Jalan Bayu 14, Taman Seri Bayu, 83700 Yong Peng, Johor",
 "state": "Johor",
@@ -232032,79 +232115,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6204,
-"kaveat": "-"
-},
-{
-"id": "jalansaujanaimpian4tamansaujana86000kluangjohor",
-"address": "Jalan Saujana Impian 4, Taman Saujana, 86000, Kluang, Johor",
-"state": "Johor",
-"district": "Kluang",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Saujana%20Impian%204%2C%2086000%20Kluang%2C%20Johor",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 270,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "1,540 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 10, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214259",
-"an_slug": "jalan-saujana-impian-4-taman-saujana-86000-kluang-johor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6205,
-"kaveat": "-"
-},
-{
-"id": "jalanhijayuaman21hijayuamanbandarsrisendayan71950serembannegerisembilan",
-"address": "Jalan Hijayu Aman 21, Hijayu Aman, Bandar Sri Sendayan, 71950 Seremban, Negeri Sembilan",
-"state": "Negeri Sembilan",
-"district": "Seremban",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Hijayu%20Aman%2021%2C%2071950%20Seremban%2C%20Negeri%20Sembilan",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 666,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "3,627 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 10, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214257",
-"an_slug": "jalan-hijayu-aman-21-hijayu-aman-bandar-sri-sendayan-71950-seremban-negeri-sembilan",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6206,
+"no": 6199,
 "kaveat": "-"
 },
 {
@@ -232140,151 +232151,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6207,
-"kaveat": "-"
-},
-{
-"id": "lorongkotapermai12tamankotapermai14000bukitmertajampenang",
-"address": "Lorong Kota Permai 12, Taman Kota Permai, 14000 Bukit Mertajam, Penang",
-"state": "Penang",
-"district": "Bukit Mertajam",
-"maps": "https://www.google.com/maps/search/?api=1&query=Lorong%20Kota%20Permai%2012%2C%2014000%20Bukit%20Mertajam%2C%20Penang",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 342,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "1,400 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 10, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214256",
-"an_slug": "lorong-kota-permai-12-taman-kota-permai-14000-bukit-mertajam-penang",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6208,
-"kaveat": "-"
-},
-{
-"id": "lorongsejahtera19tamansejahtera14000bukitmertajampenang",
-"address": "Lorong Sejahtera 19, Taman Sejahtera, 14000, Bukit Mertajam, Penang",
-"state": "Penang",
-"district": "Bukit Mertajam",
-"maps": "https://www.google.com/maps/search/?api=1&query=Lorong%20Sejahtera%2019%2C%2014000%20Bukit%20Mertajam%2C%20Penang",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 380,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "1,100 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 10, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214254",
-"an_slug": "lorong-sejahtera-19-taman-sejahtera-14000-bukit-mertajam-penang",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6209,
-"kaveat": "-"
-},
-{
-"id": "loronghelang3mk1311700gelugorpenang",
-"address": "Lorong Helang 3, MK 13, 11700, Gelugor, Penang",
-"state": "Penang",
-"district": "Gelugor",
-"maps": "https://www.google.com/maps/search/?api=1&query=Lorong%20Helang%203%2C%20MK%2013",
-"type": "Flat",
-"type_raw": "Flat",
-"bmv": "-",
-"price": "RM 200,000",
-"market_value": "-",
-"tenure": "Leasehold",
-"land": "-",
-"built_up": "549 Sq.ft",
-"auction_date": "Nov 30, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Flat",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214252",
-"an_slug": "lorong-helang-3-mk-13-11700-gelugor-penang",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6210,
-"kaveat": "-"
-},
-{
-"id": "jalanbaganlallang3tamanbaganlallang13400butterworthpenang",
-"address": "Jalan Bagan Lallang 3, Taman Bagan Lallang, 13400, Butterworth, Penang",
-"state": "Penang",
-"district": "Butterworth",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Bagan%20Lallang%203%2C%2013400%20Butterworth%2C%20Penang",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 650,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "1,302 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 10, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214253",
-"an_slug": "jalan-bagan-lallang-3-taman-bagan-lallang-13400-butterworth-penang",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6211,
+"no": 6200,
 "kaveat": "-"
 },
 {
@@ -232320,7 +232187,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6212,
+"no": 6201,
 "kaveat": "-"
 },
 {
@@ -232356,79 +232223,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6213,
-"kaveat": "-"
-},
-{
-"id": "pangsapuriserimutiaraalsoknownasserimutiaraapartmentsjalanpersiaranserialambandarserialam81750masaijohor",
-"address": "Pangsapuri Seri Mutiara, (Also Known As Seri Mutiara Apartments), Jalan Persiaran Seri Alam, Bandar Seri Alam, 81750, Masai, Johor",
-"state": "Johor",
-"district": "Masai",
-"maps": "https://www.google.com/maps/search/?api=1&query=Pangsapuri%20Seri%20Mutiara%2C%20Jalan%20Persiaran%20Seri%20Alam",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 210,600",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "-",
-"built_up": "840 Sq.ft",
-"auction_date": "Nov 30, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214248",
-"an_slug": "pangsapuri-seri-mutiara-also-known-as-seri-mutiara-apartments-jalan-persiaran-seri-alam-bandar-seri-alam-81750-masai-johor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6214,
-"kaveat": "-"
-},
-{
-"id": "jalansamping1tamanbukitjaya81800ulutiramjohor",
-"address": "Jalan Samping 1, Taman Bukit Jaya, 81800, Ulu Tiram, Johor",
-"state": "Johor",
-"district": "Ulu Tiram",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Samping%201%2C%2081800%20Ulu%20Tiram%2C%20Johor",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 720,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "2,034 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 30, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214249",
-"an_slug": "jalan-samping-1-taman-bukit-jaya-81800-ulu-tiram-johor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6215,
+"no": 6202,
 "kaveat": "-"
 },
 {
@@ -232464,223 +232259,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6216,
-"kaveat": "-"
-},
-{
-"id": "jalantenteram5tamannusadamai81700pasirgudangjohor",
-"address": "Jalan Tenteram 5, Taman Nusa Damai, 81700 Pasir Gudang, Johor",
-"state": "Johor",
-"district": "Pasir Gudang",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Tenteram%205%2C%2081700%20Pasir%20Gudang%2C%20Johor",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 444,690",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "1,873 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 30, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214247",
-"an_slug": "jalan-tenteram-5-taman-nusa-damai-81700-pasir-gudang-johor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6217,
-"kaveat": "-"
-},
-{
-"id": "pangsapurilagendatasekjalantunabdulrazaksusur6tamansuriamuafakat81200johorbahrujohor",
-"address": "Pangsapuri Lagenda Tasek, Jalan Tun Abdul Razak Susur 6, Taman Suria Muafakat, 81200 Johor Bahru, Johor",
-"state": "Johor",
-"district": "Johor Bahru",
-"maps": "https://www.google.com/maps/search/?api=1&query=Pangsapuri%20Lagenda%20Tasek%2C%20Jalan%20Tun%20Abdul%20Razak%20Susur%206",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 343,000",
-"market_value": "-",
-"tenure": "Leasehold",
-"land": "-",
-"built_up": "-",
-"auction_date": "Nov 30, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214245",
-"an_slug": "pangsapuri-lagenda-tasek-jalan-tun-abdul-razak-susur-6-taman-suria-muafakat-81200-johor-bahru-johor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6218,
-"kaveat": "-"
-},
-{
-"id": "kipvillaindahjalantitiwangsa1tamantampoiindah81200johorbahrujohor",
-"address": "Kip Villa Indah, Jalan Titiwangsa 1, Taman Tampoi Indah, 81200, Johor Bahru, Johor",
-"state": "Johor",
-"district": "Johor Bahru",
-"maps": "https://www.google.com/maps/search/?api=1&query=Kip%20Villa%20Indah%2C%20Jalan%20Titiwangsa%201",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 283,500",
-"market_value": "-",
-"tenure": "Leasehold",
-"land": "-",
-"built_up": "850 Sq.ft",
-"auction_date": "Nov 30, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214244",
-"an_slug": "kip-villa-indah-jalan-titiwangsa-1-taman-tampoi-indah-81200-johor-bahru-johor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6219,
-"kaveat": "-"
-},
-{
-"id": "menarad2pangsapuripuncakkempasutamajalankempasutama26tamankempasutama81300johorbahrujohor",
-"address": "Menara D2, Pangsapuri Puncak Kempas Utama, Jalan Kempas Utama 2/6,Taman Kempas Utama, 81300, Johor Bahru, Johor",
-"state": "Johor",
-"district": "Johor Bahru",
-"maps": "https://www.google.com/maps/search/?api=1&query=Menara%20D2%2C%20Pangsapuri%20Puncak%20Kempas%20Utama",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 459,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "-",
-"built_up": "1,238 Sq.ft",
-"auction_date": "Nov 30, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214243",
-"an_slug": "menara-d2-pangsapuri-puncak-kempas-utama-jalan-kempas-utama-26taman-kempas-utama-81300-johor-bahru-johor-2",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6220,
-"kaveat": "-"
-},
-{
-"id": "jalanpulaimutiara53tamanpulaimutiara81300johorbahrujohor",
-"address": "Jalan Pulai Mutiara 5/3, Taman Pulai Mutiara, 81300 Johor Bahru, Johor",
-"state": "Johor",
-"district": "Johor Bahru",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Pulai%20Mutiara%205/3%2C%2081300%20Johor%20Bahru%2C%20Johor",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 450,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "1,173 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 30, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214242",
-"an_slug": "jalan-pulai-mutiara-53-taman-pulai-mutiara-81300-johor-bahru-johor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6221,
-"kaveat": "-"
-},
-{
-"id": "pangsapuriserialamjalanpersiaranserialambandarserialam81750masaijohor",
-"address": "Pangsapuri Seri Alam, Jalan Persiaran Seri Alam, Bandar Seri Alam, 81750, Masai, Johor",
-"state": "Johor",
-"district": "Masai",
-"maps": "https://www.google.com/maps/search/?api=1&query=Pangsapuri%20Seri%20Alam%2C%20Jalan%20Persiaran%20Seri%20Alam",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 500,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "-",
-"built_up": "1,324 Sq.ft",
-"auction_date": "Nov 30, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214241",
-"an_slug": "pangsapuri-seri-alam-jalan-persiaran-seri-alam-bandar-seri-alam-81750-masai-johor-1",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6222,
+"no": 6203,
 "kaveat": "-"
 },
 {
@@ -232716,43 +232295,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6223,
-"kaveat": "-"
-},
-{
-"id": "jalanmustikakampungmelayumajidee81100johorbahrujohor",
-"address": "Jalan Mustika, Kampung Melayu Majidee, 81100, Johor Bahru, Johor",
-"state": "Johor",
-"district": "Johor Bahru",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Mustika%2C%2081100%20Johor%20Bahru%2C%20Johor",
-"type": "Semi-Detached / Bungalow / Villa",
-"type_raw": "Semi Detached/ Bungalow/ Villa",
-"bmv": "-",
-"price": "RM 550,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "4,878 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 30, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Bungalow / Semi-Detached",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214238",
-"an_slug": "jalan-mustika-kampung-melayu-majidee-81100-johor-bahru-johor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6224,
+"no": 6204,
 "kaveat": "-"
 },
 {
@@ -232788,7 +232331,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6225,
+"no": 6205,
 "kaveat": "-"
 },
 {
@@ -232824,79 +232367,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6226,
-"kaveat": "-"
-},
-{
-"id": "jalanpakistigatamansripulai81300skudaijohor",
-"address": "Jalan Pakis Tiga, Taman Sri Pulai, 81300, Skudai, Johor",
-"state": "Johor",
-"district": "Skudai",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Pakis%20Tiga%2C%2081300%20Skudai%2C%20Johor",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 445,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "1,540 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 30, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214236",
-"an_slug": "jalan-pakis-tiga-taman-sri-pulai-81300-skudai-johor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6227,
-"kaveat": "-"
-},
-{
-"id": "pangsapuripermataaustinjalanaustinperdana1tamanaustinperdana81100johorbahrujohor",
-"address": "Pangsapuri Permata Austin, Jalan Austin Perdana 1, Taman Austin Perdana, 81100, Johor Bahru, Johor",
-"state": "Johor",
-"district": "Johor Bahru",
-"maps": "https://www.google.com/maps/search/?api=1&query=Pangsapuri%20Permata%20Austin%2C%20Jalan%20Austin%20Perdana%201",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 450,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "-",
-"built_up": "-",
-"auction_date": "Nov 30, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214235",
-"an_slug": "pangsapuri-permata-austin-jalan-austin-perdana-1-taman-austin-perdana-81100-johor-bahru-johor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6228,
+"no": 6206,
 "kaveat": "-"
 },
 {
@@ -232932,7 +232403,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6229,
+"no": 6207,
 "kaveat": "-"
 },
 {
@@ -232968,7 +232439,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6230,
+"no": 6208,
 "kaveat": "-"
 },
 {
@@ -233004,7 +232475,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6231,
+"no": 6209,
 "kaveat": "-"
 },
 {
@@ -233040,7 +232511,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6232,
+"no": 6210,
 "kaveat": "-"
 },
 {
@@ -233076,7 +232547,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6233,
+"no": 6211,
 "kaveat": "-"
 },
 {
@@ -233112,7 +232583,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6234,
+"no": 6212,
 "kaveat": "-"
 },
 {
@@ -233148,7 +232619,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6235,
+"no": 6213,
 "kaveat": "-"
 },
 {
@@ -233184,7 +232655,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6236,
+"no": 6214,
 "kaveat": "-"
 },
 {
@@ -233220,7 +232691,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6237,
+"no": 6215,
 "kaveat": "-"
 },
 {
@@ -233256,7 +232727,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6238,
+"no": 6216,
 "kaveat": "-"
 },
 {
@@ -233292,7 +232763,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6239,
+"no": 6217,
 "kaveat": "-"
 },
 {
@@ -233328,7 +232799,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6240,
+"no": 6218,
 "kaveat": "-"
 },
 {
@@ -233364,7 +232835,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6241,
+"no": 6219,
 "kaveat": "-"
 },
 {
@@ -233400,7 +232871,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6242,
+"no": 6220,
 "kaveat": "-"
 },
 {
@@ -233436,7 +232907,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6243,
+"no": 6221,
 "kaveat": "-"
 },
 {
@@ -233472,7 +232943,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6244,
+"no": 6222,
 "kaveat": "-"
 },
 {
@@ -233508,7 +232979,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6245,
+"no": 6223,
 "kaveat": "-"
 },
 {
@@ -233544,7 +233015,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6246,
+"no": 6224,
 "kaveat": "-"
 },
 {
@@ -233580,7 +233051,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6247,
+"no": 6225,
 "kaveat": "-"
 },
 {
@@ -233616,7 +233087,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6248,
+"no": 6226,
 "kaveat": "-"
 },
 {
@@ -233652,7 +233123,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6249,
+"no": 6227,
 "kaveat": "-"
 },
 {
@@ -233688,7 +233159,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6250,
+"no": 6228,
 "kaveat": "-"
 },
 {
@@ -233724,7 +233195,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6251,
+"no": 6229,
 "kaveat": "-"
 },
 {
@@ -233760,7 +233231,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6252,
+"no": 6230,
 "kaveat": "-"
 },
 {
@@ -233796,7 +233267,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6253,
+"no": 6231,
 "kaveat": "-"
 },
 {
@@ -233832,7 +233303,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6254,
+"no": 6232,
 "kaveat": "-"
 },
 {
@@ -233868,7 +233339,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6255,
+"no": 6233,
 "kaveat": "-"
 },
 {
@@ -233904,7 +233375,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6256,
+"no": 6234,
 "kaveat": "-"
 },
 {
@@ -233940,7 +233411,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6257,
+"no": 6235,
 "kaveat": "-"
 },
 {
@@ -233976,7 +233447,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6258,
+"no": 6236,
 "kaveat": "-"
 },
 {
@@ -234012,7 +233483,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6259,
+"no": 6237,
 "kaveat": "-"
 },
 {
@@ -234048,7 +233519,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6260,
+"no": 6238,
 "kaveat": "-"
 },
 {
@@ -234084,43 +233555,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6261,
-"kaveat": "-"
-},
-{
-"id": "residensimastrano1jalanusahawan6setapakkualalumpur",
-"address": "Residensi M Astra, No.1, Jalan Usahawan 6, Setapak, Kuala Lumpur",
-"state": "Kuala Lumpur",
-"district": "Setapak",
-"maps": "https://www.google.com/maps/search/?api=1&query=Residensi%20M%20Astra%2C%20Jalan%20Usahawan%206",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 400,000",
-"market_value": "-",
-"tenure": "Leasehold",
-"land": "-",
-"built_up": "893 Sq.ft",
-"auction_date": "Oct 28, 2026",
-"auction_time": "-",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214194",
-"an_slug": "residensi-m-astra-no1-jalan-usahawan-6-setapak-kuala-lumpur-1",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6262,
+"no": 6239,
 "kaveat": "-"
 },
 {
@@ -234156,7 +233591,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6263,
+"no": 6240,
 "kaveat": "-"
 },
 {
@@ -234192,7 +233627,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6264,
+"no": 6241,
 "kaveat": "-"
 },
 {
@@ -234228,7 +233663,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6265,
+"no": 6242,
 "kaveat": "-"
 },
 {
@@ -234264,7 +233699,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6266,
+"no": 6243,
 "kaveat": "-"
 },
 {
@@ -234300,7 +233735,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6267,
+"no": 6244,
 "kaveat": "-"
 },
 {
@@ -234336,7 +233771,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6268,
+"no": 6245,
 "kaveat": "-"
 },
 {
@@ -234372,7 +233807,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6269,
+"no": 6246,
 "kaveat": "-"
 },
 {
@@ -234408,7 +233843,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6270,
+"no": 6247,
 "kaveat": "-"
 },
 {
@@ -234444,43 +233879,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6271,
-"kaveat": "-"
-},
-{
-"id": "jalanindahutama12bandarputra81000kulaijohor",
-"address": "Jalan Indah Utama 1/2, Bandar Putra, 81000, Kulai, Johor",
-"state": "Johor",
-"district": "Kulai",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Indah%20Utama%201/2%2C%2081000%20Kulai%2C%20Johor",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 550,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "1,604 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 30, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214184",
-"an_slug": "jalan-indah-utama-12-bandar-putra-81000-kulai-johor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6272,
+"no": 6248,
 "kaveat": "-"
 },
 {
@@ -234516,7 +233915,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6273,
+"no": 6249,
 "kaveat": "-"
 },
 {
@@ -234552,7 +233951,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6274,
+"no": 6250,
 "kaveat": "-"
 },
 {
@@ -234588,7 +233987,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6275,
+"no": 6251,
 "kaveat": "-"
 },
 {
@@ -234624,7 +234023,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6276,
+"no": 6252,
 "kaveat": "-"
 },
 {
@@ -234660,43 +234059,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6277,
-"kaveat": "-"
-},
-{
-"id": "jalanbestari542tamanbestariindah81800ulutiramjohor",
-"address": "Jalan Bestari 54/2, Taman Bestari Indah, 81800, Ulu Tiram, Johor",
-"state": "Johor",
-"district": "Ulu Tiram",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Bestari%2054/2%2C%2081800%20Ulu%20Tiram%2C%20Johor",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 387,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "1,399 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 24, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214177",
-"an_slug": "jalan-bestari-542-taman-bestari-indah-81800-ulu-tiram-johor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6278,
+"no": 6253,
 "kaveat": "-"
 },
 {
@@ -234732,7 +234095,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6279,
+"no": 6254,
 "kaveat": "-"
 },
 {
@@ -234768,7 +234131,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6280,
+"no": 6255,
 "kaveat": "-"
 },
 {
@@ -234804,7 +234167,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6281,
+"no": 6256,
 "kaveat": "-"
 },
 {
@@ -234840,7 +234203,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6282,
+"no": 6257,
 "kaveat": "-"
 },
 {
@@ -234876,7 +234239,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6283,
+"no": 6258,
 "kaveat": "-"
 },
 {
@@ -234912,7 +234275,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6284,
+"no": 6259,
 "kaveat": "-"
 },
 {
@@ -234948,7 +234311,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6285,
+"no": 6260,
 "kaveat": "-"
 },
 {
@@ -234984,7 +234347,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6286,
+"no": 6261,
 "kaveat": "-"
 },
 {
@@ -235020,7 +234383,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6287,
+"no": 6262,
 "kaveat": "-"
 },
 {
@@ -235056,7 +234419,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6288,
+"no": 6263,
 "kaveat": "-"
 },
 {
@@ -235092,7 +234455,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6289,
+"no": 6264,
 "kaveat": "-"
 },
 {
@@ -235128,43 +234491,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6290,
-"kaveat": "-"
-},
-{
-"id": "jalankencana1a26tamanpurakencanasrigading83300batupahatjohor",
-"address": "Jalan Kencana 1A/26, Taman Pura Kencana, Sri Gading, 83300, Batu Pahat, Johor",
-"state": "Johor",
-"district": "Batu Pahat",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Kencana%201A/26%2C%2083300%20Batu%20Pahat%2C%20Johor",
-"type": "Shop / Office / Retail",
-"type_raw": "Shop/ Office/ Retail",
-"bmv": "-",
-"price": "RM 400,950",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "1,647 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 24, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Shoplot / Offices",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214162",
-"an_slug": "jalan-kencana-1a26-taman-pura-kencana-sri-gading-83300-batu-pahat-johor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6291,
+"no": 6265,
 "kaveat": "-"
 },
 {
@@ -235200,7 +234527,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6292,
+"no": 6266,
 "kaveat": "-"
 },
 {
@@ -235236,43 +234563,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6293,
-"kaveat": "-"
-},
-{
-"id": "jalansemerbak13tamanbukitdahlia81700pasirgudangjohor",
-"address": "Jalan Semerbak 13, Taman Bukit Dahlia, 81700 Pasir Gudang, Johor",
-"state": "Johor",
-"district": "Pasir Gudang",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Semerbak%2013%2C%2081700%20Pasir%20Gudang%2C%20Johor",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 369,000",
-"market_value": "-",
-"tenure": "Leasehold",
-"land": "1,195 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 24, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214160",
-"an_slug": "jalan-semerbak-13-taman-bukit-dahlia-81700-pasir-gudang-johor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6294,
+"no": 6267,
 "kaveat": "-"
 },
 {
@@ -235308,7 +234599,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6295,
+"no": 6268,
 "kaveat": "-"
 },
 {
@@ -235344,7 +234635,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6296,
+"no": 6269,
 "kaveat": "-"
 },
 {
@@ -235380,7 +234671,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6297,
+"no": 6270,
 "kaveat": "-"
 },
 {
@@ -235416,7 +234707,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6298,
+"no": 6271,
 "kaveat": "-"
 },
 {
@@ -235452,7 +234743,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6299,
+"no": 6272,
 "kaveat": "-"
 },
 {
@@ -235488,7 +234779,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6300,
+"no": 6273,
 "kaveat": "-"
 },
 {
@@ -235524,7 +234815,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6301,
+"no": 6274,
 "kaveat": "-"
 },
 {
@@ -235560,7 +234851,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6302,
+"no": 6275,
 "kaveat": "-"
 },
 {
@@ -235596,7 +234887,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6303,
+"no": 6276,
 "kaveat": "-"
 },
 {
@@ -235632,7 +234923,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6304,
+"no": 6277,
 "kaveat": "-"
 },
 {
@@ -235668,7 +234959,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6305,
+"no": 6278,
 "kaveat": "-"
 },
 {
@@ -235704,7 +234995,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6306,
+"no": 6279,
 "kaveat": "-"
 },
 {
@@ -235740,7 +235031,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6307,
+"no": 6280,
 "kaveat": "-"
 },
 {
@@ -235776,7 +235067,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6308,
+"no": 6281,
 "kaveat": "-"
 },
 {
@@ -235812,7 +235103,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6309,
+"no": 6282,
 "kaveat": "-"
 },
 {
@@ -235848,7 +235139,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6310,
+"no": 6283,
 "kaveat": "-"
 },
 {
@@ -235884,7 +235175,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6311,
+"no": 6284,
 "kaveat": "-"
 },
 {
@@ -235920,7 +235211,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6312,
+"no": 6285,
 "kaveat": "-"
 },
 {
@@ -235956,7 +235247,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6313,
+"no": 6286,
 "kaveat": "-"
 },
 {
@@ -235992,7 +235283,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6314,
+"no": 6287,
 "kaveat": "-"
 },
 {
@@ -236028,7 +235319,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6315,
+"no": 6288,
 "kaveat": "-"
 },
 {
@@ -236064,7 +235355,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6316,
+"no": 6289,
 "kaveat": "-"
 },
 {
@@ -236100,7 +235391,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6317,
+"no": 6290,
 "kaveat": "-"
 },
 {
@@ -236136,7 +235427,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6318,
+"no": 6291,
 "kaveat": "-"
 },
 {
@@ -236172,7 +235463,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6319,
+"no": 6292,
 "kaveat": "-"
 },
 {
@@ -236208,7 +235499,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6320,
+"no": 6293,
 "kaveat": "-"
 },
 {
@@ -236244,7 +235535,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6321,
+"no": 6294,
 "kaveat": "-"
 },
 {
@@ -236280,7 +235571,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6322,
+"no": 6295,
 "kaveat": "-"
 },
 {
@@ -236316,7 +235607,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6323,
+"no": 6296,
 "kaveat": "-"
 },
 {
@@ -236352,7 +235643,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6324,
+"no": 6297,
 "kaveat": "-"
 },
 {
@@ -236388,7 +235679,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6325,
+"no": 6298,
 "kaveat": "-"
 },
 {
@@ -236424,7 +235715,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6326,
+"no": 6299,
 "kaveat": "-"
 },
 {
@@ -236460,7 +235751,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6327,
+"no": 6300,
 "kaveat": "-"
 },
 {
@@ -236496,7 +235787,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6328,
+"no": 6301,
 "kaveat": "-"
 },
 {
@@ -236532,7 +235823,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6329,
+"no": 6302,
 "kaveat": "-"
 },
 {
@@ -236568,7 +235859,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6330,
+"no": 6303,
 "kaveat": "-"
 },
 {
@@ -236604,7 +235895,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6331,
+"no": 6304,
 "kaveat": "-"
 },
 {
@@ -236640,7 +235931,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6332,
+"no": 6305,
 "kaveat": "-"
 },
 {
@@ -236676,43 +235967,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6333,
-"kaveat": "-"
-},
-{
-"id": "pangsapuriserimutiarajalanpersiaranserialambandarserialam81750masaijohor",
-"address": "Pangsapuri Seri Mutiara, Jalan Persiaran Seri Alam, Bandar Seri Alam, 81750, Masai, Johor",
-"state": "Johor",
-"district": "Masai",
-"maps": "https://www.google.com/maps/search/?api=1&query=Pangsapuri%20Seri%20Mutiara%2C%20Jalan%20Persiaran%20Seri%20Alam",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 400,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "-",
-"built_up": "1,410 Sq.ft",
-"auction_date": "Nov 24, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214112",
-"an_slug": "pangsapuri-seri-mutiara-jalan-persiaran-seri-alam-bandar-seri-alam-81750-masai-johor-6",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6334,
+"no": 6306,
 "kaveat": "-"
 },
 {
@@ -236748,7 +236003,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6335,
+"no": 6307,
 "kaveat": "-"
 },
 {
@@ -236784,7 +236039,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6336,
+"no": 6308,
 "kaveat": "-"
 },
 {
@@ -236820,7 +236075,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6337,
+"no": 6309,
 "kaveat": "-"
 },
 {
@@ -236856,7 +236111,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6338,
+"no": 6310,
 "kaveat": "-"
 },
 {
@@ -236892,7 +236147,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6339,
+"no": 6311,
 "kaveat": "-"
 },
 {
@@ -236928,7 +236183,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6340,
+"no": 6312,
 "kaveat": "-"
 },
 {
@@ -236964,7 +236219,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6341,
+"no": 6313,
 "kaveat": "-"
 },
 {
@@ -237000,7 +236255,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6342,
+"no": 6314,
 "kaveat": "-"
 },
 {
@@ -237036,7 +236291,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6343,
+"no": 6315,
 "kaveat": "-"
 },
 {
@@ -237072,46 +236327,10 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6344,
+"no": 6316,
 "aliases": [
 "kr7residencejalantpp5tamanmaslangatpuchongselangor"
 ],
-"kaveat": "-"
-},
-{
-"id": "jalanekoflora29tamanekoflora81100johorbahrujohor",
-"address": "Jalan Ekoflora 2/9, Taman Ekoflora, 81100, Johor Bahru, Johor",
-"state": "Johor",
-"district": "Johor Bahru",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Ekoflora%202/9%2C%2081100%20Johor%20Bahru%2C%20Johor",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 1,300,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "2,476 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 24, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214099",
-"an_slug": "jalan-ekoflora-29-taman-ekoflora-81100-johor-bahru-johor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6345,
 "kaveat": "-"
 },
 {
@@ -237147,7 +236366,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6346,
+"no": 6317,
 "kaveat": "-"
 },
 {
@@ -237183,7 +236402,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6347,
+"no": 6318,
 "kaveat": "-"
 },
 {
@@ -237219,7 +236438,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6348,
+"no": 6319,
 "kaveat": "-"
 },
 {
@@ -237255,7 +236474,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6349,
+"no": 6320,
 "kaveat": "-"
 },
 {
@@ -237291,7 +236510,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6350,
+"no": 6321,
 "kaveat": "-"
 },
 {
@@ -237327,7 +236546,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6351,
+"no": 6322,
 "kaveat": "-"
 },
 {
@@ -237363,7 +236582,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6352,
+"no": 6323,
 "kaveat": "-"
 },
 {
@@ -237399,43 +236618,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6353,
-"kaveat": "-"
-},
-{
-"id": "pangsapuripuncakkempasutamajalankempasutama26tamankempasutama81300johorbahrujohor",
-"address": "Pangsapuri Puncak Kempas Utama, Jalan Kempas Utama 2/6, Taman Kempas Utama, 81300 Johor Bahru, Johor",
-"state": "Johor",
-"district": "Johor Bahru",
-"maps": "https://www.google.com/maps/search/?api=1&query=Pangsapuri%20Puncak%20Kempas%20Utama%2C%20Jalan%20Kempas%20Utama%202/6",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 500,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "-",
-"built_up": "1,238 Sq.ft",
-"auction_date": "Nov 24, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214091",
-"an_slug": "menara-d2-pangsapuri-puncak-kempas-utama-jalan-kempas-utama-26-taman-kempas-utama-81300-johor-bahru-johor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6354,
+"no": 6324,
 "kaveat": "-"
 },
 {
@@ -237471,7 +236654,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6355,
+"no": 6325,
 "kaveat": "-"
 },
 {
@@ -237507,43 +236690,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6356,
-"kaveat": "-"
-},
-{
-"id": "pangsapuriindahriapersiaranjubliperaksection2240300shahalamselangor",
-"address": "Pangsapuri Indahria, Persiaran Jubli Perak, Section 22, 40300 Shah Alam, Selangor",
-"state": "Selangor",
-"district": "Shah Alam",
-"maps": "https://www.google.com/maps/search/?api=1&query=Pangsapuri%20Indahria%2C%20Persiaran%20Jubli%20Perak",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 310,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "-",
-"built_up": "1,008 Sq.ft",
-"auction_date": "Oct 27, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214087",
-"an_slug": "pangsapuri-indahria-persiaran-jubli-perak-section-22-40300-shah-alam-selangor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6357,
+"no": 6326,
 "kaveat": "-"
 },
 {
@@ -237579,43 +236726,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6358,
-"kaveat": "-"
-},
-{
-"id": "pangsapuridamaijalantokoh2528tamansrimudasection2540400shahalamselangor",
-"address": "Pangsapuri Damai, Jalan Tokoh 25/28, Taman Sri Muda, Section 25, 40400 Shah Alam, Selangor",
-"state": "Selangor",
-"district": "Shah Alam",
-"maps": "https://www.google.com/maps/search/?api=1&query=Pangsapuri%20Damai%2C%20Jalan%20Tokoh%2025/28",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 279,000",
-"market_value": "-",
-"tenure": "Leasehold",
-"land": "-",
-"built_up": "971 Sq.ft",
-"auction_date": "Oct 27, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214085",
-"an_slug": "pangsapuri-damai-jalan-tokoh-2528-taman-sri-muda-section-25-40400-shah-alam-selangor-1",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6359,
+"no": 6327,
 "kaveat": "-"
 },
 {
@@ -237651,43 +236762,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6360,
-"kaveat": "-"
-},
-{
-"id": "jalansaga13tamandesacemerlang81800ulutiramjohor",
-"address": "Jalan Saga 13, Taman Desa Cemerlang, 81800, Ulu Tiram, Johor",
-"state": "Johor",
-"district": "Ulu Tiram",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Saga%2013%2C%2081800%20Ulu%20Tiram%2C%20Johor",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 740,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "2,562 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 24, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214084",
-"an_slug": "jalan-saga-13-taman-desa-cemerlang-81800-ulu-tiram-johor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6361,
+"no": 6328,
 "kaveat": "-"
 },
 {
@@ -237723,7 +236798,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6362,
+"no": 6329,
 "kaveat": "-"
 },
 {
@@ -237759,43 +236834,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6363,
-"kaveat": "-"
-},
-{
-"id": "jalantenang5tamandamaijaya81300skudaijohor",
-"address": "Jalan Tenang 5, Taman Damai Jaya, 81300, Skudai, Johor",
-"state": "Johor",
-"district": "Skudai",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Tenang%205%2C%2081300%20Skudai%2C%20Johor",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 290,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "775 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 24, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214077",
-"an_slug": "jalan-tenang-5-taman-damai-jaya-81300-skudai-johor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6364,
+"no": 6330,
 "kaveat": "-"
 },
 {
@@ -237831,79 +236870,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6365,
-"kaveat": "-"
-},
-{
-"id": "jalanhilir4tamansriangsanahilir55100kualalumpur",
-"address": "Jalan Hilir 4, Taman Sri Angsana Hilir, 55100 Kuala Lumpur",
-"state": "Kuala Lumpur",
-"district": "Kuala Lumpur",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Hilir%204%2C%2055100%2C%20Kuala%20Lumpur",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 630,000",
-"market_value": "-",
-"tenure": "Leasehold",
-"land": "1,195 Sq.ft",
-"built_up": "-",
-"auction_date": "Oct 26, 2026",
-"auction_time": "-",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214079",
-"an_slug": "jalan-hilir-4-taman-sri-angsana-hilir-55100-kuala-lumpur-1",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6366,
-"kaveat": "-"
-},
-{
-"id": "twintowerspersiarantanjungbungah11200tanjungbungahpenang",
-"address": "Twin Towers, Persiaran Tanjung Bungah, 11200, Tanjung Bungah, Penang",
-"state": "Penang",
-"district": "Tanjung Bungah",
-"maps": "https://www.google.com/maps/search/?api=1&query=Twin%20Towers%2C%20Persiaran%20Tanjung%20Bungah",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 320,760",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "-",
-"built_up": "1,249 Sq.ft",
-"auction_date": "Nov 30, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214078",
-"an_slug": "twin-towers-persiaran-tanjung-bungah-11200-tanjung-bungah-penang",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6367,
+"no": 6331,
 "kaveat": "-"
 },
 {
@@ -237939,79 +236906,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6368,
-"kaveat": "-"
-},
-{
-"id": "southernheightsapartmenttamanbukitmewahbukitantarabangsa68000ampangselangor",
-"address": "Southern Heights, Apartment Taman Bukit Mewah, Bukit Antarabangsa, 68000 Ampang, Selangor",
-"state": "Selangor",
-"district": "Ampang",
-"maps": "https://www.google.com/maps/search/?api=1&query=Southern%20Heights%2C%20Apartment%20Taman%20Bukit%20Mewah",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 280,000",
-"market_value": "-",
-"tenure": "Leasehold (29 Jul 2092)",
-"land": "-",
-"built_up": "1,399 Sq.ft",
-"auction_date": "Oct 26, 2026",
-"auction_time": "-",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214074",
-"an_slug": "southern-heights-apartment-taman-bukit-mewah-bukit-antarabangsa-68000-ampang-selangor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6369,
-"kaveat": "-"
-},
-{
-"id": "jalansp56seripristana47000sungaibulohselangor",
-"address": "Jalan SP 5/6, Seri Pristana, 47000 Sungai Buloh, Selangor",
-"state": "Selangor",
-"district": "Sungai Buloh",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20SP%205/6%2C%2047000%20Sungai%20Buloh%2C%20Selangor",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 540,000",
-"market_value": "-",
-"tenure": "Leasehold (27 Dec 2089)",
-"land": "2,680 Sq.ft",
-"built_up": "-",
-"auction_date": "Oct 23, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214073",
-"an_slug": "jalan-sp-56-seri-pristana-47000-sungai-buloh-selangor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6370,
+"no": 6332,
 "kaveat": "-"
 },
 {
@@ -238047,7 +236942,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6371,
+"no": 6333,
 "kaveat": "-"
 },
 {
@@ -238083,7 +236978,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6372,
+"no": 6334,
 "kaveat": "-"
 },
 {
@@ -238119,7 +237014,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6373,
+"no": 6335,
 "kaveat": "-"
 },
 {
@@ -238155,7 +237050,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6374,
+"no": 6336,
 "kaveat": "-"
 },
 {
@@ -238191,79 +237086,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6375,
-"kaveat": "-"
-},
-{
-"id": "jalanbidorbistari4tamanbidorbistari35500bidorperak",
-"address": "Jalan Bidor Bistari 4, Taman Bidor Bistari, 35500 Bidor, Perak",
-"state": "Perak",
-"district": "Bidor",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Bidor%20Bistari%204%2C%2035500%20Bidor%2C%20Perak",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 300,000",
-"market_value": "-",
-"tenure": "Leasehold (14 Nov 2121)",
-"land": "-",
-"built_up": "-",
-"auction_date": "Oct 23, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214067",
-"an_slug": "jalan-bidor-bistari-4-taman-bidor-bistari-35500-bidor-perak",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6376,
-"kaveat": "-"
-},
-{
-"id": "jalanap2e1kenaricourtalamperdana42300bandarpuncakalamselangor",
-"address": "Jalan AP 2E/1, Kenari Court, Alam Perdana, 42300 Bandar Puncak Alam, Selangor",
-"state": "Selangor",
-"district": "Bandar Puncak Alam",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20AP%202E/1%2C%20Kenari%20Court",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 47,830",
-"market_value": "-",
-"tenure": "Leasehold",
-"land": "-",
-"built_up": "654 Sq.ft",
-"auction_date": "Oct 23, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214063",
-"an_slug": "jalan-ap-2e1-kenari-court-alam-perdana-42300-bandar-puncak-alam-selangor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6377,
+"no": 6337,
 "kaveat": "-"
 },
 {
@@ -238299,7 +237122,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6378,
+"no": 6338,
 "kaveat": "-"
 },
 {
@@ -238335,7 +237158,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6379,
+"no": 6339,
 "kaveat": "-"
 },
 {
@@ -238371,7 +237194,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6380,
+"no": 6340,
 "kaveat": "-"
 },
 {
@@ -238407,7 +237230,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6381,
+"no": 6341,
 "kaveat": "-"
 },
 {
@@ -238443,43 +237266,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6382,
-"kaveat": "-"
-},
-{
-"id": "jalansimfoni2balakong43300serikembanganselangor",
-"address": "Jalan Simfoni 2, Balakong, 43300 Seri Kembangan, Selangor",
-"state": "Selangor",
-"district": "Seri Kembangan",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Simfoni%202%2C%20Balakong",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 212,000",
-"market_value": "-",
-"tenure": "-",
-"land": "-",
-"built_up": "452 Sq.ft",
-"auction_date": "Oct 23, 2026",
-"auction_time": "11:30 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214056",
-"an_slug": "jalan-simfoni-2-balakong-43300-seri-kembangan-selangor-1",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6383,
+"no": 6342,
 "kaveat": "-"
 },
 {
@@ -238515,7 +237302,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6384,
+"no": 6343,
 "kaveat": "-"
 },
 {
@@ -238551,7 +237338,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6385,
+"no": 6344,
 "kaveat": "-"
 },
 {
@@ -238587,7 +237374,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6386,
+"no": 6345,
 "kaveat": "-"
 },
 {
@@ -238623,7 +237410,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6387,
+"no": 6346,
 "kaveat": "-"
 },
 {
@@ -238659,115 +237446,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6388,
-"kaveat": "-"
-},
-{
-"id": "northwoodsuiteeduspheresuiteseduspherecyber1163000cyberjayaselangor",
-"address": "Northwood Suite, Edusphere Suites, Edusphere, Cyber 11, 63000 Cyberjaya, Selangor",
-"state": "Selangor",
-"district": "Cyberjaya",
-"maps": "https://www.google.com/maps/search/?api=1&query=Northwood%20Suite%2C%20Edusphere%20Suites",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 320,000",
-"market_value": "-",
-"tenure": "-",
-"land": "-",
-"built_up": "786 Sq.ft",
-"auction_date": "Oct 23, 2026",
-"auction_time": "11:30 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214048",
-"an_slug": "northwood-suite-edusphere-suites-edusphere-cyber-11-63000-cyberjaya-selangor-1",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6389,
-"kaveat": "-"
-},
-{
-"id": "koiprimajalanpinggiranmastamanmaslangat47130puchongselangor",
-"address": "Koi Prima, Jalan Pinggiran Mas, Taman Mas Langat, 47130 Puchong, Selangor",
-"state": "Selangor",
-"district": "Puchong",
-"maps": "https://www.google.com/maps/search/?api=1&query=Koi%20Prima%2C%20Jalan%20Pinggiran%20Mas",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 264,000",
-"market_value": "-",
-"tenure": "-",
-"land": "-",
-"built_up": "1,055 Sq.ft",
-"auction_date": "Oct 23, 2026",
-"auction_time": "11:30 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214049",
-"an_slug": "koi-prima-jalan-pinggiran-mas-taman-mas-langat-47130-puchong-selangor-3",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6390,
-"kaveat": "-"
-},
-{
-"id": "emerald9cheraspersiaranawana43200cherasselangor",
-"address": "Emerald 9 Cheras, Persiaran Awana, 43200 Cheras, Selangor",
-"state": "Selangor",
-"district": "Cheras",
-"maps": "https://www.google.com/maps/search/?api=1&query=Emerald%209%20Cheras%2C%20Persiaran%20Awana",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 650,000",
-"market_value": "-",
-"tenure": "-",
-"land": "-",
-"built_up": "1,302 Sq.ft",
-"auction_date": "Oct 23, 2026",
-"auction_time": "11:30 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214046",
-"an_slug": "emerald-9-cheras-persiaran-awana-43200-cheras-selangor-3",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6391,
+"no": 6347,
 "kaveat": "-"
 },
 {
@@ -238803,7 +237482,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6392,
+"no": 6348,
 "kaveat": "-"
 },
 {
@@ -238839,7 +237518,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6393,
+"no": 6349,
 "kaveat": "-"
 },
 {
@@ -238875,7 +237554,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6394,
+"no": 6350,
 "kaveat": "-"
 },
 {
@@ -238911,43 +237590,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6395,
-"kaveat": "-"
-},
-{
-"id": "lorong1beaufort81beaufortcommercialcentre89800beaufortsabah",
-"address": "Lorong 1 Beaufort 8, 1 Beaufort Commercial Centre, 89800 Beaufort, Sabah",
-"state": "Sabah",
-"district": "Beaufort",
-"maps": "https://www.google.com/maps/search/?api=1&query=Lorong%201%20Beaufort%208%2C%2089800%20Beaufort%2C%20Sabah",
-"type": "Shop / Office / Retail",
-"type_raw": "Shop/ Office/ Retail",
-"bmv": "-",
-"price": "RM 500,000",
-"market_value": "-",
-"tenure": "-",
-"land": "-",
-"built_up": "1,178 Sq.ft",
-"auction_date": "Oct 23, 2026",
-"auction_time": "10:30 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Shoplot / Offices",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214039",
-"an_slug": "lorong-1-beaufort-8-1-beaufort-commercial-centre-89800-beaufort-sabah-1",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6396,
+"no": 6351,
 "kaveat": "-"
 },
 {
@@ -238983,7 +237626,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6397,
+"no": 6352,
 "kaveat": "-"
 },
 {
@@ -239019,7 +237662,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6398,
+"no": 6353,
 "kaveat": "-"
 },
 {
@@ -239055,7 +237698,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6399,
+"no": 6354,
 "kaveat": "-"
 },
 {
@@ -239091,7 +237734,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6400,
+"no": 6355,
 "kaveat": "-"
 },
 {
@@ -239127,7 +237770,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6401,
+"no": 6356,
 "kaveat": "-"
 },
 {
@@ -239163,7 +237806,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6402,
+"no": 6357,
 "kaveat": "-"
 },
 {
@@ -239199,7 +237842,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6403,
+"no": 6358,
 "kaveat": "-"
 },
 {
@@ -239235,79 +237878,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6404,
-"kaveat": "-"
-},
-{
-"id": "laluanhulubercham12bandarbaruputra31400ipohperak",
-"address": "Laluan Hulu Bercham 12, Bandar Baru Putra, 31400 Ipoh, Perak",
-"state": "Perak",
-"district": "Ipoh",
-"maps": "https://www.google.com/maps/search/?api=1&query=Laluan%20Hulu%20Bercham%2012%2C%2031400%20Ipoh%2C%20Perak",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 137,700",
-"market_value": "-",
-"tenure": "Leasehold",
-"land": "1,195 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 17, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214027",
-"an_slug": "laluan-hulu-bercham-12-bandar-baru-putra-31400-ipoh-perak",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6405,
-"kaveat": "-"
-},
-{
-"id": "lorongria31tamanria09400padangseraikedah",
-"address": "Lorong Ria 3/1, Taman Ria, 09400 Padang Serai, Kedah",
-"state": "Kedah",
-"district": "Padang Serai",
-"maps": "https://www.google.com/maps/search/?api=1&query=Lorong%20Ria%203/1%2C%2009400%20Padang%20Serai%2C%20Kedah",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 330,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "1,400 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 30, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214026",
-"an_slug": "lorong-ria-31-taman-ria-09400-padang-serai-kedah",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6406,
+"no": 6359,
 "kaveat": "-"
 },
 {
@@ -239343,7 +237914,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6407,
+"no": 6360,
 "kaveat": "-"
 },
 {
@@ -239379,79 +237950,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6408,
-"kaveat": "-"
-},
-{
-"id": "jalanlb14lembahberiah134310baganseraiperak",
-"address": "Jalan LB 1/4, Lembah Beriah 1, 34310 Bagan Serai, Perak",
-"state": "Perak",
-"district": "Bagan Serai",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20LB%201/4%2C%2034310%20Bagan%20Serai%2C%20Perak",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 100,000",
-"market_value": "-",
-"tenure": "Leasehold",
-"land": "1,195 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 30, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214023",
-"an_slug": "jalan-lb-14-lembah-beriah-1-34310-bagan-serai-perak",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6409,
-"kaveat": "-"
-},
-{
-"id": "tamanriaheightsphase2bnorthroad91000tawausabah",
-"address": "Taman Ria Heights, Phase 2B, North Road, 91000 Tawau, Sabah",
-"state": "Sabah",
-"district": "Tawau",
-"maps": "https://www.google.com/maps/search/?api=1&query=North%20Road%2C%2091000%20Tawau%2C%20Sabah",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 240,000",
-"market_value": "-",
-"tenure": "Leasehold",
-"land": "1,609 Sq.ft",
-"built_up": "-",
-"auction_date": "Oct 23, 2026",
-"auction_time": "10:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214020",
-"an_slug": "taman-ria-heights-phase-2b-north-road-91000-tawau-sabah",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6410,
+"no": 6361,
 "kaveat": "-"
 },
 {
@@ -239487,7 +237986,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6411,
+"no": 6362,
 "kaveat": "-"
 },
 {
@@ -239523,7 +238022,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6412,
+"no": 6363,
 "kaveat": "-"
 },
 {
@@ -239559,7 +238058,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6413,
+"no": 6364,
 "kaveat": "-"
 },
 {
@@ -239595,151 +238094,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6414,
-"kaveat": "-"
-},
-{
-"id": "pangsapuribukitberuangutama75450hangtuahjayabukitberuangmelaka",
-"address": "Pangsapuri Bukit Beruang Utama, 75450 Hang Tuah Jaya, Bukit Beruang, Melaka",
-"state": "Melaka",
-"district": "Hang Tuah Jaya",
-"maps": "https://www.google.com/maps/search/?api=1&query=Pangsapuri%20Bukit%20Beruang%20Utama%2C%20Hang%20Tuah%20Jaya",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 150,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "-",
-"built_up": "1,023 Sq.ft",
-"auction_date": "Oct 23, 2026",
-"auction_time": "10:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214016",
-"an_slug": "pangsapuri-bukit-beruang-utama-75450-hang-tuah-jaya-bukit-beruang-melaka",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6415,
-"kaveat": "-"
-},
-{
-"id": "plazakltsblockbjalangombaksetapak53000kualalumpur",
-"address": "Plaza KLTS, Block B, Jalan Gombak, Setapak, 53000 Kuala Lumpur",
-"state": "Kuala Lumpur",
-"district": "Kuala Lumpur",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Gombak%2C%2053000%20Setapak%2C%20Kuala%20Lumpur",
-"type": "Shop / Office / Retail",
-"type_raw": "Shop/ Office/ Retail",
-"bmv": "-",
-"price": "RM 939,600",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "-",
-"built_up": "1,850 Sq.ft",
-"auction_date": "Nov 02, 2026",
-"auction_time": "2:30 PM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Shoplot / Offices",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214013",
-"an_slug": "plaza-klts-block-b-jalan-gombak-setapak-53000-kuala-lumpur-1",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6416,
-"kaveat": "-"
-},
-{
-"id": "jalanresiden23residen2bandarbarusetiaawanperdana32000sitiawanperak",
-"address": "Jalan Residen 2/3, Residen 2, Bandar Baru Setia Awan Perdana, 32000 Sitiawan, Perak",
-"state": "Perak",
-"district": "Sitiawan",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Residen%202/3%2C%2032000%20Sitiawan%2C%20Perak",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 226,800",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "2,465 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 17, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214011",
-"an_slug": "jalan-residen-23-residen-2-bandar-baru-setia-awan-perdana-32000-sitiawan-perak-1",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6417,
-"kaveat": "-"
-},
-{
-"id": "pangsapuriserisuriaseksyen3440470shahalamselangor",
-"address": "Pangsapuri Seri Suria, Seksyen 34, 40470 Shah Alam, Selangor",
-"state": "Selangor",
-"district": "Shah Alam",
-"maps": "https://www.google.com/maps/search/?api=1&query=Pangsapuri%20Seri%20Suria%2C%20Seksyen%2034",
-"type": "Apartment / Condo / SOHO",
-"type_raw": "Apartment/ Condo/ SOHO",
-"bmv": "-",
-"price": "RM 137,700",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "-",
-"built_up": "840 Sq.ft",
-"auction_date": "Oct 23, 2026",
-"auction_time": "10:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Condominium / Apartment / SOHO",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214010",
-"an_slug": "pangsapuri-seri-suria-seksyen-34-40470-shah-alam-selangor",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6418,
+"no": 6365,
 "kaveat": "-"
 },
 {
@@ -239775,7 +238130,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6419,
+"no": 6366,
 "kaveat": "-"
 },
 {
@@ -239811,7 +238166,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6420,
+"no": 6367,
 "kaveat": "-"
 },
 {
@@ -239847,7 +238202,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6421,
+"no": 6368,
 "kaveat": "-"
 },
 {
@@ -239883,79 +238238,7 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6422,
-"kaveat": "-"
-},
-{
-"id": "jalantas40perumahantas25150kuantanpahang",
-"address": "Jalan Tas 40, Perumahan Tas, 25150, Kuantan, Pahang",
-"state": "Pahang",
-"district": "Kuantan",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Tas%2040%2C%2025150%20Kuantan%2C%20Pahang",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 170,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "1,080 Sq.ft",
-"built_up": "-",
-"auction_date": "Nov 24, 2026",
-"auction_time": "9:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214004",
-"an_slug": "jalan-tas-40-perumahan-tas-25150-kuantan-pahang",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6423,
-"kaveat": "-"
-},
-{
-"id": "jalansrilayang43tamansrilayang28400mentakabpahang",
-"address": "Jalan Sri Layang 4/3, Taman Sri Layang, 28400 Mentakab, Pahang",
-"state": "Pahang",
-"district": "Mentakab",
-"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Sri%20Layang%204/3%2C%2028400%20Mentakab%2C%20Pahang",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
-"bmv": "-",
-"price": "RM 155,000",
-"market_value": "-",
-"tenure": "Freehold",
-"land": "1,000 Sq.ft",
-"built_up": "-",
-"auction_date": "Oct 15, 2026",
-"auction_time": "9:00 AM",
-"auction_count": "1st",
-"restrictions": "-",
-"bank": "Upgrade membership to view",
-"laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
-"completion_year": "-",
-"bedroom": "-",
-"bathroom": "-",
-"carpark": "-",
-"an_id": "214005",
-"an_slug": "jalan-sri-layang-43-taman-sri-layang-28400-mentakab-pahang",
-"pos_an": null,
-"sources": [
-"auctionnetwork"
-],
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"no": 6424,
+"no": 6369,
 "kaveat": "-"
 },
 {
@@ -239991,44 +238274,542 @@
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6425,
+"no": 6370,
 "kaveat": "-"
 },
 {
-"id": "halakeledangemas11atamankeledangemas30100ipohperak",
-"address": "Hala Keledang Emas 11A, Taman Keledang Emas, 30100, Ipoh, Perak",
-"state": "Perak",
-"district": "Ipoh",
-"maps": "https://www.google.com/maps/search/?api=1&query=Hala%20Keledang%20Emas%2011A%2C%2030100%20Ipoh%2C%20Perak",
-"type": "Terrace / Link / Townhouse",
-"type_raw": "Terrace / Link / Townhouse",
+"id": "nokuantanparadejalanhajiabdulrahman25000kuantanpahang",
+"address": "No., Kuantan Parade, Jalan Haji Abdul Rahman, 25000 Kuantan, Pahang",
+"state": "Pahang",
+"district": "Kuantan",
+"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Haji%20Abdul%20Rahman%2C%2025000%20Kuantan%2C%20Pahang",
+"type": "Shop / Office / Retail",
+"type_raw": "Shop/ Office/ Retail",
 "bmv": "-",
-"price": "RM 300,000",
+"price": "RM 100,000,000",
 "market_value": "-",
 "tenure": "Leasehold",
-"land": "1,173 Sq.ft",
+"land": "442,934 Sq.ft",
 "built_up": "-",
-"auction_date": "Nov 03, 2026",
-"auction_time": "11:00 AM",
-"auction_count": "1st",
+"auction_date": "Oct 20, 2026",
+"auction_time": "10:30 AM",
+"auction_count": "21st",
 "restrictions": "-",
-"bank": "Upgrade membership to view",
+"bank": "United Overseas Bank (Malaysia) Berhad",
 "laca": "LACA",
-"category": "Terrace / Linkhouse / Townhouse",
+"category": "Shoplot / Offices",
 "completion_year": "-",
 "bedroom": "-",
 "bathroom": "-",
 "carpark": "-",
-"an_id": "214002",
-"an_slug": "hala-keledang-emas-11a-taman-keledang-emas-30100-ipoh-perak-1",
+"an_id": "214062",
+"an_slug": "kuantan-parade-jalan-haji-abdul-rahman-25000-kuantan-pahang-3",
 "pos_an": null,
 "sources": [
 "auctionnetwork"
 ],
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
-"no": 6426,
-"kaveat": "-"
+"no": 6371
+},
+{
+"id": "noa161blockakr7residencejalantpp5tamanmaslangatpuchongselangor",
+"address": "No. A-16-1, Block A, KR7 Residence, Jalan TPP 5, Taman Mas Langat, Puchong, Selangor",
+"state": "Selangor",
+"district": "Puchong",
+"maps": "https://www.google.com/maps/search/?api=1&query=KR7%20Residence%2C%20Jalan%20TPP%205",
+"type": "Apartment / Condo / SOHO",
+"type_raw": "Apartment/ Condo/ SOHO",
+"bmv": "-",
+"price": "RM 280,000",
+"market_value": "-",
+"tenure": "Leasehold",
+"land": "-",
+"built_up": "850 Sq.ft",
+"auction_date": "Oct 28, 2026",
+"auction_time": "-",
+"auction_count": "1st",
+"restrictions": "-",
+"bank": "CIMB Bank Berhad",
+"laca": "LACA",
+"category": "Condominium / Apartment / SOHO",
+"completion_year": "-",
+"bedroom": "-",
+"bathroom": "-",
+"carpark": "-",
+"an_id": "214106",
+"an_slug": "kr7-residence-jalan-tpp-5-taman-mas-langat-puchong-selangor",
+"pos_an": null,
+"sources": [
+"auctionnetwork"
+],
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"no": 6372
+},
+{
+"id": "nob222residensiadelia2persiaranbangiavenue2tamanbangiavenue43000kajangselangor",
+"address": "No. B-22-2, Residensi Adelia 2, Persiaran Bangi Avenue 2, Taman Bangi Avenue, 43000 Kajang, Selangor",
+"state": "Selangor",
+"district": "Kajang",
+"maps": "https://www.google.com/maps/search/?api=1&query=Residensi%20Adelia%202%2C%20Persiaran%20Bangi%20Avenue%202",
+"type": "Apartment / Condo / SOHO",
+"type_raw": "Apartment/ Condo/ SOHO",
+"bmv": "-",
+"price": "RM 243,000",
+"market_value": "-",
+"tenure": "Freehold",
+"land": "-",
+"built_up": "1,045 Sq.ft",
+"auction_date": "Oct 28, 2026",
+"auction_time": "-",
+"auction_count": "21st",
+"restrictions": "-",
+"bank": "CIMB Islamic Bank Berhad",
+"laca": "LACA",
+"category": "Condominium / Apartment / SOHO",
+"completion_year": "-",
+"bedroom": "-",
+"bathroom": "-",
+"carpark": "-",
+"an_id": "214137",
+"an_slug": "residensi-adelia-2-persiaran-bangi-avenue-2-taman-bangi-avenue-43000-kajang-selangor-4",
+"pos_an": null,
+"sources": [
+"auctionnetwork"
+],
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"no": 6373
+},
+{
+"id": "lotnoc153blockc15houseno324tamanapaspermaikm23jalanapas91000tawausabah",
+"address": "Lot No. C15-3, Block C15, House No. 324, Taman Apas Permai, KM 23, Jalan Apas, 91000 Tawau, Sabah",
+"state": "Sabah",
+"district": "Tawau",
+"maps": "https://www.google.com/maps/search/?api=1&query=324%2C%20KM%2023%2C%20Jalan%20Apas%2C%2091000%20Tawau%2C%20Sabah",
+"type": "Terrace / Link / Townhouse",
+"type_raw": "Terrace / Link / Townhouse",
+"bmv": "-",
+"price": "RM 135,000",
+"market_value": "-",
+"tenure": "Leasehold",
+"land": "1,613 Sq.ft",
+"built_up": "800 Sq.ft",
+"auction_date": "Oct 23, 2026",
+"auction_time": "-",
+"auction_count": "8th",
+"restrictions": "-",
+"bank": "Ambank (M) Berhad",
+"laca": "LACA",
+"category": "Terrace / Linkhouse / Townhouse",
+"completion_year": "-",
+"bedroom": "-",
+"bathroom": "-",
+"carpark": "-",
+"an_id": "213420",
+"an_slug": "taman-apas-permai-km-23-jalan-apas-91000-tawau-sabah",
+"pos_an": null,
+"sources": [
+"auctionnetwork"
+],
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"no": 6374
+},
+{
+"id": "tbno899lotno899tamanriaheightsphase2bnorthroad91000tawausabah",
+"address": "TB No. 899, Lot No. 899, Taman Ria Heights, Phase 2B, North Road, 91000 Tawau, Sabah",
+"state": "Sabah",
+"district": "Tawau",
+"maps": "https://www.google.com/maps/search/?api=1&query=899%2C%20North%20Road%2C%2091000%20Tawau%2C%20Sabah",
+"type": "Terrace / Link / Townhouse",
+"type_raw": "Terrace / Link / Townhouse",
+"bmv": "-",
+"price": "RM 240,000",
+"market_value": "-",
+"tenure": "-",
+"land": "1,609 Sq.ft",
+"built_up": "-",
+"auction_date": "Oct 23, 2026",
+"auction_time": "10:00 AM",
+"auction_count": "5th",
+"restrictions": "-",
+"bank": "Hap Seng Credit Sdn Bhd",
+"laca": "LACA",
+"category": "Terrace / Linkhouse / Townhouse",
+"completion_year": "-",
+"bedroom": "-",
+"bathroom": "-",
+"carpark": "-",
+"an_id": "214021",
+"an_slug": "taman-ria-heights-phase-2b-north-road-91000-tawau-sabah-1",
+"pos_an": null,
+"sources": [
+"auctionnetwork"
+],
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"no": 6375,
+"aliases": [
+"tamanriaheightsphase2bnorthroad91000tawausabah"
+]
+},
+{
+"id": "lotno18groundfloorblockclorong1beaufort81beaufortcommercialcentre89800beaufortsabah",
+"address": "Lot No. 18, Ground Floor, Block C, Lorong 1 Beaufort 8, 1 Beaufort Commercial Centre, 89800 Beaufort, Sabah",
+"state": "Sabah",
+"district": "Beaufort",
+"maps": "https://www.google.com/maps/search/?api=1&query=18%2C%20Lorong%201%20Beaufort%208%2C%2089800%20Beaufort%2C%20Sabah",
+"type": "Shop / Office / Retail",
+"type_raw": "Shop/ Office/ Retail",
+"bmv": "-",
+"price": "RM 500,000",
+"market_value": "-",
+"tenure": "-",
+"land": "1,178 Sq.ft",
+"built_up": "-",
+"auction_date": "Oct 23, 2026",
+"auction_time": "10:30 AM",
+"auction_count": "3rd",
+"restrictions": "-",
+"bank": "Ambank (M) Berhad",
+"laca": "LACA",
+"category": "Shoplot / Offices",
+"completion_year": "-",
+"bedroom": "-",
+"bathroom": "-",
+"carpark": "-",
+"an_id": "214033",
+"an_slug": "lorong-1-beaufort-8-1-beaufort-commercial-centre-89800-beaufort-sabah",
+"pos_an": null,
+"sources": [
+"auctionnetwork"
+],
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"no": 6376,
+"aliases": [
+"lorong1beaufort81beaufortcommercialcentre89800beaufortsabah"
+]
+},
+{
+"id": "nonot21003bspskyparkpersiaransaujanaputrautama42610bandarsaujanaputraselangor",
+"address": "No. No. T2-10-03, BSP Skypark, Persiaran Saujana Putra Utama, 42610 Bandar Saujana Putra, Selangor",
+"state": "Selangor",
+"district": "Bandar Saujana Putra",
+"maps": "https://www.google.com/maps/search/?api=1&query=BSP%20Skypark%2C%20Persiaran%20Saujana%20Putra%20Utama",
+"type": "Apartment / Condo / SOHO",
+"type_raw": "Apartment/ Condo/ SOHO",
+"bmv": "-",
+"price": "RM 218,000",
+"market_value": "-",
+"tenure": "Leasehold",
+"land": "-",
+"built_up": "1,001 Sq.ft",
+"auction_date": "Oct 21, 2026",
+"auction_time": "-",
+"auction_count": "11th",
+"restrictions": "-",
+"bank": "Alliance Bank Malaysia Berhad",
+"laca": "LACA",
+"category": "Condominium / Apartment / SOHO",
+"completion_year": "-",
+"bedroom": "-",
+"bathroom": "-",
+"carpark": "-",
+"an_id": "213762",
+"an_slug": "bsp-skypark-persiaran-saujana-putra-utama-42610-bandar-saujana-putra-selangor",
+"pos_an": null,
+"sources": [
+"auctionnetwork"
+],
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"no": 6377
+},
+{
+"id": "nob23a13residensimastrano1jalanusahawan6setapakkualalumpur",
+"address": "No. B-23A-13, Residensi M Astra, No. 1, Jalan Usahawan 6, Setapak, Kuala Lumpur",
+"state": "Kuala Lumpur",
+"district": "Setapak",
+"maps": "https://www.google.com/maps/search/?api=1&query=Residensi%20M%20Astra%2C%20Jalan%20Usahawan%206",
+"type": "Apartment / Condo / SOHO",
+"type_raw": "Apartment/ Condo/ SOHO",
+"bmv": "-",
+"price": "RM 380,000",
+"market_value": "-",
+"tenure": "Leasehold",
+"land": "-",
+"built_up": "850 Sq.ft",
+"auction_date": "Oct 28, 2026",
+"auction_time": "-",
+"auction_count": "1st",
+"restrictions": "-",
+"bank": "CIMB Islamic Bank Berhad",
+"laca": "LACA",
+"category": "Condominium / Apartment / SOHO",
+"completion_year": "-",
+"bedroom": "-",
+"bathroom": "-",
+"carpark": "-",
+"an_id": "214183",
+"an_slug": "residensi-m-astra-no-1-jalan-usahawan-6-setapak-kuala-lumpur",
+"pos_an": null,
+"sources": [
+"auctionnetwork"
+],
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"no": 6378
+},
+{
+"id": "noa3801onsiteistoweraresidensimastrano1jalanusahawan6setapakkualalumpur",
+"address": "No. A-38-01, (on-site is Tower A), Residensi M Astra, No.1, Jalan Usahawan 6, Setapak, Kuala Lumpur",
+"state": "Kuala Lumpur",
+"district": "Setapak",
+"maps": "https://www.google.com/maps/search/?api=1&query=Residensi%20M%20Astra%2C%20Jalan%20Usahawan%206",
+"type": "Apartment / Condo / SOHO",
+"type_raw": "Apartment/ Condo/ SOHO",
+"bmv": "-",
+"price": "RM 400,000",
+"market_value": "-",
+"tenure": "Leasehold",
+"land": "-",
+"built_up": "893 Sq.ft",
+"auction_date": "Oct 28, 2026",
+"auction_time": "-",
+"auction_count": "1st",
+"restrictions": "-",
+"bank": "CIMB Islamic Bank Berhad",
+"laca": "LACA",
+"category": "Condominium / Apartment / SOHO",
+"completion_year": "-",
+"bedroom": "-",
+"bathroom": "-",
+"carpark": "-",
+"an_id": "214195",
+"an_slug": "residensi-m-astra-no1-jalan-usahawan-6-setapak-kuala-lumpur-2",
+"pos_an": null,
+"sources": [
+"auctionnetwork"
+],
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"no": 6379,
+"aliases": [
+"residensimastrano1jalanusahawan6setapakkualalumpur"
+]
+},
+{
+"id": "noc0304parcel04blockclevel03apartmenvillasriindahphase1bandarsriindah91000tawausabah",
+"address": "No. C-03-04, Parcel 04, Block C, Level 03, Apartmen Villa Sri Indah Phase 1, Bandar Sri Indah, 91000 Tawau, Sabah",
+"state": "Sabah",
+"district": "Tawau",
+"maps": "https://www.google.com/maps/search/?api=1&query=Apartmen%20Villa%20Sri%20Indah%20Phase%201%2C%20Bandar%20Sri%20Indah",
+"type": "Apartment / Condo / SOHO",
+"type_raw": "Apartment/ Condo/ SOHO",
+"bmv": "-",
+"price": "RM 200,000",
+"market_value": "-",
+"tenure": "Leasehold",
+"land": "-",
+"built_up": "850 Sq.ft",
+"auction_date": "Oct 21, 2026",
+"auction_time": "10:30 AM",
+"auction_count": "1st",
+"restrictions": "-",
+"bank": "CIMB Islamic Bank Berhad",
+"laca": "LACA",
+"category": "Condominium / Apartment / SOHO",
+"completion_year": "-",
+"bedroom": "-",
+"bathroom": "-",
+"carpark": "-",
+"an_id": "212658",
+"an_slug": "apartmen-villa-sri-indah-phase-1-bandar-sri-indah-tawau-sabah",
+"pos_an": null,
+"sources": [
+"auctionnetwork"
+],
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"no": 6380
+},
+{
+"id": "unitno0301jalansrilaguna1bukitlaguna81200johorbahrujohor",
+"address": "Unit No. #03-01, Jalan Sri Laguna 1, Bukit Laguna, 81200 Johor Bahru, Johor",
+"state": "Johor",
+"district": "Johor Bahru",
+"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Sri%20Laguna%201%2C%20Bukit%20Laguna",
+"type": "Apartment / Condo / SOHO",
+"type_raw": "Apartment/ Condo/ SOHO",
+"bmv": "-",
+"price": "RM 720,000",
+"market_value": "-",
+"tenure": "Freehold",
+"land": "-",
+"built_up": "2,712 Sq.ft",
+"auction_date": "Nov 13, 2026",
+"auction_time": "11:00 AM",
+"auction_count": "21st",
+"restrictions": "-",
+"bank": "RHB Bank Berhad",
+"laca": "LACA",
+"category": "Condominium / Apartment / SOHO",
+"completion_year": "-",
+"bedroom": "-",
+"bathroom": "-",
+"carpark": "-",
+"an_id": "213365",
+"an_slug": "jalan-sri-laguna-1-bukit-laguna-81200-johor-bahru-johor-5",
+"pos_an": null,
+"sources": [
+"auctionnetwork"
+],
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"no": 6381
+},
+{
+"id": "nof0309parcel09blockfmlevel03apartmenvillasriindahphase2bandarsriindahtawausabah",
+"address": "No. F-03-09, Parcel 09, Block Fm Level 03, Apartmen Villa Sri Indah Phase 2, Bandar Sri Indah, Tawau, Sabah",
+"state": "Sabah",
+"district": "Tawau",
+"maps": "https://www.google.com/maps/search/?api=1&query=Apartmen%20Villa%20Sri%20Indah%20Phase%202%2C%20Bandar%20Sri%20Indah",
+"type": "Apartment / Condo / SOHO",
+"type_raw": "Apartment/ Condo/ SOHO",
+"bmv": "-",
+"price": "RM 200,000",
+"market_value": "-",
+"tenure": "Leasehold",
+"land": "-",
+"built_up": "850 Sq.ft",
+"auction_date": "Oct 21, 2026",
+"auction_time": "-",
+"auction_count": "1st",
+"restrictions": "-",
+"bank": "CIMB Islamic Bank Berhad",
+"laca": "LACA",
+"category": "Condominium / Apartment / SOHO",
+"completion_year": "-",
+"bedroom": "-",
+"bathroom": "-",
+"carpark": "-",
+"an_id": "212647",
+"an_slug": "apartmen-villa-sri-indah-phase-2-bandar-sri-indah-tawau-sabah",
+"pos_an": null,
+"sources": [
+"auctionnetwork"
+],
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"no": 6382
+},
+{
+"id": "nog317tingkatbawahpasarbesarnegerisembilantamanbukitkepayang70200serembannegerisembilan",
+"address": "No. G-317, Tingkat Bawah, Pasar Besar Negeri Sembilan, Taman Bukit Kepayang, 70200 Seremban, Negeri Sembilan",
+"state": "Negeri Sembilan",
+"district": "Seremban",
+"maps": "https://www.google.com/maps/search/?api=1&query=G-317%2C%20Taman%20Bukit%20Kepayang%2C%2070200%20Seremban%2C%20Negeri%20Sembilan",
+"type": "Shop / Office / Retail",
+"type_raw": "Shop/ Office/ Retail",
+"bmv": "-",
+"price": "RM 15,000",
+"market_value": "-",
+"tenure": "Freehold",
+"land": "-",
+"built_up": "151 Sq.ft",
+"auction_date": "Oct 28, 2026",
+"auction_time": "-",
+"auction_count": "4th",
+"restrictions": "-",
+"bank": "CIMB Bank Berhad",
+"laca": "LACA",
+"category": "Shoplot / Offices",
+"completion_year": "-",
+"bedroom": "-",
+"bathroom": "-",
+"carpark": "-",
+"an_id": "214113",
+"an_slug": "pasar-besar-negeri-sembilan-taman-bukit-kepayang-70200-seremban-negeri-sembilan",
+"pos_an": null,
+"sources": [
+"auctionnetwork"
+],
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"no": 6383
+},
+{
+"id": "nog247pasarbesarnegerisembilantamanbukitkepayang70200serembannegerisembilan",
+"address": "No. G-247, Pasar Besar Negeri Sembilan, Taman Bukit Kepayang, 70200 Seremban, Negeri Sembilan",
+"state": "Negeri Sembilan",
+"district": "Seremban",
+"maps": "https://www.google.com/maps/search/?api=1&query=G-247%2C%20Taman%20Bukit%20Kepayang%2C%2070200%20Seremban%2C%20Negeri%20Sembilan",
+"type": "Shop / Office / Retail",
+"type_raw": "Shop/ Office/ Retail",
+"bmv": "-",
+"price": "RM 15,000",
+"market_value": "-",
+"tenure": "Freehold",
+"land": "-",
+"built_up": "151 Sq.ft",
+"auction_date": "Oct 28, 2026",
+"auction_time": "-",
+"auction_count": "4th",
+"restrictions": "-",
+"bank": "CIMB Bank Berhad",
+"laca": "LACA",
+"category": "Shoplot / Offices",
+"completion_year": "-",
+"bedroom": "-",
+"bathroom": "-",
+"carpark": "-",
+"an_id": "214114",
+"an_slug": "pasar-besar-negeri-sembilan-taman-bukit-kepayang-70200-seremban-negeri-sembilan-1",
+"pos_an": null,
+"sources": [
+"auctionnetwork"
+],
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"no": 6384
+},
+{
+"id": "nock322jalanwawasanampang110bandarbaruampang68000ampangselangor",
+"address": "No. CK-3-22, Jalan Wawasan Ampang 1/10, Bandar Baru Ampang, 68000 Ampang, Selangor",
+"state": "Selangor",
+"district": "Ampang",
+"maps": "https://www.google.com/maps/search/?api=1&query=Jalan%20Wawasan%20Ampang%201/10%2C%20Bandar%20Baru%20Ampang",
+"type": "Apartment / Condo / SOHO",
+"type_raw": "Apartment/ Condo/ SOHO",
+"bmv": "-",
+"price": "RM 132,000",
+"market_value": "-",
+"tenure": "Leasehold",
+"land": "-",
+"built_up": "797 Sq.ft",
+"auction_date": "Pending Date",
+"auction_time": "-",
+"auction_count": "5th",
+"restrictions": "-",
+"bank": "Alliance Bank Malaysia Berhad",
+"laca": "Non-LACA",
+"category": "Condominium / Apartment / SOHO",
+"completion_year": "-",
+"bedroom": "-",
+"bathroom": "-",
+"carpark": "-",
+"an_id": "464600",
+"an_slug": "jalan-wawasan-ampang-110-bandar-baru-ampang-68000-ampang-selangor-464600",
+"pos_an": null,
+"sources": [
+"auctionnetwork"
+],
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"no": 6385
 }
 ]
 }
