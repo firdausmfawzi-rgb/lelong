@@ -73,6 +73,8 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .acts{display:flex;gap:8px}
 .hd{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .hd h1{min-width:0}
+.hd-acts{display:flex;gap:8px;align-items:center;flex:none}
+.theme-btn{min-height:40px;min-width:44px;padding:0 12px;background:var(--surface);color:var(--fg);border-color:var(--line);font-size:1.15rem;line-height:1}
 .share-all{min-height:40px;padding:0 16px;background:var(--surface);color:var(--accent);border-color:var(--accent)}
 .acts .sh{flex:0 0 auto;padding:0 12px}
 .shared-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--ok-bg);color:var(--accent);border-radius:10px;padding:8px 12px;margin:8px 0;font-weight:600;font-size:.9rem}
@@ -128,6 +130,7 @@ body{padding-block-end:100px}
 .gate .wa{background:#25D366;color:#fff;border-color:#25D366;text-decoration:none;display:block}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=IBM+Plex+Sans:wght@400;600;700&display=swap">
+<script>/* apply the client's saved light / dark choice before first paint (no flash) */try{var _t=localStorage.getItem('lelong.theme');if(_t==='light'||_t==='dark')document.documentElement.setAttribute('data-theme',_t)}catch(e){}</script>
 </head>
 <body>
 <div class="gate" id="gate" hidden><form class="box" id="gateForm">
@@ -140,7 +143,7 @@ body{padding-block-end:100px}
 <p style="font-size:.85rem">Firdaus Jay · 019-6522361 · Eden Assets &amp; Property Solutions</p>
 </form></div>
 <div class="wrap">
-<div class="hd"><h1>Auction List</h1><button class="btn share-all" id="shareAll" type="button">Share</button></div>
+<div class="hd"><h1>Auction List</h1><div class="hd-acts"><button class="btn theme-btn" id="themeBtn" type="button" aria-label="Switch to dark mode" title="Light / dark mode">🌙</button><button class="btn share-all" id="shareAll" type="button">Share</button></div></div>
 <p class="upd" id="upd"></p>
 <p class="sub">Interested? Contact Firdaus Jay: 019-6522361</p>
 <div class="top">
@@ -347,6 +350,14 @@ $('tarikhList').addEventListener('change',e=>{const c=e.target;if(!c||c.type!=='
 $('tarikhClear').onclick=()=>{selT.clear();render()};
 $('tarikhBtn').onclick=()=>tarikhToggle($('tarikhPanel').hidden);
 $('tarikhDone').onclick=()=>tarikhToggle(false);
+// Light / dark mode: follows the phone until the client picks one; the choice is remembered on that device.
+const darkMQ=window.matchMedia?matchMedia('(prefers-color-scheme: dark)'):null;
+const isDark=()=>{const t=document.documentElement.getAttribute('data-theme');return t?t==='dark':!!(darkMQ&&darkMQ.matches)};
+function themeUI(){const d=isDark(),b=$('themeBtn');if(!b)return;b.textContent=d?'☀️':'🌙';const lbl=d?'Switch to light mode':'Switch to dark mode';b.setAttribute('aria-label',lbl);b.title=lbl;
+ const m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',d?'#12171b':'#2f6f7c')}
+$('themeBtn').onclick=()=>{const t=isDark()?'light':'dark';document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('lelong.theme',t)}catch(e){}themeUI();track('theme_change',{theme:t})};
+if(darkMQ&&darkMQ.addEventListener)darkMQ.addEventListener('change',()=>{if(!document.documentElement.getAttribute('data-theme'))themeUI()});
+themeUI();
 $('daerah').addEventListener('change',e=>{const c=e.target;if(!c||c.type!=='checkbox')return;c.checked?selD.add(c.value):selD.delete(c.value);daerahMeta();track('filter_district',{count:selD.size});render()});
 $('daerahQ').addEventListener('input',daerahOpts);
 $('daerahClear').onclick=()=>{selD.clear();daerahOpts();render()};
