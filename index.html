@@ -110,7 +110,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .ms-foot{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:8px;font-size:.9rem;color:var(--muted)}
 .ms-btn{display:flex;width:100%;align-items:center;justify-content:space-between;gap:10px;font:inherit;font-size:16px;text-align:left;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:11px 12px;min-height:46px}
 .ms-btn[aria-expanded="true"]{border-color:var(--accent)}
-.ms-btn #daerahN,.ms-btn #tarikhN{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ms-btn #daerahN,.ms-btn #tarikhN,.ms-btn #cyN{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ms-btn .chev{flex:none;color:var(--muted);transition:transform .15s}
 .ms-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
 .ms-panel{margin-top:8px;display:flex;flex-direction:column;gap:8px}
@@ -173,6 +173,12 @@ body{padding-block-end:100px}
 </div></div>
 <label class="fld"><span>Property Category</span><select id="cat"></select></label>
 <label class="fld"><span>Type</span><select id="jenis"></select></label>
+<div class="fld" id="cyFld" hidden><span id="cyLbl">Completion Year</span>
+<button type="button" class="ms-btn" id="cyBtn" aria-haspopup="true" aria-expanded="false" aria-controls="cyPanel"><span id="cyN">All years</span><span class="chev" aria-hidden="true">▾</span></button>
+<div class="ms-panel" id="cyPanel" hidden>
+<div class="ms" id="cyList" role="group" aria-labelledby="cyLbl"></div>
+<div class="ms-foot"><button type="button" class="reset-inline" id="cyClear" hidden>Clear years</button><button type="button" class="btn" id="cyDone">Done</button></div>
+</div></div>
 <div class="fld"><span id="tarikhLbl">Auction Date</span>
 <button type="button" class="ms-btn" id="tarikhBtn" aria-haspopup="true" aria-expanded="false" aria-controls="tarikhPanel"><span id="tarikhN">All dates</span><span class="chev" aria-hidden="true">▾</span></button>
 <div class="ms-panel" id="tarikhPanel" hidden>
@@ -206,6 +212,7 @@ DATA.forEach(r=>{if(!r[28]||r[28]==='-')r[28]=r[5]});
 const GENT={'Apartment / Condo / SOHO':1,'Terrace / Link / Townhouse':1,'Semi-Detached / Bungalow / Villa':1,'Shop / Office / Retail':1,'Factory / Warehouse / Workshop':1};
 fill($('jenis'),uniq(28),'All types');
 const selT=new Set();   // Auction Date: any number of dates can be ticked at once
+const selY=new Set();   // Completion Year (only offered under Condominium / Apartment / SOHO): any number of years
 let bmv=0,laca='',status='available';   // 'available' = Active + Unsold: what a client's search shows by default
 let sharedId=(location.hash||'').slice(1)||null;
 if(sharedId&&!DATA.some(r=>r[20]===sharedId))sharedId=null;
@@ -254,7 +261,23 @@ function facetOpts(){
  const sd=[...selT].sort((a,b)=>dt(a)-dt(b));
  $('tarikhN').textContent=!sd.length?'All dates ('+filtered('tarikh').length+')':sd.length<=2?sd.join(', '):sd.length+' dates selected';
  $('tarikhClear').hidden=!sd.length;
+ // Completion Year: only when the Property Category is Condominium / Apartment / SOHO; newest year first, units without a known year are not listed here
+ const isCondoCat=$('cat').value===CATS[0];
+ if(!isCondoCat){selY.clear();cyToggle(false)}
+ $('cyFld').hidden=!isCondoCat;
+ if(isCondoCat){
+  const ym=new Map();filtered('cy').forEach(r=>{const v=r[19];if(v&&v!=='-')ym.set(v,(ym.get(v)||0)+1)});
+  const yl=[...ym.keys()].sort((a,b)=>(parseInt(b)||0)-(parseInt(a)||0));
+  [...selY].forEach(x=>{if(!ym.has(x))selY.delete(x)});
+  const yl0=$('cyList'),yt=yl0.scrollTop;
+  yl0.innerHTML=yl.length?yl.map(v=>'<label><input type="checkbox" value="'+esc(v)+'"'+(selY.has(v)?' checked':'')+'><span>'+esc(v)+' ('+ym.get(v)+')</span></label>').join(''):'<div class="none">No completion year found</div>';
+  yl0.scrollTop=yt;
+  const sy=[...selY].sort((a,b)=>b-a);
+  $('cyN').textContent=!sy.length?'All years':sy.length<=3?sy.join(', '):sy.length+' years selected';
+  $('cyClear').hidden=!sy.length;
+ }
 }
+function cyToggle(open){const p=$('cyPanel');p.hidden=!open;$('cyBtn').setAttribute('aria-expanded',String(open));if(open){setTimeout(()=>{try{p.scrollIntoView({block:'nearest'})}catch(e){}},30)}}
 function tarikhToggle(open){const p=$('tarikhPanel');p.hidden=!open;$('tarikhBtn').setAttribute('aria-expanded',String(open));if(open){setTimeout(()=>{try{p.scrollIntoView({block:'nearest'})}catch(e){}},30)}}
 const T0=(()=>{const d=new Date();d.setHours(0,0,0,0);return d.getTime()})();
 const isExp=r=>{const d=dt(r[12]);return d>0&&d<T0};
@@ -295,12 +318,12 @@ daerahOpts();
 function filtered(skip){
  if(sharedId&&!skip)return DATA.filter(r=>r[20]===sharedId);
  const q=$('q').value.trim().toLowerCase(),n=$('negeri').value,j=$('jenis').value;
- return DATA.filter(r=>inPrice(r)&&(!q||(r[1]+' '+r[16]).toLowerCase().includes(q))&&(!n||r[2]===n)&&(!selD.size||selD.has(r[3]))&&(skip==='jenis'||!j||r[28]===j)&&(!bmv||bmvv(r)>=bmv)&&(!laca||r[17]===laca)&&(skip==='tarikh'||!selT.size||selT.has(r[12]))&&(skip==='cat'||!$('cat').value||r[21]===$('cat').value)&&(status==='all'||(status==='available'?(stOf(r)==='active'||stOf(r)==='unsold'):stOf(r)===status)));
+ return DATA.filter(r=>inPrice(r)&&(!q||(r[1]+' '+r[16]).toLowerCase().includes(q))&&(!n||r[2]===n)&&(!selD.size||selD.has(r[3]))&&(skip==='jenis'||!j||r[28]===j)&&(!bmv||bmvv(r)>=bmv)&&(!laca||r[17]===laca)&&(skip==='tarikh'||!selT.size||selT.has(r[12]))&&(skip==='cat'||!$('cat').value||r[21]===$('cat').value)&&(skip==='cy'||!selY.size||selY.has(r[19]))&&(status==='all'||(status==='available'?(stOf(r)==='active'||stOf(r)==='unsold'):stOf(r)===status)));
 }
 // Budget: auction price between From and To (either may be empty). A unit with no price is left out while a range is set.
 const priceLo=()=>num($('pMin').value),priceHi=()=>num($('pMax').value);
 const inPrice=r=>{const lo=priceLo(),hi=priceHi();if(!lo&&!hi)return true;const p=num(r[7]);return p>0&&p>=lo&&(!hi||p<=hi)};
-function activeN(){return [$('q').value!=='',$('negeri').value,selD.size,$('jenis').value,selT.size,$('cat').value,bmv,laca,priceLo()||priceHi()].filter(Boolean).length}
+function activeN(){return [$('q').value!=='',$('negeri').value,selD.size,$('jenis').value,selT.size,selY.size,$('cat').value,bmv,laca,priceLo()||priceHi()].filter(Boolean).length}
 const dash=v=>(v&&v!=='-'&&v!=='N/A')?esc(v):'N/A';
 function card(r,i){
  const st=stOf(r),ex=st!=='active'&&st!=='unsold';
@@ -333,7 +356,7 @@ function render(){facetOpts();
  $('sharedBar').hidden=!sharedId;
 }
 function clearShared(){if(!sharedId)return;sharedId=null;try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}
-function reset(){clearShared();status='available';['q','negeri','jenis','cat'].forEach(k=>$(k).value='');selD.clear();selT.clear();tarikhToggle(false);$('daerahQ').value='';daerahOpts();$('pMin').value='';$('pMax').value='';bmv=0;laca='';paint();render()}
+function reset(){clearShared();status='available';['q','negeri','jenis','cat'].forEach(k=>$(k).value='');selD.clear();selT.clear();selY.clear();tarikhToggle(false);cyToggle(false);$('daerahQ').value='';daerahOpts();$('pMin').value='';$('pMax').value='';bmv=0;laca='';paint();render()}
 document.querySelectorAll('.rs').forEach(b=>b.onclick=reset);
 $('resetInline').onclick=reset;$('resetBar').onclick=reset;
 $('list').onclick=e=>{const s=e.target.closest('.sh');if(s){const r=DATA.find(x=>x[20]===s.dataset.id);doShare('unit',r);return}
@@ -350,6 +373,10 @@ $('tarikhList').addEventListener('change',e=>{const c=e.target;if(!c||c.type!=='
 $('tarikhClear').onclick=()=>{selT.clear();render()};
 $('tarikhBtn').onclick=()=>tarikhToggle($('tarikhPanel').hidden);
 $('tarikhDone').onclick=()=>tarikhToggle(false);
+$('cyList').addEventListener('change',e=>{const c=e.target;if(!c||c.type!=='checkbox')return;c.checked?selY.add(c.value):selY.delete(c.value);track('filter_completion_year',{count:selY.size});render()});
+$('cyClear').onclick=()=>{selY.clear();render()};
+$('cyBtn').onclick=()=>cyToggle($('cyPanel').hidden);
+$('cyDone').onclick=()=>cyToggle(false);
 // Light / dark mode: follows the phone until the client picks one; the choice is remembered on that device.
 const darkMQ=window.matchMedia?matchMedia('(prefers-color-scheme: dark)'):null;
 const isDark=()=>{const t=document.documentElement.getAttribute('data-theme');return t?t==='dark':!!(darkMQ&&darkMQ.matches)};
