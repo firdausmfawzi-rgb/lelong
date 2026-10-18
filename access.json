@@ -1,0 +1,42 @@
+{
+ "v": 2,
+ "updated": "2026-10-10",
+ "kid": "bfa67a61",
+ "kdf": {
+  "name": "PBKDF2-SHA256",
+  "iter": 600000,
+  "salt": "TcpbowsxhWPwZ96RubWkPA=="
+ },
+ "codes": {
+  "e2cd47ece2234e616ee85a319ff39ad3": {
+   "label": "FJ02",
+   "exp": "2027-01-06T19:56:06.914Z",
+   "iv": "LyEGnIuPJMqainrk",
+   "wk": "9Evxk3qFqDNMddpEyBheC4ejEiJ9yMGQWu5VYpxtLrSA+5ZDRMI1JN6XyibDNcDv"
+  },
+  "4e85e9b7c96e700122f3fb77fd015004": {
+   "label": "S03",
+   "exp": null,
+   "iv": "MICn5G4/5ancFpg+",
+   "wk": "UAzIX8hZaIrWQKuuOIzYEzm1JXxQ5uCKxaED55jcQ36RTErWxievihzItBuP0H69"
+  },
+  "97034ccb4781ec59d6eff8441ece623f": {
+   "label": "F04",
+   "exp": "2027-01-07T03:53:26.897Z",
+   "iv": "xc88mReSgwTf8ikK",
+   "wk": "78CBwfCxfNlv10p1iM663UndX/2OSUPYp4vRppGZSNpTmS/raPdrUhhKI7oZNBHa"
+  },
+  "754bdd6aa3bb91d78d17fba458c1d814": {
+   "label": "T05",
+   "exp": null,
+   "iv": "5xlqx0efD7/eUTef",
+   "wk": "KiYzBqvB4fy6mx6pCyV1QTasE/yLezVQtEF9Y++csI6ikT3CGAOXySiljQRgn3Re"
+  },
+  "5617a75108ab95881b6ad33fd563127e": {
+   "label": "S06",
+   "exp": null,
+   "iv": "3fuP0wrwYoySlIHt",
+   "wk": "EcdvaZX15oA1nyL4ZuoLaWuwGV29rsmbyvy/cerUL8Kgl8hqK5A0vYwaYIgZkpBJ"
+  }
+ }
+}
