@@ -100,6 +100,9 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .sh-foot .btn{flex:1}
 .fld{display:flex;flex-direction:column;gap:6px}
 .fld>span{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.cy-hint{font-size:.75rem;color:var(--muted);margin-top:-4px}
+.cy-note{background:var(--red-bg);color:var(--red);border:1px solid var(--red);border-radius:10px;padding:9px 11px;font-size:.85rem;line-height:1.4;margin-top:-6px}
+#cat.flag{border-color:var(--red);box-shadow:0 0 0 2px var(--red-bg)}
 .seg{display:flex;flex-wrap:wrap;gap:8px}
 .seg button{border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:99px;padding:0 16px;min-height:42px}
 .seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
@@ -167,6 +170,12 @@ body{padding-block-end:100px}
 <div class="sheet" id="sheet" role="dialog" aria-label="Filter" hidden>
 <div class="sh-head"><h2>Filter</h2><button class="btn" id="close" type="button">Close</button></div>
 <div class="sh-body">
+<div class="fld" id="cyFld"><span id="cyLbl">Completion Year</span><small class="cy-hint">Condominium / Apartment / SOHO only</small>
+<button type="button" class="ms-btn" id="cyBtn" aria-haspopup="true" aria-expanded="false" aria-controls="cyPanel"><span id="cyN">All years</span><span class="chev" aria-hidden="true">▾</span></button>
+<div class="ms-panel" id="cyPanel" hidden>
+<div class="ms" id="cyList" role="group" aria-labelledby="cyLbl"></div>
+<div class="ms-foot"><button type="button" class="reset-inline" id="cyClear" hidden>Clear years</button><button type="button" class="btn" id="cyDone">Done</button></div>
+</div></div>
 <label class="fld"><span>State</span><select id="negeri"></select></label>
 <div class="fld"><span id="daerahLbl">District</span>
 <button type="button" class="ms-btn" id="daerahBtn" aria-haspopup="true" aria-expanded="false" aria-controls="daerahPanel"><span id="daerahN">All districts</span><span class="chev" aria-hidden="true">▾</span></button>
@@ -176,13 +185,8 @@ body{padding-block-end:100px}
 <div class="ms-foot"><button type="button" class="reset-inline" id="daerahClear" hidden>Clear districts</button><button type="button" class="btn" id="daerahDone">Done</button></div>
 </div></div>
 <label class="fld"><span>Property Category</span><select id="cat"></select></label>
+<div class="cy-note" id="cyNote" role="status" hidden>Completion Year is only available for <b>Condominium / Apartment / SOHO</b>. The Property Category has been changed to Condominium / Apartment / SOHO.</div>
 <label class="fld"><span>Type</span><select id="jenis"></select></label>
-<div class="fld" id="cyFld" hidden><span id="cyLbl">Completion Year</span>
-<button type="button" class="ms-btn" id="cyBtn" aria-haspopup="true" aria-expanded="false" aria-controls="cyPanel"><span id="cyN">All years</span><span class="chev" aria-hidden="true">▾</span></button>
-<div class="ms-panel" id="cyPanel" hidden>
-<div class="ms" id="cyList" role="group" aria-labelledby="cyLbl"></div>
-<div class="ms-foot"><button type="button" class="reset-inline" id="cyClear" hidden>Clear years</button><button type="button" class="btn" id="cyDone">Done</button></div>
-</div></div>
 <div class="fld"><span id="tarikhLbl">Auction Date</span>
 <button type="button" class="ms-btn" id="tarikhBtn" aria-haspopup="true" aria-expanded="false" aria-controls="tarikhPanel"><span id="tarikhN">All dates</span><span class="chev" aria-hidden="true">▾</span></button>
 <div class="ms-panel" id="tarikhPanel" hidden>
@@ -266,11 +270,12 @@ function facetOpts(){
  $('tarikhN').textContent=!sd.length?'All dates ('+filtered('tarikh').length+')':sd.length<=2?sd.join(', '):sd.length+' dates selected';
  $('tarikhClear').hidden=!sd.length;
  // Completion Year: only when the Property Category is Condominium / Apartment / SOHO; newest year first, units without a known year are not listed here
+ // (23/10/2026) the field is always shown at the top; picking a year switches the category to Condominium / Apartment / SOHO
  const isCondoCat=$('cat').value===CATS[0];
- if(!isCondoCat){selY.clear();cyToggle(false)}
- $('cyFld').hidden=!isCondoCat;
- if(isCondoCat){
-  const ym=new Map();filtered('cy').forEach(r=>{const v=r[19];if(v&&v!=='-')ym.set(v,(ym.get(v)||0)+1)});
+ if(!isCondoCat&&selY.size)selY.clear();
+ if(!isCondoCat)cyFlag(false);
+ {
+  const ym=new Map();filtered('catcy').forEach(r=>{const v=r[19];if(r[21]===CATS[0]&&v&&v!=='-')ym.set(v,(ym.get(v)||0)+1)});
   const yl=[...ym.keys()].sort((a,b)=>(parseInt(b)||0)-(parseInt(a)||0));
   [...selY].forEach(x=>{if(!ym.has(x))selY.delete(x)});
   const yl0=$('cyList'),yt=yl0.scrollTop;
@@ -281,6 +286,7 @@ function facetOpts(){
   $('cyClear').hidden=!sy.length;
  }
 }
+function cyFlag(on){$('cyNote').hidden=!on;$('cat').classList.toggle('flag',on)}
 function cyToggle(open){const p=$('cyPanel');p.hidden=!open;$('cyBtn').setAttribute('aria-expanded',String(open));if(open){setTimeout(()=>{try{p.scrollIntoView({block:'nearest'})}catch(e){}},30)}}
 function tarikhToggle(open){const p=$('tarikhPanel');p.hidden=!open;$('tarikhBtn').setAttribute('aria-expanded',String(open));if(open){setTimeout(()=>{try{p.scrollIntoView({block:'nearest'})}catch(e){}},30)}}
 const T0=(()=>{const d=new Date();d.setHours(0,0,0,0);return d.getTime()})();
@@ -322,7 +328,7 @@ daerahOpts();
 function filtered(skip){
  if(sharedId&&!skip)return DATA.filter(r=>r[20]===sharedId);
  const q=$('q').value.trim().toLowerCase(),n=$('negeri').value,j=$('jenis').value;
- return DATA.filter(r=>inPrice(r)&&(!q||(r[1]+' '+r[16]).toLowerCase().includes(q))&&(!n||r[2]===n)&&(!selD.size||selD.has(r[3]))&&(skip==='jenis'||!j||r[28]===j)&&(!bmv||bmvv(r)>=bmv)&&(!laca||r[17]===laca)&&(skip==='tarikh'||!selT.size||selT.has(r[12]))&&(skip==='cat'||!$('cat').value||r[21]===$('cat').value)&&(skip==='cy'||!selY.size||selY.has(r[19]))&&(status==='all'||(status==='available'?(stOf(r)==='active'||stOf(r)==='unsold'):stOf(r)===status)));
+ return DATA.filter(r=>inPrice(r)&&(!q||(r[1]+' '+r[16]).toLowerCase().includes(q))&&(!n||r[2]===n)&&(!selD.size||selD.has(r[3]))&&(skip==='jenis'||!j||r[28]===j)&&(!bmv||bmvv(r)>=bmv)&&(!laca||r[17]===laca)&&(skip==='tarikh'||!selT.size||selT.has(r[12]))&&(skip==='cat'||skip==='catcy'||!$('cat').value||r[21]===$('cat').value)&&(skip==='cy'||skip==='catcy'||!selY.size||selY.has(r[19]))&&(status==='all'||(status==='available'?(stOf(r)==='active'||stOf(r)==='unsold'):stOf(r)===status)));
 }
 // Budget: auction price between From and To (either may be empty). A unit with no price is left out while a range is set.
 const priceLo=()=>num($('pMin').value),priceHi=()=>num($('pMax').value);
@@ -360,7 +366,7 @@ function render(){facetOpts();
  $('sharedBar').hidden=!sharedId;
 }
 function clearShared(){if(!sharedId)return;sharedId=null;try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}
-function reset(){clearShared();status='available';['q','negeri','jenis','cat'].forEach(k=>$(k).value='');selD.clear();selT.clear();selY.clear();tarikhToggle(false);cyToggle(false);$('daerahQ').value='';daerahOpts();$('pMin').value='';$('pMax').value='';bmv=0;laca='';paint();render()}
+function reset(){clearShared();status='available';['q','negeri','jenis','cat'].forEach(k=>$(k).value='');selD.clear();selT.clear();selY.clear();tarikhToggle(false);cyToggle(false);cyFlag(false);$('daerahQ').value='';daerahOpts();$('pMin').value='';$('pMax').value='';bmv=0;laca='';paint();render()}
 document.querySelectorAll('.rs').forEach(b=>b.onclick=reset);
 $('resetInline').onclick=reset;$('resetBar').onclick=reset;
 $('list').onclick=e=>{const s=e.target.closest('.sh');if(s){const r=DATA.find(x=>x[20]===s.dataset.id);doShare('unit',r);return}
@@ -372,12 +378,14 @@ $('close').onclick=$('apply').onclick=$('scrim').onclick=()=>sheet(false);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')sheet(false)});
 $('negeri').onchange=()=>{daerahOpts();render()};
 ['q','jenis','cat','sort'].forEach(k=>$(k).addEventListener('input',render));
+$('cat').addEventListener('input',()=>cyFlag(false));
 ['pMin','pMax'].forEach(id=>$(id).addEventListener('input',e=>{const el=e.target,d=el.value.replace(/[^0-9]/g,'');el.value=d?Number(d).toLocaleString('en-US'):'';track('filter_price',{from:priceLo(),to:priceHi()});render()}));
 $('tarikhList').addEventListener('change',e=>{const c=e.target;if(!c||c.type!=='checkbox')return;c.checked?selT.add(c.value):selT.delete(c.value);track('filter_date',{count:selT.size});render()});
 $('tarikhClear').onclick=()=>{selT.clear();render()};
 $('tarikhBtn').onclick=()=>tarikhToggle($('tarikhPanel').hidden);
 $('tarikhDone').onclick=()=>tarikhToggle(false);
-$('cyList').addEventListener('change',e=>{const c=e.target;if(!c||c.type!=='checkbox')return;c.checked?selY.add(c.value):selY.delete(c.value);track('filter_completion_year',{count:selY.size});render()});
+$('cyList').addEventListener('change',e=>{const c=e.target;if(!c||c.type!=='checkbox')return;c.checked?selY.add(c.value):selY.delete(c.value);
+ if(c.checked&&$('cat').value!==CATS[0]){$('cat').value=CATS[0];cyFlag(true);track('completion_year_category_switch')}track('filter_completion_year',{count:selY.size});render()});
 $('cyClear').onclick=()=>{selY.clear();render()};
 $('cyBtn').onclick=()=>cyToggle($('cyPanel').hidden);
 $('cyDone').onclick=()=>cyToggle(false);
