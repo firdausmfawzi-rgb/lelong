@@ -82,6 +82,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .dims.d3{grid-template-columns:repeat(3,1fr);margin-top:8px}.dims.d3>div{padding:8px 8px}.dims>div{background:var(--bg);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:2px;min-width:0}
 .dims span{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font-size:.88rem;font-weight:600;color:var(--muted)}
 .dims b{font-size:1.1rem;overflow-wrap:anywhere}
+:root[data-size] .dims.d3{grid-template-columns:1fr 1fr}
 .dims .q{width:26px;height:26px;min-height:26px;font-size:13px;margin-left:2px}
 .facts{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:1.08rem;font-weight:600}
 .upd{margin:0 0 8px;color:var(--muted);font-size:.92rem}
@@ -161,7 +162,12 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .seg button{border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:99px;padding:6px 16px;min-height:44px;max-width:100%;white-space:normal;line-height:1.25;text-align:center}
 .seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
 /* price range (budget) */
-.pr{display:flex;gap:10px;align-items:center}.pr input{flex:1;min-width:0}.pr-to{flex:none;color:var(--muted);font-weight:600}
+/* budget: one full-width row per box (From / To written in front), so the example amount is never cut off */
+.pr{display:grid;gap:8px}
+.pr-f{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:10px}
+.pr-f>span{min-width:3.6em;font-weight:700;color:var(--fg)}
+.pr-f input{min-width:0}
+@media (min-width:560px){.pr{grid-template-columns:1fr 1fr;gap:14px}}
 /* multi-select district list */
 .ms{max-height:min(38vh,260px);overflow:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:4px;overscroll-behavior:contain}
 .ms label{display:flex;gap:12px;align-items:center;min-height:46px;padding:6px 10px;border-radius:8px;cursor:pointer;overflow-wrap:anywhere}
@@ -171,7 +177,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .ms-foot{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:8px;font-size:.95rem;color:var(--muted)}
 .ms-btn{display:flex;width:100%;align-items:center;justify-content:space-between;gap:10px;font:inherit;font-size:calc(16px * var(--fs));text-align:left;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:11px 12px;min-height:48px}
 .ms-btn[aria-expanded="true"]{border-color:var(--accent)}
-.ms-btn #daerahN,.ms-btn #tarikhN,.ms-btn #cyN{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ms-btn #daerahN,.ms-btn #tarikhN,.ms-btn #cyN{min-width:0;overflow-wrap:anywhere}
 .ms-btn .chev{flex:none;color:var(--muted);transition:transform .15s}
 .ms-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
 .ms-panel{margin-top:8px;display:flex;flex-direction:column;gap:8px}
@@ -192,7 +198,8 @@ body{padding-block-end:100px}
 .mdl-foot{padding:12px 18px calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);display:flex;gap:10px}
 .mdl-foot .btn{flex:1;min-height:54px;font-size:1.08rem}
 .big-opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr));gap:10px}
-.big-opts button{min-height:68px;border:2px solid var(--line);background:var(--bg);color:var(--fg);border-radius:14px;font-weight:700;font-size:1.05rem;padding:8px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-align:center;line-height:1.25}
+.big-opts button{overflow-wrap:anywhere;min-height:68px;border:2px solid var(--line);background:var(--bg);color:var(--fg);border-radius:14px;font-weight:700;font-size:1.05rem;padding:8px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-align:center;line-height:1.25}
+:root[data-size="xl"] .big-opts{grid-template-columns:1fr}
 .big-opts button small{font-weight:600;color:var(--muted);font-size:.88rem}
 .big-opts button:hover,.big-opts button:focus-visible{border-color:var(--accent)}
 .big-opts button.any{border-style:dashed}
@@ -213,15 +220,16 @@ body{padding-block-end:100px}
 .gate-lang{justify-content:center}
 /* printing My list: big plain cards, no buttons */
 @media print{
- body{background:#fff;color:#000;padding:0;font-size:13pt}
+ *{color:#000!important;background:transparent!important;box-shadow:none!important;text-shadow:none!important}
+ body{padding:0;font-size:13pt}
  .dock,.top,.hd-acts,.tools,.start,.seg-row,.status,.acts,.wa-unit,.calbtn,.q,.loadmore,.empty,.toast,.shared-bar,.info-bar .ib-acts,#lastBar,.sub-acts,.mdl,.mdl-scrim,.sheet,.scrim,.gate{display:none!important}
- .sub{background:none;color:#000;border:1px solid #999;padding:6px 10px}
- .info-bar{background:none;border:0;padding:0}
+ .sub{border:1px solid #999;padding:6px 10px}
+ .info-bar{border:0;padding:0}
  .list{display:block}
- .card{break-inside:avoid;box-shadow:none;border:1px solid #888;margin-bottom:14px}
+ .card{break-inside:avoid;border:1px solid #888;margin-bottom:14px}
  .card .more{display:grid}
  .card.expired>*{opacity:1!important}
- .pricebox,.dims>div{background:#f2f2f2}
+ .pricebox,.dims>div,.exp-tag,.kind .num,.cd,.bmv,.chip,.unsold-note{border:1px solid #999}
 }
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=IBM+Plex+Sans:wght@400;600;700&display=swap">
@@ -248,7 +256,7 @@ body{padding-block-end:100px}
 <div class="sub"><span data-i18n="banner">Interested? Contact Firdaus Jay: 019-6522361</span><span class="sub-acts"><a id="bannerCall" href="#" data-i18n="call">📞 Call</a><a class="sub-wa" id="bannerWa" href="https://wa.me/60196522361" target="_blank" rel="noopener">💬 WhatsApp</a></span></div>
 <div class="start"><button type="button" class="qf-btn main" id="qfBtn" disabled><span data-i18n="qf_btn">🔎 Quick Find</span><small data-i18n="qf_sub">3 easy questions</small></button><button type="button" class="qf-btn" id="guideBtn"><span data-i18n="guide_btn">❓ How to use</span><small data-i18n="guide_sub">this page</small></button></div>
 <div class="top">
-<input id="q" type="search" placeholder="Search address or bank" data-i18n-ph="search_ph" aria-label="Search address or bank" data-i18n-al="search_ph">
+<input id="q" type="search" placeholder="🔎 Address or bank" data-i18n-ph="search_ph" aria-label="Search address or bank" data-i18n-al="search_al">
 <button class="btn" id="openTop" type="button"><span data-i18n="filter">Filter</span><span class="badge" hidden></span></button>
 </div>
 <div class="info-bar" id="lastBar" hidden><span data-i18n="last_t">Showing your last search</span><span class="ib-acts"><button type="button" id="startOver" data-i18n="start_over">Start over</button></span></div>
@@ -257,7 +265,7 @@ body{padding-block-end:100px}
 <div class="toast" id="toast" role="status" hidden></div>
 <div class="seg-row"><div class="seg" id="statusSeg" role="group" aria-label="Listing status" data-i18n-al="status_al"></div><button type="button" class="q" data-h="status" aria-label="What does this mean?" data-i18n-al="what">?</button></div>
 <div class="status"><span id="count">Loading listings…</span><span class="st-r"><button class="reset-inline" id="resetInline" type="button" hidden data-i18n="reset">Reset</button><select id="sort" aria-label="Sort" data-i18n-al="sort_al" autocomplete="off"><option value="new" selected data-i18n="s_new">Newest listing</option><option value="bmv" data-i18n="s_bmv">Biggest discount</option><option value="tarikh" data-i18n="s_date">Nearest auction date</option><option value="harga" data-i18n="s_lo">Lowest price</option><option value="hharga" data-i18n="s_hi">Highest price</option><option value="lbmv" data-i18n="s_lbmv">Smallest discount</option></select></span></div>
-<div class="status"><div class="tgrp vseg" id="viewSeg" role="group" aria-label="View" data-i18n-al="view_al"><button type="button" data-v="simple" data-i18n="view_simple">Simple</button><button type="button" data-v="detailed" data-i18n="view_detailed">Detailed</button></div><button type="button" class="favbtn" id="favBtn" aria-pressed="false">♥ My list</button></div>
+<div class="status"><div class="tgrp vseg" id="viewSeg" role="group" aria-label="View" data-i18n-al="view_al"><button type="button" data-v="simple" data-i18n="view_simple">Simple</button><button type="button" data-v="detailed" data-i18n="view_detailed">Detailed</button></div><button type="button" class="favbtn" id="favBtn" aria-pressed="false" data-i18n="fav_lbl">♥ My list</button></div>
 <div class="list" id="list"></div><button type="button" class="loadmore" id="more" hidden>Show more</button>
 <div class="empty" id="empty" hidden><span id="emptyMsg"></span><br><button class="btn primary rs" id="emptyReset" type="button" data-i18n="reset_all_f">Reset all filters</button></div>
 </div>
@@ -290,7 +298,7 @@ body{padding-block-end:100px}
 <div class="ms" id="tarikhList" role="group" aria-labelledby="tarikhLbl"></div>
 <div class="ms-foot"><button type="button" class="reset-inline" id="tarikhClear" hidden data-i18n="clear_dates">Clear dates</button><button type="button" class="btn" id="tarikhDone" data-i18n="done">Done</button></div>
 </div></div>
-<div class="fld"><span id="priceLbl"><span data-i18n="fl_price">Auction Price (RM) - your budget</span><button type="button" class="q" data-h="price" aria-label="What does this mean?" data-i18n-al="what">?</button></span><div class="pr"><input id="pMin" type="text" inputmode="numeric" placeholder="From, e.g. 100,000" data-i18n-ph="p_from" autocomplete="off" aria-label="Minimum auction price in RM" data-i18n-al="p_from_al"><b class="pr-to" aria-hidden="true" data-i18n="to">to</b><input id="pMax" type="text" inputmode="numeric" placeholder="To, e.g. 300,000" data-i18n-ph="p_to" autocomplete="off" aria-label="Maximum auction price in RM" data-i18n-al="p_to_al"></div></div>
+<div class="fld"><span id="priceLbl"><span data-i18n="fl_price">Auction Price (RM) - your budget</span><button type="button" class="q" data-h="price" aria-label="What does this mean?" data-i18n-al="what">?</button></span><div class="pr"><label class="pr-f"><span data-i18n="p_from_l">From</span><input id="pMin" type="text" inputmode="numeric" placeholder="e.g. 100,000" data-i18n-ph="p_from" autocomplete="off" aria-label="Minimum auction price in RM" data-i18n-al="p_from_al"></label><label class="pr-f"><span data-i18n="p_to_l">To</span><input id="pMax" type="text" inputmode="numeric" placeholder="e.g. 300,000" data-i18n-ph="p_to" autocomplete="off" aria-label="Maximum auction price in RM" data-i18n-al="p_to_al"></label></div></div>
 <div class="fld"><span><span data-i18n="fl_bmv">Discount from market value (at least)</span><button type="button" class="q" data-h="bmv" aria-label="What does this mean?" data-i18n-al="what">?</button></span><div class="seg" id="bmvSeg"></div></div>
 <div class="fld"><span><span>LACA</span><button type="button" class="q" data-h="laca" aria-label="What does this mean?" data-i18n-al="what">?</button></span><div class="seg" id="lacaSeg"></div></div>
 </div>
@@ -318,8 +326,8 @@ const I18N={en:{
 title:'Auction List | {name}',h1:'Auction List',updated:'Updated {d}',loading:'Loading listings…',load_err:'Could not load listings. Refresh the page to try again.',
 banner:'Interested? Contact {name}: {phone}',call:'📞 Call',wa_hi:'Hi {name}, I would like to know more about the auction list.',
 qf_btn:'🔎 Quick Find',qf_sub:'3 easy questions',guide_btn:'❓ How to use',guide_sub:'this page',
-search_ph:'Search address or bank',filter:'Filter',shared_t:'Showing a shared unit',view_all:'View all listings',status_al:'Listing status',
-fav_btn:'♥ My list ({n})',fav_count:'My list: {n} units',fav_send:'💬 Send my list to {name}',print:'🖨 Print',back_all:'Back to all units',
+search_ph:'🔎 Address or bank',search_al:'Search address or bank',filter:'Filter',shared_t:'Showing a shared unit',view_all:'View all listings',status_al:'Listing status',
+fav_btn:'♥ My list ({n})',fav_lbl:'♥ My list',fav_count:'My list: {n} units',fav_send:'💬 Send my list to {name}',print:'🖨 Print',back_all:'Back to all units',
 fav_empty:'Your list is empty. Tap <b>♡ Save</b> on a unit to keep it here.',fav_wa:'Hi {name}, I am interested in these auction units:',fav_more:'(+{n} more in my list)',
 fav_added:'Saved to My list',fav_removed:'Removed from My list',save:'♡ Save',saved:'♥ Saved',
 view_al:'View',view_simple:'Simple',view_detailed:'Detailed',last_t:'Showing your last search',start_over:'Start over',
@@ -334,7 +342,7 @@ all_years:'All years',n_years:'{n} years selected',no_years:'No completion year 
 fl_cy:'Completion Year',cy_hint:'Condominium / Apartment / SOHO only',
 cy_note:'Completion Year is only available for <b>Condominium / Apartment / SOHO</b>. The Property Category has been changed to Condominium / Apartment / SOHO.',
 fl_state:'State',fl_district:'District',fl_cat:'Property Category',fl_type:'Type',fl_date:'Auction Date',fl_price:'Auction Price (RM) - your budget',
-p_from:'From, e.g. 100,000',p_to:'To, e.g. 300,000',p_from_al:'Minimum auction price in RM',p_to_al:'Maximum auction price in RM',to:'to',
+p_from_l:'From',p_to_l:'To',p_from:'e.g. 100,000',p_to:'e.g. 300,000',p_from_al:'Minimum auction price in RM',p_to_al:'Maximum auction price in RM',
 fl_bmv:'Discount from market value (at least)',
 st_available:'Active + No bidder',st_active:'Active',st_unsold:'No bidder',st_calloff:'Cancelled',st_sold:'Sold',st_expired:'Expired',
 sp_next:' · next {t}',sp_last:' · last {t}',months:'{n} months',day1:'{n} day',days:'{n} days',
@@ -351,12 +359,12 @@ wa_price:'Auction price: {p}',wa_date:'Auction date: {d}',what:'What does this m
 share_list:'Bank auction properties below market value. Contact {name}: {phone}',share_unit:'{t} in {d}, {s}. {p}{b}. Auction {a}.',
 theme_dark:'Switch to dark mode',theme_light:'Switch to light mode',size_al:'Text size',size0:'Normal text',size1:'Bigger text',size2:'Biggest text',
 gate_t:'Private auction list',gate_p:'This list is for clients of {name} only. Enter the access code you received on WhatsApp.',
-gate_ph:'ACCESS CODE',gate_al:'Access code',gate_open:'Open list',gate_wa:'Request access on WhatsApp',gate_checking:'Checking the code…',
+gate_ph:'ACCESS CODE',gate_al:'Access code',gate_open:'Open list',gate_wa:'Request access on WhatsApp',gate_wa_msg:'Hi {name}, I would like an access code for the auction list.',gate_checking:'Checking the code…',
 gate_exp:'This access code has expired. Please ask {name} for a new one.',gate_exp2:'This code has expired. Ask {name} for a new one.',
 gate_bad:'Code not recognised. Check the code or request access on WhatsApp.',gate_invalid:'That code is not valid.',
 gate_browser:'This browser cannot open the list. Please update it or open the link in Chrome.',gate_err:'Could not check the access code. Refresh the page to try again.',
 qf_t:'Quick Find',qf_step:'Question {i} of 3',qf_q1:'Where do you want to buy?',qf_q2:'What type of property?',qf_q3:'What is your budget?',
-qf_any1:'Any state',qf_any2:'Any type',qf_any3:'Any budget',qf_b0:'Below RM 200,000',qf_b1:'RM 200,000 - 400,000',qf_b2:'RM 400,000 - 700,000',qf_b3:'Above RM 700,000',
+qf_any1:'Any state',qf_any2:'Any type',qf_any3:'Any budget',qf_b0:'Up to RM 200,000',qf_b1:'RM 200,000 - 400,000',qf_b2:'RM 400,000 - 700,000',qf_b3:'RM 700,000 and above',
 n_units:'{n} units',n_units1:'{n} unit',fav_count1:'My list: {n} unit',showing1:'Showing {n} unit',show_n1:'Show {n} unit',more_n:'Show more ({n} more)',back:'Back',cancel:'Cancel',showing:'Showing {n} units',
 guide_t:'How to use this page',got_it:'Got it',
 guide:'<ol class="steps">'
@@ -369,30 +377,30 @@ guide:'<ol class="steps">'
 +'<li><span class="si" aria-hidden="true">🔠</span><div><strong>Bigger text, language and view</strong>Tap <b>A+</b> or <b>A++</b> for bigger text, <b>English</b> or <b>BM</b> for the language, and <b>Simple</b> to see only the main facts on each unit.</div></li>'
 +'</ol><p class="tip">This page remembers your settings, saved units and last search on this phone. Tap <b>Start over</b> to clear the search.</p>',
 h_status_t:'What the status buttons mean',
-h_status:'<p><b>Active</b> - the auction has not happened yet. You can still bid.</p><p><b>No bidder</b> (shown as "Unsold" on auction websites) - nobody bid at the last auction. The bank will auction it again, usually about 10% cheaper.</p><p><b>Cancelled</b> (shown as "Call Off") - the auction was stopped, for example because the owner paid the loan.</p><p><b>Sold</b> - someone bought it at the auction.</p><p>The note in brackets shows how far the auction dates go, for example "next 9 months".</p>',
+h_status:'<p><b>Active</b> - the auction has not happened yet. You can still bid.</p><p><b>No bidder</b> (shown as "Unsold" on auction websites) - nobody bid at the last auction. The bank may auction it again, often about 10% cheaper.</p><p><b>Cancelled</b> (shown as "Call Off") - the auction was stopped, for example because the owner paid the loan.</p><p><b>Sold</b> - someone bought it at the auction.</p><p><b>Active + No bidder</b> (the first button) shows both: the units you may still be able to buy.</p><p>The note in brackets shows how far the auction dates go: "next 9 months" for Active, "last 30 days" for the others.</p>',
 h_price_t:'Auction price',
 h_price:'<p>The <b>auction price</b> is the starting price (reserve price) set by the bank. Bidding starts at this price, so the final price can be higher.</p><p>To bid, you usually pay a 10% deposit of this price before the auction.</p>',
 h_bmv_t:'Market value and discount',
-h_bmv:'<p><b>Market value</b> is the value of the property estimated by a valuer for the bank.</p><p><b>Below market value</b> shows how much cheaper the auction price is. Example: "30% below market value" means a property worth RM 100,000 starts at RM 70,000.</p><p>🔥 marks units at least 10% below market value. If a market value looks wrong, it is shown as N/A.</p>',
+h_bmv:'<p><b>Market value</b> is the value of the property estimated by a valuer for the bank.</p><p><b>Below market value</b> shows how much cheaper the auction price is. Example: "30% below market value" means a property worth RM 100,000 starts at RM 70,000.</p><p>If a market value looks wrong, it is shown as N/A.</p>',
 h_tenure_t:'Freehold and leasehold',
 h_tenure:'<p><b>Freehold</b> - you own it with no time limit.</p><p><b>Leasehold</b> - you own it for a fixed period, for example 99 years. When a date is shown, it is when the lease ends. Fewer years left usually means a lower value.</p>',
 h_laca_t:'LACA and Non-LACA',
-h_laca:'<p><b>LACA</b> (Loan Agreement cum Assignment) - the bank holds the property under the loan agreement, usually because the title was not in the owner’s name yet. The bank sells it directly. Transferring the title to you can take longer.</p><p><b>Non-LACA</b> - the property has its own title. The auction is ordered by the court or the land office.</p>',
+h_laca:'<p><b>LACA</b> - the house title (geran) is not in the owner’s name yet, so the bank sells the owner’s rights under the loan agreement. Moving the property into your name can take longer.</p><p><b>Non-LACA</b> - the title (geran) is already in the owner’s name. The auction is ordered by the court or the land office.</p>',
 h_restr_t:'Restrictions',
 h_restr:'<p>A <b>restriction</b> limits who can buy the property. For example, a <b>Bumi Lot</b> or <b>Malay Reserve</b> unit can only be bought by Bumiputera or Malay buyers, and <b>Native Land</b> only by natives of the state.</p><p>Check that you can buy it before you bid. {name} can explain more.</p>',
 h_count_t:'Auction round',
-h_count:'<p><b>1st auction</b> - the first time the bank offers this unit.</p><p><b>2nd, 3rd auction and more</b> - nobody bought it at the earlier auctions. The bank usually lowers the price by about 10% each time.</p>',
+h_count:'<p><b>1st auction</b> - the first time the bank offers this unit.</p><p><b>2nd, 3rd auction and more</b> - nobody bought it at the earlier auctions. The price is often lowered by about 10% each time.</p>',
 h_cy_t:'Completion year',
 h_cy:'<p>The year the building was completed.</p><p>It is only available for Condominium / Apartment / SOHO. Picking a year changes the Property Category to Condominium / Apartment / SOHO.</p>'
 },ms:{
 title:'Senarai Lelong | {name}',h1:'Senarai Lelong',updated:'Dikemas kini {d}',loading:'Memuatkan senarai…',load_err:'Senarai tidak dapat dimuatkan. Muat semula halaman dan cuba lagi.',
 banner:'Berminat? Hubungi {name}: {phone}',call:'📞 Telefon',wa_hi:'Hi {name}, saya nak tahu lebih lanjut tentang senarai lelong.',
 qf_btn:'🔎 Carian Mudah',qf_sub:'3 soalan mudah',guide_btn:'❓ Cara guna',guide_sub:'laman ini',
-search_ph:'Cari alamat atau bank',filter:'Tapis',shared_t:'Menunjukkan unit yang dikongsi',view_all:'Lihat semua senarai',status_al:'Status senarai',
-fav_btn:'♥ Senarai saya ({n})',fav_count:'Senarai saya: {n} unit',fav_send:'💬 Hantar senarai kepada {name}',print:'🖨 Cetak',back_all:'Kembali ke semua unit',
-fav_empty:'Senarai anda kosong. Tekan <b>♡ Simpan</b> pada unit untuk menyimpannya di sini.',fav_wa:'Hi {name}, saya berminat dengan unit lelong ini:',fav_more:'(+{n} lagi dalam senarai saya)',
+search_ph:'🔎 Alamat atau bank',search_al:'Cari alamat atau bank',filter:'Tapis',shared_t:'Menunjukkan unit yang dikongsi',view_all:'Lihat semua senarai',status_al:'Status senarai',
+fav_btn:'♥ Senarai saya ({n})',fav_lbl:'♥ Senarai saya',fav_count:'Senarai saya: {n} unit',fav_send:'💬 Hantar senarai kepada {name}',print:'🖨 Cetak',back_all:'Kembali ke semua unit',
+fav_empty:'Senarai anda kosong. Tekan <b>♡ Simpan</b> pada unit untuk menyimpannya di sini.',fav_wa:'Hi {name}, saya berminat dengan unit lelong berikut:',fav_more:'(+{n} lagi dalam senarai saya)',
 fav_added:'Disimpan dalam Senarai saya',fav_removed:'Dibuang dari Senarai saya',save:'♡ Simpan',saved:'♥ Disimpan',
-view_al:'Paparan',view_simple:'Ringkas',view_detailed:'Penuh',last_t:'Menunjukkan carian terakhir anda',start_over:'Mula semula',
+view_al:'Paparan',view_simple:'Ringkas',view_detailed:'Terperinci',last_t:'Menunjukkan carian terakhir anda',start_over:'Mula semula',
 sort_al:'Susunan',s_new:'Senarai terbaru',s_bmv:'Diskaun paling besar',s_date:'Tarikh lelong paling dekat',s_lo:'Harga paling rendah',s_hi:'Harga paling tinggi',s_lbmv:'Diskaun paling kecil',
 reset:'Set semula',reset_all:'Set semula semua',reset_all_f:'Set semula semua penapis',show_n:'Tunjuk {n} unit',close:'Tutup',ok:'OK',count:'{n} / {t} unit',
 empty1:'Tiada unit {s} yang sepadan dengan penapis anda',empty2:'Ada {n} unit {s} kesemuanya. Set semula penapis untuk melihatnya.',
@@ -404,7 +412,7 @@ all_years:'Semua tahun',n_years:'{n} tahun dipilih',no_years:'Tiada tahun siap d
 fl_cy:'Tahun Siap',cy_hint:'Kondominium / Apartmen / SOHO sahaja',
 cy_note:'Tahun Siap hanya ada untuk <b>Kondominium / Apartmen / SOHO</b>. Kategori Hartanah telah ditukar kepada Kondominium / Apartmen / SOHO.',
 fl_state:'Negeri',fl_district:'Daerah',fl_cat:'Kategori Hartanah',fl_type:'Jenis',fl_date:'Tarikh Lelong',fl_price:'Harga Lelong (RM) - bajet anda',
-p_from:'Dari, cth. 100,000',p_to:'Hingga, cth. 300,000',p_from_al:'Harga lelong minimum dalam RM',p_to_al:'Harga lelong maksimum dalam RM',to:'hingga',
+p_from_l:'Dari',p_to_l:'Hingga',p_from:'cth. 100,000',p_to:'cth. 300,000',p_from_al:'Harga lelong minimum dalam RM',p_to_al:'Harga lelong maksimum dalam RM',
 fl_bmv:'Diskaun dari nilai pasaran (sekurang-kurangnya)',
 st_available:'Aktif + Tiada pembida',st_active:'Aktif',st_unsold:'Tiada pembida',st_calloff:'Dibatalkan',st_sold:'Terjual',st_expired:'Tamat',
 sp_next:' · {t} akan datang',sp_last:' · {t} lepas',months:'{n} bulan',day1:'{n} hari',days:'{n} hari',
@@ -421,12 +429,12 @@ wa_price:'Harga lelong: {p}',wa_date:'Tarikh lelong: {d}',what:'Apa maksudnya?',
 share_list:'Hartanah lelong bank di bawah nilai pasaran. Hubungi {name}: {phone}',share_unit:'{t} di {d}, {s}. {p}{b}. Lelong {a}.',
 theme_dark:'Tukar ke mod gelap',theme_light:'Tukar ke mod cerah',size_al:'Saiz tulisan',size0:'Tulisan biasa',size1:'Tulisan besar',size2:'Tulisan paling besar',
 gate_t:'Senarai lelong peribadi',gate_p:'Senarai ini untuk klien {name} sahaja. Masukkan kod akses yang anda terima di WhatsApp.',
-gate_ph:'KOD AKSES',gate_al:'Kod akses',gate_open:'Buka senarai',gate_wa:'Minta kod akses di WhatsApp',gate_checking:'Menyemak kod…',
+gate_ph:'KOD AKSES',gate_al:'Kod akses',gate_open:'Buka senarai',gate_wa:'Minta kod akses di WhatsApp',gate_wa_msg:'Hi {name}, saya nak minta kod akses untuk senarai lelong.',gate_checking:'Menyemak kod…',
 gate_exp:'Kod akses ini sudah tamat tempoh. Sila minta kod baharu daripada {name}.',gate_exp2:'Kod ini sudah tamat tempoh. Minta kod baharu daripada {name}.',
 gate_bad:'Kod tidak dikenali. Semak kod atau minta akses di WhatsApp.',gate_invalid:'Kod itu tidak sah.',
 gate_browser:'Pelayar ini tidak dapat membuka senarai. Sila kemas kini atau buka pautan dalam Chrome.',gate_err:'Kod akses tidak dapat disemak. Muat semula halaman dan cuba lagi.',
 qf_t:'Carian Mudah',qf_step:'Soalan {i} daripada 3',qf_q1:'Di mana anda mahu beli?',qf_q2:'Jenis hartanah apa?',qf_q3:'Berapa bajet anda?',
-qf_any1:'Mana-mana negeri',qf_any2:'Mana-mana jenis',qf_any3:'Mana-mana bajet',qf_b0:'Bawah RM 200,000',qf_b1:'RM 200,000 - 400,000',qf_b2:'RM 400,000 - 700,000',qf_b3:'Atas RM 700,000',
+qf_any1:'Mana-mana negeri',qf_any2:'Mana-mana jenis',qf_any3:'Mana-mana bajet',qf_b0:'Sehingga RM 200,000',qf_b1:'RM 200,000 - 400,000',qf_b2:'RM 400,000 - 700,000',qf_b3:'RM 700,000 ke atas',
 n_units:'{n} unit',n_units1:'{n} unit',fav_count1:'Senarai saya: {n} unit',showing1:'Menunjukkan {n} unit',show_n1:'Tunjuk {n} unit',more_n:'Tunjuk lagi ({n} lagi)',back:'Kembali',cancel:'Batal',showing:'Menunjukkan {n} unit',
 guide_t:'Cara guna laman ini',got_it:'Faham',
 guide:'<ol class="steps">'
@@ -439,19 +447,19 @@ guide:'<ol class="steps">'
 +'<li><span class="si" aria-hidden="true">🔠</span><div><strong>Tulisan besar, bahasa dan paparan</strong>Tekan <b>A+</b> atau <b>A++</b> untuk tulisan lebih besar, <b>English</b> atau <b>BM</b> untuk bahasa, dan <b>Ringkas</b> untuk lihat maklumat utama sahaja pada setiap unit.</div></li>'
 +'</ol><p class="tip">Laman ini mengingati tetapan, unit yang disimpan dan carian terakhir anda di telefon ini. Tekan <b>Mula semula</b> untuk kosongkan carian.</p>',
 h_status_t:'Maksud butang status',
-h_status:'<p><b>Aktif</b> - lelong belum berlaku. Anda masih boleh membida.</p><p><b>Tiada pembida</b> (ditulis "Unsold" di laman lelong) - tiada sesiapa membida pada lelong lepas. Bank akan melelong semula, biasanya kira-kira 10% lebih murah.</p><p><b>Dibatalkan</b> (ditulis "Call Off") - lelong dihentikan, contohnya kerana pemilik sudah menjelaskan pinjaman.</p><p><b>Terjual</b> - ada pembeli di lelong.</p><p>Nota dalam kurungan menunjukkan julat tarikh lelong, contohnya "9 bulan akan datang".</p>',
+h_status:'<p><b>Aktif</b> - lelong belum berlaku. Anda masih boleh membida.</p><p><b>Tiada pembida</b> (ditulis "Unsold" di laman lelong) - tiada sesiapa membida pada lelong lepas. Bank mungkin melelong semula, selalunya kira-kira 10% lebih murah.</p><p><b>Dibatalkan</b> (ditulis "Call Off") - lelong dihentikan, contohnya kerana pemilik sudah menjelaskan pinjaman.</p><p><b>Terjual</b> - ada pembeli di lelong.</p><p><b>Aktif + Tiada pembida</b> (butang pertama) menunjukkan kedua-duanya: unit yang mungkin masih boleh anda beli.</p><p>Nota dalam kurungan menunjukkan julat tarikh lelong: "9 bulan akan datang" untuk Aktif, "30 hari lepas" untuk yang lain.</p>',
 h_price_t:'Harga lelong',
 h_price:'<p><b>Harga lelong</b> ialah harga permulaan (harga rizab) yang ditetapkan oleh bank. Bidaan bermula pada harga ini, jadi harga akhir boleh lebih tinggi.</p><p>Untuk membida, anda biasanya perlu membayar deposit 10% daripada harga ini sebelum lelong.</p>',
 h_bmv_t:'Nilai pasaran dan diskaun',
-h_bmv:'<p><b>Nilai pasaran</b> ialah nilai hartanah yang dianggarkan oleh penilai untuk bank.</p><p><b>Bawah nilai pasaran</b> menunjukkan berapa lebih murah harga lelong. Contoh: "30% bawah nilai pasaran" bermaksud hartanah bernilai RM 100,000 bermula pada RM 70,000.</p><p>🔥 menandakan unit sekurang-kurangnya 10% bawah nilai pasaran. Jika nilai pasaran nampak salah, ia ditunjukkan sebagai N/A.</p>',
+h_bmv:'<p><b>Nilai pasaran</b> ialah nilai hartanah yang dianggarkan oleh penilai untuk bank.</p><p><b>Bawah nilai pasaran</b> menunjukkan berapa lebih murah harga lelong. Contoh: "30% bawah nilai pasaran" bermaksud hartanah bernilai RM 100,000 bermula pada RM 70,000.</p><p>Jika nilai pasaran nampak salah, ia ditunjukkan sebagai N/A.</p>',
 h_tenure_t:'Freehold dan leasehold',
 h_tenure:'<p><b>Freehold (pegangan bebas)</b> - milik anda tanpa had masa.</p><p><b>Leasehold (pajakan)</b> - milik anda untuk tempoh tertentu, contohnya 99 tahun. Jika ada tarikh, itu tarikh pajakan tamat. Baki tahun yang sedikit biasanya bermaksud nilai lebih rendah.</p>',
 h_laca_t:'LACA dan Non-LACA',
-h_laca:'<p><b>LACA</b> (Loan Agreement cum Assignment) - bank memegang hartanah melalui perjanjian pinjaman, biasanya kerana geran belum atas nama pemilik. Bank menjualnya terus. Pindah milik geran kepada anda boleh mengambil masa lebih lama.</p><p><b>Non-LACA</b> - hartanah ada geran sendiri. Lelong diarahkan oleh mahkamah atau pejabat tanah.</p>',
+h_laca:'<p><b>LACA</b> - geran rumah belum atas nama pemilik, jadi bank menjual hak pemilik di bawah perjanjian pinjaman. Pindah milik ke nama anda boleh mengambil masa lebih lama.</p><p><b>Non-LACA</b> - geran sudah atas nama pemilik. Lelong diarahkan oleh mahkamah atau pejabat tanah.</p>',
 h_restr_t:'Sekatan',
 h_restr:'<p><b>Sekatan</b> menghadkan siapa yang boleh membeli hartanah. Contohnya, unit <b>Lot Bumi</b> atau <b>Rizab Melayu</b> hanya boleh dibeli oleh pembeli Bumiputera atau Melayu, dan <b>Tanah Anak Negeri</b> hanya oleh anak negeri.</p><p>Pastikan anda layak membeli sebelum membida. {name} boleh terangkan lebih lanjut.</p>',
 h_count_t:'Pusingan lelong',
-h_count:'<p><b>Lelong ke-1</b> - kali pertama bank menawarkan unit ini.</p><p><b>Lelong ke-2, ke-3 dan seterusnya</b> - tiada pembeli pada lelong sebelum ini. Bank biasanya menurunkan harga kira-kira 10% setiap kali.</p>',
+h_count:'<p><b>Lelong ke-1</b> - kali pertama bank menawarkan unit ini.</p><p><b>Lelong ke-2, ke-3 dan seterusnya</b> - tiada pembeli pada lelong sebelum ini. Harga selalunya diturunkan kira-kira 10% setiap kali.</p>',
 h_cy_t:'Tahun siap',
 h_cy:'<p>Tahun bangunan siap dibina.</p><p>Hanya ada untuk Kondominium / Apartmen / SOHO. Memilih tahun akan menukar Kategori Hartanah kepada Kondominium / Apartmen / SOHO.</p>'
 }};
@@ -466,7 +474,7 @@ function applyI18n(){document.documentElement.lang=LANG;
  document.querySelectorAll('[data-i18n-al]').forEach(el=>{el.setAttribute('aria-label',tx(el.dataset.i18nAl))});
  document.querySelectorAll('[data-l]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.l===LANG)));
  document.title=tx('title');
- G('bannerWa').href=AGENT.wa+'?text='+encodeURIComponent(tx('wa_hi'));
+ G('bannerWa').href=AGENT.wa+'?text='+encodeURIComponent(tx('wa_hi'));G('gateWa').href=AGENT.wa+'?text='+encodeURIComponent(tx('gate_wa_msg'));
  G('bannerCall').href='tel:+6'+AGENT.phone.replace(/\D/g,'');
  const ge=G('gateErr');if(ge.dataset.k)ge.textContent=tx(ge.dataset.k)}
 function setLang(l){if(l!=='en'&&l!=='ms')return;LANG=l;ls.set('lang',l);applyI18n();if(ONLANG)ONLANG();gtrack('language',{lang:l})}
@@ -639,8 +647,8 @@ function daerahOpts(){const n=$('negeri').value;
  daerahMeta()}
 // Saved units ("My list"): kept on this device; units that leave the list (sold long ago, removed) simply stop showing.
 const FAV=new Set();try{const a=JSON.parse(ls.get('fav')||'[]');if(Array.isArray(a))a.forEach(x=>{if(typeof x==='string')FAV.add(x)})}catch(e){}
-const saveFav=()=>ls.set('fav',JSON.stringify([...FAV].slice(-300)));
-let favMode=false,PRINTING=false,LASTON=false;
+const saveFav=()=>{while(FAV.size>300)FAV.delete(FAV.values().next().value);ls.set('fav',JSON.stringify([...FAV]))};
+let favMode=false,PRINTING=false,LASTON=false,LASTSNAP=null;
 let VIEW=ls.get('view')==='simple'?'simple':'detailed';
 function filtered(skip){
  if(sharedId&&!skip)return DATA.filter(r=>r[20]===sharedId);
@@ -696,10 +704,10 @@ function card(r,i){
  +(simple?facts(r,condo):dims(r,condo))
  +'<div class="when"><span class="dlab">'+tx('date')+'</span><span class="dtx"><b>'+esc(fmtDay(r[12]))+'</b><span class="tm">'+(ok(r[13])?'<span>'+esc(r[13])+'</span>':'')+cdChip(r[12])+'</span></span></div>'
  +(cn||cal?'<div class="when2">'+(cn?'<span class="cnt">'+cn+qb('count')+'</span>':'<span></span>')+(cal?'<a class="calbtn" href="'+esc(cal)+'" target="_blank" rel="noopener">'+tx('cal_add')+'</a>':'')+'</div>':'')
- +(simple?'':chips(r))
+ +chips(r)
  +(simple?'':'<dl class="more"><div><dt>'+tx('district')+'</dt><dd>'+dash(r[3])+'</dd></div><div><dt>'+tx('state')+'</dt><dd>'+dash(r[2])+'</dd></div><div style="grid-column:1/-1"><dt>'+tx('bank')+'</dt><dd>'+dash(r[16])+'</dd></div></dl>')
  +'<a class="wa-unit" href="'+esc(waUnit(r,st))+'" target="_blank" rel="noopener">'+tx(st==='sold'||st==='calloff'?'wa_btn_end':'wa_btn')+'</a>'
- +'<div class="acts">'+(r[4]?'<a class="map" href="'+esc(r[4])+'" target="_blank" rel="noopener"><svg class="pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7z" fill="#e53935"/><circle cx="12" cy="9" r="2.6" fill="#fff"/></svg>Google Maps</a>':'')
+ +'<div class="acts">'+(/^https:\/\//i.test(r[4]||'')?'<a class="map" href="'+esc(r[4])+'" target="_blank" rel="noopener"><svg class="pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7z" fill="#e53935"/><circle cx="12" cy="9" r="2.6" fill="#fff"/></svg>Google Maps</a>':'')
  +'<button type="button" class="fav" data-id="'+esc(r[20])+'" aria-pressed="'+fav+'">'+tx(fav?'saved':'save')+'</button>'
  +(simple?'':'<button type="button" class="tg">'+tx('more_info')+'</button><button type="button" class="sh" data-id="'+esc(r[20])+'" aria-label="'+esc(tx('share'))+'">'+tx('share')+'</button>')+'</div></article>';
 }
@@ -714,8 +722,9 @@ function favUI(){const fr=DATA.filter(r=>FAV.has(r[20])),n=fr.length;
  $('favBar').hidden=!favMode;
  if(favMode){$('favBarT').textContent=txn('fav_count',n);$('favSend').hidden=!n;$('favPrint').hidden=!n;$('favSend').textContent=tx('fav_send');$('favSend').href=n?AGENT.wa+'?text='+encodeURIComponent(favMsg(fr)):'#'}}
 // Last search: the filters (not the status tab or the sort) are kept on this device and come back on the next visit.
+const snapNow=()=>({q:$('q').value,n:$('negeri').value,d:[...selD],c:$('cat').value,j:$('jenis').value,t:[...selT],y:[...selY],lo:$('pMin').value,hi:$('pMax').value,b:bmv,l:laca});
 function saveLast(){if(sharedId||favMode)return;
- const s={q:$('q').value,n:$('negeri').value,d:[...selD],c:$('cat').value,j:$('jenis').value,t:[...selT],y:[...selY],lo:$('pMin').value,hi:$('pMax').value,b:bmv,l:laca};
+ const s=snapNow();
  if(s.q||s.n||s.d.length||s.c||s.j||s.t.length||s.y.length||s.lo||s.hi||s.b||s.l)ls.set('last',JSON.stringify(s));else ls.del('last')}
 function restoreLast(){let s=null;try{s=JSON.parse(ls.get('last')||'null')}catch(e){}if(!s||typeof s!=='object')return false;
  const arr=a=>Array.isArray(a)?a.map(String):[];
@@ -733,8 +742,8 @@ function render(){facetOpts();
  ROWS=rows;SHOWN=favMode?rows.length:Math.min(PAGE,rows.length);drawList();moreBtn();
  $('count').textContent=favMode?txn('fav_count',rows.length):tx('count',{n:rows.length,t:DATA.length});
  const a=activeN();
- document.querySelectorAll('.badge').forEach(b=>{b.hidden=!a;b.textContent=a});
- $('resetInline').hidden=!a||favMode;$('resetBar').hidden=!a;
+ document.querySelectorAll('.badge').forEach(b=>{b.hidden=!a||favMode;b.textContent=a});
+ $('resetInline').hidden=!a||favMode;$('resetBar').hidden=!a||favMode;
  $('empty').hidden=rows.length>0;$('emptyReset').hidden=favMode;
  if(!rows.length&&favMode)$('emptyMsg').innerHTML=tx('fav_empty');
  else if(!rows.length){   // say which status tab is empty, which filters cause it, and how many units Reset brings back
@@ -748,6 +757,7 @@ function render(){facetOpts();
  $('apply').textContent=txn('show_n',rows.length);
  $('sharedBar').hidden=!sharedId;
  favUI();
+ if(LASTON&&LASTSNAP!==null&&JSON.stringify(snapNow())!==LASTSNAP)LASTON=false;
  $('lastBar').hidden=!(LASTON&&a>0&&!favMode&&!sharedId);
  saveLast();
 }
@@ -767,12 +777,12 @@ $('list').onclick=e=>{const t=e.target;
  const cl=t.closest('.calbtn');if(cl){track('calendar_click',unit(cl));return}
  const m=t.closest('a.map');if(m){track('maps_click',unit(m));return}
  const b=t.closest('.tg');if(!b)return;track('more_info_click',unit(b));const c=b.closest('.card');c.classList.toggle('open');b.textContent=tx(c.classList.contains('open')?'close':'more_info')};
-function sheet(o){if(o&&favMode){favMode=false;render()}$('sheet').hidden=!o;$('scrim').hidden=!o}
+function sheet(o){if(o&&(favMode||sharedId)){favMode=false;clearShared();render()}$('sheet').hidden=!o;$('scrim').hidden=!o}
 SHEETCLOSE=()=>sheet(false);
 $('openFab').onclick=$('openTop').onclick=()=>sheet(true);
 $('close').onclick=$('apply').onclick=$('scrim').onclick=()=>sheet(false);
 $('negeri').onchange=()=>{daerahOpts();render()};
-$('q').addEventListener('input',()=>{favMode=false});
+$('q').addEventListener('input',()=>{favMode=false;clearShared()});
 ['q','jenis','cat','sort'].forEach(k=>$(k).addEventListener('input',render));
 $('cat').addEventListener('input',()=>cyFlag(false));
 ['pMin','pMax'].forEach(id=>$(id).addEventListener('input',e=>{const el=e.target;el.value=fmtNum(el.value);track('filter_price',{from:priceLo(),to:priceHi()});render()}));
@@ -842,9 +852,9 @@ $('qfBtn').onclick=()=>{QF.step=1;QF.state='';QF.cat='';qfRender();track('quick_
 ONLANG=()=>{const nv=$('negeri').value;fill($('negeri'),uniq(2),tx('all_states'));$('negeri').value=nv;segUI();paint();daerahOpts();updLine();themeUI();render()};
 segUI();
 daerahOpts();
-if(!sharedId)LASTON=restoreLast();
+LASTON=restoreLast();
 if(sharedId)track('shared_unit_open',{unit_id:sharedId});
-viewUI();paint();render();
+viewUI();paint();render();LASTSNAP=JSON.stringify(snapNow());
 if(!ls.get('guide')&&!sharedId)setTimeout(showGuide,500);
 }
 // Access lock (19/10/2026): data.json is encrypted. A valid code unwraps the data key from access.json (format: tools/sitecrypt.py),
@@ -871,8 +881,10 @@ async function access(){
  try{ACCESS=await fetch('access.json',{cache:'no-store'}).then(r=>r.ok?r.json():null)}catch(e){ACCESS=null}
  if(!ACCESS||!ACCESS.codes||!Object.keys(ACCESS.codes).length){openGate('');gtrack('access_gate',{});return false}   // no codes published = locked (nothing can open the listings)
  const code=LINK_CODE;let stored='';try{stored=localStorage.getItem('lelong.code')||''}catch(e){}
+ let expired=false;
  for(const c of [code,stored]){if(!c)continue;const e=await checkCode(c);if(e&&e!=='expired'){CLIENT=e.label||'';try{gtag('set','user_properties',{client:CLIENT})}catch(x){}try{localStorage.setItem('lelong.code',normCode(c))}catch(x){}gtrack('access_ok',{client:CLIENT});return true}
-  if(e==='expired'){openGate('gate_exp');return false}}
+  if(e==='expired')expired=true}   // an expired link code still lets a valid saved code in
+ if(expired){openGate('gate_exp');return false}
  openGate(code?'gate_invalid':'');gtrack('access_gate',{});return false}
 G('gateForm').addEventListener('submit',async ev=>{ev.preventDefault();const c=G('gateCode').value;gateMsg('gate_checking');const e=await checkCode(c);if(e&&e!=='expired'){CLIENT=e.label||'';try{gtag('set','user_properties',{client:CLIENT})}catch(x){}try{localStorage.setItem('lelong.code',normCode(c))}catch(x){}G('gate').hidden=true;gateMsg('');gtrack('access_ok',{client:CLIENT});start()}else gateMsg(e==='expired'?'gate_exp2':'gate_bad')});
 // access.json and data.json from two different publishes (a CDN copy is a few minutes old): read access.json fresh and unwrap again
