@@ -90,6 +90,8 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .acts a.map{flex:1.6;white-space:nowrap;padding:0 10px;background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
 .empty{text-align:center;padding:50px 16px;color:var(--muted)}
 .empty .btn{margin-top:12px}
+.empty b{color:var(--fg)}
+.empty small{display:block;margin-top:6px}
 /* bottom sheet */
 .scrim{position:fixed;inset:0;background:var(--scrim);z-index:20}
 .sheet{position:fixed;left:0;right:0;bottom:0;z-index:21;background:var(--surface);border-radius:18px 18px 0 0;max-height:88%;display:flex;flex-direction:column;max-width:640px;margin:0 auto}
@@ -162,7 +164,7 @@ body{padding-block-end:100px}
 <div class="seg" id="statusSeg" role="group" aria-label="Listing status"></div>
 <div class="status"><span id="count">Loading listings…</span><span style="display:flex;gap:8px;align-items:center"><button class="reset-inline" id="resetInline" type="button" hidden>Reset</button><select id="sort" aria-label="Sort" autocomplete="off"><option value="bmv">Highest Below Market Value %</option><option value="tarikh">Nearest date</option><option value="harga">Lowest price</option><option value="hharga">Highest price</option><option value="lbmv">Lowest Below Market Value %</option><option value="new" selected>Newest Listing</option></select></span></div>
 <div class="list" id="list"></div><button type="button" class="loadmore" id="more" hidden>Show more</button>
-<div class="empty" id="empty" hidden>No units match these filters.<br><button class="btn primary rs" type="button">Reset all filters</button></div>
+<div class="empty" id="empty" hidden><span id="emptyMsg">No units match these filters.</span><br><button class="btn primary rs" type="button">Reset all filters</button></div>
 </div>
 <div class="dock"><button class="btn primary" id="openFab" type="button">Filter<span class="badge" hidden></span></button><button class="btn" id="resetBar" type="button" hidden>Reset</button></div>
 
@@ -304,7 +306,12 @@ $('upd').textContent='Updated '+new Date(META.updated).toLocaleDateString('en-GB
 function seg(el,opts,get,set){el.innerHTML=opts.map(o=>'<button type="button" data-v="'+o[0]+'">'+o[1]+'</button>').join('');
  el.onclick=e=>{const b=e.target.closest('button');if(!b)return;set(b.dataset.v);paint();render()};}
 seg($('bmvSeg'),[[0,'All'],[10,'10%+'],[20,'20%+'],[30,'30%+'],[40,'40%+'],[50,'50%+']],0,v=>bmv=+v);
-seg($('statusSeg'),[['available','Active + Unsold ('+(cnt.active+cnt.unsold)+')'],['active','Active ('+cnt.active+')'],['unsold','Unsold ('+cnt.unsold+')'],['calloff','Call Off ('+cnt.calloff+')'],['sold','Sold ('+cnt.sold+')']],0,v=>status=v);
+// each status button shows how far its auction dates reach: Active = ahead of today, Unsold / Call Off / Sold = back from today
+const span=st=>{const ds=DATA.filter(r=>stOf(r)===st).map(r=>dt(r[12])).filter(d=>d>0);if(!ds.length)return '';
+ const fut=st==='active',d=fut?Math.max(...ds):Math.min(...ds),n=Math.max(1,Math.round(Math.abs(d-T0)/864e5));
+ const t=n>60?Math.round(n/30.4)+' months':n+(n===1?' day':' days');return ' · '+(fut?'next ':'last ')+t};
+const sp={active:span('active'),unsold:span('unsold'),calloff:span('calloff'),sold:span('sold')};
+seg($('statusSeg'),[['available','Active + Unsold ('+(cnt.active+cnt.unsold)+')'],['active','Active ('+cnt.active+sp.active+')'],['unsold','Unsold ('+cnt.unsold+sp.unsold+')'],['calloff','Call Off ('+cnt.calloff+sp.calloff+')'],['sold','Sold ('+cnt.sold+sp.sold+')']],0,v=>status=v);
 seg($('lacaSeg'),[['','All'],['LACA','LACA'],['Non-LACA','Non-LACA']],0,v=>laca=v);
 function paint(){
  [...$('bmvSeg').children].forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.v===bmv)));
@@ -362,6 +369,14 @@ function render(){facetOpts();
  document.querySelectorAll('.badge').forEach(b=>{b.hidden=!a;b.textContent=a});
  $('resetInline').hidden=!a;$('resetBar').hidden=!a;
  $('empty').hidden=rows.length>0;
+ if(!rows.length){   // say which status tab is empty, which filters cause it, and how many units Reset brings back
+  const lbl={available:'Active + Unsold',active:'Active',unsold:'Unsold',calloff:'Call Off',sold:'Sold'}[status]||'';
+  const tot=status==='available'?cnt.active+cnt.unsold:(cnt[status]||0);
+  const on=[[$('q').value!=='','Search'],[$('negeri').value,'State'],[selD.size,'District'],[$('cat').value,'Property Category'],[$('jenis').value,'Type'],[selT.size,'Auction Date'],[selY.size,'Completion Year'],[priceLo()||priceHi(),'Auction Price'],[bmv,'Below Market Value'],[laca,'LACA']].filter(f=>f[0]).map(f=>f[1]);
+  $('emptyMsg').innerHTML='No <b>'+esc(lbl)+'</b> units match your filters'+(on.length?' ('+esc(on.join(', '))+')':'')+'.'
+   +(tot&&on.length?'<small>There are '+tot+' '+esc(lbl)+' units in total. Reset the filters to see them.</small>':'')
+   +((status==='sold'||status==='calloff'||status==='unsold')&&selT.size?'<small>Sold, Call Off and Unsold units have auction dates that have already passed, so an Auction Date filter for upcoming dates hides them.</small>':'');
+ }
  $('apply').textContent='Show '+rows.length+' units';
  $('sharedBar').hidden=!sharedId;
 }
