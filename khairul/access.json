@@ -1,19 +1,21 @@
 {
  "v": 2,
- "updated": "2026-10-25",
- "kid": "9da1a574",
+ "updated": "2026-10-26",
+ "kid": "7e405496",
  "kdf": {
   "name": "PBKDF2-SHA256",
   "iter": 600000,
-  "salt": "MpZW2K34z1BwkqinT2KcpA=="
+  "salt": "t7mMoqqX9XVpAwl7a7C58w=="
  },
  "codes": {
-  "663988b05e68ea96c8c56266e8a02441": {
+  "d26d5b2fcb70b83fcbca7c69e0fcd727": {
    "label": "KK08",
    "exp": null,
    "tier": "sip",
-   "iv": "EOk31T5cwYeWWAqm",
-   "wk": "45aJWqZCimn0dnWKpa+t2RGwD5xUAdmh7ZMuPviU4EcDkpZ6B25rVh0CITgQZT1z"
+   "iv": "fq/SefGoFFKn2n9m",
+   "wk": "JYxmd8mCjp5qw+4Gp8MKLPubL0Y4ma7QV/mhkMybp3RdfptJ+zmvaq/vTAijrlMV",
+   "iv2": "X9Hf6s7n6IVQzfLE",
+   "wk2": "azDVLrwAbqjm2XO+5AbG9Rl0BCTfGI1FITrKWyts1/Cxfk3rOwYB1XpZQAKNRO0d"
   }
  }
 }
