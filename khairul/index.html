@@ -361,7 +361,7 @@ share_list:'Bank auction properties below market value. Contact {name}: {phone}'
 theme_dark:'Switch to dark mode',theme_light:'Switch to light mode',size_al:'Text size',size0:'Normal text',size1:'Bigger text',size2:'Biggest text',
 gate_t:'Private auction list',gate_p:'This list is for clients of {name} only. Enter the access code you received on WhatsApp.',
 gate_ph:'ACCESS CODE',gate_al:'Access code',gate_open:'Open list',gate_wa:'Request access on WhatsApp',gate_wa_msg:'Hi {name}, I would like an access code for the auction list.',gate_checking:'Checking the code…',
-gate_exp:'This access code has expired. Please ask {name} for a new one.',gate_exp2:'This code has expired. Ask {name} for a new one.',
+gate_exp:'Your subscription has ended. Tap the green button to renew with {name} on WhatsApp.',gate_exp2:'The subscription for this code has ended. Tap the green button to renew with {name} on WhatsApp.',gate_wa_renew:'Renew on WhatsApp',gate_wa_renew_msg:'Hi {name}, I would like to renew my auction list subscription.',
 gate_bad:'Code not recognised. Check the code or request access on WhatsApp.',gate_invalid:'That code is not valid.',
 gate_browser:'This browser cannot open the list. Please update it or open the link in Chrome.',gate_err:'Could not check the access code. Refresh the page to try again.',
 qf_t:'Quick Find',qf_step:'Question {i} of 3',qf_q1:'Where do you want to buy?',qf_q2:'What type of property?',qf_q3:'What is your budget?',
@@ -431,7 +431,7 @@ share_list:'Hartanah lelong bank di bawah nilai pasaran. Hubungi {name}: {phone}
 theme_dark:'Tukar ke mod gelap',theme_light:'Tukar ke mod cerah',size_al:'Saiz tulisan',size0:'Tulisan biasa',size1:'Tulisan besar',size2:'Tulisan paling besar',
 gate_t:'Senarai lelong peribadi',gate_p:'Senarai ini untuk klien {name} sahaja. Masukkan kod akses yang anda terima di WhatsApp.',
 gate_ph:'KOD AKSES',gate_al:'Kod akses',gate_open:'Buka senarai',gate_wa:'Minta kod akses di WhatsApp',gate_wa_msg:'Hi {name}, saya nak minta kod akses untuk senarai lelong.',gate_checking:'Menyemak kod…',
-gate_exp:'Kod akses ini sudah tamat tempoh. Sila minta kod baharu daripada {name}.',gate_exp2:'Kod ini sudah tamat tempoh. Minta kod baharu daripada {name}.',
+gate_exp:'Langganan anda telah tamat. Tekan butang hijau untuk sambung langganan dengan {name} di WhatsApp.',gate_exp2:'Langganan untuk kod ini telah tamat. Tekan butang hijau untuk sambung dengan {name} di WhatsApp.',gate_wa_renew:'Sambung langganan di WhatsApp',gate_wa_renew_msg:'Hi {name}, saya nak sambung langganan senarai lelong.',
 gate_bad:'Kod tidak dikenali. Semak kod atau minta akses di WhatsApp.',gate_invalid:'Kod itu tidak sah.',
 gate_browser:'Pelayar ini tidak dapat membuka senarai. Sila kemas kini atau buka pautan dalam Chrome.',gate_err:'Kod akses tidak dapat disemak. Muat semula halaman dan cuba lagi.',
 qf_t:'Carian Mudah',qf_step:'Soalan {i} daripada 3',qf_q1:'Di mana anda mahu beli?',qf_q2:'Jenis hartanah apa?',qf_q3:'Berapa bajet anda?',
@@ -468,14 +468,16 @@ function tx(k,v){let s=I18N[LANG][k];if(s==null)s=I18N.en[k];if(s==null)return k
  return s.replace(/\{(\w+)\}/g,(m,n)=>n==='name'?AGENT.name:n==='phone'?AGENT.phone:(v&&v[n]!=null?String(v[n]):m))}
 // counts: the singular text (key + '1') when there is exactly one
 const txn=(k,n)=>tx(n===1&&I18N.en[k+'1']?k+'1':k,{n});
-let ONLANG=null,SHEETCLOSE=null;
+let ONLANG=null,SHEETCLOSE=null,RENEW=false;
+// a code whose subscription ended: the gate's WhatsApp button turns into "renew" (text and pre-filled message)
+function renewMode(){RENEW=true;G('gateWa').dataset.i18n='gate_wa_renew';applyI18n()}
 function applyI18n(){document.documentElement.lang=LANG;
  document.querySelectorAll('[data-i18n]').forEach(el=>{el.innerHTML=tx(el.dataset.i18n)});
  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{el.placeholder=tx(el.dataset.i18nPh)});
  document.querySelectorAll('[data-i18n-al]').forEach(el=>{el.setAttribute('aria-label',tx(el.dataset.i18nAl))});
  document.querySelectorAll('[data-l]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.l===LANG)));
  document.title=tx('title');
- G('bannerWa').href=AGENT.wa+'?text='+encodeURIComponent(tx('wa_hi'));G('gateWa').href=AGENT.wa+'?text='+encodeURIComponent(tx('gate_wa_msg'));
+ G('bannerWa').href=AGENT.wa+'?text='+encodeURIComponent(tx('wa_hi'));G('gateWa').href=AGENT.wa+'?text='+encodeURIComponent(tx(RENEW?'gate_wa_renew_msg':'gate_wa_msg'));
  G('bannerCall').href='tel:+6'+AGENT.phone.replace(/\D/g,'');
  const ge=G('gateErr');if(ge.dataset.k)ge.textContent=tx(ge.dataset.k)}
 function setLang(l){if(l!=='en'&&l!=='ms')return;LANG=l;ls.set('lang',l);applyI18n();if(ONLANG)ONLANG();gtrack('language',{lang:l})}
@@ -885,9 +887,9 @@ async function access(){
  let expired=false;
  for(const c of [code,stored]){if(!c)continue;const e=await checkCode(c);if(e&&e!=='expired'){CLIENT=e.label||'';try{gtag('set','user_properties',{client:CLIENT})}catch(x){}try{localStorage.setItem('khairul.code',normCode(c))}catch(x){}gtrack('access_ok',{client:CLIENT});return true}
   if(e==='expired')expired=true}   // an expired link code still lets a valid saved code in
- if(expired){openGate('gate_exp');return false}
+ if(expired){openGate('gate_exp');renewMode();return false}
  openGate(code?'gate_invalid':'');gtrack('access_gate',{});return false}
-G('gateForm').addEventListener('submit',async ev=>{ev.preventDefault();const c=G('gateCode').value;gateMsg('gate_checking');const e=await checkCode(c);if(e&&e!=='expired'){CLIENT=e.label||'';try{gtag('set','user_properties',{client:CLIENT})}catch(x){}try{localStorage.setItem('khairul.code',normCode(c))}catch(x){}G('gate').hidden=true;gateMsg('');gtrack('access_ok',{client:CLIENT});start()}else gateMsg(e==='expired'?'gate_exp2':'gate_bad')});
+G('gateForm').addEventListener('submit',async ev=>{ev.preventDefault();const c=G('gateCode').value;gateMsg('gate_checking');const e=await checkCode(c);if(e&&e!=='expired'){CLIENT=e.label||'';try{gtag('set','user_properties',{client:CLIENT})}catch(x){}try{localStorage.setItem('khairul.code',normCode(c))}catch(x){}G('gate').hidden=true;gateMsg('');gtrack('access_ok',{client:CLIENT});start()}else{if(e==='expired')renewMode();gateMsg(e==='expired'?'gate_exp2':'gate_bad')}});
 // access.json and data.json from two different publishes (a CDN copy is a few minutes old): read access.json fresh and unwrap again
 async function rekey(){try{ACCESS=await fetch('access.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.ok?r.json():null)}catch(e){ACCESS=null}
  let c='';try{c=localStorage.getItem('khairul.code')||''}catch(e){}const e=c?await checkCode(c):null;return !!e&&e!=='expired'}
