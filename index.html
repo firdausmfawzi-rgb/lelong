@@ -697,7 +697,7 @@ const SIP={yield:.04,furn:15,grow:3,ltv:90,ltvCom:70,yrs:5};
 const rpgtRate=y=>y<=3?30:y===4?20:y===5?15:0;
 const rmF=v=>'RM '+Math.round(v).toLocaleString('en-US');
 const pct=v=>(Math.round(v*10)/10).toLocaleString('en-US')+'%';
-// Investor tools (Jay 26/10/2026): cash needed, cash flow with loan, cash-on-cash, refinance capital back, scenarios, rent by room,
+// Investor tools (26/10/2026): cash needed, cash flow with loan, cash-on-cash, refinance capital back, scenarios, rent by room,
 // price vs the area (our own listings), investor score (card badge + sort) and risk checks. All money in RM; every input editable.
 Object.assign(SIP,{rate:4.2,ten:35,vac:1,fees:1.5,roomUp:40});
 const stampMot=p=>{let t=0,rest=p;for(const [b,pc] of [[100000,1],[400000,2],[500000,3],[1e15,4]]){const x=Math.min(rest,b);if(x<=0)break;t+=x*pc/100;rest-=x}return t};   // Malaysian MOT scale
