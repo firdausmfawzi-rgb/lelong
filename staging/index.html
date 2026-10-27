@@ -17,6 +17,8 @@ gtag('config','G-XCVJ1YB5QR',{send_page_view:true,page_location:location.origin+
 <meta property="og:description" content="Bank auction properties below market value. Contact Firdaus Jay: 019-6522361">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0f2a44">
+<meta property="og:image" content="https://lelongbidgroup.com/img/og-lelong.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lelongbidgroup.com/img/icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="https://lelongbidgroup.com/img/icon-512.png"><link rel="apple-touch-icon" href="https://lelongbidgroup.com/img/icon-180.png">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px/1.45 system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 
 <style>
@@ -73,14 +75,31 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .loadmore{display:block;margin:16px auto 0;padding:12px 28px;border-radius:12px;border:1px solid var(--accent);background:transparent;color:var(--accent);font:inherit;font-weight:700;cursor:pointer}.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:22px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 22px rgba(15,42,68,.08);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
 /* category picture (img/<cat>.webp, generated 25/10/2026): an illustration of the TYPE of property, never the actual unit; tap = Google Maps */
-.hero{position:relative;display:block;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:var(--bg);color:#fff;text-decoration:none}
+.hero{position:relative;display:block;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:var(--line);color:#fff;text-decoration:none}
 .hero img{width:100%;height:100%;object-fit:cover;display:block}
 .hero-note{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:7px;max-width:92%;padding:9px 14px;border-radius:999px;background:rgba(14,20,24,.74);font-weight:700;font-size:.95rem;line-height:1.25;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.25)}
 .hero-note .pin{width:18px;height:18px;flex:none;fill:#5fd38d}
 .hchip{position:absolute;top:10px;z-index:1;max-width:58%;border-radius:999px;padding:5px 11px;font-size:.8rem;font-weight:800;line-height:1.2;box-shadow:0 2px 8px rgba(0,0,0,.18)}
-.hchip.gold{left:10px;background:var(--gold);color:var(--gold-fg)}.hchip.when{right:10px;background:#0f2a44;color:#fff}.hchip .cd{all:unset}
+.hchip.gold{left:10px;background:var(--gold);color:var(--gold-fg)}.hchip.due{right:10px;background:#0f2a44;color:#fff}.hchip .cd,.hchip .cd.soon,.hchip .cd.now{all:unset}
 .save{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;margin-top:6px;background:var(--ok-bg);color:var(--save);border-radius:10px;padding:8px 12px;font-weight:800;font-size:.95rem}.save small{font-weight:600;opacity:.9}
 .eyebrow{display:block;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--prem)}
+.hchip.due.week{background:#a0620f}.hchip.due.soon{background:#b3261e}
+.hchip.new{left:auto;right:10px;background:#fff;color:#0f2a44;letter-spacing:.06em}.hchip.due+.hchip.new{top:42px}
+.hero img{opacity:0;transition:opacity .35s ease}.hero img.ok{opacity:1}
+.psf{font-size:.88rem;font-weight:600;color:var(--muted)}.drop{font-size:.9rem;font-weight:700;color:var(--save)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 0 12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-width:0}
+.stat b{display:block;font-size:1.3rem;font-weight:800;color:var(--fg);font-variant-numeric:tabular-nums;line-height:1.2}
+.stat span{display:block;font-size:.8rem;color:var(--muted);line-height:1.3}.stat.g b{color:var(--prem)}
+.skel{border-radius:18px;background:var(--surface);border:1px solid var(--line);padding:16px;display:flex;flex-direction:column;gap:12px}
+.skel i{display:block;border-radius:10px;background:var(--line);animation:skel 1.1s ease-in-out infinite alternate}
+@keyframes skel{from{opacity:.5}to{opacity:1}}
+.totop{position:fixed;right:16px;bottom:calc(96px + env(safe-area-inset-bottom,0px));z-index:9;width:50px;height:50px;border-radius:50%;border:2px solid var(--gold);background:var(--accent);color:var(--accent-fg);font-size:1.4rem;font-weight:800;box-shadow:0 6px 16px rgba(0,0,0,.22);opacity:0;pointer-events:none;transition:opacity .2s}.totop.on{opacity:1;pointer-events:auto}
+@media (min-width:700px){.totop{bottom:24px}}
+.price,.mv b,.save,.cd{font-variant-numeric:tabular-nums}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+@media print{.totop,.stats,.skel{display:none!important}.hero img{opacity:1!important}}
 .hero-cap{position:absolute;left:8px;bottom:7px;padding:2px 7px;border-radius:6px;background:rgba(14,20,24,.6);font-size:.72rem;font-weight:600;letter-spacing:.02em}
 a.hero:hover .hero-note,a.hero:focus-visible .hero-note{background:rgba(14,20,24,.9)}
 /* free preview (TRIAL): paid values become this link; the bar at the top says what the visitor is looking at */
@@ -295,6 +314,7 @@ body{padding-block-end:100px}
 <div class="wrap">
 <div class="hd"><div class="hd-title"><div><span class="eyebrow" data-i18n="eyebrow">Members-only list</span><h1 data-i18n="h1">Auction List</h1></div><img class="tier-badge" id="tierBadge" alt="" width="60" height="60" hidden><img class="tier-badge agent" id="agentBadge" alt="" width="60" height="60" hidden></div><div class="hd-acts"><button class="btn theme-btn" id="themeBtn" type="button" aria-label="Switch to dark mode" title="Light / dark mode">🌙</button><button class="btn share-all" id="shareAll" type="button" data-i18n="share">Share</button></div></div>
 <p class="upd" id="upd"></p>
+<div class="stats" id="stats" aria-live="polite"></div>
 <div class="trial-bar" id="trialBar" hidden><span data-i18n="trial_msg">You are viewing the free preview. Full details are for premium members.</span><a class="btn" id="trialCta" href="premium/" data-i18n="lock">Unlock Premium RM50 only</a></div>
 <div class="tools">
 <div class="tgrp ts" role="group" aria-label="Text size" data-i18n-al="size_al"><button type="button" data-s="" aria-label="Normal text" data-i18n-al="size0">A</button><button type="button" data-s="l" aria-label="Bigger text" data-i18n-al="size1">A+</button><button type="button" data-s="xl" aria-label="Biggest text" data-i18n-al="size2">A++</button></div>
@@ -316,7 +336,7 @@ body{padding-block-end:100px}
 <div class="vip-note" id="vipNote" hidden></div>
 <div class="status"><span id="count">Loading listings…</span><span class="st-r"><button class="reset-inline" id="resetInline" type="button" hidden data-i18n="reset">Reset</button><select id="sort" aria-label="Sort" data-i18n-al="sort_al" autocomplete="off"><option value="new" selected data-i18n="s_new">Newest listing</option><option value="bmv" data-i18n="s_bmv">Biggest discount</option><option value="tarikh" data-i18n="s_date">Nearest auction date</option><option value="harga" data-i18n="s_lo">Lowest price</option><option value="hharga" data-i18n="s_hi">Highest price</option><option value="lbmv" data-i18n="s_lbmv">Smallest discount</option></select></span></div>
 <div class="status"><div class="tgrp vseg" id="viewSeg" role="group" aria-label="View" data-i18n-al="view_al"><button type="button" data-v="simple" data-i18n="view_simple">Simple</button><button type="button" data-v="detailed" data-i18n="view_detailed">Detailed</button></div><button type="button" class="favbtn" id="favBtn" aria-pressed="false" data-i18n="fav_lbl">♥ My list</button></div>
-<div class="list" id="list"></div><button type="button" class="loadmore" id="more" hidden>Show more</button>
+<div class="list" id="list"><div class="skel" aria-hidden="true"><i style="aspect-ratio:16/9"></i><i style="height:20px;width:85%"></i><i style="height:84px"></i><i style="height:16px;width:55%"></i></div><div class="skel" aria-hidden="true"><i style="aspect-ratio:16/9"></i><i style="height:20px;width:85%"></i><i style="height:84px"></i><i style="height:16px;width:55%"></i></div><div class="skel" aria-hidden="true"><i style="aspect-ratio:16/9"></i><i style="height:20px;width:85%"></i><i style="height:84px"></i><i style="height:16px;width:55%"></i></div></div><button type="button" class="loadmore" id="more" hidden>Show more</button><button type="button" class="totop" id="toTop" aria-label="Back to top" data-i18n-al="totop">↑</button>
 <div class="empty" id="empty" hidden><span id="emptyMsg"></span><br><button class="btn primary rs" id="emptyReset" type="button" data-i18n="reset_all_f">Reset all filters</button></div>
 </div>
 <div class="dock"><button class="btn" id="resetBar" type="button" data-i18n="reset_top" title="Reset and back to top">↺ Reset</button><button class="btn primary" id="openFab" type="button"><span data-i18n="filter">Filter</span><span class="badge" hidden></span></button></div>
@@ -373,7 +393,7 @@ const ls={get:k=>{try{return localStorage.getItem(KP+k)}catch(e){return null}},s
 let LANG=ls.get('lang')==='ms'?'ms':'en';
 // English / Bahasa Melayu. {name} and {phone} are the agent's; other {x} are filled in by the caller.
 const I18N={en:{
-title:'Auction List | {name}',h1:'Auction List',updated:'Updated {d} · from official auction notices',eyebrow:'Members-only list',save_lbl:'You save {v}',mo_lbl:'≈ {v} / month',mo_note:'Estimate: 90% loan, 35 years, 4.25% a year. Ask your bank for the real figure.',loading:'Loading listings…',load_err:'Could not load listings. Refresh the page to try again.',
+title:'Auction List | {name}',h1:'Auction List',updated:'Updated {d} · from official auction notices',eyebrow:'Members-only list',save_lbl:'You save {v}',mo_lbl:'≈ {v} / month',mo_note:'Estimate: 90% loan, 35 years, 4.25% a year. Ask your bank for the real figure.',new_tag:'NEW',psf:'RM {v} / sq ft',drop:'Price cut {n} times',drop1:'Price cut once',since:' since {d}',st_av:'units you can still bid on',st_bmv:'{p}%+ below market value',st_new:'new in the last 3 days',totop:'Back to top',loading:'Loading listings…',load_err:'Could not load listings. Refresh the page to try again.',
 banner:'Interested? Contact {name}: {phone}',call:'📞 Call',wa_hi:'Hi {name}, I would like to know more about the auction list.',
 qf_btn:'🔎 Quick Find',qf_sub:'3 easy questions',guide_btn:'❓ How to use',guide_sub:'this page',
 search_ph:'🔎 Address or bank',search_ph_s:'🔎 Address / bank',search_al:'Search address or bank',filter:'Filter',shared_t:'Showing a shared unit',view_all:'View all listings',status_al:'Listing status',
@@ -446,7 +466,7 @@ h_count:'<p><b>1st auction</b> - the first time the bank offers this unit.</p><p
 h_cy_t:'Completion year',
 h_cy:'<p>The year the building was completed.</p><p>It is only available for Condominium / Apartment / SOHO. Picking a year changes the Property Category to Condominium / Apartment / SOHO.</p>'
 },ms:{
-title:'Senarai Lelong | {name}',h1:'Senarai Lelong',updated:'Dikemas kini {d} · daripada notis lelong rasmi',eyebrow:'Senarai eksklusif ahli',save_lbl:'Jimat {v}',mo_lbl:'± {v} / bulan',mo_note:'Anggaran: pinjaman 90%, 35 tahun, 4.25% setahun. Semak angka sebenar dengan bank.',loading:'Memuatkan senarai…',load_err:'Senarai tidak dapat dimuatkan. Muat semula halaman dan cuba lagi.',
+title:'Senarai Lelong | {name}',h1:'Senarai Lelong',updated:'Dikemas kini {d} · daripada notis lelong rasmi',eyebrow:'Senarai eksklusif ahli',save_lbl:'Jimat {v}',mo_lbl:'± {v} / bulan',mo_note:'Anggaran: pinjaman 90%, 35 tahun, 4.25% setahun. Semak angka sebenar dengan bank.',new_tag:'BAHARU',psf:'RM {v} / kps',drop:'Harga sudah turun {n} kali',drop1:'Harga sudah turun sekali',since:' sejak {d}',st_av:'unit masih boleh dibida',st_bmv:'≥{p}% bawah nilai pasaran',st_new:'unit baharu (3 hari)',totop:'Kembali ke atas',loading:'Memuatkan senarai…',load_err:'Senarai tidak dapat dimuatkan. Muat semula halaman dan cuba lagi.',
 banner:'Berminat? Hubungi {name}: {phone}',call:'📞 Telefon',wa_hi:'Hi {name}, saya nak tahu lebih lanjut tentang senarai lelong.',
 qf_btn:'🔎 Carian Mudah',qf_sub:'3 soalan mudah',guide_btn:'❓ Cara guna',guide_sub:'laman ini',
 search_ph:'🔎 Alamat atau bank',search_ph_s:'🔎 Alamat / bank',search_al:'Cari alamat atau bank',filter:'Tapis',shared_t:'Menunjukkan unit yang dikongsi',view_all:'Lihat semua senarai',status_al:'Status senarai',
@@ -562,6 +582,8 @@ document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(MDL){close
 G('guideBtn').onclick=showGuide;
 G('bannerWa').addEventListener('click',()=>gtrack('whatsapp_banner_click'));G('bannerCall').addEventListener('click',()=>gtrack('call_click'));
 applyI18n();sizeUI();
+// back to top: shows after two screens of scrolling
+(function(){const b=document.getElementById('toTop');if(!b)return;const on=()=>b.classList.toggle('on',scrollY>innerHeight*1.5);addEventListener('scroll',on,{passive:true});b.onclick=()=>scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})})();
 function boot(DATA,META){
 const $=G;
 const POS=new Map(DATA.map((r,i)=>[r,i]));   // original order, for stable 'Newest listing' ties (no indexOf per comparison)
@@ -620,15 +642,26 @@ const PIN='<svg class="pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 
 const satUrl=u=>{const m=/[?&]query=([^&#]+)/.exec(u||'');return m?'https://maps.google.com/maps?q='+m[1]+'&t=k':u};   // same place, satellite layer on
 // r[32] photo = 'u:<hash>' (this unit) or 'b:<hash>' (its building), from our own listing posts; trial pages keep the illustration
 // chips on the photo (palette A, 28/10/2026): the discount in gold and the days left, for units that can still be bought
-function heroChips(r){const s=stOf(r);if(s!=='active'&&s!=='unsold')return '';const b=bmvTxt(r),c=dt(r[12])>=T0?cdChip(r[12]):'';
- return (b?'<span class="hchip gold">'+esc(b)+'</span>':'')+(c?'<span class="hchip when">'+c+'</span>':'')}
+const isNew=r=>{const f=Date.parse(String(r[22]||'').slice(0,10)+'T00:00:00');return f>0&&(T0-f)/864e5<=2};   // first seen in the last 3 days
+function heroChips(r){const s=stOf(r);if(s!=='active'&&s!=='unsold')return '';const b=bmvTxt(r),d=dt(r[12]),c=d>=T0?cdChip(r[12]):'',n=Math.round((d-T0)/864e5);
+ return (b?'<span class="hchip gold">'+esc(b)+'</span>':'')+(c?'<span class="hchip due'+(n<=1?' soon':n<=7?' week':'')+'">'+c+'</span>':'')
+  +(isNew(r)?'<span class="hchip new">'+tx('new_tag')+'</span>':'')}
+// price per sq ft (built-up known) and how many times the reserve price was cut since the first recorded auction (members only);
+// the % is shown only when it differs from the below-market-value % (the first round is usually at market value)
+function psfDrop(r,ex){const p=num(r[7]),q=sqftOf(r);let o='';if(p&&q)o+='<span class="psf">'+tx('psf',{v:Math.round(p/q).toLocaleString('en-MY')})+'</span>';
+ const h=!TRIAL&&!ex&&Array.isArray(r[29])?r[29].filter(x=>Array.isArray(x)&&num(x[1])>0):[],f=h[h.length-1];
+ if(f&&p&&num(f[1])>p*1.02){const d=new Date(String(f[0]).slice(0,10)+'T00:00:00'),seq=h.map(x=>num(x[1])).reverse().concat(p);let n=0;
+  for(let j=1;j<seq.length;j++)if(seq[j]<seq[j-1]*.995)n++;
+  const pc=Math.round((1-p/num(f[1]))*100),mv=suspect(r)?0:num(r[8]),bm=mv>p?Math.round((1-p/mv)*100):-99;
+  o+='<div class="drop">'+txn('drop',n)+(isNaN(d)?'':tx('since',{d:d.toLocaleDateString(LOC(),{month:'short',year:'numeric'})}))+(Math.abs(pc-bm)>=3?' (−'+pc+'%)':'')+'</div>'}
+ return o}
 // savings and a monthly instalment estimate (homes only): price vs market value, 90% loan over 35 years at 4.25% a year
 const HOME_CATS=()=>[CATS[0],CATS[1],CATS[2],CATS[5]];
 function saveRow(r,ex){if(ex)return '';const p=num(r[7]);if(!p)return '';const mv=suspect(r)||locked(r[8])?0:num(r[8]),cut=mv>p?mv-p:0;
  const home=HOME_CATS().includes(r[21]),L=p*.9,i=.0425/12,n=420,mo=home?Math.round(L*i/(1-Math.pow(1+i,-n))):0;if(!cut&&!mo)return '';
  const rm=v=>'RM '+Math.round(v).toLocaleString('en-MY');
  return '<div class="save">'+(cut?'<span>'+tx('save_lbl',{v:rm(cut)})+'</span>':'')+(mo?'<span title="'+esc(tx('mo_note'))+'"><small>'+tx('mo_lbl',{v:rm(mo)})+'</small></span>':'')+'</div>'}
-function hero(r){const ph=!TRIAL&&/^[ub]:[0-9a-f]{20}$/.test(r[32]||'')?r[32]:'';const k=artOf(r);if(!k&&!ph)return '';const m=/^https:\/\//i.test(r[4]||'')?satUrl(r[4]):'';const img='<img src="'+IMG+(ph?'tg/'+ph.slice(2):k)+'.webp" width="960" height="540" alt="" loading="lazy" decoding="async">'+heroChips(r);
+function hero(r){const ph=!TRIAL&&/^[ub]:[0-9a-f]{20}$/.test(r[32]||'')?r[32]:'';const k=artOf(r);if(!k&&!ph)return '';const m=/^https:\/\//i.test(r[4]||'')?satUrl(r[4]):'';const img='<img src="'+IMG+(ph?'tg/'+ph.slice(2):k)+'.webp" width="960" height="540" alt="" loading="lazy" decoding="async" onload="this.classList.add(\'ok\')" onerror="this.classList.add(\'ok\')">'+heroChips(r);
  const cap='<span class="hero-cap">'+tx(ph?'hero_cap_'+ph[0]:'hero_cap')+'</span>';
  return m?'<a class="hero" href="'+esc(m)+'" target="_blank" rel="noopener" aria-label="'+esc(tx('hero_note'))+'">'+img+'<span class="hero-note">'+PIN+tx('hero_note')+'</span>'+cap+'</a>':TRIAL?'<a class="hero" href="'+esc(LANDING)+'" aria-label="'+esc(tx('hero_lock'))+'">'+img+'<span class="hero-note">\uD83D\uDD13 '+tx('hero_lock')+'</span>'+cap+'</a>':'<div class="hero">'+img+cap+'</div>'}
 function catOf(r){if(r[18]&&r[18]!=='-')return r[18];const s=String(r[5]||'').toLowerCase();
@@ -822,7 +855,13 @@ function sipRecalc(d,inp){const v={};d.querySelectorAll('input[data-k]').forEach
 const unsoldNote=r=>{const p=num(r[7]);const np=p>0?'RM '+Math.round(p*0.9).toLocaleString('en-US'):'';
  return '<div class="unsold-note"><b>'+tx('unsold_t')+'</b><span>'+tx('unsold_p')+(np?tx('unsold_np',{p:'<b>'+np+'</b>'}):'')+'</span></div>'};
 const tagText=(r,st)=>st==='sold'?tx('tag_sold')+(ok(r[27])?' · '+dash(r[27]):''):st==='calloff'?tx('tag_calloff'):st==='unsold'?tx('tag_unsold'):tx('tag_expired');
-const updLine=()=>{$('upd').textContent=tx('updated',{d:new Date(META.updated).toLocaleDateString(LOC(),{day:'numeric',month:'short',year:'numeric'})})};
+// summary under the title: units that can still be bid on, how many sit far below market value, how many arrived in the last 3 days
+let STATS=null;function statsLine(){const el=$('stats');if(!el)return;
+ if(!STATS){const av=DATA.filter(r=>{const s=stOf(r);return s==='active'||s==='unsold'}),lim=TRIAL?10:30;
+  STATS={n:av.length,lim,b:av.filter(r=>TRIAL?/^XX%/.test(String(r[6]||'')):!suspect(r)&&num(r[6])>=lim).length,w:av.filter(isNew).length}}
+ const t=(v,k,o,c)=>'<div class="stat'+(c?' '+c:'')+'"><b>'+v.toLocaleString('en-MY')+'</b><span>'+tx(k,o)+'</span></div>';
+ el.innerHTML=t(STATS.n,'st_av')+t(STATS.b,'st_bmv',{p:STATS.lim},'g')+t(STATS.w,'st_new')}
+const updLine=()=>{statsLine();$('upd').textContent=tx('updated',{d:new Date(META.updated).toLocaleDateString(LOC(),{day:'numeric',month:'short',year:'numeric'})})};
 updLine();
 function seg(el,opts,get,set){el.innerHTML=opts.map(o=>'<button type="button" data-v="'+o[0]+'">'+o[1]+'</button>').join('');
  el.onclick=e=>{const b=e.target.closest('button');if(!b)return;set(b.dataset.v);paint();render()};}
@@ -908,7 +947,7 @@ function card(r,i){
  const hz=hero(r),onPhoto=!!(hz&&bt&&!ex);
  return '<article class="card'+(ex?' expired':'')+(simple?' simple':'')+(sharedId?' hl':'')+'" data-k="'+i+'" data-id="'+esc(r[20])+'">'+hz+(ex?'<div class="exp-tag '+st+'">'+tagText(r,st)+'</div>':'')
  +'<div class="head"><span class="num">'+(i+1)+'</span><div class="addr">'+esc(r[1])+'</div></div>'
- +'<div class="pricebox"><div class="kindt">'+dash(typeName(r))+(ok(r[9])?' · '+esc(r[9])+qb('tenure'):'')+'</div><span class="pl">'+tx('auction_price')+qb('price')+'</span><div class="price">'+dash(r[7])+(fire?' 🔥':'')+'</div>'
+ +'<div class="pricebox"><div class="kindt">'+dash(typeName(r))+(ok(r[9])?' · '+esc(r[9])+qb('tenure'):'')+'</div><span class="pl">'+tx('auction_price')+qb('price')+'</span><div class="price">'+dash(r[7])+(fire?' 🔥':'')+'</div>'+(simple?'':psfDrop(r,ex))
  +(simple?'':'<div class="mv"><small>'+tx('market_value')+'</small> <b>'+(suspect(r)?'N/A':dash(r[8]))+'</b>'+(bt&&!onPhoto?'':qb('bmv'))+'</div>')
  +(bt&&!onPhoto?'<div class="bmvrow"><span class="bmv">'+esc(bt)+'</span>'+qb('bmv')+'</div>':'')+saveRow(r,ex)+scoreChip(r,ex)+'</div>'
  +(st==='unsold'&&liveUnsold(r)?unsoldNote(r):'')
@@ -924,7 +963,8 @@ function card(r,i){
 }
 let ROWS=[],SHOWN=0;const PAGE=60;
 function moreBtn(){const b=$('more');b.hidden=SHOWN>=ROWS.length;b.textContent=tx('more_n',{n:ROWS.length-SHOWN})}
-function drawList(){$('list').innerHTML=ROWS.slice(0,SHOWN).map((r,j)=>card(r,j)).join('')}
+function drawList(){$('list').innerHTML=ROWS.slice(0,SHOWN).map((r,j)=>card(r,j)).join('');
+ setTimeout(()=>document.querySelectorAll('.hero img:not(.ok)').forEach(i=>{if(i.complete)i.classList.add('ok')}),1500)}
 function favMsg(fr){const rs=fr.slice(0,15),L=[tx('fav_wa'),''];
  rs.forEach((r,i)=>{L.push((i+1)+'. '+pv(typeName(r))+', '+pv(r[1]));L.push('   '+pv(r[7])+' · '+fmtDay(r[12])+(ok(r[13])?' '+r[13]:''));L.push('   '+BASE+'#'+r[20]);L.push('')});
  if(fr.length>rs.length)L.push(tx('fav_more',{n:fr.length-rs.length}));return L.join('\n')}
@@ -1130,7 +1170,7 @@ function start(){if(STARTED)return;STARTED=true;showTierBadge();G('count').textC
 // and has no result is not listed (a result usually appears within a day or two and the unit then comes back under its tab).
 const t0=new Date();t0.setHours(0,0,0,0);
 const listed=o=>o.outcome||!(Date.parse(o.auction_date)>0&&Date.parse(o.auction_date)<t0.getTime());
-boot(j.listings.filter(listed).map(o=>FIELDS.map(f=>o[f])),j);}).catch(()=>{G('count').textContent=tx('load_err')})}
+boot(j.listings.filter(listed).map(o=>FIELDS.map(f=>o[f])),j);}).catch(()=>{G('count').textContent=tx('load_err');G('list').innerHTML=''})}
 function trialLocks(){const so=G('sort');['bmv','lbmv'].forEach(v=>{const o=so.querySelector('option[value='+v+']');if(o)o.dataset.i18n='s_'+v+'_lock'});
  ['bmvFld','cyFld'].forEach(id=>{const f=G(id);if(f&&!f.querySelector('.lock-row'))f.insertAdjacentHTML('beforeend','<div class="lock-row"><a class="lock" data-i18n="lock_link" href="'+String(LANDING).replace(/"/g,'&quot;')+'"></a></div>')});
  applyI18n();
