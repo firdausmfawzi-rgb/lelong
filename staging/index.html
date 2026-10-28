@@ -84,7 +84,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .mo{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px}.mo-s{display:inline-flex;gap:4px;flex-wrap:wrap}
 .lsel{display:inline-block;width:auto;max-width:100%;font:inherit;font-size:.8rem;font-weight:700;color:var(--save);background:var(--surface);border:1px solid var(--line);border-radius:8px;min-height:34px;padding:2px;cursor:pointer}.lsel:hover{border-color:var(--save)}
 .mo-n{flex-basis:100%;font-size:.78rem;font-weight:600;opacity:.85;line-height:1.3}
-.save{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;margin-top:6px;background:var(--ok-bg);color:var(--save);border-radius:10px;padding:8px 12px;font-weight:800;font-size:.95rem}.save small{font-weight:600;opacity:.9}
+.save{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;margin-top:6px;background:var(--ok-bg);color:var(--save);border-radius:10px;padding:8px 10px;font-weight:800;font-size:.95rem}.save small{font-weight:600;opacity:.9}
 .eyebrow{display:block;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--prem)}
 .hchip.due.week{background:#a0620f}.hchip.due.soon{background:#b3261e}
 .hchip.new{left:auto;right:10px;background:#fff;color:#0f2a44;letter-spacing:.06em}.hchip.due+.hchip.new{top:42px}
@@ -411,7 +411,7 @@ const ls={get:k=>{try{return localStorage.getItem(KP+k)}catch(e){return null}},s
 let LANG=ls.get('lang')==='ms'?'ms':'en';
 // English / Bahasa Melayu. {name} and {phone} are the agent's; other {x} are filled in by the caller.
 const I18N={en:{
-title:'Auction List | {name}',h1:'Auction List',updated:'Updated {d} · from official auction notices',eyebrow:'Members-only list',save_lbl:'You save {v}',mo_lbl:'≈ {v} / month',mo_note:'Estimate with a 90% loan. Ask your bank for the real figure.',mo_ten:'Loan tenure',mo_rate:'Interest rate a year',mo_y:'{n} yrs',mo_y1:'{n} yr',mo_avg:'avg',new_tag:'NEW',psf:'RM {v} / sq ft',drop:'Price cut {n} times',drop1:'Price cut once',since:' since {d}',st_av:'units you can still bid on',st_bmv:'{p}%+ below market value',st_new:'new in the last 3 days',totop:'Back to top',st_tap:'Show these units',s_psf:'Lowest price per sq ft',f_new:'New (last 3 days)',chip_rm:'Remove filter: {f}',chip_all:'Clear all',cmp_btn:'⚖ Compare',cmp_t:'Compare saved units',cmp_more:'Showing the first 4 units of your list.',cmp_best:'★ = best in that row.',cmp_disc:'Below market value',cmp_psf:'Price per sq ft',cmp_ten:'Tenure',cmp_nth:'Auction round',sim:'🔍 {n} other {c} units for sale in {d}',sim1:'🔍 1 other {c} unit for sale in {d}',copy_al:'Copy address',addr_copied:'Address copied',loading:'Loading listings…',load_err:'Could not load listings. Refresh the page to try again.',
+title:'Auction List | {name}',h1:'Auction List',updated:'Updated {d} · from official auction notices',eyebrow:'Members-only list',save_lbl:'You save {v}',mo_lbl:'≈ {v} / month',mo_note:'Estimate only: banks usually lend 90% for a first or second home and 70% from the third. Ask your bank for the real figure.',mo_mar:'Loan margin',mo_m:'Loan {n}%',mo_ten:'Loan tenure',mo_rate:'Interest rate a year',mo_y:'{n} yrs',mo_y1:'{n} yr',mo_avg:'avg',new_tag:'NEW',psf:'RM {v} / sq ft',drop:'Price cut {n} times',drop1:'Price cut once',since:' since {d}',st_av:'units you can still bid on',st_bmv:'{p}%+ below market value',st_new:'new in the last 3 days',totop:'Back to top',st_tap:'Show these units',s_psf:'Lowest price per sq ft',f_new:'New (last 3 days)',chip_rm:'Remove filter: {f}',chip_all:'Clear all',cmp_btn:'⚖ Compare',cmp_t:'Compare saved units',cmp_more:'Showing the first 4 units of your list.',cmp_best:'★ = best in that row.',cmp_disc:'Below market value',cmp_psf:'Price per sq ft',cmp_ten:'Tenure',cmp_nth:'Auction round',sim:'🔍 {n} other {c} units for sale in {d}',sim1:'🔍 1 other {c} unit for sale in {d}',copy_al:'Copy address',addr_copied:'Address copied',loading:'Loading listings…',load_err:'Could not load listings. Refresh the page to try again.',
 banner:'Interested? Contact {name}: {phone}',call:'📞 Call',wa_hi:'Hi {name}, I would like to know more about the auction list.',
 qf_btn:'🔎 Quick Find',qf_sub:'3 easy questions',guide_btn:'❓ How to use',guide_sub:'this page',
 search_ph:'🔎 Address or bank',search_ph_s:'🔎 Address / bank',search_al:'Search address or bank',filter:'Filter',shared_t:'Showing a shared unit',view_all:'View all listings',status_al:'Listing status',
@@ -484,7 +484,7 @@ h_count:'<p><b>1st auction</b> - the first time the bank offers this unit.</p><p
 h_cy_t:'Completion year',
 h_cy:'<p>The year the building was completed.</p><p>It is only available for Condominium / Apartment / SOHO. Picking a year changes the Property Category to Condominium / Apartment / SOHO.</p>'
 },ms:{
-title:'Senarai Lelong | {name}',h1:'Senarai Lelong',updated:'Dikemas kini {d} · daripada notis lelong rasmi',eyebrow:'Senarai eksklusif ahli',save_lbl:'Jimat {v}',mo_lbl:'± {v} / bulan',mo_note:'Anggaran dengan pinjaman 90%. Semak angka sebenar dengan bank.',mo_ten:'Tempoh pinjaman',mo_rate:'Kadar faedah setahun',mo_y:'{n} thn',mo_y1:'{n} thn',mo_avg:'purata',new_tag:'BAHARU',psf:'RM {v} / kps',drop:'Harga sudah turun {n} kali',drop1:'Harga sudah turun sekali',since:' sejak {d}',st_av:'unit masih boleh dibida',st_bmv:'≥{p}% bawah nilai pasaran',st_new:'unit baharu (3 hari)',totop:'Kembali ke atas',st_tap:'Tunjuk unit ini',s_psf:'Harga sekaki terendah',f_new:'Baharu (3 hari)',chip_rm:'Buang penapis: {f}',chip_all:'Kosongkan semua',cmp_btn:'⚖ Banding',cmp_t:'Banding unit simpanan',cmp_more:'Menunjukkan 4 unit pertama dalam senarai anda.',cmp_best:'★ = terbaik dalam baris itu.',cmp_disc:'Bawah nilai pasaran',cmp_psf:'Harga sekaki',cmp_ten:'Pegangan',cmp_nth:'Pusingan lelong',sim:'🔍 {n} unit {c} lain dijual di {d}',sim1:'🔍 1 unit {c} lain dijual di {d}',copy_al:'Salin alamat',addr_copied:'Alamat disalin',loading:'Memuatkan senarai…',load_err:'Senarai tidak dapat dimuatkan. Muat semula halaman dan cuba lagi.',
+title:'Senarai Lelong | {name}',h1:'Senarai Lelong',updated:'Dikemas kini {d} · daripada notis lelong rasmi',eyebrow:'Senarai eksklusif ahli',save_lbl:'Jimat {v}',mo_lbl:'± {v} / bulan',mo_note:'Anggaran sahaja: bank biasanya beri pinjaman 90% untuk rumah pertama dan kedua, 70% untuk rumah ketiga. Semak angka sebenar dengan bank.',mo_mar:'Margin pinjaman',mo_m:'Margin {n}%',mo_ten:'Tempoh pinjaman',mo_rate:'Kadar faedah setahun',mo_y:'{n} thn',mo_y1:'{n} thn',mo_avg:'purata',new_tag:'BAHARU',psf:'RM {v} / kps',drop:'Harga sudah turun {n} kali',drop1:'Harga sudah turun sekali',since:' sejak {d}',st_av:'unit masih boleh dibida',st_bmv:'≥{p}% bawah nilai pasaran',st_new:'unit baharu (3 hari)',totop:'Kembali ke atas',st_tap:'Tunjuk unit ini',s_psf:'Harga sekaki terendah',f_new:'Baharu (3 hari)',chip_rm:'Buang penapis: {f}',chip_all:'Kosongkan semua',cmp_btn:'⚖ Banding',cmp_t:'Banding unit simpanan',cmp_more:'Menunjukkan 4 unit pertama dalam senarai anda.',cmp_best:'★ = terbaik dalam baris itu.',cmp_disc:'Bawah nilai pasaran',cmp_psf:'Harga sekaki',cmp_ten:'Pegangan',cmp_nth:'Pusingan lelong',sim:'🔍 {n} unit {c} lain dijual di {d}',sim1:'🔍 1 unit {c} lain dijual di {d}',copy_al:'Salin alamat',addr_copied:'Alamat disalin',loading:'Memuatkan senarai…',load_err:'Senarai tidak dapat dimuatkan. Muat semula halaman dan cuba lagi.',
 banner:'Berminat? Hubungi {name}: {phone}',call:'📞 Telefon',wa_hi:'Hi {name}, saya nak tahu lebih lanjut tentang senarai lelong.',
 qf_btn:'🔎 Carian Mudah',qf_sub:'3 soalan mudah',guide_btn:'❓ Cara guna',guide_sub:'laman ini',
 search_ph:'🔎 Alamat atau bank',search_ph_s:'🔎 Alamat / bank',search_al:'Cari alamat atau bank',filter:'Tapis',shared_t:'Menunjukkan unit yang dikongsi',view_all:'Lihat semua senarai',status_al:'Status senarai',
@@ -675,12 +675,14 @@ function psfDrop(r,ex){const p=num(r[7]),ps=psfOf(r);let o='';if(ps)o+='<span cl
   const pc=Math.round((1-p/num(f[1]))*100),mv=suspect(r)?0:num(r[8]),bm=mv>p?Math.round((1-p/mv)*100):-99;
   o+='<div class="drop">'+txn('drop',n)+(isNaN(d)?'':tx('since',{d:d.toLocaleDateString(LOC(),{month:'short',year:'numeric'})}))+(Math.abs(pc-bm)>=3?' (−'+pc+'%)':'')+'</div>'}
  return o}
-// savings and a monthly instalment estimate (homes only): price vs market value; a 90% loan, the client picks the tenure (1-35 years)
-// and the yearly rate (2-5%, 4% = average) next to the figure. The choice applies to every card and is remembered on this device (28/10/2026).
-const RATES=[2,2.25,2.5,2.75,3,3.25,3.5,3.75,4,4.25,4.5,4.75,5],LOAN={y:35,r:4};
-try{const o=JSON.parse(ls.get('loan')||'null');if(o&&+o.y>=1&&+o.y<=35)LOAN.y=Math.round(+o.y);if(o&&RATES.includes(+o.r))LOAN.r=+o.r}catch(e){}
-const moOf=p=>{const L=p*.9,i=LOAN.r/1200,n=LOAN.y*12;return Math.round(L*i/(1-Math.pow(1+i,-n)))};
-const loanSel=()=>'<span class="mo-s"><select class="lsel" data-loan="y" aria-label="'+esc(tx('mo_ten'))+'">'
+// savings and a monthly instalment estimate (homes only): price vs market value; the client picks the loan margin (90% or 70%),
+// the tenure (1-35 years) and the yearly rate (2-5%, 4% = average) next to the figure. The choice applies to every card and is remembered on this device (28/10/2026).
+const RATES=[2,2.25,2.5,2.75,3,3.25,3.5,3.75,4,4.25,4.5,4.75,5],MARGINS=[90,70],LOAN={m:90,y:35,r:4};
+try{const o=JSON.parse(ls.get('loan')||'null');if(o&&+o.y>=1&&+o.y<=35)LOAN.y=Math.round(+o.y);if(o&&RATES.includes(+o.r))LOAN.r=+o.r;if(o&&MARGINS.includes(+o.m))LOAN.m=+o.m}catch(e){}
+const moOf=p=>{const L=p*LOAN.m/100,i=LOAN.r/1200,n=LOAN.y*12;return Math.round(L*i/(1-Math.pow(1+i,-n)))};
+const loanSel=()=>'<span class="mo-s"><select class="lsel" data-loan="m" aria-label="'+esc(tx('mo_mar'))+'">'
+ +MARGINS.map(v=>'<option value="'+v+'"'+(v===LOAN.m?' selected':'')+'>'+tx('mo_m',{n:v})+'</option>').join('')
+ +'</select><select class="lsel" data-loan="y" aria-label="'+esc(tx('mo_ten'))+'">'
  +Array.from({length:35},(_,k)=>k+1).map(y=>'<option value="'+y+'"'+(y===LOAN.y?' selected':'')+'>'+txn('mo_y',y)+'</option>').join('')
  +'</select><select class="lsel" data-loan="r" aria-label="'+esc(tx('mo_rate'))+'">'
  +RATES.map(v=>'<option value="'+v+'"'+(v===LOAN.r?' selected':'')+'>'+v+'%'+(v===4?' '+tx('mo_avg'):'')+'</option>').join('')+'</select></span>';
@@ -1134,7 +1136,7 @@ $('close').onclick=$('apply').onclick=$('scrim').onclick=()=>sheet(false);
 $('negeri').onchange=()=>{daerahOpts();render()};
 $('q').addEventListener('input',()=>{favMode=false;clearShared()});
 $('list').addEventListener('change',e=>{const el=e.target;if(!el.matches||!el.matches('select[data-loan]'))return;
- LOAN[el.dataset.loan]=+el.value;ls.set('loan',JSON.stringify(LOAN));track('loan_change',{years:LOAN.y,rate:LOAN.r});
+ LOAN[el.dataset.loan]=+el.value;ls.set('loan',JSON.stringify(LOAN));track('loan_change',{margin:LOAN.m,years:LOAN.y,rate:LOAN.r});
  document.querySelectorAll('.mo').forEach(m=>{const v=m.querySelector('.mo-v');if(v)v.textContent=tx('mo_lbl',{v:'RM '+moOf(+m.dataset.p).toLocaleString('en-MY')});
   m.querySelectorAll('select[data-loan]').forEach(x=>{if(x!==el)x.value=String(LOAN[x.dataset.loan])})})});
 $('list').addEventListener('input',e=>{const d=e.target.closest('details.sip');if(d&&e.target.matches('input[data-k]'))sipRecalc(d,e.target)});
