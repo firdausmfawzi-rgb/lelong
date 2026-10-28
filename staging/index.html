@@ -212,9 +212,9 @@ html.trial #cyNote,html.trial #bmvSeg,html.trial #cyBtn,html.trial #cyPanel{disp
 .acts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .hd{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .hd h1{min-width:0}.hd-title{display:flex;align-items:center;gap:12px;min-width:0}
-/* membership label under the title (28/10/2026, replaces the badge images): one label only - an agent's own code shows Agent Specialist,
+/* membership label on its own row under the title and buttons (28/10/2026, replaces the badge images): one label only - an agent's own code shows Agent Specialist,
    otherwise the plan: VIP Investor or Premium Member */
-.tier-tag{display:inline-flex;align-items:center;gap:7px;margin-top:7px;padding:6px 14px 6px 11px;border-radius:999px;border:1px solid var(--gold);font-family:var(--display);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;line-height:1.2;white-space:nowrap}
+.tier-tag{display:inline-flex;align-items:center;gap:7px;margin:4px 0 2px;max-width:100%;padding:6px 14px 6px 11px;border-radius:999px;border:1px solid var(--gold);font-family:var(--display);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;line-height:1.2;white-space:nowrap}
 .tier-tag svg{flex:none;width:14px;height:14px}
 .tier-tag.vip{background:linear-gradient(135deg,#0f2a44,#1d4268);color:#ecd27e;box-shadow:0 3px 12px rgba(15,42,68,.28),inset 0 0 0 1px rgba(236,210,126,.22)}
 .tier-tag.agent{background:linear-gradient(135deg,#fcf7e8,#f1e2b4);color:#5a430d;box-shadow:0 3px 12px rgba(138,101,18,.18)}
@@ -345,7 +345,8 @@ body{padding-block-end:100px}
 <p style="font-size:.85rem">Firdaus Jay · 019-6522361 · Eden Assets &amp; Property Solutions</p>
 </form></div>
 <div class="wrap">
-<div class="hd"><div class="hd-title"><div><span class="eyebrow" data-i18n="eyebrow">Members-only list</span><h1 data-i18n="h1">Auction List</h1><span class="tier-tag" id="tierTag" hidden></span></div></div><div class="hd-acts"><button class="btn theme-btn" id="themeBtn" type="button" aria-label="Switch to dark mode" title="Light / dark mode">🌙</button><button class="btn share-all" id="shareAll" type="button" data-i18n="share">Share</button></div></div>
+<div class="hd"><div class="hd-title"><div><span class="eyebrow" data-i18n="eyebrow">Members-only list</span><h1 data-i18n="h1">Auction List</h1></div></div><div class="hd-acts"><button class="btn theme-btn" id="themeBtn" type="button" aria-label="Switch to dark mode" title="Light / dark mode">🌙</button><button class="btn share-all" id="shareAll" type="button" data-i18n="share">Share</button></div></div>
+<span class="tier-tag" id="tierTag" hidden></span>
 <p class="upd" id="upd"></p>
 <div class="stats" id="stats" aria-live="polite"></div>
 <div class="trial-bar" id="trialBar" hidden><span data-i18n="trial_msg">You are viewing the free preview. Full details are for premium members.</span><a class="btn" id="trialCta" href="premium/" data-i18n="lock">Unlock Premium RM50 only</a></div>
