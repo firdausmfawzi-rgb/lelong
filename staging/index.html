@@ -86,6 +86,8 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .mo-n{flex-basis:100%;font-size:.78rem;font-weight:600;opacity:.85;line-height:1.3}
 .save{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;margin-top:6px;background:var(--ok-bg);color:var(--save);border-radius:10px;padding:8px 10px;font-weight:800;font-size:.95rem}.save small{font-weight:600;opacity:.9}
 .eyebrow{display:block;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--prem)}
+.hero{container-type:inline-size}   /* the gold chip's type follows the photo width */
+.hchip.gold{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:5px 9px;font-size:.72rem;font-size:clamp(9px,3.5cqw,13px)}
 .hchip.due.week{background:#a0620f}.hchip.due.soon{background:#b3261e}
 .hchip.new{left:auto;right:10px;background:#fff;color:#0f2a44;letter-spacing:.06em}.hchip.due+.hchip.new{top:42px}
 .hero img{opacity:0;transition:opacity .35s ease}.hero img.ok{opacity:1}
@@ -444,7 +446,7 @@ st_available:'Active + No bidder',st_active:'Active',st_unsold:'No bidder',st_ca
 sp_next:' · next {t}',sp_last:' · last {t}',months:'{n} months',day1:'{n} day',days:'{n} days',
 tag_sold:'Sold',tag_calloff:'Cancelled · auction called off',tag_unsold:'No bidder · not sold at auction',tag_expired:'Expired · auction date passed',
 unsold_t:'No bidder, Pending Next Auction',unsold_p:'Price might reduce 10%',unsold_np:' - New Price: {p} (Estimate)',
-auction_price:'Auction price',market_value:'Market value',bmv_txt:'{p}% below market value',
+auction_price:'Auction price',market_value:'Market value',bmv_txt:'{p}% below market value',bmv_chip:'{p}% Below Market Value',
 built_up:'Built-up',cy:'Completion year',bed:'Bedrooms',bath:'Bathrooms',car:'Car parks',land:'Land size',district:'District',state:'State',bank:'Bank',more_info:'More info',share:'Share',hist:'Past auction transactions',hist_sub:'Auction date & reserve price',hist_now:'Current auction',
 f_bed:'Bedrooms: {n}',f_bath:'Bathrooms: {n}',f_built:'Completed {y}',f_bu:'Built-up {v}',f_land:'Land {v}',
 date:'Auction Date:',pending:'Next date not set yet',cal_add:'Add to calendar',cal_title:'Auction: {t}',
@@ -517,7 +519,7 @@ st_available:'Aktif + Tiada pembida',st_active:'Aktif',st_unsold:'Tiada pembida'
 sp_next:' · {t} akan datang',sp_last:' · {t} lepas',months:'{n} bulan',day1:'{n} hari',days:'{n} hari',
 tag_sold:'Terjual',tag_calloff:'Dibatalkan · lelong tidak diteruskan',tag_unsold:'Tiada pembida · tidak terjual di lelong',tag_expired:'Tamat · tarikh lelong sudah lepas',
 unsold_t:'Tiada pembida, menunggu lelong seterusnya',unsold_p:'Harga mungkin turun 10%',unsold_np:' - Harga baharu: {p} (anggaran)',
-auction_price:'Harga lelong',market_value:'Nilai pasaran',bmv_txt:'{p}% bawah nilai pasaran',
+auction_price:'Harga lelong',market_value:'Nilai pasaran',bmv_txt:'{p}% bawah nilai pasaran',bmv_chip:'{p}% Bawah Nilai Pasaran',
 built_up:'Keluasan binaan',cy:'Tahun siap',bed:'Bilik tidur',bath:'Bilik air',car:'Parkir',land:'Keluasan tanah',district:'Daerah',state:'Negeri',bank:'Bank',more_info:'Maklumat lanjut',share:'Kongsi',hist:'Lelong terdahulu',hist_sub:'Tarikh lelong & harga rizab',hist_now:'Lelong semasa',
 f_bed:'Bilik tidur: {n}',f_bath:'Bilik air: {n}',f_built:'Siap {y}',f_bu:'Binaan {v}',f_land:'Tanah {v}',
 date:'Tarikh Lelong:',pending:'Tarikh seterusnya belum ditetapkan',cal_add:'Masukkan ke kalendar',cal_title:'Lelong: {t}',
@@ -646,8 +648,8 @@ const dash=v=>locked(v)?lockLink():locked2(v)?lockLink2():ok(v)?esc(v):'N/A';
 const qb=k=>'<button type="button" class="q" data-h="'+k+'" aria-label="'+esc(tx('what'))+'">?</button>';
 const typeName=r=>GENT[r[5]]?r[28]:r[5];
 function toast(m){const el=$('toast');el.textContent=m;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,2500)}
-// sh: the short form on the photo chip, e.g. "50% BMV" (28/10/2026); elsewhere the full "50% below market value"
-const bmvTxt=(r,sh)=>{if(TRIAL&&/^XX%/.test(String(r[6]||'')))return sh?'XX% BMV':tx('bmv_lock');const v=suspect(r)||!ok(r[6])?'':String(r[6]);if(!v||/^\s*0%/.test(v))return '';const m=/^\s*(\d+(?:\.\d+)?)%\s*(?:BMV)?\s*$/i.exec(v);return m?(sh?m[1]+'% BMV':tx('bmv_txt',{p:m[1]})):v};
+// sh: the photo chip, e.g. "42% Below Market Value" in a smaller type that fits one line (28/10/2026); elsewhere "42% below market value"
+const bmvTxt=(r,sh)=>{if(TRIAL&&/^XX%/.test(String(r[6]||'')))return sh?tx('bmv_chip',{p:'XX'}):tx('bmv_lock');const v=suspect(r)||!ok(r[6])?'':String(r[6]);if(!v||/^\s*0%/.test(v))return '';const m=/^\s*(\d+(?:\.\d+)?)%\s*(?:BMV)?\s*$/i.exec(v);return m?tx(sh?'bmv_chip':'bmv_txt',{p:m[1]}):v};
 async function doShare(kind,r){
  const url=BASE+'?utm_source=share&utm_medium='+(r?'unit':'list')+'&utm_campaign=client_share'+(r?'#'+r[20]:'');
  const b=r?bmvTxt(r):'';
