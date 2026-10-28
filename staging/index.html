@@ -212,9 +212,13 @@ html.trial #cyNote,html.trial #bmvSeg,html.trial #cyBtn,html.trial #cyPanel{disp
 .acts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .hd{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .hd h1{min-width:0}.hd-title{display:flex;align-items:center;gap:12px;min-width:0}
-/* membership badge (img/badge-premium.webp, img/badge-vip.webp; Nano Banana Pro renders, 26/10/2026): shown once a code opens the page, by the member's TIER */
-.tier-badge{width:60px;height:60px;flex:none;object-fit:contain;filter:drop-shadow(0 3px 8px rgba(0,0,0,.45))}.tier-badge.vip{width:68px;height:68px}
-@media (max-width:640px){.tier-badge{width:48px;height:48px}.tier-badge.vip{width:54px;height:54px}}
+/* membership label under the title (28/10/2026, replaces the badge images): one label only - an agent's own code shows Agent Specialist,
+   otherwise the plan: VIP Investor or Premium Member */
+.tier-tag{display:inline-flex;align-items:center;gap:7px;margin-top:7px;padding:6px 14px 6px 11px;border-radius:999px;border:1px solid var(--gold);font-family:var(--display);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;line-height:1.2;white-space:nowrap}
+.tier-tag svg{flex:none;width:14px;height:14px}
+.tier-tag.vip{background:linear-gradient(135deg,#0f2a44,#1d4268);color:#ecd27e;box-shadow:0 3px 12px rgba(15,42,68,.28),inset 0 0 0 1px rgba(236,210,126,.22)}
+.tier-tag.agent{background:linear-gradient(135deg,#fcf7e8,#f1e2b4);color:#5a430d;box-shadow:0 3px 12px rgba(138,101,18,.18)}
+.tier-tag.prem{background:var(--prem-bg);color:var(--prem)}
 .hd-acts{display:flex;gap:8px;align-items:center;flex:none}
 .theme-btn{min-height:44px;min-width:46px;padding:0 12px;background:var(--surface);color:var(--fg);border-color:var(--line);font-size:1.15rem;line-height:1}
 .share-all{min-height:44px;padding:0 16px;background:var(--surface);color:var(--accent);border-color:var(--accent)}
@@ -341,7 +345,7 @@ body{padding-block-end:100px}
 <p style="font-size:.85rem">Firdaus Jay · 019-6522361 · Eden Assets &amp; Property Solutions</p>
 </form></div>
 <div class="wrap">
-<div class="hd"><div class="hd-title"><div><span class="eyebrow" data-i18n="eyebrow">Members-only list</span><h1 data-i18n="h1">Auction List</h1></div><img class="tier-badge" id="tierBadge" alt="" width="60" height="60" hidden><img class="tier-badge agent" id="agentBadge" alt="" width="60" height="60" hidden></div><div class="hd-acts"><button class="btn theme-btn" id="themeBtn" type="button" aria-label="Switch to dark mode" title="Light / dark mode">🌙</button><button class="btn share-all" id="shareAll" type="button" data-i18n="share">Share</button></div></div>
+<div class="hd"><div class="hd-title"><div><span class="eyebrow" data-i18n="eyebrow">Members-only list</span><h1 data-i18n="h1">Auction List</h1><span class="tier-tag" id="tierTag" hidden></span></div></div><div class="hd-acts"><button class="btn theme-btn" id="themeBtn" type="button" aria-label="Switch to dark mode" title="Light / dark mode">🌙</button><button class="btn share-all" id="shareAll" type="button" data-i18n="share">Share</button></div></div>
 <p class="upd" id="upd"></p>
 <div class="stats" id="stats" aria-live="polite"></div>
 <div class="trial-bar" id="trialBar" hidden><span data-i18n="trial_msg">You are viewing the free preview. Full details are for premium members.</span><a class="btn" id="trialCta" href="premium/" data-i18n="lock">Unlock Premium RM50 only</a></div>
@@ -1321,8 +1325,13 @@ async function loadListings(){if(TRIAL)return getData(true);
  return j}
 let STARTED=false;
 function addScoreSort(){try{const so=G('sort');if(!so||TRIAL||TIER!=='sip'||so.querySelector('option[value=score]'))return;const o=document.createElement('option');o.value='score';o.dataset.i18n='s_score';o.textContent=(typeof tx==='function'?tx('s_score'):'Highest investor score');so.insertBefore(o,so.options[1]||null)}catch(e){}}   // runs before the main block exists: TRIAL / TIER only
-function showTierBadge(){addScoreSort();const b=G('tierBadge'),a=G('agentBadge'),IMGB='https://lelongbidgroup.com/img/';if(!b)return;if(TRIAL||!TIER){b.hidden=true;if(a)a.hidden=true;return}const vip=TIER==='sip';b.src=IMGB+(vip?'badge-vip.webp':'badge-premium.webp');b.alt=vip?'VIP Investor member':'Premium member';b.title=b.alt;b.classList.toggle('vip',vip);b.hidden=false;
- if(a){a.hidden=!ISAGENT;if(ISAGENT){a.src=IMGB+'badge-specialist.webp';a.alt='Specialist agent';a.title=a.alt}}}   // an agent's own code (access.json agent:1) shows the Specialist badge next to the plan badge
+// the member's label under the title: an agent's own code (access.json agent:1) shows Agent Specialist only, otherwise the plan
+const TAG={vip:['VIP Investor','<path d="M6 3h12l4 6-10 12L2 9z" fill="currentColor"/><path d="M2 9h20M9 3l3 18M15 3l-3 18" stroke="#0f2a44" stroke-width=".9" fill="none" opacity=".55"/>'],
+ agent:['Agent Specialist','<path d="M12 2l8 3v6c0 5-3.4 9.3-8 11-4.6-1.7-8-6-8-11V5z" fill="currentColor"/><path d="M8 12l3 3 5-6" fill="none" stroke="#fcf7e8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>'],
+ prem:['Premium Member','<path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z" fill="currentColor"/>']};
+function showTierBadge(){addScoreSort();const t=G('tierTag');if(!t)return;if(TRIAL||!TIER){t.hidden=true;return}
+ const k=ISAGENT?'agent':TIER==='sip'?'vip':'prem';t.className='tier-tag '+k;
+ t.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true">'+TAG[k][1]+'</svg><span>'+TAG[k][0]+'</span>';t.hidden=false}
 function start(){if(STARTED)return;STARTED=true;showTierBadge();G('count').textContent=tx('loading');loadListings().then(j=>{// Only Active units and units with a recorded result (Sold / Call Off / Unsold) are shown. A unit whose auction date has passed
 // and has no result is not listed (a result usually appears within a day or two and the unit then comes back under its tab).
 const t0=new Date();t0.setHours(0,0,0,0);
