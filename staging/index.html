@@ -646,7 +646,8 @@ const dash=v=>locked(v)?lockLink():locked2(v)?lockLink2():ok(v)?esc(v):'N/A';
 const qb=k=>'<button type="button" class="q" data-h="'+k+'" aria-label="'+esc(tx('what'))+'">?</button>';
 const typeName=r=>GENT[r[5]]?r[28]:r[5];
 function toast(m){const el=$('toast');el.textContent=m;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,2500)}
-const bmvTxt=r=>{if(TRIAL&&/^XX%/.test(String(r[6]||'')))return tx('bmv_lock');const v=suspect(r)||!ok(r[6])?'':String(r[6]);if(!v||/^\s*0%/.test(v))return '';const m=/^\s*(\d+(?:\.\d+)?)%\s*(?:BMV)?\s*$/i.exec(v);return m?tx('bmv_txt',{p:m[1]}):v};
+// sh: the short form on the photo chip, e.g. "50% BMV" (28/10/2026); elsewhere the full "50% below market value"
+const bmvTxt=(r,sh)=>{if(TRIAL&&/^XX%/.test(String(r[6]||'')))return sh?'XX% BMV':tx('bmv_lock');const v=suspect(r)||!ok(r[6])?'':String(r[6]);if(!v||/^\s*0%/.test(v))return '';const m=/^\s*(\d+(?:\.\d+)?)%\s*(?:BMV)?\s*$/i.exec(v);return m?(sh?m[1]+'% BMV':tx('bmv_txt',{p:m[1]})):v};
 async function doShare(kind,r){
  const url=BASE+'?utm_source=share&utm_medium='+(r?'unit':'list')+'&utm_campaign=client_share'+(r?'#'+r[20]:'');
  const b=r?bmvTxt(r):'';
@@ -669,7 +670,7 @@ const satUrl=u=>{const m=/[?&]query=([^&#]+)/.exec(u||'');return m?'https://maps
 // r[32] photo = 'u:<hash>' (this unit) or 'b:<hash>' (its building), from our own listing posts; trial pages keep the illustration
 // chips on the photo (palette A, 28/10/2026): the discount in gold and the days left, for units that can still be bought
 const isNew=r=>{const f=Date.parse(String(r[22]||'').slice(0,10)+'T00:00:00');return f>0&&(T0-f)/864e5<=2};   // first seen in the last 3 days
-function heroChips(r){const s=stOf(r);if(s!=='active'&&s!=='unsold')return '';const b=bmvTxt(r),d=dt(r[12]),c=d>=T0?cdChip(r[12]):'',n=Math.round((d-T0)/864e5);
+function heroChips(r){const s=stOf(r);if(s!=='active'&&s!=='unsold')return '';const b=bmvTxt(r,1),d=dt(r[12]),c=d>=T0?cdChip(r[12]):'',n=Math.round((d-T0)/864e5);
  return (b?'<span class="hchip gold">'+esc(b)+'</span>':'')+(c?'<span class="hchip due'+(n<=1?' soon':n<=7?' week':'')+'">'+c+'</span>':'')
   +(isNew(r)?'<span class="hchip new">'+tx('new_tag')+'</span>':'')}
 // price per sq ft (built-up known) and how many times the reserve price was cut since the first recorded auction (members only);
