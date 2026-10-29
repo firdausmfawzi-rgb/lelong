@@ -224,7 +224,7 @@ html.trial #cyNote,html.trial #bmvSeg,html.trial #cyBtn,html.trial #cyPanel{disp
 .tier-tag.vip{background:linear-gradient(135deg,#0f2a44,#1d4268);color:#ecd27e;box-shadow:0 3px 12px rgba(15,42,68,.28),inset 0 0 0 1px rgba(236,210,126,.22)}
 .tier-tag.agent{background:linear-gradient(135deg,#fcf7e8,#f1e2b4);color:#5a430d;box-shadow:0 3px 12px rgba(138,101,18,.18)}
 .tier-tag.prem{background:var(--prem-bg);color:var(--prem)}
-/* "Agentic AI Powered Data" next to the VIP Investor label (Jay 29/10/2026): cyberpunk neon tag - flowing neon frame, glowing gradient
+/* "Agentic AI Powered Data" right of the membership label, on every tier and the free preview (Jay 29/10/2026): cyberpunk neon tag - flowing neon frame, glowing gradient
    text, a short glitch every few seconds, CRT scanlines, cut corners; dark in both themes; no motion for prefers-reduced-motion */
 .tier-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:4px 0 2px}.tier-row .tier-tag{margin:0}
 .ai-tag{display:inline-flex;max-width:100%;filter:drop-shadow(0 0 6px rgba(0,240,255,.7)) drop-shadow(0 0 18px rgba(255,43,214,.55)) drop-shadow(0 0 32px rgba(0,240,255,.25));animation:aiHolo 6s steps(1) infinite}
@@ -240,7 +240,8 @@ html.trial #cyNote,html.trial #bmvSeg,html.trial #cyBtn,html.trial #cyPanel{disp
 @keyframes aiPulse{50%{stroke:#ff2bd6;filter:drop-shadow(0 0 5px #ff2bd6)}}@keyframes aiBlink{50%{opacity:0}}
 @keyframes aiGlitchA{0%,86%,100%{opacity:0;transform:none;clip-path:none}88%{opacity:.9;transform:translate(-2px,1px);clip-path:inset(10% 0 55% 0)}91%{opacity:.9;transform:translate(2px,-1px);clip-path:inset(60% 0 8% 0)}94%{opacity:.7;transform:translate(-1px,0);clip-path:inset(35% 0 35% 0)}}
 @keyframes aiGlitchB{0%,87%,100%{opacity:0;transform:none;clip-path:none}89%{opacity:.9;transform:translate(2px,0);clip-path:inset(50% 0 20% 0)}92%{opacity:.9;transform:translate(-2px,1px);clip-path:inset(5% 0 70% 0)}95%{opacity:.6;transform:translate(1px,-1px);clip-path:inset(70% 0 5% 0)}}
-@media (max-width:420px){.ai-in{font-size:.72rem;letter-spacing:.14em;padding:8px 14px 8px 10px}}
+@media (max-width:480px){.tier-row{flex-wrap:nowrap;gap:6px}.tier-row .tier-tag{flex:none;font-size:.7rem;letter-spacing:.08em;padding:6px 10px 6px 8px}.ai-tag{min-width:0}.ai-in{white-space:normal;font-size:.62rem;letter-spacing:.1em;line-height:1.25;padding:6px 10px 6px 8px;gap:6px}.ai-txt{max-width:10.5em}.ai-txt::before,.ai-txt::after{display:none}.ai-chip{width:14px;height:14px}.ai-cur{height:1.1em}}
+@media (max-width:330px){.tier-row{flex-wrap:wrap}}   /* very small phones: the tag goes under the label */
 @media (prefers-reduced-motion:reduce){.ai-tag,.ai-in::before,.ai-in::after,.ai-chip,.ai-txt,.ai-txt::before,.ai-txt::after,.ai-cur{animation:none}}
 .hd-acts{display:flex;gap:8px;align-items:center;flex:none}
 .theme-btn{min-height:44px;min-width:46px;padding:0 12px;background:var(--surface);color:var(--fg);border-color:var(--line);font-size:1.15rem;line-height:1}
@@ -369,7 +370,7 @@ body{padding-block-end:100px}
 </form></div>
 <div class="wrap">
 <div class="hd"><div class="hd-title"><div><span class="eyebrow" data-i18n="eyebrow">Members-only list</span><h1 data-i18n="h1">Auction List</h1></div></div><div class="hd-acts"><button class="btn theme-btn" id="themeBtn" type="button" aria-label="Switch to dark mode" title="Light / dark mode">🌙</button><button class="btn share-all" id="shareAll" type="button" data-i18n="share">Share</button></div></div>
-<div class="tier-row"><span class="tier-tag" id="tierTag" hidden></span><span class="ai-tag" id="aiTag" hidden role="img" aria-label="Agentic AI Powered Data"><span class="ai-in"><svg class="ai-chip" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 2v4M12 2v4M15 2v4M9 18v4M12 18v4M15 18v4M2 9h4M2 12h4M2 15h4M18 9h4M18 12h4M18 15h4"/></svg><span class="ai-txt" data-text="Agentic AI Powered Data">Agentic AI Powered Data</span><i class="ai-cur" aria-hidden="true"></i></span></span></div>
+<div class="tier-row"><span class="tier-tag" id="tierTag" hidden></span><span class="ai-tag" id="aiTag" role="img" aria-label="Agentic AI Powered Data"><span class="ai-in"><svg class="ai-chip" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 2v4M12 2v4M15 2v4M9 18v4M12 18v4M15 18v4M2 9h4M2 12h4M2 15h4M18 9h4M18 12h4M18 15h4"/></svg><span class="ai-txt" data-text="Agentic AI Powered Data">Agentic AI Powered Data</span><i class="ai-cur" aria-hidden="true"></i></span></span></div>
 <p class="upd" id="upd"></p>
 <div class="stats" id="stats" aria-live="polite"></div>
 <div class="trial-bar" id="trialBar" hidden><span data-i18n="trial_msg">You are viewing the free preview. Full details are for premium members.</span><a class="btn" id="trialCta" href="premium/" data-i18n="lock">Unlock Premium RM50 only</a></div>
@@ -1367,8 +1368,7 @@ const TAG={vip:['VIP Investor','<path d="M6 3h12l4 6-10 12L2 9z" fill="currentCo
  prem:['Premium Member','<path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z" fill="currentColor"/>']};
 function showTierBadge(){addScoreSort();const t=G('tierTag');if(!t)return;if(TRIAL||!TIER){t.hidden=true;return}
  const k=ISAGENT?'agent':TIER==='sip'?'vip':'prem';t.className='tier-tag '+k;
- t.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true">'+TAG[k][1]+'</svg><span>'+TAG[k][0]+'</span>';t.hidden=false;
- const ai=G('aiTag');if(ai)ai.hidden=k!=='vip'}   // the cyberpunk "Agentic AI Powered Data" tag sits next to the VIP Investor label only
+ t.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true">'+TAG[k][1]+'</svg><span>'+TAG[k][0]+'</span>';t.hidden=false}   // the cyberpunk "Agentic AI Powered Data" tag (#aiTag) shows on every tier, the free preview included (Jay 29/10/2026)
 function start(){if(STARTED)return;STARTED=true;showTierBadge();G('count').textContent=tx('loading');loadListings().then(j=>{// Only Active units and units with a recorded result (Sold / Call Off / Unsold) are shown. A unit whose auction date has passed
 // and has no result is not listed (a result usually appears within a day or two and the unit then comes back under its tab).
 const t0=new Date();t0.setHours(0,0,0,0);
