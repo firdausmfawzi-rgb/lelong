@@ -888,7 +888,7 @@ function adsHtml(r){const A=(Array.isArray(r[33])?r[33]:[]).filter(a=>Array.isAr
   +'<table class="sbads"><thead><tr><th>'+esc(tx('sb_ads_c1'))+'</th><th>'+esc(tx('sb_ads_c2'))+'</th><th>'+esc(tx('sb_ads_c3'))+'</th><th>'+esc(tx('sb_ads_c4'))+'</th></tr></thead><tbody>'
   +A.map(a=>'<tr'+(num(a[0])===med?' class="mid"':'')+'><td>'+rmF(num(a[0]))+'</td><td>'+(num(a[1])>0?Math.round(num(a[1])).toLocaleString('en-MY')+' sq ft':'-')+'</td><td>'+(num(a[2])>0?num(a[2]):'-')+'</td><td>'+esc(mon(a[3]))+'</td></tr>').join('')+'</tbody></table>'
   +'<p>'+esc(tx('sb_ads_s',{lo:rmF(v[0]),hi:rmF(v[v.length-1]),m:rmF(med),r:rmF(num(r[31]))}))+'</p><div class="sbx">'+esc(tx('sb_ads_n'))+'</div></details>'}
-// why a unit has no investor score (30/10/2026, Jay: "Investor score: reason"): the first missing input of scoreParts()
+// why a unit has no investor score (30/10/2026, "Investor score: reason"): the first missing input of scoreParts()
 function scoreWhy(r){if(!(num(r[7])>0))return 'score_na_price';if(suspect(r))return 'score_na_mvbad';if(!(num(r[8])>0))return 'score_na_mv';
  return r[21]===CATS[6]?'score_na_land':isCom(r)?'score_na_com':isHigh(r)?'score_na_rent_b':'score_na_rent_a'}
 function scoreChip(r,ex){if(ex)return '';
