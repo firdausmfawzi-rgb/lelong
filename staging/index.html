@@ -1420,11 +1420,12 @@ const TAG={vip:['VIP Investor','<path d="M6 3h12l4 6-10 12L2 9z" fill="currentCo
  free:['Free','<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/>']};
 // agent view switch (30/10/2026): an agent's own code can show the page the way a VIP client or a free visitor sees it, to show a
 // client; the choice lives in this tab only (sessionStorage) and the page reloads into it. VIP is offered only to a VIP agent code.
-var REALAGENT=false,AVIEW='agent',RTRIAL=false;   // RTRIAL: the free preview switched on in this page (an agent's Free view, a shared link without a code)
+var REALAGENT=false,AVIEW='agent',RTRIAL=false,RTIER='';   // RTIER: the agent code's own plan, kept while a client view changes TIER   // RTRIAL: the free preview switched on in this page (an agent's Free view, a shared link without a code)
 const SHAREH=(location.hash||'').length>1;
 const TRIAL_DATA='https://lelongbidgroup.com/trial/data.json';   // the free preview's masked listings, the same file every trial site reads
-function agentView(){REALAGENT=!!ISAGENT;if(!REALAGENT)return;let v='agent';try{v=sessionStorage.getItem(KP+'aview')||'agent'}catch(e){}
+function agentView(){REALAGENT=!!ISAGENT;if(!REALAGENT)return;RTIER=TIER;let v='agent';try{v=sessionStorage.getItem(KP+'aview')||'agent'}catch(e){}
  if(v==='vip'&&TIER==='sip'){AVIEW='vip';ISAGENT=false}
+ else if(v==='prem'){AVIEW='prem';ISAGENT=false;TIER='premium'}   // what a Premium client sees: the score locked, no 12-month history
  else if(v==='free'){AVIEW='free';ISAGENT=false;freeMode()}}
 function freeMode(){RTRIAL=TRIAL=true;LANDING=SIP_URL.replace(/#.*$/,'');document.documentElement.classList.add('trial');
  G('trialBar').hidden=false;G('trialCta').href=LANDING;trialLocks()}
@@ -1434,7 +1435,7 @@ function freeShare(){freeMode();G('haveCode').hidden=false;G('haveCode').onclick
 function agentSwitch(t){const k=AVIEW;t.className='tier-tag aview '+k;
  t.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true">'+TAG[k][1]+'</svg><span>'+TAG[k][0]+'</span><svg class="aview-car" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
  const s=document.createElement('select');s.id='aviewSel';s.dataset.i18nAl='aview_al';s.setAttribute('aria-label',tx('aview_al'));
- ['agent'].concat(TIER==='sip'?['vip']:[],['free']).forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=TAG[v][0];o.selected=v===k;s.appendChild(o)});
+ ['agent'].concat(RTIER==='sip'?['vip']:[],['prem','free']).forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=TAG[v][0];o.selected=v===k;s.appendChild(o)});
  s.onchange=()=>{try{sessionStorage.setItem(KP+'aview',s.value)}catch(e){}try{gtrack('agent_view',{view:s.value})}catch(e){}location.reload()};
  t.appendChild(s);t.hidden=false;G('aviewNote').hidden=k==='agent'}
 function showTierBadge(){addScoreSort();const t=G('tierTag');if(!t)return;if(REALAGENT){agentSwitch(t);return}if(TRIAL||!TIER){t.hidden=true;return}
