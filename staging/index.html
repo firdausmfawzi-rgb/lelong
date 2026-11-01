@@ -683,20 +683,22 @@ function showHelp(k){if(!I18N.en['h_'+k])return;openModal(tx('h_'+k+'_t'),tx('h_
 function showGuide(){openModal(tx('guide_t'),tx('guide'),'<button class="btn primary" type="button" data-close>'+tx('got_it')+'</button>',{onClose:()=>ls.set('guide','1')});if(THEMEUI)THEMEUI();gtrack('guide_open')}
 G('mdl').addEventListener('click',e=>{if(MDL&&MDL.onClick)MDL.onClick(e)});
 G('mdl').addEventListener('click',e=>{if(e.target.closest&&e.target.closest('[data-theme-toggle]')&&THEMETOGGLE)THEMETOGGLE()});   // the switch in the How to use guide
-G('mdlX').onclick=closeModal;G('mdlScrim').onclick=closeModal;
+G('mdlX').onclick=()=>closeModal();G('mdlScrim').onclick=()=>closeModal();   // never the click event as fromBack: the entry must be dropped
 // Phone Back button (1/11/2026): one press closes what is open (photo, help window, filter panel); with nothing open it asks before
 // leaving the page, so a client never lands on the home screen by accident. One history entry per open overlay ('ov') and one
 // guard entry under them; the page's own entry is 'root'. A tap-close drops its own entry, so the stack never keeps a stale one.
 let EXITING=false;
 function histPush(kind){try{history.pushState({ov:kind},'')}catch(e){}}
-function histDone(kind){try{if(history.state&&history.state.ov===kind)history.back()}catch(e){}}
+let HSKIP=0;   // a tap-close drops its own entry with history.back(): that popstate is not a Back press (review fix 1/11/2026)
+function histDone(kind){try{if(history.state&&history.state.ov===kind){HSKIP++;history.back()}}catch(e){}}
 function askExit(){openModal(tx('exit_t'),'<p>'+tx('exit_body')+'</p>','<button class="btn" type="button" data-exit-stay>'+tx('exit_stay')+'</button><button class="btn primary" type="button" data-exit-go>'+tx('exit_go')+'</button>',
  {nohist:true,onClick:e=>{const t=e.target;if(!t||!t.closest)return;if(t.closest('[data-exit-go]')){EXITING=true;closeModal();try{history.back()}catch(x){}}else if(t.closest('[data-exit-stay]'))closeModal()},
   onClose:()=>{if(!EXITING)try{history.pushState({guard:1},'')}catch(e){}}});gtrack('exit_ask',{})}
 let TOPCLOSE=null;   // set by boot(): closes the photo or the filter panel if one is open, -> true
 window.addEventListener('popstate',()=>{const st=history.state||{};
+ if(HSKIP>0){HSKIP--;return}   // our own history.back() after a tap-close: whatever is underneath stays open
  if(TOPCLOSE&&TOPCLOSE())return;
- if(MDL&&!MDL.nohist){const stacked=MSTACK.length>0;closeModal(true);if(stacked&&!(st.guard||st.ov))try{history.pushState({guard:1},'')}catch(e){}return}
+ if(MDL&&!MDL.nohist){const stacked=MSTACK.length>0;closeModal(true);if(stacked)histPush('modal');return}   // stacked windows share one entry: the one underneath gets it back
  if(st.guard||st.ov)return;   // landed on the guard: an overlay's entry was consumed, nothing more to do
  if(!MDL)askExit()});         // the guard itself was popped: one more press would leave the page, so ask first
 try{history.replaceState(history.state&&history.state.guard?history.state:{root:1},'');if(!(history.state&&history.state.guard))history.pushState({guard:1},'')}catch(e){}
@@ -705,7 +707,7 @@ document.addEventListener('click',e=>{const t=e.target;if(!t||!t.closest)return;
  const l=t.closest('[data-l]');if(l){setLang(l.dataset.l);return}
  const s=t.closest('[data-s]');if(s){setSize(s.dataset.s);return}
  if(t.closest('[data-close]'))closeModal()});
-document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(MDL){closeModal();return}if(SHEETCLOSE)SHEETCLOSE()});
+document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;const lb=G('lbox');if(lb&&!lb.hidden)return;if(MDL){closeModal();return}if(SHEETCLOSE)SHEETCLOSE()});   // a photo on top closes first (its own handler)
 G('guideBtn').onclick=showGuide;
 G('bannerWa').addEventListener('click',()=>gtrack('whatsapp_banner_click'));G('bannerCall').addEventListener('click',()=>gtrack('call_click'));
 applyI18n();sizeUI();
@@ -1045,7 +1047,7 @@ const tagText=(r,st)=>st==='sold'?tx('tag_sold')+(ok(r[27])?' · '+dash(r[27]):'
 // summary under the title: units that can still be bid on, how many sit far below market value, how many arrived in the last 3 days
 let STATS=null;function statsLine(){const el=$('stats');if(!el)return;
  if(!STATS){const av=DATA.filter(isAvail),lim=TRIAL?10:30;
-  STATS={n:av.length,lim,b:av.filter(r=>TRIAL?/^XX%/.test(String(r[6]||'')):!suspect(r)&&num(r[6])>=lim).length,w:av.filter(isNew).length}}
+  STATS={n:av.length,lim,b:av.filter(r=>(TRIAL&&/^XX%/.test(String(r[6]||'')))||(!suspect(r)&&num(r[6])>=lim)).length,w:av.filter(isNew).length}}
  const t=(v,k,o,c)=>'<button type="button" class="stat'+(c?' '+c:'')+'" data-st="'+k+'" title="'+esc(tx('st_tap'))+'"><b>'+v.toLocaleString('en-MY')+'</b><span>'+tx(k,o)+'</span></button>';
  el.innerHTML=t(STATS.n,'st_av')+t(STATS.b,'st_bmv',{p:STATS.lim},'g')+t(STATS.w,'st_new')}
 const updLine=()=>{statsLine();$('upd').textContent=tx('updated',{d:new Date(META.updated).toLocaleDateString(LOC(),{day:'numeric',month:'short',year:'numeric'})})};
@@ -1135,15 +1137,16 @@ function chips(r){const lc=ok(r[17])?r[17]:'',rs=ok(r[15])?r[15]:'';if(!lc&&!rs)
 // 'Full details' button opens everything in one window (detailHtml). Locked items show XX and an activate link, never nothing.
 const XX='<span class="xx">XX</span>';
 function xxRow(k,v){return '<div><span>'+tx(k)+'</span><b>'+v+'</b></div>'}
-function lockRows(kind){   // what a lower plan sees of the Premium / VIP values: XX and one activate link (1/11/2026)
- if(kind==='prem')return '<div class="xxbox"><div class="xxl">'+xxRow('market_value',XX)+xxRow('bank',XX)+xxRow('borrower',XX)+xxRow('save_t',XX)+'</div>'+lockLink()+'</div>';
- return '<div class="xxbox"><div class="xxl">'+xxRow('score_t',XX+'<small>/100</small>')+xxRow('hist',XX)+xxRow('rental_t',XX)+'</div>'+lockLink2()+'</div>'}
+function lockRows(kind,r,ex){   // what a lower plan sees of the Premium / VIP values: XX where a value exists ('-' where none) and one activate link (1/11/2026)
+ const v=x=>ok(x)?XX:'-';
+ if(kind==='prem')return '<div class="xxbox"><div class="xxl">'+xxRow('market_value',v(r[8]))+xxRow('bank',v(r[16]))+xxRow('borrower',v(r[30]))+xxRow('save_t',ok(r[8])&&num(r[7])?XX:'-')+'</div>'+lockLink()+'</div>';
+ return '<div class="xxbox"><div class="xxl">'+(ex?'':xxRow('score_t',XX+'<small>/100</small>'))+xxRow('hist',Array.isArray(r[29])&&r[29].length?XX:'-')+xxRow('rental_t',v(r[31]))+'</div>'+lockLink2()+'</div>'}
 function premRows(r,ex){   // Premium values (also VIP, agents): market value, savings and instalment, price per sq ft and cuts, bank, borrower
- if(TRIAL)return lockRows('prem');
+ if(TRIAL)return lockRows('prem',r,ex);
  return '<div class="mv"><small>'+tx('market_value')+'</small> <b>'+(suspect(r)?'N/A':dash(r[8]))+'</b>'+qb('bmv')+'</div>'+psfDrop(r,ex)+saveRow(r,ex)
   +'<dl class="more open"><div><dt>'+tx('bank')+'</dt><dd>'+dash(r[16])+'</dd></div><div><dt>'+tx('borrower')+'</dt><dd>'+dash(r[30])+'</dd></div></dl>'}
 function vipRows(r,ex,full){   // VIP values: investor score (and the breakdown), 12-month history; others see XX
- if(!canSip())return lockRows('vip');
+ if(!canSip())return lockRows('vip',r,ex);
  return scoreChip(r,ex)+(full?'<dl class="more open">'+histHtml(r)+sipHtml(r)+'</dl>':'')}
 function xtraDrop(r,ex){
  return '<details class="xtra"><summary><span>'+tx('xtra_t')+'</span><i class="tg-p">Premium</i><i class="tg-v">VIP</i></summary><div class="xtra-b">'
@@ -1349,12 +1352,12 @@ $('openFab').onclick=$('openTop').onclick=()=>sheet(true);
 $('close').onclick=$('apply').onclick=$('scrim').onclick=()=>sheet(false);
 $('negeri').onchange=()=>{daerahOpts();render()};
 $('q').addEventListener('input',()=>{favMode=false;clearShared()});
-$('list').addEventListener('change',e=>{const el=e.target;if(!el.matches||!el.matches('select[data-loan]'))return;
+document.addEventListener('change',e=>{const el=e.target;if(!el.matches||!el.matches('select[data-loan]'))return;   // on document: the detail window renders outside #list (1/11/2026)
  LOAN[el.dataset.loan]=+el.value;ls.set('loan',JSON.stringify(LOAN));track('loan_change',{margin:LOAN.m,years:LOAN.y,rate:LOAN.r});
  document.querySelectorAll('.mo').forEach(m=>{const v=m.querySelector('.mo-v');if(v)v.textContent=tx('mo_lbl',{v:'RM '+moOf(+m.dataset.p).toLocaleString('en-MY')});
   const l=m.querySelector('.mo-l');if(l)l.textContent=moLine(+m.dataset.p);
   m.querySelectorAll('select[data-loan]').forEach(x=>{if(x!==el)x.value=String(LOAN[x.dataset.loan])})})});
-$('list').addEventListener('input',e=>{const d=e.target.closest('details.sip');if(d&&e.target.matches('input[data-k]'))sipRecalc(d,e.target)});
+document.addEventListener('input',e=>{const d=e.target.closest&&e.target.closest('details.sip');if(d&&e.target.matches('input[data-k]'))sipRecalc(d,e.target)});
 ['jenis','cat','sort'].forEach(k=>$(k).addEventListener('input',render));
 $('q').addEventListener('input',()=>{clearTimeout(QDEB);QDEB=setTimeout(render,160)});   // typing: one redraw after a short pause, not one per letter
 // search button / Enter (29/10/2026): results drawn now, keyboard closed, then the first listing just under the sticky bar
