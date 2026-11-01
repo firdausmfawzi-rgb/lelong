@@ -1,0 +1,29 @@
+<!-- elbow: 160,175 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-label="Friendly female AI assistant in a navy blazer and gold hijab">
+  <g class="avatar">
+    <path fill="#0f2a44" d="M84 148Q52 152 38 162Q30 168 30 180V260H170V180Q170 168 162 162Q148 152 116 148Z"/>
+    <path fill="#ffffff" d="M76 150H124L112 214H88Z"/>
+    <path fill="#173d63" d="M76 150L62 170L100 218L88 214Z"/>
+    <path fill="#173d63" d="M124 150L138 170L100 218L112 214Z"/>
+    <path fill="#0f2a44" d="M30 175Q40 168 50 175L43 224H25Z"/>
+    <path fill="#000" opacity=".12" d="M50 176L43 224L46.5 224L53.5 176Z"/>
+    <path fill="#ffffff" d="M24.5 223H43.5V228H24.5Z"/>
+    <path fill="#c8956c" d="M42 228H26L27 244Q29 252 34 252Q40 252 41 244Z"/>
+    <g class="arm">
+      <path fill="#0f2a44" d="M150 175Q160 168 170 175L175 224H157Z"/>
+      <path fill="#000" opacity=".12" d="M150 176L157 224L153.5 224L146.5 176Z"/>
+      <path fill="#ffffff" d="M156.5 223H175.5V228H156.5Z"/>
+      <path fill="#c8956c" d="M158 228H174L173 244Q171 252 166 252Q160 252 159 244Z"/>
+    </g>
+    <ellipse id="f-face" cx="100" cy="86" rx="33" ry="40" fill="#c8956c"/>
+    <path fill="none" stroke="#1c1c1c" stroke-width="2.4" stroke-linecap="round" d="M80 79Q86 75 92 78M108 78Q114 75 120 79"/>
+    <ellipse class="eye" cx="86" cy="87" rx="3" ry="3.8" fill="#1c1c1c"/>
+    <ellipse class="eye" cx="114" cy="87" rx="3" ry="3.8" fill="#1c1c1c"/>
+    <path fill="none" stroke="#b07f58" stroke-width="1.8" stroke-linecap="round" d="M101 91q-3 6-1 9q2 1 4 0"/>
+    <path class="mouth" fill="none" stroke="#6b3a2a" stroke-width="2.6" stroke-linecap="round" d="M88 110q12 12 24 0"/>
+    <path id="f-hijab" fill="#d8b85a" fill-rule="evenodd" stroke="#0f2a44" stroke-width="2.5" stroke-linejoin="round" d="M100 28C64 28 50 56 50 92C50 118 40 146 30 172L60 180C74 170 84 162 100 160C116 162 126 170 140 180L170 172C160 146 150 118 150 92C150 56 136 28 100 28ZM67 86a33 40 0 1 0 66 0a33 40 0 1 0-66 0Z"/>
+    <path fill="none" stroke="#0f2a44" stroke-width="2" stroke-linecap="round" opacity=".45" d="M46 124Q40 146 46 166M154 124Q160 146 154 166"/>
+    <circle cx="100" cy="146" r="5" fill="#c9a227"/>
+    <circle cx="100" cy="146" r="2" fill="#0f2a44"/>
+  </g>
+</svg>

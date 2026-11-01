@@ -1,0 +1,39 @@
+<!-- elbow: 160,175 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-label="Friendly male AI assistant in a navy suit and gold tie">
+  <g class="avatar">
+    <rect x="88" y="110" width="24" height="46" fill="#c8956c"/>
+    <path fill="#b07f58" d="M88 120q12 10 24 0v6q-12 9-24 0z"/>
+    <path fill="#0f2a44" d="M84 148Q52 152 38 162Q30 168 30 180V260H170V180Q170 168 162 162Q148 152 116 148Z"/>
+    <path fill="#ffffff" d="M84 148H116L100 200Z"/>
+    <path fill="#173d63" d="M84 148L70 166L100 212L100 200Z"/>
+    <path fill="#173d63" d="M116 148L130 166L100 212L100 200Z"/>
+    <path fill="#ffffff" d="M86 146L98 150L94 164L80 156Z"/>
+    <path fill="#ffffff" d="M114 146L102 150L106 164L120 156Z"/>
+    <path fill="#c9a227" d="M95 152H105L106 164H94Z"/>
+    <path id="m-tie" fill="#c9a227" d="M94 164H106L110 220L100 230L90 220Z"/>
+    <path fill="#000" opacity=".12" d="M100 164H106L110 220L100 230Z"/>
+    <circle cx="81" cy="172" r="2" fill="#c9a227"/>
+    <circle cx="100" cy="241" r="1.8" fill="#173d63"/>
+    <circle cx="100" cy="255" r="1.8" fill="#173d63"/>
+    <ellipse cx="65" cy="89" rx="5" ry="8.5" fill="#c8956c"/>
+    <ellipse cx="135" cy="89" rx="5" ry="8.5" fill="#c8956c"/>
+    <ellipse id="m-head" cx="100" cy="85" rx="35" ry="41" fill="#c8956c"/>
+    <path id="m-hair" fill="#1c1c1c" d="M65 84C61 58 76 42 101 42C125 42 140 58 135 84C131 74 124 66 113 64C98 68 84 66 74 72C70 75 67 79 65 84Z"/>
+    <path fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity=".12" d="M84 52Q98 46 116 50"/>
+    <path fill="none" stroke="#1c1c1c" stroke-width="2.6" stroke-linecap="round" d="M80 79Q86 75 92 78M108 78Q114 75 120 79"/>
+    <ellipse class="eye" cx="86" cy="88" rx="3" ry="3.8" fill="#1c1c1c"/>
+    <ellipse class="eye" cx="114" cy="88" rx="3" ry="3.8" fill="#1c1c1c"/>
+    <path fill="none" stroke="#b07f58" stroke-width="1.8" stroke-linecap="round" d="M101 92q-3 7-1 10q2 1 4 0"/>
+    <path class="mouth" fill="none" stroke="#6b3a2a" stroke-width="2.6" stroke-linecap="round" d="M88 111q12 12 24 0"/>
+    <path fill="#0f2a44" d="M30 175Q40 168 50 175L43 224H25Z"/>
+    <path fill="#000" opacity=".12" d="M50 176L43 224L46.5 224L53.5 176Z"/>
+    <path fill="#ffffff" d="M24.5 223H43.5V228H24.5Z"/>
+    <path fill="#c8956c" d="M42 228H26L27 244Q29 252 34 252Q40 252 41 244Z"/>
+    <g class="arm">
+      <path fill="#0f2a44" d="M150 175Q160 168 170 175L175 224H157Z"/>
+      <path fill="#000" opacity=".12" d="M150 176L157 224L153.5 224L146.5 176Z"/>
+      <path fill="#ffffff" d="M156.5 223H175.5V228H156.5Z"/>
+      <path fill="#c8956c" d="M158 228H174L173 244Q171 252 166 252Q160 252 159 244Z"/>
+    </g>
+  </g>
+</svg>
