@@ -1734,7 +1734,7 @@ en:{hi:'Hi! I am the assistant for this auction list. Ask me about units, prices
  prem:'That detail is for Premium members.',unlock:'Unlock Premium',agentonly:'Auctioneer and lawyer details are for agents only. Ask your agent for the Proclamation of Sale (POS) instead.',
  getpos:'Request the POS',wa:'WhatsApp the agent',open:'Open this unit',atunit:'Unit {n}: {t}. {a}. Auction {d}{tm}. Price {p}.{b}{l}',nounit:'Tap a unit first (or say "unit 3") and ask me about it.',
  laca:' LACA.',nonlaca:' Non-LACA.',disc:' {v} below market value.',
- src:'From the listings in this page{k}.',know:', with the market summary of {d}',
+ src:'From the listings in this page{k}.',know:', with the market summary of {d}',gl_pos:'The Proclamation of Sale (POS) is the official auction notice from the court or the bank: reserve price, auction date and venue, deposit, title restrictions and the conditions of sale. Read it before you bid; your agent sends it on WhatsApp.',gl_deposit:'Bidders usually pay a 10% deposit on auction day (5% for some LACA units), by bank draft or as the auctioneer states, and the balance within 90 to 120 days. If the balance is late the deposit may be forfeited. The exact terms are in the POS.',
  g_filter:['Tap Filter to open the panel','Choose the state here','Tap Apply and the units appear'],g_search:['Type an address, area or bank here','Tap the search button'],
  g_detail:['Tap Full details on any unit to see everything'],g_pos:['Tap Get POS: WhatsApp opens with the unit filled in'],g_save:['Tap Save: the unit goes to My list'],
  g_share:['Tap Share to send the unit on WhatsApp'],g_cal:['Tap Add to Calendar to set a reminder'],g_map:['Tap Map (or the photo) for the Google Maps location'],
@@ -1761,7 +1761,7 @@ ms:{hi:'Hai! Saya pembantu untuk senarai lelong ini. Tanya saya tentang unit, ha
  prem:'Butiran itu untuk ahli Premium.',unlock:'Buka Premium',agentonly:'Maklumat pelelong dan peguam untuk ejen sahaja. Minta Perisytiharan Jualan (POS) daripada ejen anda.',
  getpos:'Minta POS',wa:'WhatsApp ejen',open:'Buka unit ini',atunit:'Unit {n}: {t}. {a}. Lelong {d}{tm}. Harga {p}.{b}{l}',nounit:'Tekan satu unit dahulu (atau sebut "unit 3") dan tanya saya tentangnya.',
  laca:' LACA.',nonlaca:' Non-LACA.',disc:' {v} bawah nilai pasaran.',
- src:'Daripada senarai dalam laman ini{k}.',know:', dengan ringkasan pasaran {d}',
+ src:'Daripada senarai dalam laman ini{k}.',know:', dengan ringkasan pasaran {d}',gl_pos:'Perisytiharan Jualan (POS) ialah notis lelong rasmi daripada mahkamah atau bank: harga rizab, tarikh dan tempat lelong, deposit, sekatan hak milik dan syarat jualan. Baca sebelum membida; ejen anda hantar melalui WhatsApp.',gl_deposit:'Pembida biasanya membayar deposit 10% pada hari lelong (5% bagi sesetengah unit LACA), dengan bank draf atau seperti yang pelelong tetapkan, dan baki dalam 90 hingga 120 hari. Jika baki lewat, deposit boleh hangus. Syarat tepat ada dalam POS.',
  g_filter:['Tekan Tapis untuk buka panel','Pilih negeri di sini','Tekan Guna dan unit akan muncul'],g_search:['Taip alamat, kawasan atau bank di sini','Tekan butang cari'],
  g_detail:['Tekan Butiran penuh pada mana-mana unit untuk lihat semuanya'],g_pos:['Tekan Minta POS: WhatsApp terbuka dengan unit sudah diisi'],g_save:['Tekan Simpan: unit masuk ke Senarai saya'],
  g_share:['Tekan Kongsi untuk hantar unit di WhatsApp'],g_cal:['Tekan Tambah ke Kalendar untuk set peringatan'],g_map:['Tekan Peta (atau gambar) untuk lokasi Google Maps'],
@@ -1829,6 +1829,8 @@ function aiAnswer(q0){const q=aiNorm(q0),has=(...w)=>w.some(x=>q.includes(x)),ac
  if(ended){const K=AI.know;if(K&&K.outcomes_28d)return {html:esc(aiT('m_out',{s:K.outcomes_28d.sold||0,u:K.outcomes_28d.unsold||0,c:K.outcomes_28d.calloff||0}))+'<br>'+esc(aiT('h_status'))+aiSrc(),acts};return {html:aiT('h_status'),acts}}
  // glossary
  const GL=[['laca',/\blaca\b/],['status',/tiada pembida|no bidder|dibatal|cancel|terjual|sold/],['count',/lelong ke|kali ke|\b1st\b|\b2nd\b|\b3rd\b|round|pusingan|auction count/],['bmv',/\bbmv\b|below market|bawah nilai|nilai pasaran|market value|diskaun|discount/],['tenure',/leasehold|freehold|pegangan|pajakan|milik kekal|tenure/],['restr',/sekatan|restriction|bumi|rizab melayu|malay reserve|kaveat|caveat/],['price',/harga rizab|reserve price|harga lelong|auction price/],['cy',/tahun siap|completion year|umur bangunan|building age/]];
+ if(/\bpos\b|perisytiharan|proclamation/.test(q))return {html:aiT('gl_pos'),acts:[{label:aiT('getpos'),run:()=>aiGuide('pos')}]};
+ if(/deposit/.test(q))return {html:aiT('gl_deposit'),acts};
  for(const [k,rx] of GL){if(rx.test(q)){const t=I18N[LANG]&&I18N[LANG]['h_'+k]||I18N.en['h_'+k];if(t)return {html:t,acts}}}
  if(/premium|vip|kod akses|access code|langgan|subscribe|rm50|rm99|harga pakej|berapa harga/.test(q))return {html:aiT('h_prem'),acts:TRIAL?[{label:aiT('unlock'),run:()=>{location.href=LANDING}},{label:aiT('show'),run:()=>aiGuide('code')}]:[]};
  if(/deposit|bida|bid\b|beli rumah lelong|buy at auction|daftar|register/.test(q))return {html:aiT('h_bid'),acts};
