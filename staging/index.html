@@ -454,6 +454,8 @@ body{padding-block-end:100px}
 .ai-fab{position:fixed;right:12px;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:44;width:76px;height:96px;cursor:pointer;transition:top .45s ease,right .45s ease,bottom .45s ease;-webkit-tap-highlight-color:transparent}
 .ai-fab .ai-av{width:76px;height:96px;filter:drop-shadow(0 6px 10px rgba(15,42,68,.35))}
 .ai-fab.open .ai-av{transform:scale(.92)}
+.ai-fab.offscreen{display:none}
+.totop{right:100px}
 .ai-av svg{width:100%;height:100%;display:block}.ai-av svg.hide{display:none}
 .ai-av .eye{transform-box:fill-box;transform-origin:center;animation:aiBlink 4.6s ease-in-out infinite}
 .ai-av.talk .mouth{transform-box:fill-box;transform-origin:center;animation:aiTalk .32s ease-in-out infinite alternate}
@@ -1745,7 +1747,7 @@ en:{hi:'Hi! I am the assistant for this auction list. Ask me about units, prices
  h_pos:'Tap Get POS on a unit: WhatsApp opens with the unit filled in and the agent sends you the Proclamation of Sale.',
  h_save:'Tap Save on a unit; it goes to My list (the heart button at the top).',h_share:'Tap Share on a unit to send it on WhatsApp.',
  h_cal:'Tap Add to Calendar on a unit to put the auction in your phone calendar.',h_map:'Tap Map (or the photo) to open the location in Google Maps.',
- h_code:'Tap I have an access code, enter your code and the list opens with your plan.',
+ h_code:'Tap I have an access code, enter your code and the list opens with your plan.',h_wa:'Tap WhatsApp on a unit: the message is ready with the unit details, just send it to the agent.',
  h_prem:'Premium (RM50 for 30 days) opens the exact address, market value, discount, bank and price history. VIP Investor (RM99) adds 12 months of results and the investor score. Pay by DuitNow QR, send the receipt on WhatsApp and you get your code.',
  h_bid:'Read the Proclamation of Sale, check the unit, then register with the auctioneer before the auction day with the deposit (usually 10%, some LACA units 5%). The balance is due within 90 to 120 days.',
  h_status:'No bidder: nobody bid, the bank usually relists at a lower reserve. Cancelled: the auction was called off. Sold: a bidder won it.',
@@ -1772,7 +1774,7 @@ ms:{hi:'Hai! Saya pembantu untuk senarai lelong ini. Tanya saya tentang unit, ha
  h_pos:'Tekan Minta POS pada unit: WhatsApp terbuka dengan unit sudah diisi dan ejen akan hantar Perisytiharan Jualan.',
  h_save:'Tekan Simpan pada unit; ia masuk ke Senarai saya (butang hati di atas).',h_share:'Tekan Kongsi pada unit untuk hantar di WhatsApp.',
  h_cal:'Tekan Tambah ke Kalendar pada unit untuk masukkan lelong ke kalendar telefon anda.',h_map:'Tekan Peta (atau gambar) untuk buka lokasi di Google Maps.',
- h_code:'Tekan Saya ada kod akses, masukkan kod anda dan senarai terbuka mengikut pelan anda.',
+ h_code:'Tekan Saya ada kod akses, masukkan kod anda dan senarai terbuka mengikut pelan anda.',h_wa:'Tekan WhatsApp pada unit: mesej sudah sedia dengan butiran unit, terus hantar kepada ejen.',
  h_prem:'Premium (RM50 untuk 30 hari) membuka alamat tepat, nilai pasaran, diskaun, bank dan sejarah harga. VIP Investor (RM99) menambah keputusan 12 bulan dan skor pelabur. Bayar dengan QR DuitNow, hantar resit di WhatsApp dan anda terima kod.',
  h_bid:'Baca Perisytiharan Jualan, semak unit, kemudian daftar dengan pelelong sebelum hari lelong bersama deposit (biasanya 10%, sesetengah unit LACA 5%). Baki perlu dijelaskan dalam 90 hingga 120 hari.',
  h_status:'Tiada pembida: tiada siapa membida, bank biasanya lelong semula dengan harga rizab lebih rendah. Dibatalkan: lelong ditarik balik. Terjual: ada pembida yang menang.',
@@ -1780,9 +1782,9 @@ ms:{hi:'Hai! Saya pembantu untuk senarai lelong ini. Tanya saya tentang unit, ha
  m_state:'Unit aktif paling banyak ikut negeri:',m_bank:'Bank dengan unit aktif paling banyak:',m_kind:'Unit aktif ikut jenis:',m_out:'Keputusan 28 hari lepas: {s} terjual, {u} tiada pembida, {c} dibatalkan.',m_next:'Lelong dalam 7 hari: {n}. Dalam 30 hari: {m}.',m_med:'Median diskaun bawah nilai pasaran: {v}%.',m_yield:'Median hasil sewa kasar dalam senarai: {v}%.',m_none:'Ringkasan pasaran harian belum dimuatkan; cuba lagi sebentar.',
  fab:'Tanya pembantu',name:'Pembantu Lelong',sub:'Jawab tentang senarai ini sahaja',send:'Hantar',ph:'Tanya tentang unit lelong...',close:'Tutup',look:'Rupa'}};
 const aiT=(k,o)=>{const W=AIX[LANG]||AIX.en;let s=W[k]!=null?W[k]:AIX.en[k];if(Array.isArray(s))return s;s=String(s==null?k:s);return o?s.replace(/\{(\w+)\}/g,(m,n)=>o[n]!=null?String(o[n]):m):s};
-const aiNorm=s=>String(s||'').toLowerCase().replace(/[^a-z0-9%./\-\s]/g,' ').replace(/\s+/g,' ').trim();
+const aiNorm=s=>String(s||'').toLowerCase().replace(/(\d)[,.](?=\d{3}(?!\d))/g,'$1').replace(/[^a-z0-9%./\-\s]/g,' ').replace(/\s+/g,' ').trim();   // 1,250,000 -> 1250000 before parsing
 const STATE_ALIAS={kl:'kuala lumpur','k.l':'kuala lumpur',n9:'negeri sembilan',penang:'pulau pinang',malacca:'melaka'};
-function aiStates(q){const out=[];for(const s of uniq(2)){const low=s.toLowerCase();let hit=q.includes(low);if(!hit)for(const a in STATE_ALIAS){if(q.includes(a)&&low.includes(STATE_ALIAS[a]))hit=true}if(!hit&&low.includes('kuala lumpur')&&/\bkl\b/.test(q))hit=true;if(hit)out.push(s)}return out}
+function aiStates(q){const out=[];for(const s of uniq(2)){const low=s.toLowerCase();let hit=q.includes(low);if(!hit)for(const a in STATE_ALIAS){if(new RegExp('\\b'+a.replace('.','\\.')+'\\b').test(q)&&low.includes(STATE_ALIAS[a]))hit=true}if(!hit&&low.includes('kuala lumpur')&&/\bkl\b/.test(q))hit=true;if(hit)out.push(s)}return out}
 const KIND_RX=[[/kondo|condo|apartment|apartmen|soho|pangsapuri|servis|service apartment|flat/,/condo|apart|soho|flat/],[/teres|terrace|link|townhouse|rumah teres|rumah/,/terrace|link|town/],[/banglo|bungalow|semi|villa/,/bungalow|semi/],[/kilang|factory|warehouse|gudang|industri/,/factory|warehouse|indust/],[/kedai|shop|retail|office|pejabat|komersial|commercial|ruang niaga/,/shop|office|retail|commerc/],[/tanah|land\b|lot kosong/,/land/]];
 function aiCats(q){const out=[];for(const [qr,cr] of KIND_RX){if(qr.test(q)){const c=CATS.find(x=>cr.test(x.toLowerCase()));if(c&&!out.includes(c))out.push(c)}}return out}
 function aiMoney(s){const m=/(\d+(?:[.,]\d+)?)\s*(k|ribu|juta|m|million|mil)?\b/.exec(s);if(!m)return 0;let v=parseFloat(m[1].replace(',','.'));const u=(m[2]||'').toLowerCase();if(u==='k'||u==='ribu')v*=1e3;else if(u)v*=1e6;else if(v<10000)v*=1000;return Math.round(v)}
@@ -1791,14 +1793,14 @@ function aiPrice(q){const o={lo:0,hi:0};let m;if((m=/(?:antara|between|dari|from
  if((m=/(?:atas|above|over|lebih|minimum|min|>)\s*(?:dari|daripada|than)?\s*(?:rm)?\s*([\d.,]+\s*(?:k|ribu|juta|m|million)?)/.exec(q)))o.lo=aiMoney(m[1]);
  if(!o.lo&&!o.hi&&(m=/rm\s*([\d.,]+\s*(?:k|ribu|juta|m|million)?)/.exec(q)))o.hi=aiMoney(m[1]);return o}
 function aiBmvMin(q){const m=/(\d{1,2})\s*%/.exec(q);if(m&&/diskaun|discount|bmv|bawah nilai|below market|murah/.test(q))return +m[1];if(/diskaun besar|big discount|diskaun tinggi|deep discount/.test(q))return 30;return 0}
-function aiDays(q){if(/hari ini|today/.test(q))return 0;if(/esok|tomorrow/.test(q))return 1;if(/minggu depan|next week|minggu hadapan/.test(q))return 14;if(/bulan depan|next month|bulan hadapan/.test(q))return 60;if(/minggu ini|this week|7 hari|7 days|seminggu/.test(q))return 7;if(/2 minggu|dua minggu|14 hari|two weeks|14 days/.test(q))return 14;if(/bulan ini|this month|30 hari|30 days|sebulan/.test(q))return 30;const m=/(\d{1,3})\s*(hari|days?)/.exec(q);return m?+m[1]:-1}
+function aiDays(q){if(/hari ini|today/.test(q))return 0;if(/esok|tomorrow/.test(q))return 1;if(/minggu depan|next week|minggu hadapan/.test(q))return 14;if(/bulan depan|next month|bulan hadapan/.test(q))return 60;if(/minggu ini|this week|\b7 hari\b|\b7 days\b|seminggu/.test(q))return 7;if(/2 minggu|dua minggu|14 hari|two weeks|14 days/.test(q))return 14;if(/bulan ini|this month|\b30 hari\b|\b30 days\b|sebulan/.test(q))return 30;const m=/(\d{1,3})\s*(hari|days?)/.exec(q);return m?+m[1]:-1}
 function aiDistricts(q){const out=[];for(const d of uniq(3)){const low=d.toLowerCase();if(low.length>=4&&q.includes(low))out.push(d)}return out.sort((a,b)=>b.length-a.length).slice(0,1)}
 function aiBanks(q){if(TRIAL)return [];const out=[];for(const b of uniq(16)){const low=b.toLowerCase();if(low==='-')continue;const key=low.replace(/\b(bank|berhad|bhd|malaysia|\(m\))\b/g,'').trim();if(key.length>=3&&q.includes(key))out.push(b)}return out}
 const aiActive=r=>isAvail(r)&&dt(r[12])>=T0;   // upcoming auctions only: a past 'no bidder' date is not an answer to 'which units'
 function aiUnitLine(r,i){const d=fmtDay(r[12]),tm=ok(r[13])?' '+r[13]:'',b=TRIAL&&/^XX/.test(String(r[6]||''))?'':(bmvv(r)>=10?aiT('disc',{v:Math.round(bmvv(r))+'%'}):'');
  return '<li data-id="'+esc(r[20])+'"><b>'+esc(pv(r[7]))+'</b> - '+esc(typeName(r))+', '+esc(pv(r[1]))+' - '+esc(d+tm)+(b?'<i>'+esc(b.trim())+'</i>':'')+'</li>'}
 function aiSort(rows,mode){const a=rows.slice();if(mode==='cheap')a.sort((x,y)=>(num(x[7])||9e15)-(num(y[7])||9e15));else if(mode==='pricey')a.sort((x,y)=>num(y[7])-num(x[7]));else if(mode==='bmv')a.sort((x,y)=>bmvv(y)-bmvv(x));else a.sort((x,y)=>(dt(x[12])||9e15)-(dt(y[12])||9e15));return a}
-function aiApplyUI(f){$('negeri').value=f.states[0]||'';daerahOpts();$('cat').value=f.cats[0]||'';$('jenis').value='';$('pMin').value=f.price.lo?String(f.price.lo):'';$('pMax').value=f.price.hi?String(f.price.hi):'';$('q').value=f.districts[0]||(f.banks[0]||'');$('sort').value=f.mode==='cheap'?'harga':f.mode==='bmv'?'bmv':f.mode==='pricey'?'hharga':'tarikh';favMode=false;clearShared();render();}
+function aiApplyUI(f){$('negeri').value=f.states[0]||'';daerahOpts();$('cat').value=f.cats[0]||'';$('jenis').value='';$('pMin').value=f.price.lo?String(f.price.lo):'';$('pMax').value=f.price.hi?String(f.price.hi):'';$('q').value=f.districts[0]||(f.banks[0]||'');$('sort').value=f.mode==='cheap'?'harga':f.mode==='bmv'?(TRIAL?'rich':'bmv'):f.mode==='pricey'?'hharga':'tarikh';favMode=false;clearShared();render();}
 // --- the answer: {html, acts:[{label, run}]}
 function aiAnswer(q0){const q=aiNorm(q0),has=(...w)=>w.some(x=>q.includes(x)),acts=[],prem=()=>TRIAL?{label:aiT('unlock'),run:()=>{location.href=LANDING}}:null;
  if(!q)return {html:aiT('hi'),acts};
@@ -1808,7 +1810,7 @@ function aiAnswer(q0){const q=aiNorm(q0),has=(...w)=>w.some(x=>q.includes(x)),ac
  // how-to
  const how=has('macam mana','bagaimana','cara','how do','how to','how can','where is','mana butang','di mana','tunjuk','show me','ajar');
  const HOW=[['filter',/tapis|filter|pilih negeri|choose state|by state|ikut negeri|daerah|district/],['search',/cari alamat|search|carian|kotak cari/],['pos',/\bpos\b|perisytiharan|proclamation/],['save',/simpan|save|senarai saya|my list|favourit|favorit/],['share',/kongsi|share/],['cal',/kalendar|calendar|peringatan|reminder/],['map',/peta|map|lokasi|location/],['code',/kod akses|access code|masuk kod|enter code|log ?in|login/],['wa',/whatsapp|hubungi|contact|ejen saya|my agent/],['prem',/premium|vip|langgan|subscribe|bayar|pay|harga pakej|plan/],['detail',/butiran|details|maklumat penuh|full info/]];
- if(how){for(const [k,rx] of HOW){if(rx.test(q)){const a=[{label:aiT('show'),run:()=>aiGuide(k)}];if(k==='pos'&&TRIAL&&prem())a.push(prem());return {html:aiT('h_'+k),acts:a}}}
+ if(how){for(const [k,rx] of HOW){if(rx.test(q)){if(TRIAL&&(k==='pos'||k==='share'))return {html:aiT('prem'),acts:prem()?[prem()]:[]};const a=[{label:aiT('show'),run:()=>aiGuide(k)}];return {html:aiT('h_'+k),acts:a}}}
   if(/bida|bid|lelong\b.*(cara|how)|beli rumah lelong|buy at auction/.test(q))return {html:aiT('h_bid'),acts:[{label:aiT('getpos'),run:()=>aiGuide('pos')}]}}
  // one unit
  let um;if((um=/unit\s*(?:no\.?|nombor|number|ke-?)?\s*(\d{1,3})\b/.exec(q))||has('unit ini','this unit','unit tu','unit itu','yang ini')){const r=um?ROWS[+um[1]-1]:AI.last;if(!r)return {html:aiT('nounit'),acts};const n=um?+um[1]:(ROWS.indexOf(r)+1||'');const bm=TRIAL&&/^XX/.test(String(r[6]||''))?'':(bmvv(r)>=10?aiT('disc',{v:Math.round(bmvv(r))+'%'}):'');
@@ -1836,7 +1838,7 @@ function aiAnswer(q0){const q=aiNorm(q0),has=(...w)=>w.some(x=>q.includes(x)),ac
  if(/deposit|bida|bid\b|beli rumah lelong|buy at auction|daftar|register/.test(q))return {html:aiT('h_bid'),acts};
  // the market summary from the brain
  if(/negeri mana|which state|state has|paling banyak|most units|bank mana|which bank|purata|average|median|trend|yield|hasil sewa|pasaran|market|statistik|berapa banyak unit|how many units|minggu depan|next week/.test(q)){const K=AI.know;if(!K)return {html:aiT('m_none')+' '+aiStateCount(),acts};let out=[];
-  if(/bank/.test(q)&&K.by_bank)out.push(esc(aiT('m_bank'))+' '+K.by_bank.slice(0,5).map(b=>esc(b.bank)+' ('+b.active+')').join(', ')+'.');
+  if(/bank/.test(q)&&K.by_bank&&!TRIAL)out.push(esc(aiT('m_bank'))+' '+K.by_bank.slice(0,5).map(b=>esc(b.bank)+' ('+b.active+')').join(', ')+'.');
   else if(/jenis|type|kind/.test(q)&&K.by_kind)out.push(esc(aiT('m_kind'))+' '+Object.keys(K.by_kind).slice(0,5).map(k=>esc(k)+' ('+K.by_kind[k].active+')').join(', ')+'.');
   else if(K.by_state&&/negeri|state|paling banyak|most/.test(q))out.push(esc(aiT('m_state'))+' '+Object.keys(K.by_state).slice(0,5).map(s=>esc(s)+' ('+K.by_state[s].active+')').join(', ')+'.');
   if(/purata|average|median|diskaun|discount/.test(q)){const vals=K.by_kind?Object.values(K.by_kind).map(x=>x.median_bmv).filter(v=>v!=null):[];if(vals.length)out.push(esc(aiT('m_med',{v:(vals.reduce((a,b)=>a+b,0)/vals.length).toFixed(1)})))}
@@ -1857,7 +1859,7 @@ function aiOpen(o,fromBack){const p=$('aiPanel');const was=!p.hidden;if(o===was)
  if(o){if(!AI.greeted){AI.greeted=true;aiMsg(aiT('hi'),'a')}aiChips();histPush('ai');setTimeout(()=>$('aiIn').focus(),250);gtrack('ai_open',{})}else if(!fromBack)histDone('ai')}
 function aiWho(w){AI.who=w==='f'?'f':'m';document.querySelectorAll('.ai-av').forEach(a=>{a.classList.toggle('f',AI.who==='f');a.classList.toggle('m',AI.who==='m')});document.querySelectorAll('.ai-sw button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.who===AI.who)));ls.set('aiwho',AI.who)}
 // --- the guided tour: highlight a control, say one line, then tap it for the client
-const AIG={filter:[['#openFab','click'],['#negeri','focus'],['#apply','click']],search:[['#q','focus'],['.top .go, #goBtn, .top button[type=submit]','click']],detail:[['#list .card .detbtn','click']],pos:[['#list .card .posreq, #list .card .posdl, #list .card .posbtn','point']],save:[['#list .card .fav','click']],share:[['#list .card .sh','point']],cal:[['#list .card .calbtn','point']],map:[['#list .card .map','point']],code:[['#haveCode, .havecode','point']],wa:[['#list .card .wa-unit','point']],prem:[['#trialCta','point']]};
+const AIG={filter:[['#openFab','click'],['#negeri','focus'],['#apply','click']],search:[['#q','focus'],['#qGo','click']],detail:[['#list .card .detbtn','click']],pos:[['#list .card .posreq, #list .card .posdl, #list .card .posbtn','point']],save:[['#list .card .fav','click']],share:[['#list .card .sh','point']],cal:[['#list .card .calbtn','point']],map:[['#list .card .map','point']],code:[['#haveCode, .havecode','point']],wa:[['#list .card .wa-unit','point']],prem:[['#trialCta','point']]};
 function aiGuide(kind){const steps=AIG[kind];if(!steps)return;const texts=aiT('g_'+kind);aiOpen(false);if(MDL)closeModal();aiGuideRun(steps.map((s,i)=>({sel:s[0],act:s[1],text:texts[i]||texts[texts.length-1]})))}
 function aiGuideRows(){aiOpen(false);setTimeout(()=>{toFirst(true);aiGuideRun([{sel:'#list .card',act:'none',text:aiT('done')}])},200)}
 function aiGuideRun(steps){if(AI.guide)aiGuideStop(true);AI.guide={steps,i:0};$('aiSpot').hidden=false;histPush('ai');aiGuideStep()}
@@ -1874,11 +1876,12 @@ function aiBoot(){if(!$('aiFab'))return;$('aiFab').hidden=false;try{aiWho(ls.get
  $('aiClose').onclick=()=>aiOpen(false);$('aiStop').onclick=()=>aiGuideStop();document.querySelectorAll('.ai-sw button').forEach(b=>b.onclick=()=>aiWho(b.dataset.who));
  $('aiForm').onsubmit=e=>{e.preventDefault();const v=$('aiIn').value;$('aiIn').value='';aiAsk(v)};
  $('list').addEventListener('click',e=>{const c=e.target.closest('.card');if(c){const r=DATA.find(x=>x[20]===c.dataset.id);if(r)AI.last=r}});
- const prevTop=TOPCLOSE;TOPCLOSE=()=>{if(AI.guide){aiGuideStop(true);return true}if(!$('aiPanel').hidden){aiOpen(false,true);return true}return prevTop?prevTop():false};
+ const prevTop=TOPCLOSE;TOPCLOSE=()=>{if(AI.guide){aiGuideStop(true);return true}if(!MDL&&!$('aiPanel').hidden){aiOpen(false,true);return true}return prevTop?prevTop():false};
+ new MutationObserver(()=>{if(!AI.guide)$('aiFab').classList.toggle('offscreen',!$('sheet').hidden)}).observe($('sheet'),{attributes:true,attributeFilter:['hidden']});
  const KURL=TRIAL_DATA.replace(/trial\/data2\.json$/,'ai/knowledge.json');try{fetch(KURL+'?v='+Math.floor(Date.now()/36e5),{cache:'no-store'}).then(r=>r.ok?r.json():null).then(j=>{if(j&&j.totals)AI.know=j}).catch(()=>{})}catch(e){}
  try{if(!sessionStorage.getItem('lelong.aibub')){setTimeout(()=>{if($('aiPanel').hidden&&!MDL){$('aiBub').hidden=false;setTimeout(()=>{$('aiBub').hidden=true},6000)}},4000);sessionStorage.setItem('lelong.aibub','1')}}catch(e){}
  const prevLang=ONLANG;ONLANG=()=>{if(prevLang)prevLang();aiChips();$('aiIn').placeholder=aiT('ph');$('aiFab').setAttribute('aria-label',aiT('fab'));$('aiBub').textContent=aiT('fab')};$('aiIn').placeholder=aiT('ph');$('aiFab').setAttribute('aria-label',aiT('fab'));$('aiBub').textContent=aiT('fab')}
-aiBoot();
+try{aiBoot()}catch(e){try{console.error('assistant',e)}catch(x){}}
 }
 // Access lock (19/10/2026): data.json is encrypted. A valid code unwraps the data key from access.json (format: tools/sitecrypt.py),
 // so the listings cannot be read without one. The slow PBKDF2 step is remembered on the device: a returning client waits only once.
