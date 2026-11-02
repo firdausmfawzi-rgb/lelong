@@ -2028,7 +2028,7 @@ const getData=fresh=>fetch('../data.json'+(fresh?'?v='+Date.now():''),{cache:'no
 async function gunzip(buf){if(window.DecompressionStream)return new Response(new Blob([buf]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
  const f=await import('https://cdn.jsdelivr.net/npm/fflate@0.8.2/esm/browser.js');return f.strFromU8(f.gunzipSync(new Uint8Array(buf)))}   // Safari before iOS 16.4
 async function loadListings(){if(TRIAL)return RTRIAL?fetch(TRIAL_DATA+'?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()):getData(true);
- const hp=(TIER==='sip'&&DKEY2)?fetch('../vip/history.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null):null;   // VIP history downloads alongside the main data
+ const hp=(TIER==='sip'&&DKEY2)?fetch('vip-history.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null):null;   // VIP history downloads alongside the main data
  const gp=(ISAGENT&&DKEY3)?fetch('../agent/info.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null):null;   // agent-only contacts: agent view with an agent code only
  let env=await getData(false);
  if(env.kid!==ACCESS.kid){if(!(await rekey()))throw new Error('code');if(env.kid!==ACCESS.kid)env=await getData(true);if(env.kid!==ACCESS.kid)throw new Error('key')}
