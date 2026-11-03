@@ -224,7 +224,8 @@ html.trial #cyNote,html.trial #bmvSeg,html.trial #cyBtn,html.trial #cyPanel{disp
 .at-lang{margin-left:auto;display:flex;gap:4px}.at-lang button{min-width:44px;min-height:38px;padding:0 8px;border:1px solid rgba(94,231,255,.6);border-radius:9px;background:transparent;color:#f3f8fc;font:inherit;font-weight:700;cursor:pointer}.at-lang button.on{background:#5ee7ff;color:#04202e}
 .at-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 10px;margin-top:9px;color:#bcd6e6;font-size:.92rem}.at-bar{height:7px;margin-top:5px;border-radius:9px;background:rgba(255,255,255,.14);overflow:hidden}.at-bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,#5ee7ff,#e6c25a);transition:width .35s ease}
 #atCard h3{margin:11px 0 5px;color:#fff;font-size:1.28rem;line-height:1.25}#atCard .at-do{margin:0;color:#fff;font-size:1.12rem;line-height:1.4}#atCard .at-why{margin:8px 0 0;color:#d7e7f1;font-size:1rem;line-height:1.4}#atCard .at-why b{color:#e6c25a}
-.at-next{display:block;width:100%;min-height:56px;margin-top:12px;border:0;border-radius:13px;background:linear-gradient(90deg,#e6c25a,#f3dc8e);color:#1a1405;font:inherit;font-size:1.15rem;font-weight:800;cursor:pointer}.at-next:focus-visible,.at-lang button:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.at-btns{display:flex;align-items:stretch;gap:8px;margin-top:12px}.at-btns .at-wait{flex:1 1 0;margin-top:0;min-width:0}.at-back{flex:none;min-width:104px;min-height:56px;padding:0 12px;border:1px solid rgba(94,231,255,.7);border-radius:13px;background:transparent;color:#f3f8fc;font:inherit;font-size:1.08rem;font-weight:700;cursor:pointer}.at-back:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.at-next{display:block;flex:1 1 0;min-width:0;min-height:56px;border:0;border-radius:13px;background:linear-gradient(90deg,#e6c25a,#f3dc8e);color:#1a1405;font:inherit;font-size:1.15rem;font-weight:800;cursor:pointer}.at-next:focus-visible,.at-lang button:focus-visible{outline:3px solid #fff;outline-offset:2px}
 .at-wait{margin-top:12px;padding:12px;border:1px dashed #5ee7ff;border-radius:13px;color:#5ee7ff;font-size:1.08rem;font-weight:800;text-align:center;line-height:1.35}.at-wait.bad{border-color:#ff9b94;color:#ffb4ae}
 .at-big #tierTag{transform:scale(1.3);transform-origin:left center}.at-big #aiTag{visibility:hidden}#atCard .at-do{white-space:pre-line}
 @media (prefers-reduced-motion:reduce){#atWrap .at-ring,.at-orb{animation:none}.at-bar i{transition:none}}
@@ -2092,7 +2093,7 @@ function showTierBadge(){addScoreSort();const t=G('tierTag');if(!t)return;if(REA
  t.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true">'+TAG[k][1]+'</svg><span>'+TAG[k][0]+'</span>';t.hidden=false}   // the cyberpunk "Agentic AI Powered Data" tag (#aiTag) shows on every tier, the free preview included (29/10/2026)
 // Agent walkthrough (4/11/2026): an agent's first visit on this device opens a required tour through the four views; it cannot be closed,
 // only finished. Each step shows one thing, what to do and why it exists. The place is kept per code, so the reloads of a view switch resume it.
-const AT_TXT={ms:{ai:'Pembantu AI',step:'Langkah {a} daripada {b}',view:'Paparan',why:'Kenapa:',note:'Ingat:',next:'Seterusnya ›',start:'Mula ›',finish:'Mula guna laman',tap:'Tekan butang yang bercahaya',pick:'Tekan lencana yang bercahaya, kemudian pilih: {v}',wrong:'Bukan yang itu. Sila pilih: {v}',
+const AT_TXT={ms:{ai:'Pembantu AI',step:'Langkah {a} daripada {b}',view:'Paparan',why:'Kenapa:',note:'Ingat:',back:'‹ Kembali',next:'Seterusnya ›',start:'Mula ›',finish:'Mula guna laman',tap:'Tekan butang yang bercahaya',pick:'Tekan lencana yang bercahaya, kemudian pilih: {v}',wrong:'Bukan yang itu. Sila pilih: {v}',
  a_hi:['Selamat datang, {name}','Saya akan tunjuk laman ini satu persatu, melalui 4 paparan. Panduan ini wajib dan mengambil masa sekitar 3 minit.','Laman ini membantu anda mencari maklumat untuk menasihati klien, dan menawarkan data berbayar terus kepada klien.'],
  a_badge:['Ini paparan anda: Agent Specialist','Lihat lencana yang bercahaya. Ia menunjukkan paparan yang sedang dibuka.','Paparan ejen paling lengkap, kerana anda perlu semua maklumat untuk membantu klien.'],
  a_pos:['Butang POS','Butang ini membuka POS unit. Jangan tekan lagi.','Bila klien minta POS, anda boleh dapatkannya sendiri dengan cepat.'],
@@ -2118,7 +2119,7 @@ const AT_TXT={ms:{ai:'Pembantu AI',step:'Langkah {a} daripada {b}',view:'Paparan
  f_cta:['Butang naik taraf','Butang ini ke halaman tawaran. Jangan tekan lagi.','Pelawat boleh terus membeli, atau anda boleh membantu mereka.'],
  f_agent:['Kembali ke paparan ejen','Tekan lencana, kemudian pilih Agent Specialist.','Paparan ejen ialah paparan kerja harian anda.'],
  z_end:['Tahniah, panduan selesai!','1. Cari unit untuk klien.\n2. Nasihat klien dengan maklumat di sini.\n3. Tawarkan Premium atau VIP terus kepada klien.','Anda boleh menukar paparan bila-bila masa melalui lencana emas di atas.']},
- en:{ai:'AI Assistant',step:'Step {a} of {b}',view:'View',why:'Why:',note:'Remember:',next:'Next ›',start:'Start ›',finish:'Start using the site',tap:'Press the glowing button',pick:'Press the glowing badge, then choose: {v}',wrong:'Not that one. Please choose: {v}',
+ en:{ai:'AI Assistant',step:'Step {a} of {b}',view:'View',why:'Why:',note:'Remember:',back:'‹ Back',next:'Next ›',start:'Start ›',finish:'Start using the site',tap:'Press the glowing button',pick:'Press the glowing badge, then choose: {v}',wrong:'Not that one. Please choose: {v}',
  a_hi:['Welcome, {name}','I will show you this site one step at a time, through 4 views. This guide is required and takes about 3 minutes.','This site helps you find information to advise clients, and offer paid data directly to them.'],
  a_badge:['This is your view: Agent Specialist','Look at the glowing badge. It shows the view that is open.','The agent view is the most complete, because you need everything to help clients.'],
  a_pos:['POS button','This button opens the POS of a unit. Do not press it yet.','When a client asks for a POS, you can get it yourself quickly.'],
@@ -2158,14 +2159,24 @@ function agTourStart(){try{sessionStorage.removeItem('lelong.welcome')}catch(e){
  const steps=atSteps(),i=Math.max(0,steps.findIndex(s=>s.id===ls.get(atKey())));
  if(steps[i].v!==AVIEW){try{sessionStorage.setItem(KP+'aview',steps[i].v);location.reload();return}catch(e){return}}
  const w=document.createElement('div');w.id='atWrap';w.innerHTML='<div class="at-b"></div><div class="at-b"></div><div class="at-b"></div><div class="at-b"></div><div class="at-cover"></div><div class="at-ring"></div><div id="atCard" role="dialog" aria-modal="true" aria-live="polite"></div>';document.body.appendChild(w);
- AT={steps,i,el:null,msg:''};document.addEventListener('click',atClick,true);document.addEventListener('change',atChange,true);if(i===0)gtrack('agent_tour_start',{});atShow();AT.timer=setInterval(atTick,100)}
-function atShow(){const g=AT;if(!g)return;const s=g.steps[g.i];if(!s)return atDone();let el=null;
- if(s.sel){try{el=document.querySelector(s.sel)}catch(e){}if(!el||!el.getClientRects().length){if(s.kind==='switch')return atDone();g.i++;return atShow()}}   // a part this unit or plan does not have is skipped; a missing view switch must not trap the agent
+ AT={steps,i,el:null,msg:'',dir:1};document.addEventListener('click',atClick,true);document.addEventListener('change',atChange,true);if(i===0)gtrack('agent_tour_start',{});atShow();AT.timer=setInterval(atTick,100)}
+// puts the page in the state a step needs, so Back and a resumed tour work: the unit window open or closed, Premium & VIP open or closed
+function atPrep(s){const inM=!!s.sel&&s.sel.startsWith('#mdl'),open=!G('mdl').hidden;let wait=false;if(!inM)G('mdlB').style.paddingBottom='';
+ if(inM&&!open){const d=document.querySelector('#list .card .detbtn');if(d){d.click();wait=true}}else if(!inM&&open&&MDL){closeModal();wait=true}
+ const x=document.querySelector('#list .card .xtra');if(x&&s.sel){if(s.sel.includes('.xtra-b'))x.open=true;else if(s.sel.includes('.xtra summary'))x.open=false}
+ return wait}
+function atShow(){const g=AT;if(!g)return;const s=g.steps[g.i];if(!s)return atDone();
+ if(s.v!==AVIEW){ls.set(atKey(),s.id);try{sessionStorage.setItem(KP+'aview',s.v)}catch(e){}location.reload();return}
+ g.el=null;if(atPrep(s))setTimeout(atPlace,120);else atPlace()}
+function atPlace(){const g=AT;if(!g)return;const s=g.steps[g.i];let el=null;
+ if(s.sel){try{el=document.querySelector(s.sel)}catch(e){}if(!el||!el.getClientRects().length){if(s.kind==='switch')return atDone();g.i+=g.dir;if(g.i<0){g.i=0;g.dir=1}return atShow()}}   // a part this unit or plan does not have is skipped; a missing view switch must not trap the agent
  g.el=el;g.msg='';ls.set(atKey(),s.id);atCard();
  if(el){const c=el.closest('.card');if(c)c.style.contentVisibility='visible';   // an off-screen card is not laid out, so its real place is unknown until this
-  const go=()=>{if(AT&&AT.el===el){el.style.scrollMarginTop='96px';el.scrollIntoView({block:el.offsetHeight>innerHeight*.4?'start':'center'})}};go();setTimeout(go,250)}}
+  const b=G('mdlB'),inM=b.contains(el),tall=el.offsetHeight>innerHeight*.4||(inM&&el.offsetHeight>120);b.style.paddingBottom=inM&&tall?'60vh':'';   // room to scroll a tall part clear of the guide card
+  const go=()=>{if(AT&&AT.el===el){el.style.scrollMarginTop=inM?'10px':'96px';el.scrollIntoView({block:tall?'start':'center'})}};go();setTimeout(go,250)}}
+function atBack(){const g=AT;if(!g||g.busy||g.i<1)return;g.dir=-1;g.i--;atShow()}
 function atCard(){const g=AT,s=g.steps[g.i],t=atT(s.txt),on=s.to?TAG[s.to][0]:'',done=g.steps.filter((x,k)=>k<g.i).length;
- const act=s.kind==='intro'?'<button type="button" class="at-next" data-at="next">'+atT('start')+'</button>':s.kind==='end'?'<button type="button" class="at-next" data-at="next">'+atT('finish')+'</button>':s.kind==='info'?'<button type="button" class="at-next" data-at="next">'+atT('next')+'</button>':'<div class="at-wait'+(g.msg?' bad':'')+'">'+esc(g.msg||(s.kind==='tap'?atT('tap'):atT('pick').replace('{v}',on)))+'</div>';
+ const act='<div class="at-btns">'+(g.i>0?'<button type="button" class="at-back" data-at="back">'+atT('back')+'</button>':'')+(s.kind==='intro'?'<button type="button" class="at-next" data-at="next">'+atT('start')+'</button>':s.kind==='end'?'<button type="button" class="at-next" data-at="next">'+atT('finish')+'</button>':s.kind==='info'?'<button type="button" class="at-next" data-at="next">'+atT('next')+'</button>':'<div class="at-wait'+(g.msg?' bad':'')+'">'+esc(g.msg||(s.kind==='tap'?atT('tap'):atT('pick').replace('{v}',on)))+'</div>')+'</div>';
  G('atCard').innerHTML='<div class="at-top"><span class="at-orb" aria-hidden="true"></span><b>'+atT('ai')+'</b><span class="at-lang"><button type="button" data-at="ms"'+(LANG==='ms'?' class="on"':'')+'>BM</button><button type="button" data-at="en"'+(LANG==='en'?' class="on"':'')+'>EN</button></span></div>'
   +'<div class="at-meta"><span>'+atT('step').replace('{a}',done+1).replace('{b}',g.steps.length)+'</span><span>'+atT('view')+': '+TAG[s.v][0]+'</span></div><div class="at-bar"><i style="width:'+Math.round((done+1)*100/g.steps.length)+'%"></i></div>'
   +'<h3>'+esc(t[0].replace('{name}',CLIENT||''))+'</h3><p class="at-do">'+esc(t[1])+'</p><p class="at-why"><b>'+atT(s.kind==='end'?'note':'why')+'</b> '+esc(t[2])+'</p>'+act;
@@ -2177,8 +2188,8 @@ function atTick(){const g=AT;if(!g)return;const W=innerWidth,H=innerHeight,b=doc
   const top=(r.top+r.bottom)/2>H/2;card.style.top=top?'12px':'';card.style.bottom=top?'':'12px';card.style.transform=''}
  else{set(b[0],0,0,W,H);set(b[1],0,0,0,0);set(b[2],0,0,0,0);set(b[3],0,0,0,0);ring.style.display='none';card.style.top='50%';card.style.bottom='';card.style.transform='translate(-50%,-50%)'}}
 function atClick(e){const g=AT;if(!g)return;const s=g.steps[g.i],a=e.target.closest&&e.target.closest('[data-at]');
- if(a){e.preventDefault();e.stopPropagation();const k=a.dataset.at;if(k==='next'){g.i++;atShow();return}setLang(k);setTimeout(atShow,60);return}
- if(s.kind==='tap'&&!g.busy&&g.el&&g.el.contains(e.target)){g.busy=true;setTimeout(()=>{if(AT){g.busy=false;g.i++;atShow()}},450)}}
+ if(a){e.preventDefault();e.stopPropagation();const k=a.dataset.at;if(k==='next'){g.dir=1;g.i++;atShow();return}if(k==='back'){atBack();return}setLang(k);setTimeout(atShow,60);return}
+ if(s.kind==='tap'&&!g.busy&&g.el&&g.el.contains(e.target)){g.busy=true;setTimeout(()=>{if(AT){g.busy=false;g.dir=1;g.i++;atShow()}},450)}}
 function atChange(e){const g=AT;if(!g||e.target.id!=='aviewSel')return;const s=g.steps[g.i];
  if(s.kind==='switch'&&e.target.value===s.to){g.i++;if(g.steps[g.i])ls.set(atKey(),g.steps[g.i].id);return}   // the right view: the page reloads and the tour resumes on the next step
  e.stopImmediatePropagation();e.target.value=AVIEW;g.msg=atT('wrong').replace('{v}',s.to?TAG[s.to][0]:TAG[AVIEW][0]);atCard()}
