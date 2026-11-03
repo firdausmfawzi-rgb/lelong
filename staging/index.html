@@ -216,6 +216,18 @@ html.trial #cyNote,html.trial #bmvSeg,html.trial #cyBtn,html.trial #cyPanel{disp
 .exp-tag.unsold,.exp-tag.nonlaca{background:var(--warn-bg);color:var(--warn)}
 .unsold-note{background:var(--warn-bg);color:var(--warn);border-radius:10px;padding:10px 12px;font-size:1rem;line-height:1.4;display:flex;flex-direction:column;gap:2px}
 .unsold-note b{display:flex;align-items:center;gap:6px}
+#atWrap .at-b{position:fixed;z-index:100000;background:rgba(3,10,20,.8)}#atWrap .at-cover{display:none;position:fixed;inset:0;z-index:100001}#atWrap.at-info .at-cover,#atWrap.at-intro .at-cover,#atWrap.at-end .at-cover{display:block}
+#atWrap .at-ring{position:fixed;z-index:100002;pointer-events:none;border-radius:12px;border:3px solid #5ee7ff;box-shadow:0 0 0 2px rgba(94,231,255,.35),0 0 26px 6px rgba(94,231,255,.75);animation:atPulse 1.5s ease-in-out infinite}
+@keyframes atPulse{50%{box-shadow:0 0 0 7px rgba(94,231,255,.2),0 0 38px 12px rgba(94,231,255,.95)}}
+#atCard{position:fixed;z-index:100003;left:50%;margin-left:0;width:min(94vw,520px);max-height:62vh;overflow:auto;transform:translateX(-50%);box-sizing:border-box;padding:14px 16px 16px;border-radius:18px;border:1px solid rgba(94,231,255,.55);background:linear-gradient(155deg,#0a1727,#123253);color:#f3f8fc;box-shadow:0 14px 44px rgba(0,0,0,.6),0 0 24px rgba(94,231,255,.28);font-family:var(--body,system-ui),system-ui,sans-serif}
+.at-top{display:flex;align-items:center;gap:9px;color:#5ee7ff;font-size:1rem;letter-spacing:.03em}.at-orb{flex:none;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#5ee7ff 45%,#0c6f96);box-shadow:0 0 12px #5ee7ff;animation:atOrb 2s ease-in-out infinite}@keyframes atOrb{50%{transform:scale(1.18)}}
+.at-lang{margin-left:auto;display:flex;gap:4px}.at-lang button{min-width:44px;min-height:38px;padding:0 8px;border:1px solid rgba(94,231,255,.6);border-radius:9px;background:transparent;color:#f3f8fc;font:inherit;font-weight:700;cursor:pointer}.at-lang button.on{background:#5ee7ff;color:#04202e}
+.at-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 10px;margin-top:9px;color:#bcd6e6;font-size:.92rem}.at-bar{height:7px;margin-top:5px;border-radius:9px;background:rgba(255,255,255,.14);overflow:hidden}.at-bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,#5ee7ff,#e6c25a);transition:width .35s ease}
+#atCard h3{margin:11px 0 5px;color:#fff;font-size:1.28rem;line-height:1.25}#atCard .at-do{margin:0;color:#fff;font-size:1.12rem;line-height:1.4}#atCard .at-why{margin:8px 0 0;color:#d7e7f1;font-size:1rem;line-height:1.4}#atCard .at-why b{color:#e6c25a}
+.at-next{display:block;width:100%;min-height:56px;margin-top:12px;border:0;border-radius:13px;background:linear-gradient(90deg,#e6c25a,#f3dc8e);color:#1a1405;font:inherit;font-size:1.15rem;font-weight:800;cursor:pointer}.at-next:focus-visible,.at-lang button:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.at-wait{margin-top:12px;padding:12px;border:1px dashed #5ee7ff;border-radius:13px;color:#5ee7ff;font-size:1.08rem;font-weight:800;text-align:center;line-height:1.35}.at-wait.bad{border-color:#ff9b94;color:#ffb4ae}
+.at-big #tierTag{transform:scale(1.3);transform-origin:left center}.at-big #aiTag{visibility:hidden}#atCard .at-do{white-space:pre-line}
+@media (prefers-reduced-motion:reduce){#atWrap .at-ring,.at-orb{animation:none}.at-bar i{transition:none}}
 .unsold-note span{color:var(--fg)}.unsold-next{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:2px 10px;margin-top:6px}.unsold-next span{font-size:.95rem}.unsold-next b{color:var(--fg);font-size:1.15rem}.unsold-note small{margin-top:4px;color:var(--muted);font-size:.85rem;line-height:1.35}
 .chips{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
 .chip{font-size:.95rem;background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:4px 12px;color:var(--fg)}
@@ -1810,7 +1822,7 @@ daerahOpts();
 LASTON=restoreLast();
 if(sharedId)track('shared_unit_open',{unit_id:sharedId});
 viewUI();paint();render();LASTSNAP=JSON.stringify(snapNow());
-if(welcomePending())setTimeout(showWelcome,400);else if(!ls.get('guide')&&!sharedId)setTimeout(showGuide,500);   // a fresh code: the welcome first, the guide after it
+if(!sharedId&&agTourDue())setTimeout(agTourStart,500);else if(welcomePending())setTimeout(showWelcome,400);else if(!ls.get('guide')&&!sharedId)setTimeout(showGuide,500);   // an agent's first visit: the required walkthrough; a fresh code: the welcome first, the guide after it
 if(sharedId)setTimeout(()=>toFirst(true),350);   // shared unit link (#id, 29/10/2026): open straight on that unit's card, not the top of the page
 // ===== AI assistant (2/11/2026): an on-screen character (two looks) that answers questions about the auction data in this page,
 // shows the client around by highlighting and tapping the page's own controls, and reads the daily market summary written by the
@@ -2078,6 +2090,99 @@ function agentSwitch(t){const k=AVIEW;t.className='tier-tag aview '+k;
 function showTierBadge(){addScoreSort();const t=G('tierTag');if(!t)return;if(REALAGENT){agentSwitch(t);return}if(TRIAL||!TIER){t.hidden=true;return}
  const k=ISAGENT?'agent':TIER==='sip'?'vip':'prem';t.className='tier-tag '+k;
  t.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true">'+TAG[k][1]+'</svg><span>'+TAG[k][0]+'</span>';t.hidden=false}   // the cyberpunk "Agentic AI Powered Data" tag (#aiTag) shows on every tier, the free preview included (29/10/2026)
+// Agent walkthrough (4/11/2026): an agent's first visit on this device opens a required tour through the four views; it cannot be closed,
+// only finished. Each step shows one thing, what to do and why it exists. The place is kept per code, so the reloads of a view switch resume it.
+const AT_TXT={ms:{ai:'Pembantu AI',step:'Langkah {a} daripada {b}',view:'Paparan',why:'Kenapa:',note:'Ingat:',next:'Seterusnya ›',start:'Mula ›',finish:'Mula guna laman',tap:'Tekan butang yang bercahaya',pick:'Tekan lencana yang bercahaya, kemudian pilih: {v}',wrong:'Bukan yang itu. Sila pilih: {v}',
+ a_hi:['Selamat datang, {name}','Saya akan tunjuk laman ini satu persatu, melalui 4 paparan. Panduan ini wajib dan mengambil masa sekitar 3 minit.','Laman ini membantu anda mencari maklumat untuk menasihati klien, dan menawarkan data berbayar terus kepada klien.'],
+ a_badge:['Ini paparan anda: Agent Specialist','Lihat lencana yang bercahaya. Ia menunjukkan paparan yang sedang dibuka.','Paparan ejen paling lengkap, kerana anda perlu semua maklumat untuk membantu klien.'],
+ a_pos:['Butang POS','Butang ini membuka POS unit. Jangan tekan lagi.','Bila klien minta POS, anda boleh dapatkannya sendiri dengan cepat.'],
+ a_det:['Buka butiran unit','Tekan butang yang bercahaya.','Semua maklumat satu unit ada dalam satu tetingkap.'],
+ a_box:['Maklumat lelong','Baca jadual ini: pelelong, peguam, tempat lelong dan deposit.','Untuk tindakan susulan anda. Klien tidak nampak jadual ini.'],
+ close:['Tutup tetingkap','Tekan butang yang bercahaya.','Untuk kembali ke senarai unit.'],
+ a_vip:['Tukar ke paparan VIP Investor','Tekan lencana, kemudian pilih VIP Investor.','Supaya anda tahu apa yang klien VIP dapat sebelum anda menawarkannya.'],
+ a_prem:['Tukar ke paparan Premium','Tekan lencana, kemudian pilih Premium Member.','Supaya anda tahu apa yang klien Premium dapat sebelum anda menawarkannya.'],
+ v_badge:['Ini yang klien VIP nampak','Lihat lencana. Kini ia tertulis VIP Investor.','Butang POS ejen dan jadual emas sudah hilang, kerana itu untuk ejen sahaja.'],
+ xtra:['Buka Premium & VIP','Tekan butang yang bercahaya.','Di sini tersimpan maklumat berbayar bagi setiap unit.'],
+ v_paid:['Maklumat berbayar VIP','Baca maklumat ini: nilai pasaran, penjimatan dan skor pelabur.','Gunakan untuk menasihati klien tentang unit yang lebih berbaloi.'],
+ v_det:['Buka butiran unit','Tekan butang yang bercahaya.','Klien VIP dapat maklumat paling banyak di dalam tetingkap ini.'],
+ v_hist:['Sejarah 12 bulan','Bahagian ini menunjukkan lelong lepas bagi unit ini.','Klien boleh lihat berapa kali unit dilelong dan perubahan harganya.'],
+ v_roi:['Kiraan pelaburan','Bahagian ini mengira sewa, pinjaman dan pulangan.','Klien pelabur boleh menilai unit sebelum membida.'],
+ v_req:['Butang Minta POS','Klien VIP dan Premium hanya nampak butang ini. Jangan tekan lagi.','Permintaan klien sampai kepada ejen melalui WhatsApp. Itu peluang anda berhubung dengan klien.'],
+ v_prem:['Tukar ke paparan Premium','Tekan lencana, kemudian pilih Premium Member.','Premium ialah pelan permulaan yang mudah ditawarkan kepada klien.'],
+ p_badge:['Ini yang klien Premium nampak','Lihat lencana. Kini ia tertulis Premium Member.','Klien Premium nampak maklumat utama, tetapi bukan semua maklumat VIP.'],
+ p_lock:['Bahagian dikunci','Lihat XX dan pautan naik taraf ini.','Inilah sebab klien Premium mahu naik ke VIP. Anda boleh menawarkannya terus.'],
+ p_free:['Tukar ke paparan Free','Tekan lencana, kemudian pilih Free.','Supaya anda nampak apa yang pelawat belum bayar lihat.'],
+ f_badge:['Ini yang pelawat percuma nampak','Lihat lencana. Kini ia tertulis Free.','Inilah pandangan pertama bakal klien anda.'],
+ f_bar:['Mesej tawaran','Baca mesej ini. Ia mengajak pelawat membuka Premium.','Pelawat tahu masih ada maklumat yang belum dibuka.'],
+ f_addr:['Alamat disorok','Lihat XX pada alamat ini.','Hanya pelan berbayar nampak alamat penuh. Inilah nilai yang anda tawarkan.'],
+ f_cta:['Butang naik taraf','Butang ini ke halaman tawaran. Jangan tekan lagi.','Pelawat boleh terus membeli, atau anda boleh membantu mereka.'],
+ f_agent:['Kembali ke paparan ejen','Tekan lencana, kemudian pilih Agent Specialist.','Paparan ejen ialah paparan kerja harian anda.'],
+ z_end:['Tahniah, panduan selesai!','1. Cari unit untuk klien.\n2. Nasihat klien dengan maklumat di sini.\n3. Tawarkan Premium atau VIP terus kepada klien.','Anda boleh menukar paparan bila-bila masa melalui lencana emas di atas.']},
+ en:{ai:'AI Assistant',step:'Step {a} of {b}',view:'View',why:'Why:',note:'Remember:',next:'Next ›',start:'Start ›',finish:'Start using the site',tap:'Press the glowing button',pick:'Press the glowing badge, then choose: {v}',wrong:'Not that one. Please choose: {v}',
+ a_hi:['Welcome, {name}','I will show you this site one step at a time, through 4 views. This guide is required and takes about 3 minutes.','This site helps you find information to advise clients, and offer paid data directly to them.'],
+ a_badge:['This is your view: Agent Specialist','Look at the glowing badge. It shows the view that is open.','The agent view is the most complete, because you need everything to help clients.'],
+ a_pos:['POS button','This button opens the POS of a unit. Do not press it yet.','When a client asks for a POS, you can get it yourself quickly.'],
+ a_det:['Open the unit details','Press the glowing button.','Everything about one unit is in one window.'],
+ a_box:['Auction contacts','Read this table: auctioneer, lawyer, venue and deposit.','For your own follow-up. Clients cannot see this table.'],
+ close:['Close the window','Press the glowing button.','To go back to the list of units.'],
+ a_vip:['Switch to the VIP Investor view','Press the badge, then choose VIP Investor.','So you know what a VIP client gets before you offer it.'],
+ a_prem:['Switch to the Premium view','Press the badge, then choose Premium Member.','So you know what a Premium client gets before you offer it.'],
+ v_badge:['This is what a VIP client sees','Look at the badge. It now says VIP Investor.','The agent POS button and the gold table are gone, because they are for agents only.'],
+ xtra:['Open Premium & VIP','Press the glowing button.','This holds the paid information for each unit.'],
+ v_paid:['VIP paid information','Read this: market value, savings and investor score.','Use it to advise clients on which unit is better value.'],
+ v_det:['Open the unit details','Press the glowing button.','VIP clients get the most information in this window.'],
+ v_hist:['12-month history','This part shows past auctions of this unit.','Clients can see how often it was auctioned and how the price changed.'],
+ v_roi:['Investment figures','This part works out rent, loan and returns.','Investor clients can judge a unit before bidding.'],
+ v_req:['Request POS button','VIP and Premium clients only see this button. Do not press it yet.','The client request reaches the agent on WhatsApp. That is your chance to connect.'],
+ v_prem:['Switch to the Premium view','Press the badge, then choose Premium Member.','Premium is the easy starting plan to offer clients.'],
+ p_badge:['This is what a Premium client sees','Look at the badge. It now says Premium Member.','Premium clients see the main information, but not everything in VIP.'],
+ p_lock:['Locked part','Look at the XX and the upgrade link.','This is why Premium clients want VIP. You can offer it directly.'],
+ p_free:['Switch to the Free view','Press the badge, then choose Free.','So you can see what a visitor sees before paying.'],
+ f_badge:['This is what a free visitor sees','Look at the badge. It now says Free.','This is the first look your future clients get.'],
+ f_bar:['Offer message','Read this message. It invites visitors to open Premium.','Visitors know there is more information to unlock.'],
+ f_addr:['Hidden address','Look at the XX in this address.','Only paid plans see the full address. This is the value you offer.'],
+ f_cta:['Upgrade button','This button goes to the offer page. Do not press it yet.','Visitors can buy directly, or you can help them.'],
+ f_agent:['Back to the agent view','Press the badge, then choose Agent Specialist.','The agent view is your daily working view.'],
+ z_end:['Well done, the guide is finished!','1. Find units for clients.\n2. Advise clients with the information here.\n3. Offer Premium or VIP directly to clients.','You can switch views any time with the gold badge at the top.']}};
+const atT=k=>(AT_TXT[LANG]||AT_TXT.en)[k];
+function atSteps(){const c='#list .card ',S=(id,v,kind,sel,to,txt)=>({id,v,kind,sel,to,txt:txt||id});const vip=RTIER==='sip';
+ return [S('a_hi','agent','intro'),S('a_badge','agent','info','#tierTag'),S('a_pos','agent','info',c+'.posdl.sm'),S('a_det','agent','tap',c+'.detbtn'),S('a_box','agent','info','#mdl .agbox'),S('a_x','agent','tap','#mdlX','','close'),
+  vip?S('a_vip','agent','switch','#tierTag','vip'):S('a_prem','agent','switch','#tierTag','prem')].concat(vip?[
+  S('v_badge','vip','info','#tierTag'),S('v_x','vip','tap',c+'.xtra summary','','xtra'),S('v_paid','vip','info',c+'.xtra-b'),S('v_det','vip','tap',c+'.detbtn'),S('v_hist','vip','info','#mdl .hist'),S('v_roi','vip','info','#mdl .sip-live'),S('v_c','vip','tap','#mdlX','','close'),S('v_req','vip','info',c+'.posreq'),S('v_prem','vip','switch','#tierTag','prem')]:[],
+  [S('p_badge','prem','info','#tierTag'),S('p_x','prem','tap',c+'.xtra summary','','xtra'),S('p_lock','prem','info',c+'.xtra-b .xxbox'),S('p_free','prem','switch','#tierTag','free'),
+  S('f_badge','free','info','#tierTag'),S('f_bar','free','info','#trialBar'),S('f_addr','free','info',c+'.addr'),S('f_cta','free','info','#trialCta'),S('f_agent','free','switch','#tierTag','agent'),S('z_end','agent','end')])}
+let AT=null;
+const atKey=()=>'agtour_'+ACODE;
+function agTourDue(){return REALAGENT&&!!ACODE&&ls.get(atKey())!=='done'}
+function agTourStart(){try{sessionStorage.removeItem('lelong.welcome')}catch(e){}ls.set('guide','1');
+ const steps=atSteps(),i=Math.max(0,steps.findIndex(s=>s.id===ls.get(atKey())));
+ if(steps[i].v!==AVIEW){try{sessionStorage.setItem(KP+'aview',steps[i].v);location.reload();return}catch(e){return}}
+ const w=document.createElement('div');w.id='atWrap';w.innerHTML='<div class="at-b"></div><div class="at-b"></div><div class="at-b"></div><div class="at-b"></div><div class="at-cover"></div><div class="at-ring"></div><div id="atCard" role="dialog" aria-modal="true" aria-live="polite"></div>';document.body.appendChild(w);
+ AT={steps,i,el:null,msg:''};document.addEventListener('click',atClick,true);document.addEventListener('change',atChange,true);if(i===0)gtrack('agent_tour_start',{});atShow();AT.timer=setInterval(atTick,100)}
+function atShow(){const g=AT;if(!g)return;const s=g.steps[g.i];if(!s)return atDone();let el=null;
+ if(s.sel){try{el=document.querySelector(s.sel)}catch(e){}if(!el||!el.getClientRects().length){if(s.kind==='switch')return atDone();g.i++;return atShow()}}   // a part this unit or plan does not have is skipped; a missing view switch must not trap the agent
+ g.el=el;g.msg='';ls.set(atKey(),s.id);atCard();
+ if(el){const c=el.closest('.card');if(c)c.style.contentVisibility='visible';   // an off-screen card is not laid out, so its real place is unknown until this
+  const go=()=>{if(AT&&AT.el===el){el.style.scrollMarginTop='96px';el.scrollIntoView({block:el.offsetHeight>innerHeight*.4?'start':'center'})}};go();setTimeout(go,250)}}
+function atCard(){const g=AT,s=g.steps[g.i],t=atT(s.txt),on=s.to?TAG[s.to][0]:'',done=g.steps.filter((x,k)=>k<g.i).length;
+ const act=s.kind==='intro'?'<button type="button" class="at-next" data-at="next">'+atT('start')+'</button>':s.kind==='end'?'<button type="button" class="at-next" data-at="next">'+atT('finish')+'</button>':s.kind==='info'?'<button type="button" class="at-next" data-at="next">'+atT('next')+'</button>':'<div class="at-wait'+(g.msg?' bad':'')+'">'+esc(g.msg||(s.kind==='tap'?atT('tap'):atT('pick').replace('{v}',on)))+'</div>';
+ G('atCard').innerHTML='<div class="at-top"><span class="at-orb" aria-hidden="true"></span><b>'+atT('ai')+'</b><span class="at-lang"><button type="button" data-at="ms"'+(LANG==='ms'?' class="on"':'')+'>BM</button><button type="button" data-at="en"'+(LANG==='en'?' class="on"':'')+'>EN</button></span></div>'
+  +'<div class="at-meta"><span>'+atT('step').replace('{a}',done+1).replace('{b}',g.steps.length)+'</span><span>'+atT('view')+': '+TAG[s.v][0]+'</span></div><div class="at-bar"><i style="width:'+Math.round((done+1)*100/g.steps.length)+'%"></i></div>'
+  +'<h3>'+esc(t[0].replace('{name}',CLIENT||''))+'</h3><p class="at-do">'+esc(t[1])+'</p><p class="at-why"><b>'+atT(s.kind==='end'?'note':'why')+'</b> '+esc(t[2])+'</p>'+act;
+ G('atWrap').className='at-'+s.kind;document.documentElement.classList.toggle('at-big',s.kind==='switch');atTick()}
+function atTick(){const g=AT;if(!g)return;const W=innerWidth,H=innerHeight,b=document.querySelectorAll('#atWrap .at-b'),ring=document.querySelector('#atWrap .at-ring'),card=G('atCard');
+ const set=(e,l,t,w,h)=>{e.style.cssText='left:'+l+'px;top:'+t+'px;width:'+Math.max(0,w)+'px;height:'+Math.max(0,h)+'px'};
+ if(g.el&&document.contains(g.el)){const r=g.el.getBoundingClientRect(),p=6,l=Math.max(0,r.left-p),t=Math.max(0,r.top-p),R=Math.min(W,r.right+p),B=Math.min(H,r.bottom+p);
+  set(b[0],0,0,W,t);set(b[1],0,B,W,H-B);set(b[2],0,t,l,B-t);set(b[3],R,t,W-R,B-t);set(ring,l,t,R-l,B-t);ring.style.display='block';
+  const top=(r.top+r.bottom)/2>H/2;card.style.top=top?'12px':'';card.style.bottom=top?'':'12px';card.style.transform=''}
+ else{set(b[0],0,0,W,H);set(b[1],0,0,0,0);set(b[2],0,0,0,0);set(b[3],0,0,0,0);ring.style.display='none';card.style.top='50%';card.style.bottom='';card.style.transform='translate(-50%,-50%)'}}
+function atClick(e){const g=AT;if(!g)return;const s=g.steps[g.i],a=e.target.closest&&e.target.closest('[data-at]');
+ if(a){e.preventDefault();e.stopPropagation();const k=a.dataset.at;if(k==='next'){g.i++;atShow();return}setLang(k);setTimeout(atShow,60);return}
+ if(s.kind==='tap'&&!g.busy&&g.el&&g.el.contains(e.target)){g.busy=true;setTimeout(()=>{if(AT){g.busy=false;g.i++;atShow()}},450)}}
+function atChange(e){const g=AT;if(!g||e.target.id!=='aviewSel')return;const s=g.steps[g.i];
+ if(s.kind==='switch'&&e.target.value===s.to){g.i++;if(g.steps[g.i])ls.set(atKey(),g.steps[g.i].id);return}   // the right view: the page reloads and the tour resumes on the next step
+ e.stopImmediatePropagation();e.target.value=AVIEW;g.msg=atT('wrong').replace('{v}',s.to?TAG[s.to][0]:TAG[AVIEW][0]);atCard()}
+function atDone(){const g=AT;if(!g)return;AT=null;clearInterval(g.timer);ls.set(atKey(),'done');document.removeEventListener('click',atClick,true);document.removeEventListener('change',atChange,true);const w=G('atWrap');if(w)w.remove();document.documentElement.classList.remove('at-big');gtrack('agent_tour_done',{})}
 function start(){if(STARTED)return;STARTED=true;agentView();showTierBadge();G('count').textContent=tx('loading');loadListings().then(j=>{// Only Active units and units with a recorded result (Sold / Call Off / Unsold) are shown. A unit whose auction date has passed
 // and has no result is not listed (a result usually appears within a day or two and the unit then comes back under its tab).
 // Non-LACA is the exception (4/11/2026): its data never carries a result, and it has its own tab where the bidder confirms with the agent.
