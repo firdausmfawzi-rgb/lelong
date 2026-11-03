@@ -216,7 +216,7 @@ html.trial #cyNote,html.trial #bmvSeg,html.trial #cyBtn,html.trial #cyPanel{disp
 .exp-tag.unsold,.exp-tag.nonlaca{background:var(--warn-bg);color:var(--warn)}
 .unsold-note{background:var(--warn-bg);color:var(--warn);border-radius:10px;padding:10px 12px;font-size:1rem;line-height:1.4;display:flex;flex-direction:column;gap:2px}
 .unsold-note b{display:flex;align-items:center;gap:6px}
-.unsold-note span{color:var(--fg)}
+.unsold-note span{color:var(--fg)}.unsold-next{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:2px 10px;margin-top:6px}.unsold-next span{font-size:.95rem}.unsold-next b{color:var(--fg);font-size:1.15rem}.unsold-note small{margin-top:4px;color:var(--muted);font-size:.85rem;line-height:1.35}
 .chips{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
 .chip{font-size:.95rem;background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:4px 12px;color:var(--fg)}
 .chip.ok{background:var(--ok-bg);color:var(--accent);border-color:transparent}
@@ -841,7 +841,7 @@ fl_bmv:'Discount from market value (at least)',
 st_available:'Active + No bidder',st_active:'Active',st_unsold:'No bidder',st_calloff:'Cancelled',st_sold:'Sold',st_nonlaca:'Non-LACA (date passed)',st_expired:'Expired',
 sp_next:' · next {t}',sp_last:' · last {t}',months:'{n} months',day1:'{n} day',days:'{n} days',
 tag_sold:'Sold',tag_calloff:'Cancelled · auction called off',tag_unsold:'No bidder · not sold at auction',tag_expired:'Expired · auction date passed',tag_nonlaca:'Non-LACA · auction date passed · result unknown',nl_note:'We cannot know whether this Non-LACA unit was sold. Please confirm with the agent whether it is still available.',wa_btn_nl:'💬 Confirm availability with {name}',wa_unit_nl:'Hi {name}, the auction date of this Non-LACA unit has passed. Is it still available?',
-unsold_t:'No bidder, Pending Next Auction',unsold_p:'Price might reduce 10%',unsold_np:' - New Price: {p} (Estimate)',
+unsold_t:'No bidder, Pending Next Auction',unsold_p:'Next auction price (estimate)',unsold_h:'Nobody bid at the last auction price. The next auction may be about 10% lower. This is only an estimate; the real price is known when the new auction is announced.',auction_price_last:'Last auction price',
 auction_price:'Auction price',market_value:'Market value',bmv_txt:'{p}% below market value',bmv_chip:'{p}% Below Market Value',
 built_up:'Built-up',cy:'Completion year',bed:'Bedrooms',bath:'Bathrooms',car:'Car parks',land:'Land size',district:'District',state:'State',bank:'Bank',more_info:'More info',share:'Share',hist:'Past auction transactions',hist_sub:'Auction date & reserve price',hist_now:'Current auction',
 f_bed:'Bedrooms: {n}',f_bath:'Bathrooms: {n}',f_built:'Completed {y}',f_bu:'Built-up {v}',f_land:'Land {v}',
@@ -914,7 +914,7 @@ fl_bmv:'Diskaun dari nilai pasaran (sekurang-kurangnya)',
 st_available:'Aktif + Tiada pembida',st_active:'Aktif',st_unsold:'Tiada pembida',st_calloff:'Dibatalkan',st_sold:'Terjual',st_nonlaca:'Non-LACA (tarikh lepas)',st_expired:'Tamat',
 sp_next:' · {t} akan datang',sp_last:' · {t} lepas',months:'{n} bulan',day1:'{n} hari',days:'{n} hari',
 tag_sold:'Terjual',tag_calloff:'Dibatalkan · lelong tidak diteruskan',tag_unsold:'Tiada pembida · tidak terjual di lelong',tag_expired:'Tamat · tarikh lelong sudah lepas',tag_nonlaca:'Non-LACA · tarikh lelong sudah lepas · keputusan tidak diketahui',nl_note:'Kami tidak dapat tahu sama ada unit Non-LACA ini sudah terjual. Sila sahkan dengan ejen sama ada unit ini masih ada.',wa_btn_nl:'💬 Sahkan dengan {name}',wa_unit_nl:'Hi {name}, tarikh lelong unit Non-LACA ini sudah lepas. Adakah unit ini masih ada?',
-unsold_t:'Tiada pembida, menunggu lelong seterusnya',unsold_p:'Harga mungkin turun 10%',unsold_np:' - Harga baharu: {p} (anggaran)',
+unsold_t:'Tiada pembida, menunggu lelong seterusnya',unsold_p:'Harga lelong seterusnya (anggaran)',unsold_h:'Tiada siapa bida pada harga lelong lepas. Lelong seterusnya mungkin turun sekitar 10%. Ini anggaran sahaja; harga sebenar diketahui bila lelong baharu diumumkan.',auction_price_last:'Harga lelong lepas',
 auction_price:'Harga lelong',market_value:'Nilai pasaran',bmv_txt:'{p}% bawah nilai pasaran',bmv_chip:'{p}% Bawah Nilai Pasaran',
 built_up:'Keluasan binaan',cy:'Tahun siap',bed:'Bilik tidur',bath:'Bilik air',car:'Parkir',land:'Keluasan tanah',district:'Daerah',state:'Negeri',bank:'Bank',more_info:'Maklumat lanjut',share:'Kongsi',hist:'Lelong terdahulu',hist_sub:'Tarikh lelong & harga rizab',hist_now:'Lelong semasa',
 f_bed:'Bilik tidur: {n}',f_bath:'Bilik air: {n}',f_built:'Siap {y}',f_bu:'Binaan {v}',f_land:'Tanah {v}',
@@ -1380,7 +1380,7 @@ function sipRecalc(d,inp){const v={};d.querySelectorAll('input[data-k]').forEach
  if(inp&&inp.dataset.k==='yrs'){const r=d.querySelector('input[data-k=rpgt]');r.value=rpgtRate(Math.max(1,Math.ceil(v.yrs)));v.rpgt=+r.value}
  d.querySelector('.sip-live').innerHTML=sipOut(v)}
 const unsoldNote=r=>{const p=num(r[7]);const np=p>0?'RM '+Math.round(p*0.9).toLocaleString('en-US'):'';
- return '<div class="unsold-note"><b>'+tx('unsold_t')+'</b><span>'+tx('unsold_p')+(np?tx('unsold_np',{p:'<b>'+np+'</b>'}):'')+'</span></div>'};
+ return '<div class="unsold-note"><b>'+tx('unsold_t')+'</b>'+(np?'<div class="unsold-next"><span>'+tx('unsold_p')+'</span><b>'+np+'</b></div>':'')+'<small>'+tx('unsold_h')+'</small></div>'};
 const tagText=(r,st)=>st==='sold'?tx('tag_sold')+(ok(r[27])?' · '+dash(r[27]):''):st==='calloff'?tx('tag_calloff'):st==='unsold'?tx('tag_unsold'):st==='nonlaca'?tx('tag_nonlaca'):tx('tag_expired');
 // summary under the title: units that can still be bid on, how many sit far below market value, how many arrived in the last 3 days
 let STATS=null;function statsLine(){const el=$('stats');if(!el)return;
@@ -1491,7 +1491,7 @@ function xtraDrop(r,ex){
   +'<div class="xtra-h"><i class="tg-p">'+tx('xtra_prem')+'</i></div>'+premRows(r,ex,true)+'<div class="xtra-h"><i class="tg-v">'+tx('xtra_vip')+'</i></div>'+vipRows(r,ex,false)+'<small class="lgnote">'+tx('est_note')+'</small></div></details>'}
 function kindLine(r,cn,help){return '<div class="kindt">'+dash(typeName(r))+(ok(r[9])?' \u00b7 '+esc(r[9])+(help?qb('tenure'):''):'')+(cn?' \u00b7 '+cn:'')+'</div>'}   // card: type, tenure and the auction count in one small line (2/11/2026)
 function priceBox(r,ex,fire,bt,onPhoto,help){
- return '<div class="pricebox"><span class="pl">'+tx('auction_price')+(help?qb('price'):'')+'</span><div class="price">'+dash(r[7])+(fire?' \uD83D\uDD25':'')+'</div>'
+ return '<div class="pricebox"><span class="pl">'+tx(stOf(r)==='unsold'?'auction_price_last':'auction_price')+(help?qb('price'):'')+'</span><div class="price">'+dash(r[7])+(fire?' \uD83D\uDD25':'')+'</div>'
   +(bt&&!onPhoto?'<div class="bmvrow"><span class="bmv">'+esc(bt)+'</span>'+(help?qb('bmv'):'')+'</div>':'')+'</div>'}
 function whenRows(r,ex,cn,cal,full){   // card: one line (date, time, days left) + chips; Full details: the long form with the count and the calendar row
  const main='<div class="when"><span class="dlab">'+(full?tx('date'):tx('when_lbl')+':')+'</span><span class="dtx"><b>'+esc(fmtDay(r[12]))+'</b><span class="tm">'+(ok(r[13])?'<span>'+esc(r[13])+'</span>':'')+cdChip(r[12])+'</span></span></div>';
@@ -1520,9 +1520,9 @@ function card(r,i){
  return '<article class="card v2'+(ex?' expired':'')+(simple?' simple':'')+(sharedId?' hl':'')+'" data-k="'+i+'" data-id="'+esc(r[20])+'">'+hz+(ex?'<div class="exp-tag '+st+'">'+tagText(r,st)+'</div>':'')
  +kindLine(r,cn)
  +'<div class="head"><span class="num">'+(i+1)+'</span><div class="addr">'+hlAddr(r[1])+'</div>'+(TRIAL?'':'<button type="button" class="cpy" data-id="'+esc(r[20])+'" aria-label="'+esc(tx('copy_al'))+'" title="'+esc(tx('copy_al'))+'">'+CPY+'</button>')+'</div>'
- +(st==='unsold'&&liveUnsold(r)?unsoldNote(r):'')   // the No bidder note right under the address (30/10/2026)
  +(st==='nonlaca'?'<p class="nl-note">'+tx('nl_note')+'</p>':'')
  +priceBox(r,ex,fire,bt,onPhoto)
+ +(st==='unsold'&&liveUnsold(r)?unsoldNote(r):'')   // the No bidder note right under the last price it refers to (4/11/2026)
  +whenRows(r,ex,cn,cal)
  +specBox(r)
  +(simple?'':xtraDrop(r,ex))
@@ -1538,9 +1538,9 @@ function detailHtml(r){
  const hz=hero(r).replace('loading="lazy"','loading="eager"');
  return '<div class="card detail'+(ex?' expired':'')+'" data-id="'+esc(r[20])+'">'+hz+(ex?'<div class="exp-tag '+st+'">'+tagText(r,st)+'</div>':'')
  +kindLine(r,'',true)+'<div class="head"><div class="addr">'+esc(r[1])+'</div>'+(TRIAL?'':'<button type="button" class="cpy" data-id="'+esc(r[20])+'" aria-label="'+esc(tx('copy_al'))+'" title="'+esc(tx('copy_al'))+'">'+CPY+'</button>')+'</div>'
- +(st==='unsold'&&liveUnsold(r)?unsoldNote(r):'')
  +(st==='nonlaca'?'<p class="nl-note">'+tx('nl_note')+'</p>':'')
  +priceBox(r,ex,fire,bt,false,true)
+ +(st==='unsold'&&liveUnsold(r)?unsoldNote(r):'')
  +dims(r,condo)+whenRows(r,ex,cn,cal,true)+posBtn(r)
  +'<dl class="more open"><div><dt>'+tx('district')+'</dt><dd>'+dash(r[3])+'</dd></div><div><dt>'+tx('state')+'</dt><dd>'+dash(r[2])+'</dd></div></dl>'
  +'<div class="dsec"><div class="xtra-h"><i class="tg-p">'+tx('xtra_prem')+'</i></div>'+premRows(r,ex)+'</div>'
