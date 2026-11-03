@@ -1,41 +1,41 @@
 {
  "v": 2,
- "updated": "2026-11-01",
- "kid": "4c70f436",
- "akid": "22182361",
+ "updated": "2026-11-03",
+ "kid": "dc29acc7",
+ "akid": "67a7545e",
  "kdf": {
   "name": "PBKDF2-SHA256",
   "iter": 600000,
-  "salt": "FOxlUGRPzn/WKjk2Eq002w=="
+  "salt": "jXDwCnBu0Pb5xf1yGvNY4w=="
  },
  "codes": {
-  "df5ec42e4987953a40bd6bf1521268ed": {
+  "58f4c0c44bfc6b69c99b70e5a544203d": {
    "label": "RJ19",
    "exp": null,
    "tier": "sip",
    "agent": 1,
-   "iv": "uSPNKvFvtc+oFgkw",
-   "wk": "r+3gr0ASXoO2aJ3uBUWxHqLhx2VwRh29PlmHGcA0MmsOax4WNDY86lVoJuLS4yeL",
-   "iv2": "zK9Or11VxmoWaNI+",
-   "wk2": "AnbAWAYieUgikYswq24UcAuvs12HXPshf4ofKESHB0Gjp68U6qlXQjrr4vr8dDUu",
-   "iv3": "u0hgLwhmgTj06AdJ",
-   "wk3": "ogI73amk91gW4Ril2O2OIIWecBdguPBn1KKVkzYLCfVpd/8DFvTRLWSx0Rrswsdt"
+   "iv": "BtUN0E5VtZFOb+cA",
+   "wk": "w3uxzC4EV7zqiNk12XE6eS2V2vhwOfCiHumOWYySek8xb6LchiV5FkJroTccGLZS",
+   "iv2": "g9JU0pFg4u3NXPHa",
+   "wk2": "qcRIkVDS42O+6cwuJtusOfObBAWhEDSN3Vh3QHxYDYx2v8JC4oH6pAPpf1jSNAcQ",
+   "iv3": "AnOMfo6lKnxebLyr",
+   "wk3": "aHmWh/WHWbR6rbhqY630m/ow5CYKw7hVYUN0GUOma806MXbBjdN8UIoVcxik1PD0"
   },
-  "59f396057ed817c9574156082459dd19": {
+  "8280278a2ad0b3bbbc04cbe7b1b24b9e": {
    "label": "CR21",
    "exp": "2026-11-29T23:59:59+08:00",
    "tier": "sip",
-   "iv": "S6SD3dEWwMQCRgZ0",
-   "wk": "/tXi5K1F7LKqBqPtDDRJmXoPOcvJFIwgvwnLG6wJrFDFydwc8RD31Ym8bvT0JNeJ",
-   "iv2": "SHBF9zGHX33Ys74d",
-   "wk2": "gU72hU1bLSUkw+Jg/zakL0N8L+qqbZg5vrm60Rp3npD1zlkqbQyVXOjQavofoCwK"
+   "iv": "u1S82cjNTVBh8J4e",
+   "wk": "dTwrcjV94J1V2aCpMOgS6YU4E3dCkYvA5BpBCw+U9dwlbJ8QxLNKHLi0KV1Lg3qm",
+   "iv2": "lKlVy7TQC899yaEh",
+   "wk2": "DPwx+d1mfivx8IYaqalaRBgGB2L4AUWHUyyIxktuX9YsxKE68lpoqOPBKcdl6F5u"
   },
-  "00adb58078b433a50ba3295d99e0472d": {
+  "2beda75af68b244d9c4dbd342dc5b4cb": {
    "label": "U22",
    "exp": "2026-11-29T23:59:59+08:00",
    "tier": "premium",
-   "iv": "U3LEAvVTKpvTMQKJ",
-   "wk": "iuZ9zrj2j76ZNyVKdHBTx+VCNG9yA4VdkntMitD1YODj/jRHgsMAB7sxjpwgN0ys"
+   "iv": "/KemXqY49cPtQRXf",
+   "wk": "TnV2JA2BKTHJAsQHsyn3AuUXYjfVrGH+Q33cvijbzSZK/1oSyNH3T5E4rAod8tpp"
   }
  }
 }

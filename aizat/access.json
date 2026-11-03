@@ -1,0 +1,25 @@
+{
+ "v": 2,
+ "updated": "2026-11-03",
+ "kid": "dc29acc7",
+ "akid": "67a7545e",
+ "kdf": {
+  "name": "PBKDF2-SHA256",
+  "iter": 600000,
+  "salt": "Lqbfuw/uWfjsqRYut+2zEg=="
+ },
+ "codes": {
+  "72d3c027364581ac1342ee0947fdcc08": {
+   "label": "AA23",
+   "exp": null,
+   "tier": "sip",
+   "agent": 1,
+   "iv": "fqAQjgyq2ZAFg+eJ",
+   "wk": "D8MXvy9tWAgmSJ+iax8/VIvZBQyH4NUPI/9e3DD5k3rbTcxdujhNQB4rzCZF7O3k",
+   "iv2": "A0G/mhjMXsePeQ1I",
+   "wk2": "qIJABzA9ftoTPI9wuKbkLv+IBXYU15Drq8OKJlUxK8KxivBw8696mLKnlUj8tRdh",
+   "iv3": "cVPcHE8sf9Wuztc7",
+   "wk3": "UdPYk1/kX7LvYl5wb3xAE+jeLBOAOWuAuYqc+C2LcksgViLhg/go28hqqHRYy87W"
+  }
+ }
+}
