@@ -494,6 +494,45 @@ body{padding-block-end:100px}
 .lgnote{display:block;color:var(--muted);font-size:.78rem;line-height:1.45;margin:2px 0 0}.card.detail .lgnote{margin-top:6px}
 .gate-agree{font-size:.8rem;color:var(--muted);text-align:center;margin:0;line-height:1.5}
 .mdl-scrim{z-index:52}.mdl{z-index:53}
+/* Phone fit: compact spacing, readable defaults, saved A/A+/A++ sizes still scale. */
+@media screen and (max-width:699px){
+ body{padding-inline:12px;padding-block-start:10px;padding-block-end:calc(80px + env(safe-area-inset-bottom,0px));font-size:calc(16px * var(--fs))}
+ .hd{flex-wrap:wrap;gap:6px}.hd h1{font-size:1.25rem}.hd-acts{gap:6px}.share-all{padding-inline:12px}
+ .sub{font-size:1rem;padding:9px 10px;gap:8px;margin-bottom:10px}
+ .sub-acts{gap:6px}.sub-acts a{min-height:44px;padding-inline:11px;font-size:.9375rem}
+ .tools{gap:6px 10px;margin-bottom:8px}.ts button{min-width:44px;padding-inline:10px}
+ .at-i-g>button.at-i{width:44px;height:44px;margin-left:4px}.at-i-lbl{font-size:.875rem}
+ .start{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .qf-btn{min-width:0;min-height:54px;font-size:1rem;padding:6px 8px;border-radius:12px}.qf-btn small{font-size:.8125rem}
+ .top{gap:6px;padding-block:6px}.top input{min-height:44px;padding:9px 10px;font-size:calc(16px * var(--fs))}
+ .top .qwrap input{padding-right:48px}.qgo{right:1px;width:44px;height:44px}
+ .top .top-lang button{min-width:44px;min-height:44px;padding-inline:5px;font-size:.875rem}
+ #themeTop{min-height:44px;padding-inline:6px;font-size:1rem}
+ #openTop{display:none} /* Filter stays one tap away in the fixed bottom bar. */
+ .top.qopen .qwrap{flex-basis:100%}
+ .list{gap:14px}.status{margin-block:4px 8px}
+ .count-status{min-height:44px;padding-block:3px;gap:6px}
+ #count.count-ready{gap:6px;padding:7px 11px;border-radius:13px}
+ .count-value{font-size:1.25rem}.count-total{font-size:1rem}.count-slash{font-size:1rem}.count-label{font-size:.875rem;max-width:none}
+ .count-status .reset-inline{min-height:44px;padding-inline:10px;font-size:.875rem}
+ .seg{gap:6px}.seg button{padding:5px 10px;font-size:.875rem;min-height:44px}
+ .vip-note{font-size:.875rem;margin-top:6px}
+ .card.v2{padding:10px;gap:7px;border-radius:14px}
+ .card.v2 .head .addr{font-size:1rem}.card.v2 .pricebox{padding:7px 9px;gap:2px 8px}.card.v2 .price{font-size:1.3rem;overflow-wrap:anywhere;white-space:normal}
+ .card.v2 .mv{font-size:1rem}.card.v2 .mv small{font-size:.875rem}.card.v2 .pval-r b{font-size:1.05rem}
+ .card.v2 .pbar{height:auto;min-height:26px;line-height:1.25}.card.v2 .pbar i,.card.v2 .pbar u{padding:4px 2px;white-space:normal;overflow-wrap:anywhere;display:flex;align-items:center;justify-content:center}
+ .card.v2 .when{padding-top:7px}.card.v2 .when .dtx b{font-size:.9375rem}.card.v2 .when .tm .chip{font-size:.8125rem;padding:3px 8px}
+ .card.v2 .specs{padding:8px 9px;gap:6px 8px}.card.v2 .specs b{font-size:.9375rem}
+ .card.v2 .xtra summary{min-height:44px;padding:6px 10px;font-size:.9375rem}
+ .acts.v2.three{grid-template-columns:repeat(3,minmax(0,1fr))}.acts.v2.three .detbtn,.acts.v2.three .posreq span{white-space:normal;overflow-wrap:anywhere}
+ .acts.v3.icons a,.acts.v3.icons button{min-height:44px;font-size:.875rem}
+ .dock{padding:7px 12px calc(7px + env(safe-area-inset-bottom,0px));gap:8px}.dock .btn{min-height:46px;font-size:1rem}.dock #resetBar{padding-inline:12px}
+ .trial-bar{padding:9px 10px;gap:7px;font-size:.9375rem}.trial-bar #haveCode{min-height:44px;font-size:.9375rem}
+ .mdl-head{padding:12px 12px 6px}.mdl-head h2{font-size:1.15rem}.mdl-body{padding:4px 12px 12px;gap:10px;font-size:1rem;line-height:1.45}
+ .mdl-foot{padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px))}.mdl-foot .btn{min-height:46px;font-size:1rem}.big-opts button{min-height:56px;font-size:1rem}
+}
+@media screen and (max-width:359px){.card.v2 .specs.three{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media screen and (max-width:480px){:root[data-size] .acts.v2.three{grid-template-columns:repeat(2,minmax(0,1fr))}:root[data-size] .acts.v2.three>:last-child{grid-column:1/-1}}
 /* printing My list: big plain cards, no buttons */
 @media print{
  *{color:#000!important;background:transparent!important;box-shadow:none!important;text-shadow:none!important}
@@ -2473,7 +2512,7 @@ const clPlan=()=>TRIAL?'f':TIER==='sip'?'v':'p';
 function clDetBtn(){const x=document.querySelector('#list .card .xtra-b .score:not(.na)');return x&&x.closest('.card').querySelector('.detbtn')}
 function clToast(m){const el=G('toast');el.textContent=m;el.hidden=false;clearTimeout(clToast.t);clToast.t=setTimeout(()=>{el.hidden=true},4000)}
 function clSteps(){const c='#list .card ',pl=clPlan(),S=(id,ch,sel,kind)=>({id,ch,v:AVIEW,kind:kind||'info',sel,txt:id}),X=k=>()=>document.querySelector(c+'.xtra-b '+k);   // inside Premium & VIP: atPrep opens the box this part sits in
- return [S('c_hi_'+pl,'','','intro'),S('c_qf','find','#qfBtn'),S('c_q','find','#q'),S('c_filter','find','#openTop'),S('c_tabs','find','#statusSeg'),S('c_price','read',c+'.pricebox'),S('c_when','read',c+'.when')].concat(
+ return [S('c_hi_'+pl,'','','intro'),S('c_qf','find','#qfBtn'),S('c_q','find','#q'),S('c_filter','find',()=>G('openTop').getClientRects().length?G('openTop'):G('openFab')),S('c_tabs','find','#statusSeg'),S('c_price','read',c+'.pricebox'),S('c_when','read',c+'.when')].concat(
   pl==='f'?[S('c_xx','read',c+'.addr')]:[S('c_win','read',X('.wcalc')),S('c_det','read',c+'.detbtn')],
   [S(pl==='f'?'c_icons_f':'c_icons','next',c+'.acts.v3'),S('c_wa','next',c+'.wa-unit')],pl==='f'?[]:[S('c_pos','next',c+'.posreq')],[S('c_call','next','.sub')],
   pl==='f'?[S('c_open','plan','#trialBar')]:pl==='p'?[S('c_lock','plan',X('.xxbox'))]:[S('c_score','plan',X('.score:not(.na)')),S('c_sort','plan','#sort'),S('c_hist','plan','#mdl .hist')],
