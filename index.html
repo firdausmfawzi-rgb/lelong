@@ -1660,16 +1660,16 @@ function faAd(r,kind){const emo=kind==='mudah',a=(ADS&&ADS.units&&ADS.units[r[SI
  if(good)L.push((emo?'❤️ ':'')+'Market Value: '+r[8],(emo?'💎 ':'')+'Potential Profit: RM '+Math.round(mv-p).toLocaleString('en-US'));
  const when=faDate(r[12]);if(when)L.push('',(emo?'📆 ':'')+'Auction Date: '+when);else miss.push('fa_m_date');
  if(when&&isExp(r))miss.push('fa_m_past');
- const am=Array.isArray(a.amen)?a.amen:[];
+ const am=Array.isArray(a.amen)?a.amen.filter(x=>x&&typeof x.n==='string'&&x.n.trim()).slice(0,3):[];
  if(am.length){L.push('','AMENITIES & ACCESSIBILITY:');am.forEach(x=>L.push((emo?(FA_ICON[x.t]||FA_ICON.other)+' ':'- ')+x.n))}else miss.push('fa_m_amen');
  if(emo&&/^https:\/\//i.test(a.map||r[4]||''))L.push('','📍 NEARBY GOOGLE MAPS PIN:',a.map||r[4]);
  L.push('','Kindly note the following:','+ NO INSIDE VIEWING. Self-survey from outside only','+ Cash ready: 10% Deposit | 5% legal cost | 2-5% misc');
  const co=ADS&&Array.isArray(ADS.contact)?ADS.contact:[];if(co.length)L.push('',...co);else miss.push('fa_m_contact');
  let text=L.join('\n');if(!emo)text=text.replace(/\p{Extended_Pictographic}️?/gu,'');
- return {text,miss,src:bed?(a.src||''):'',n:a.n||0,amen:am.length>0}}
+ return {text,miss,src:bed?(a.src||''):'',n:a.n||0,amen:am.length>0,osm:am.length>0&&a.amen_osm===true}}
 function faOpen(r,kind){const ad=faAd(r,kind);copyText(ad.text).then(()=>toast(tx('fa_copied')));
  const src=ad.src==='pos'?tx('fa_src_pos'):ad.src==='ads'?tx('fa_src_ads').replace('{n}',ad.n):'';
- openModal(tx(kind==='mudah'?'fa_mudah':'fa_iprop'),(ad.miss.length?'<p class="fa-note">'+esc(tx('fa_miss'))+' '+ad.miss.map(k=>esc(tx(k))).join(', ')+'</p>':'')+(src?'<p class="fa-src">'+esc(src)+'</p>':'')+(ad.amen?'<p class="fa-src">'+esc(tx('fa_amen'))+'</p>':'')+'<textarea class="fa-text" readonly aria-label="'+esc(tx(kind==='mudah'?'fa_mudah':'fa_iprop'))+'">'+esc(ad.text)+'</textarea>',
+ openModal(tx(kind==='mudah'?'fa_mudah':'fa_iprop'),(ad.miss.length?'<p class="fa-note">'+esc(tx('fa_miss'))+' '+ad.miss.map(k=>esc(tx(k))).join(', ')+'</p>':'')+(src?'<p class="fa-src">'+esc(src)+'</p>':'')+(ad.amen?'<p class="fa-src">'+esc(tx('fa_amen'))+'</p>':'')+(ad.osm?'<p class="fa-src">Amenities: &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors (ODbL)</a></p>':'')+'<textarea class="fa-text" readonly aria-label="'+esc(tx(kind==='mudah'?'fa_mudah':'fa_iprop'))+'">'+esc(ad.text)+'</textarea>',
   '<button class="btn" type="button" id="faAgain">'+esc(tx('fa_again'))+'</button><button class="btn" type="button" data-close>'+esc(tx('close'))+'</button>');
  G('faAgain').onclick=()=>copyText(ad.text).then(()=>toast(tx('fa_copied')))}
 // Agent commission (5/11/2026), for the same view: each unit's rule and amount come in agent/ads.json (tools/commission.py, from the bank table). The amount is on the reserve price.
@@ -2297,7 +2297,7 @@ const TAG={vip:['VIP Investor','<path d="M6 3h12l4 6-10 12L2 9z" fill="currentCo
 var REALAGENT=false,AVIEW='agent',RTRIAL=false,RTIER='',PAID_SITE='';   // PAID_SITE: set on trial sites by partner_sites.py (where access codes work)   // RTIER: the agent code's own plan, kept while a client view changes TIER   // RTRIAL: the free preview switched on in this page (an agent's Free view, a shared link without a code)
 const SHAREH=(location.hash||'').length>1;
 const TRIAL_DATA='https://lelongbidgroup.com/trial/data2.json';   // the free preview's masked listings (v2, 1/11/2026: photo, discount and map link open; address and paid values masked), the same file every trial site reads
-function faOn(){return REALAGENT&&ISAGENT&&!!ACODE&&!TRIAL&&/^(www\.)?lelongbidgroup\.com$/.test(location.hostname)}   // For Admin: the agent view of the main site only
+function faOn(){return KP==='lelong.'&&REALAGENT&&ISAGENT&&!!ACODE&&!TRIAL&&/^(www\.)?lelongbidgroup\.com$/.test(location.hostname)}   // For Admin: the agent view of the main site only
 function agentView(){REALAGENT=!!ISAGENT;if(!REALAGENT)return;RTIER=TIER;let v='agent';try{v=sessionStorage.getItem(KP+'aview')||'agent'}catch(e){}
  if(v==='vip'&&TIER==='sip'){AVIEW='vip';ISAGENT=false}
  else if(v==='prem'){AVIEW='prem';ISAGENT=false;TIER='premium'}   // what a Premium client sees: the score locked, no 12-month history
