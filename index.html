@@ -1144,8 +1144,10 @@ document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(AT&&!AT.cl
 G('guideBtn').onclick=()=>guideOpen();
 G('bannerWa').addEventListener('click',()=>gtrack('whatsapp_banner_click'));G('bannerCall').addEventListener('click',()=>gtrack('call_click'));
 applyI18n();sizeUI();
-// back to top: shows after two screens of scrolling
-(function(){const b=document.getElementById('toTop');if(!b)return;const on=()=>b.classList.toggle('on',scrollY>innerHeight*1.5);addEventListener('scroll',on,{passive:true});b.onclick=()=>scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})})();
+// The main listing uses Reset in its dock; generated partner pages have their own controls.
+(function(){const b=document.getElementById('toTop');if(!b)return;
+ if(KP==='lelong.'&&!TRIAL){b.remove();return}
+ const on=()=>b.classList.toggle('on',scrollY>innerHeight*1.5);addEventListener('scroll',on,{passive:true});b.onclick=()=>scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})})();
 function boot(DATA,META){
 const $=G;
 const POS=new Map(DATA.map((r,i)=>[r,i]));   // original order, for stable 'Newest listing' ties (no indexOf per comparison)
