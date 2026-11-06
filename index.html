@@ -2145,7 +2145,16 @@ function faTelegram(r) {
   const s = String(value ?? '').replace(/\s+/g,' ').trim();
   return /^(?:-|n\/?a|nil|null|unknown|locked2?|xx)?$/i.test(s) ? '' : s;
  };
- const address = clean(r[1]), type = clean(faType(r,a).plain);
+ const address = clean(r[1]), plainType = clean(faType(r,a).plain);
+ const positionText = high ? '' : clean(r[5])+' '+plainType;
+ const end = /\bend[\s-]+(?:unit|lot)\b/i.test(positionText);
+ const corner = /\bcorner\b/i.test(positionText);
+ const position = end && !corner ? 'End Unit' : corner && !end ? 'Corner Lot' :
+  !high && (end || a.corner) ? 'End / corner unit' : '';
+ // Put an explicit lot position on its own line, separate from the house type.
+ const type = position && end!==corner ? plainType
+  .replace(/\(?\s*\b(?:end[\s-]+(?:unit|lot)|corner(?:[\s-]+(?:unit|lot))?)\b\s*\)?/ig,' ')
+  .replace(/\s+house\s*$/i,'').trim().replace(/\s+/g,' ') || plainType : plainType;
  const area = faArea(address).map(clean).filter(Boolean);
  const district = clean(r[3]), state = clean(r[2]);
  const parts = address.split(',').map(s=>s.trim());
@@ -2166,20 +2175,17 @@ function faTelegram(r) {
  const pending = stOf(r)==='unsold';
  const title = [project || type,place].filter(Boolean).join(high?', ':' @ ');
  if (title) lines.push((!pending && discount?'MURAH! ':'')+title+
-  (!pending && high && discount?' - ✅'+discount+'% Discount!':''));
- if (!pending && discount) lines.push('', 'Below Market Value '+discount+'% 😍');
+  (!pending && high && discount?'- ✅'+discount+'% Discount!':''));
+ if (!pending && discount) lines.push('', 'Below Market Value '+discount+(high?'% 😍':'%  😍'));
  if (address) lines.push('', (high?'📌 ':'🏠 ')+address);
  const details = [];
  const fact = value => { if(value) details.push('✅ '+value); };
  if (project) details.push('🏠 '+project);
  fact(type);
- const positionText = clean(r[5]);
- const exactPosition = /\bend[\s-]+(?:unit|lot)\b/i.test(positionText) ? 'End Unit' :
-  /\bcorner(?:[\s-]+(?:unit|lot))?\b/i.test(positionText) ? 'Corner Lot' : '';
- if (!high && !exactPosition && a.corner) fact('End / corner unit');
- else if (!high && exactPosition && !type.toLowerCase().includes(exactPosition.toLowerCase())) fact(exactPosition);
- if (!high && clean(r[10])) fact('Land Area: '+clean(r[10]));
- if (clean(r[11])) fact((high?'Size: ':'Built Up: ')+clean(r[11]));
+ if (position && position.toLowerCase()!==type.toLowerCase()) fact(position);
+ const areaSize = (v,unit)=>clean(v).replace(/(\d)\s*sq\.?\s*(?:ft|feet)\b\.?/gi,'$1 '+unit);
+ if (!high && clean(r[10])) fact('Land Area: '+areaSize(r[10],'Sq.ft'));
+ if (clean(r[11])) fact((high?'Size : ':'Built Up: ')+areaSize(r[11],high?'sqft':'Sq.ft'));
  const tenure = clean(r[9]);
  if (high) fact(tenure.toUpperCase());
  const restriction = ['Bumi Lot','Malay Reserve','Native Land'].includes(a.tg_restriction) ? a.tg_restriction : '';
@@ -2188,50 +2194,62 @@ function faTelegram(r) {
  const bed = room(a.bed) || room(r[23]), bath = room(a.bath) || room(r[24]);
  const car = room(a.car) || room(r[25]);
  const rooms = [bed && bed+(bed==='1'?' Bedroom':' Bedrooms'),bath && bath+(bath==='1'?' Bathroom':' Bathrooms')].filter(Boolean);
- if (rooms.length) fact((!high || a.src==='ads'?'Approx. ':'')+rooms.join(high?', ':' | '));
+ if (rooms.length) fact((!high || a.src==='ads'?'Approx. ':'')+rooms.join(high?',':' | '));
  else if (high || /terrace|bungalow|semi.?detached|townhouse/i.test(type)) miss.push('fa_m_rooms');
  if (car) fact(car+(car==='1'?' Carpark':' Carparks'));
  if (!high) fact(tenure);
  if (high && /^(?:19|20)\d{2}$/.test(clean(r[19]))) fact('Completed year '+clean(r[19]));
- if (details.length) lines.push('', 'PROPERTY DETAILS:',...details);
+ if (details.length) lines.push('',high?'PROPERTY DETAILS':'PROPERTY DETAILS:',...details);
  const prices = [];
- if (reserve) prices.push(pending?'Last auction price: '+faRm(reserve):'🔥 Force Sale: '+faRm(reserve)+' 🔥');
+ if (reserve) prices.push(pending?'Last auction price: '+faRm(reserve):
+  high?'🔥Force Sale          : '+faRm(reserve)+'🔥':'🔥 Force Sale: '+faRm(reserve)+' 🔥');
  else miss.push('fa_m_price');
- if (market) prices.push('❤️ Market Value: '+faRm(market));
+ if (market) prices.push((high?'❤️Market Value     : ':'❤️ Market Value: ')+faRm(market));
  else miss.push('fa_m_mv');
- if (saving && !pending) prices.push('💎 Potential Profit: '+faRm(saving));
+ if (saving && !pending) prices.push((high?'💎Potential Profit    : ':'💎 Potential Profit: ')+faRm(saving));
  if (prices.length) lines.push('',...prices);
  const auction = faDate(r[12]);
  if (pending) lines.push('', '📆 Auction date: Pending next auction');
  else if (auction) {
   const d = new Date(dt(r[12])), pad = n=>String(n).padStart(2,'0');
-  lines.push('', '📆 Auction Date: '+(high?pad(d.getDate())+'/'+pad(d.getMonth()+1)+'/'+d.getFullYear():auction));
+  lines.push('',high?'📆 Auction date      : '+pad(d.getDate())+'/'+pad(d.getMonth()+1)+'/'+d.getFullYear():'📆 Auction Date: '+auction);
   if (isExp(r)) miss.push('fa_m_past');
  } else miss.push('fa_m_date');
  const nearby = high ? {amen:[]} : faNearby(r,a);
  if (nearby.amen.length || nearby.highway) {
   lines.push('', 'CONVENIENCES:');
-  nearby.amen.forEach(item=>lines.push((FA_ICON[item.t]||FA_ICON.other)+' '+item.n));
+  nearby.amen.forEach(item=>{
+   const waterfront = /^(?:park|other)$/.test(item.t) && /\bwaterfront\b/i.test(item.n);
+   lines.push((waterfront?'🌊':(FA_ICON[item.t]||FA_ICON.other))+' '+item.n);
+  });
   if (nearby.highway) lines.push('🚗 Easy access via '+nearby.highway);
  } else if (!high) miss.push('fa_m_amen');
- const originalMap = faTelegramMap(r[4]);
- const map = faTelegramMap(a.map) || originalMap;
- if (map) {
-  const mapData = new URL(originalMap || map);
-  const query = mapData.searchParams.get('query') || mapData.searchParams.get('q');
-  const pin = hasPin(r) || mapData.pathname.startsWith('/maps/place/') ||
-   /^[-+]?\d{1,3}(?:\.\d+)?\s*,\s*[-+]?\d{1,3}(?:\.\d+)?$/.test(query || '');
-  const caption = pin ? '📍 NEARBY GOOGLE MAPS PIN:' :
-   query || mapData.pathname.startsWith('/maps/search/') ? '📍 GOOGLE MAPS (ADDRESS SEARCH):' : '📍 GOOGLE MAPS LOCATION:';
-  lines.push('',caption,map);
+ if (!high) {
+  const originalMap = faTelegramMap(r[4]);
+  const map = faTelegramMap(a.map) || originalMap;
+  if (map) {
+   const mapData = new URL(originalMap || map);
+   const query = mapData.searchParams.get('query') || mapData.searchParams.get('q');
+   const pin = hasPin(r) || mapData.pathname.startsWith('/maps/place/') ||
+    /^[-+]?\d{1,3}(?:\.\d+)?\s*,\s*[-+]?\d{1,3}(?:\.\d+)?$/.test(query || '');
+   const caption = pin ? '📍 NEARBY GOOGLE MAPS PIN:' :
+    query || mapData.pathname.startsWith('/maps/search/') ? '📍 GOOGLE MAPS (ADDRESS SEARCH):' : '📍 GOOGLE MAPS LOCATION:';
+   lines.push('',caption,map);
+  } else miss.push('fa_m_map');
  }
- else miss.push('fa_m_map');
+ if (high) lines.push('');
  lines.push('','Kindly note the following:',
   '+ NO INSIDE VIEWING. Self-survey from outside only',
   '+ Cash ready: 10% Deposit | 5% legal cost | 2-5% misc');
  const contacts = ADS?.telegram_contacts?.[high?'highrise':'landed'];
  if (Array.isArray(contacts) && contacts.length===3 && contacts.every(v=>typeof v==='string' && !/[\r\n]/.test(v) && clean(v))) {
-  lines.push('',high?'Contact Our Team ->':'Contact Our Team:',...contacts.map(v=>v.trim()));
+  lines.push('',high?'Contact Our Team ->':'Contact Our Team:');
+  if (high) lines.push('');
+  contacts.forEach((value,index)=>{
+   const line = value.trim();
+   const contact = high && /^([\p{L}][\p{L}\p{M} .'’()-]*?)[ \t]+(\+?\d[\d ()-]{5,}\d)$/u.exec(line);
+   lines.push(contact ? contact[1]+(index===0?'  ':'   ')+contact[2] : line);
+  });
  } else miss.push('fa_m_contact');
  lines.push('','📢 Get FIRST ACCESS!', 'View our website:', 'https://client.lelongbidgroup.com',
   'Join my Telegram:', 'https://t.me/lelongbid8');
