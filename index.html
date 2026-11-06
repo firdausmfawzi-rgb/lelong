@@ -197,6 +197,7 @@ html.trial #cyNote,html.trial #bmvSeg,html.trial #cyBtn,html.trial #cyPanel{disp
 .bmvrow{display:flex;align-items:center;gap:6px;margin-top:4px}
 .bmv{align-self:flex-start;background:var(--prem-bg);color:var(--prem);border-radius:99px;padding:6px 14px;font-weight:800;font-size:1rem}
 .addr{font-size:1.15rem;font-weight:700;line-height:1.4;overflow-wrap:anywhere}
+.rail-walk-note{display:flex;align-items:flex-start;gap:.45em;padding:.4em .65em;border-inline-start:3px solid var(--save);border-radius:8px;background:var(--ok-bg);color:var(--save);font-size:.95rem;font-weight:700;line-height:1.35;overflow-wrap:anywhere}
 .card.simple .addr{font-size:1.25rem}.card.simple .price{font-size:2rem}
 .dims{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 12px;padding:10px 12px;background:var(--bg);border-radius:12px}
@@ -1007,6 +1008,7 @@ h_bmv:'<p><b>Market value</b> is the value of the property estimated by a valuer
 h_tenure_t:'Freehold and leasehold',
 h_tenure:'<p><b>Freehold</b> - you own it with no time limit.</p><p><b>Leasehold</b> - you own it for a fixed period, for example 99 years. When a date is shown, it is when the lease ends. Fewer years left usually means a lower value.</p>',
 f_rail:'KTM / LRT / MRT',rail_walk:'Verified walk below 1 km',
+rail_card_walk:'{metres} m walk to {station}',
 dad_all_owners:"All admins",
 dad_heading:"Admin Done Ads",
 dad_state:"Posting status",
@@ -1099,6 +1101,7 @@ h_bmv:'<p><b>Nilai pasaran</b> ialah nilai hartanah yang dianggarkan oleh penila
 h_tenure_t:'Freehold dan leasehold',
 h_tenure:'<p><b>Freehold (pegangan bebas)</b> - milik anda tanpa had masa.</p><p><b>Leasehold (pajakan)</b> - milik anda untuk tempoh tertentu, contohnya 99 tahun. Jika ada tarikh, itu tarikh pajakan tamat. Baki tahun yang sedikit biasanya bermaksud nilai lebih rendah.</p>',
 f_rail:'KTM / LRT / MRT',rail_walk:'Jalan kaki disahkan bawah 1 km',
+rail_card_walk:'{metres} m jalan kaki ke {station}',
 dad_all_owners:"Semua admin",
 dad_heading:"Admin Done Ads",
 dad_state:"Status iklan",
@@ -1825,6 +1828,16 @@ function dadSync(){
 function dadRefresh(){if(faOn())DAD.refresh()}
 
 function railFilterOn(){return faOn()&&!!(ADS&&ADS.units)}
+function listingTrain(r){
+ if (!railFilterOn()) return null;
+ return faTrain(ADS.units[r[SID]]?.jay_amenities_v1);
+}
+function railWalkNote(r){
+ const train = listingTrain(r);
+ if (!train) return '';
+ const label = tx('rail_card_walk', {metres: train.walking_m, station: train.official_name});
+ return '<div class="rail-walk-note"><span aria-hidden="true">🚆</span><span>'+esc(label)+'</span></div>';
+}
 function railSelected(){return railFilterOn()&&railOnly}
 function railUI(){const on=railFilterOn();if(!on)railOnly=false;$('railFld').hidden=!on;$('railToggle').setAttribute('aria-pressed',String(railSelected()))}
 function paint(){
@@ -1856,7 +1869,7 @@ function filtered(skip){
  if(favMode&&!skip)return DATA.filter(r=>FAV.has(r[20]));
  const qw=qToks(),n=$('negeri').value,j=$('jenis').value,pg=$('pegangan').value,bs=$('bankSel').value;
  const dadOwner=faOn()?$('dadOwner').value:'',dadState=faOn()?$('dadState').value:'';
- return DATA.filter(r=>dadMatch(r,dadOwner,dadState,skip)&&inPrice(r)&&(!qw.length||qw.every(w=>hay(r).includes(w)))&&(!NEWONLY||isNew(r))&&(!n||r[2]===n)&&(!selD.size||selD.has(r[3]))&&(skip==='jenis'||!j||r[28]===j)&&(skip==='pegangan'||!pg||tenOf(r)===pg)&&(skip==='bankSel'||!bs||(faC(r)||{}).b===bs)&&(!bmv||bmvv(r)>=bmv)&&(!laca||r[17]===laca)&&(!railSelected()||!!faTrain((ADS.units[r[SID]]||{}).jay_amenities_v1))&&(skip==='tarikh'||!selT.size||selT.has(r[12]))&&(skip==='cat'||skip==='catcy'||!$('cat').value||r[21]===$('cat').value)&&(skip==='cy'||skip==='catcy'||!selY.size||selY.has(r[19]))&&(status==='all'||(status==='available'?isAvail(r):stOf(r)===status)));
+ return DATA.filter(r=>dadMatch(r,dadOwner,dadState,skip)&&inPrice(r)&&(!qw.length||qw.every(w=>hay(r).includes(w)))&&(!NEWONLY||isNew(r))&&(!n||r[2]===n)&&(!selD.size||selD.has(r[3]))&&(skip==='jenis'||!j||r[28]===j)&&(skip==='pegangan'||!pg||tenOf(r)===pg)&&(skip==='bankSel'||!bs||(faC(r)||{}).b===bs)&&(!bmv||bmvv(r)>=bmv)&&(!laca||r[17]===laca)&&(!railSelected()||listingTrain(r))&&(skip==='tarikh'||!selT.size||selT.has(r[12]))&&(skip==='cat'||skip==='catcy'||!$('cat').value||r[21]===$('cat').value)&&(skip==='cy'||skip==='catcy'||!selY.size||selY.has(r[19]))&&(status==='all'||(status==='available'?isAvail(r):stOf(r)===status)));
 }
 // Budget: auction price between From and To (either may be empty). A unit with no price is left out while a range is set.
 const priceLo=()=>num($('pMin').value),priceHi=()=>num($('pMax').value);
@@ -2059,7 +2072,7 @@ function card(r,i){
  return '<article class="card v2'+(ex?' expired':'')+(simple?' simple':'')+(sharedId?' hl':'')+'" data-k="'+i+'" data-id="'+esc(r[20])+'">'+hz+(ex?'<div class="exp-tag '+st+'">'+tagText(r,st)+'</div>':'')
  +kindLine(r,cn)
  +'<div class="head"><span class="num">'+(i+1)+'</span><div class="addr">'+hlAddr(r[1])+'</div>'+(TRIAL?'':'<button type="button" class="cpy" data-id="'+esc(r[20])+'" aria-label="'+esc(tx('copy_al'))+'" title="'+esc(tx('copy_al'))+'">'+CPY+'</button>')+'</div>'
- +priceBox(r,ex,fire,bt,onPhoto)
+ +railWalkNote(r)+priceBox(r,ex,fire,bt,onPhoto)
  +(st==='unsold'&&liveUnsold(r)?unsoldNote(r):'')   // the No bidder note right under the last price it refers to (4/11/2026)
  +whenRows(r,ex,cn,cal)
  +specBox(r)
@@ -2076,7 +2089,7 @@ function detailHtml(r){
  const hz=hero(r).replace('loading="lazy"','loading="eager"');
  return '<div class="card detail'+(ex?' expired':'')+'" data-id="'+esc(r[20])+'">'+hz+(ex?'<div class="exp-tag '+st+'">'+tagText(r,st)+'</div>':'')
  +kindLine(r,'',true)+'<div class="head"><div class="addr">'+esc(r[1])+'</div>'+(TRIAL?'':'<button type="button" class="cpy" data-id="'+esc(r[20])+'" aria-label="'+esc(tx('copy_al'))+'" title="'+esc(tx('copy_al'))+'">'+CPY+'</button>')+'</div>'
- +priceBox(r,ex,fire,bt,false,true)
+ +railWalkNote(r)+priceBox(r,ex,fire,bt,false,true)
  +(st==='unsold'&&liveUnsold(r)?unsoldNote(r):'')
  +dims(r,condo)+whenRows(r,ex,cn,cal,true)+posBtn(r)
  +'<dl class="more open"><div><dt>'+tx('district')+'</dt><dd>'+dash(r[3])+'</dd></div><div><dt>'+tx('state')+'</dt><dd>'+dash(r[2])+'</dd></div></dl>'
