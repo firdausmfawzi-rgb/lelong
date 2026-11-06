@@ -1621,6 +1621,36 @@ function specBox(r){const v=x=>locked(x)?XX:dash(x),c=(k,x)=>'<div><span>'+tx(k)
  return '<div class="specs'+(high?'':' three')+'">'+(high?'':c('land',r[10]))+c('built_up',r[11])+c('cy',r[19])+'<div class="sp-bank"><span>'+tx('bank')+'</span><b>'+v(r[16])+'</b></div></div>'}
 function mapBtn(r,short){return /^https:\/\//i.test(r[4]||'')?'<a class="map" href="'+esc(satUrl(r[4]))+'" target="_blank" rel="noopener"><svg class="pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7z" fill="#e53935"/><circle cx="12" cy="9" r="2.6" fill="#fff"/></svg>'+(short?tx('map_short'):'Google Maps')+'</a>':''}
 // For Admin (5/11/2026): the two portal ad texts, built here from the listing. What a listing lacks (rooms, carpark, corner lot, amenities, the contact block) comes from agent/ads.json, sealed with the agent key.
+// Researched nearby places for the main specialist templates.
+function faNearby(r, a) {
+ const legacy = Array.isArray(a.amen) ? a.amen : [];
+ if (!faOn()) return {amen: legacy.slice(0, 3), osm: a.amen_osm === true};
+ const research = a.jay_amenities_v1;
+ const locations = research ? research.amen : legacy;
+ const amen = [];
+ const rail = research && research.train;
+ if (rail && rail.verified === true && rail.route_mode === 'walking' &&
+     (rail.property_pin_verified === true || rail.project_route_verified === true || rail.mapped_address_verified === true) &&
+     Number.isInteger(rail.walking_m) && rail.walking_m > 0 && rail.walking_m < 1000 &&
+     typeof rail.source_url === 'string' && /^https:\/\/[^\s/]+\//.test(rail.source_url) &&
+     typeof rail.official_name === 'string' && /\b(?:MRT|KTM|LRT)\b/i.test(rail.official_name)) {
+  const start = rail.project_route_verified ? 'from the development' :
+   (rail.mapped_address_verified ? 'from the mapped street address' : 'from the property entrance');
+  amen.push({t: 'transit', n: rail.official_name + ' (approx. ' + rail.walking_m + ' m walk ' + start + ')'});
+ }
+ for (const item of Array.isArray(locations) ? locations : []) {
+  if (amen.length === 2) break;
+  if (!item || !['hospital','school','shop','mosque','park','other'].includes(item.t) || typeof item.n !== 'string') continue;
+  const name = item.n.trim();
+  if (!name || /[\r\n]/.test(name) || /\b(?:railway|rail station|LRT|MRT|KTM|monorail|BRT|expressway|highway|lebuhraya)\b/i.test(name)) continue;
+  if (/^(?:AEON(?: Big| Mall)?|Econsave|Mydin|99\s*Speed\s*Mart|7[- ]?Eleven|Tesco|Giant|Lotus['’]?s?|Billion|Eco[- ]Shop|NSK|Segi Fresh|TF Value[- ]Mart|KK (?:Super )?Mart|Mr\.? DIY|Columbia Asia Hospital|shop|school|hospital|mall)$/i.test(name)) continue;
+  if (!amen.some(place => place.n.toLowerCase() === name.toLowerCase())) amen.push({t: item.t, n: name});
+ }
+ const road = research && research.highway;
+ const highway = road && road.t === 'road' && typeof road.n === 'string' ? road.n.trim() : '';
+ return {amen, highway, osm: research ? research.osm === true : a.amen_osm === true};
+}
+
 const FA_ICON={shop:'🛍️',hospital:'🏥',school:'🏫',road:'🚗',transit:'🚆',mosque:'🕌',park:'🌳',other:'📌'};
 const FA_MON=['January','February','March','April','May','June','July','August','September','October','November','December'];
 const FA_UNIT=/^(nos?\b|unit\b|lot\b|pt\b|ptd\b|tb\b|hs\b|parcel\b|suite\b|plot\b|sublot\b|geran\b|mdld\b|gm\b|mbkt\b|mpkt\b|nt\b|town\s+lease\b|post\s+box\b)/i,FA_BARE=/^[a-z]{0,3}[-\s]?\d[\w-]*$/i;   // a house, unit or lot number: the keyword anywhere, or a bare number at the start
@@ -1661,16 +1691,17 @@ function faAd(r,kind){const emo=kind==='mudah',a=(ADS&&ADS.units&&ADS.units[r[SI
  if(good)L.push((emo?'❤️ ':'')+'Market Value: '+r[8],(emo?'💎 ':'')+'Potential Profit: RM '+Math.round(mv-p).toLocaleString('en-US'));
  const when=faDate(r[12]);if(when)L.push('',(emo?'📆 ':'')+'Auction Date: '+when);else miss.push('fa_m_date');
  if(when&&isExp(r))miss.push('fa_m_past');
- const am=Array.isArray(a.amen)?a.amen:[];
+ const nearby=faNearby(r,a),am=nearby.amen;
  if(am.length){L.push('','AMENITIES & ACCESSIBILITY:');am.forEach(x=>L.push((emo?(FA_ICON[x.t]||FA_ICON.other)+' ':'- ')+x.n))}else miss.push('fa_m_amen');
+ if(nearby.highway)L.push('', 'NEARBY HIGHWAY:', (emo?FA_ICON.road+' ':'- ')+nearby.highway);
  if(emo&&/^https:\/\//i.test(a.map||r[4]||''))L.push('','📍 NEARBY GOOGLE MAPS PIN:',a.map||r[4]);
  L.push('','Kindly note the following:','+ NO INSIDE VIEWING. Self-survey from outside only','+ Cash ready: 10% Deposit | 5% legal cost | 2-5% misc');
  const co=ADS&&Array.isArray(ADS.contact)?ADS.contact:[];if(co.length)L.push('',...co);else miss.push('fa_m_contact');
  let text=L.join('\n');if(!emo)text=text.replace(/\p{Extended_Pictographic}️?/gu,'');
- return {text,miss,src:bed?(a.src||''):'',n:a.n||0,amen:am.length>0}}
+ return {text,miss,src:bed?(a.src||''):'',n:a.n||0,amen:am.length>0,osm:!!(am.length||nearby.highway)&&nearby.osm}}
 function faOpen(r,kind){const ad=faAd(r,kind);copyText(ad.text).then(()=>toast(tx('fa_copied')));
  const src=ad.src==='pos'?tx('fa_src_pos'):ad.src==='ads'?tx('fa_src_ads').replace('{n}',ad.n):'';
- openModal(tx(kind==='mudah'?'fa_mudah':'fa_iprop'),(ad.miss.length?'<p class="fa-note">'+esc(tx('fa_miss'))+' '+ad.miss.map(k=>esc(tx(k))).join(', ')+'</p>':'')+(src?'<p class="fa-src">'+esc(src)+'</p>':'')+(ad.amen?'<p class="fa-src">'+esc(tx('fa_amen'))+'</p>':'')+'<textarea class="fa-text" readonly aria-label="'+esc(tx(kind==='mudah'?'fa_mudah':'fa_iprop'))+'">'+esc(ad.text)+'</textarea>',
+ openModal(tx(kind==='mudah'?'fa_mudah':'fa_iprop'),(ad.miss.length?'<p class="fa-note">'+esc(tx('fa_miss'))+' '+ad.miss.map(k=>esc(tx(k))).join(', ')+'</p>':'')+(src?'<p class="fa-src">'+esc(src)+'</p>':'')+(ad.amen?'<p class="fa-src">'+esc(tx('fa_amen'))+'</p>':'')+(ad.osm?'<p class="fa-src">Amenities: &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors (ODbL)</a></p>':'')+'<textarea class="fa-text" readonly aria-label="'+esc(tx(kind==='mudah'?'fa_mudah':'fa_iprop'))+'">'+esc(ad.text)+'</textarea>',
   '<button class="btn" type="button" id="faAgain">'+esc(tx('fa_again'))+'</button><button class="btn" type="button" data-close>'+esc(tx('close'))+'</button>');
  G('faAgain').onclick=()=>copyText(ad.text).then(()=>toast(tx('fa_copied')))}
 // Agent commission (5/11/2026), for the same view: each unit's rule and amount come in agent/ads.json (tools/commission.py, from the bank table). The amount is on the reserve price.
@@ -2298,7 +2329,7 @@ const TAG={vip:['VIP Investor','<path d="M6 3h12l4 6-10 12L2 9z" fill="currentCo
 var REALAGENT=false,AVIEW='agent',RTRIAL=false,RTIER='',PAID_SITE='';   // PAID_SITE: set on trial sites by partner_sites.py (where access codes work)   // RTIER: the agent code's own plan, kept while a client view changes TIER   // RTRIAL: the free preview switched on in this page (an agent's Free view, a shared link without a code)
 const SHAREH=(location.hash||'').length>1;
 const TRIAL_DATA='https://lelongbidgroup.com/trial/data2.json';   // the free preview's masked listings (v2, 1/11/2026: photo, discount and map link open; address and paid values masked), the same file every trial site reads
-function faOn(){return REALAGENT&&ISAGENT&&!!ACODE&&!TRIAL&&/^(www\.)?lelongbidgroup\.com$/.test(location.hostname)}   // For Admin: the agent view of the main site only
+function faOn(){return KP==='lelong.'&&REALAGENT&&ISAGENT&&!!ACODE&&!TRIAL&&/^(www\.)?lelongbidgroup\.com$/.test(location.hostname)}   // For Admin: the agent view of the main site only
 function agentView(){REALAGENT=!!ISAGENT;if(!REALAGENT)return;RTIER=TIER;let v='agent';try{v=sessionStorage.getItem(KP+'aview')||'agent'}catch(e){}
  if(v==='vip'&&TIER==='sip'){AVIEW='vip';ISAGENT=false}
  else if(v==='prem'){AVIEW='prem';ISAGENT=false;TIER='premium'}   // what a Premium client sees: the score locked, no 12-month history
