@@ -892,6 +892,7 @@ body{padding-block-end:100px}
 <div class="fld"><span id="priceLbl"><span data-i18n="fl_price">Auction Price (RM) - your budget</span><button type="button" class="q" data-h="price" aria-label="What does this mean?" data-i18n-al="what">?</button></span><div class="pr"><label class="pr-f"><span data-i18n="p_from_l">From</span><input id="pMin" type="text" inputmode="numeric" placeholder="e.g. 100,000" data-i18n-ph="p_from" autocomplete="off" aria-label="Minimum auction price in RM" data-i18n-al="p_from_al"></label><label class="pr-f"><span data-i18n="p_to_l">To</span><input id="pMax" type="text" inputmode="numeric" placeholder="e.g. 300,000" data-i18n-ph="p_to" autocomplete="off" aria-label="Maximum auction price in RM" data-i18n-al="p_to_al"></label></div></div>
 <div class="fld" id="bmvFld"><span><span data-i18n="fl_bmv">Discount from market value (at least)</span><button type="button" class="q" data-h="bmv" aria-label="What does this mean?" data-i18n-al="what">?</button></span><div class="seg" id="bmvSeg"></div></div>
 <div class="fld"><span><span>LACA</span><button type="button" class="q" data-h="laca" aria-label="What does this mean?" data-i18n-al="what">?</button></span><div class="seg" id="lacaSeg"></div></div>
+<div class="fld" id="railFld" hidden><span data-i18n="f_rail">KTM / LRT / MRT</span><div class="seg"><button type="button" id="railToggle" aria-pressed="false" data-i18n="rail_walk">Verified walk below 1 km</button></div></div>
 </div>
 <div class="sh-foot"><button class="btn rs" type="button" data-i18n="reset_all">Reset all</button><button class="btn primary" id="apply" type="button">Show</button></div>
 </div>
@@ -980,6 +981,7 @@ h_bmv_t:'Market value and discount',
 h_bmv:'<p><b>Market value</b> is the value of the property estimated by a valuer for the bank.</p><p><b>Below market value</b> shows how much cheaper the auction price is. Example: "30% below market value" means a property worth RM 100,000 starts at RM 70,000.</p><p>If a market value looks wrong, it is shown as N/A.</p>',
 h_tenure_t:'Freehold and leasehold',
 h_tenure:'<p><b>Freehold</b> - you own it with no time limit.</p><p><b>Leasehold</b> - you own it for a fixed period, for example 99 years. When a date is shown, it is when the lease ends. Fewer years left usually means a lower value.</p>',
+f_rail:'KTM / LRT / MRT',rail_walk:'Verified walk below 1 km',
 h_laca_t:'LACA and Non-LACA',
 h_laca:'<p><b>LACA</b> - the house title (geran) is not in the owner’s name yet, so the bank sells the owner’s rights under the loan agreement. Moving the property into your name can take longer.</p><p>In most LACA cases, the unpaid maintenance fee, quit rent (cukai tanah) and assessment (cukai pintu) can be claimed back from the bank.</p><p><b>Non-LACA</b> - the title (geran) is already in the owner’s name. The auction is ordered by the court or the land office.</p><p>In most Non-LACA cases, the unpaid maintenance fee cannot be claimed back. Only quit rent (cukai tanah) and assessment (cukai pintu) can be claimed.</p>',
 h_restr_t:'Restrictions',
@@ -1053,6 +1055,7 @@ h_bmv_t:'Nilai pasaran dan diskaun',
 h_bmv:'<p><b>Nilai pasaran</b> ialah nilai hartanah yang dianggarkan oleh penilai untuk bank.</p><p><b>Bawah nilai pasaran</b> menunjukkan berapa lebih murah harga lelong. Contoh: "30% bawah nilai pasaran" bermaksud hartanah bernilai RM 100,000 bermula pada RM 70,000.</p><p>Jika nilai pasaran nampak salah, ia ditunjukkan sebagai N/A.</p>',
 h_tenure_t:'Freehold dan leasehold',
 h_tenure:'<p><b>Freehold (pegangan bebas)</b> - milik anda tanpa had masa.</p><p><b>Leasehold (pajakan)</b> - milik anda untuk tempoh tertentu, contohnya 99 tahun. Jika ada tarikh, itu tarikh pajakan tamat. Baki tahun yang sedikit biasanya bermaksud nilai lebih rendah.</p>',
+f_rail:'KTM / LRT / MRT',rail_walk:'Jalan kaki disahkan bawah 1 km',
 h_laca_t:'LACA dan Non-LACA',
 h_laca:'<p><b>LACA</b> - geran rumah belum atas nama pemilik, jadi bank menjual hak pemilik di bawah perjanjian pinjaman. Pindah milik ke nama anda boleh mengambil masa lebih lama.</p><p>Dalam kebanyakan kes LACA, tunggakan yuran penyelenggaraan (maintenance fee), cukai tanah dan cukai pintu boleh dituntut semula daripada bank.</p><p><b>Non-LACA</b> - geran sudah atas nama pemilik. Lelong diarahkan oleh mahkamah atau pejabat tanah.</p><p>Dalam kebanyakan kes Non-LACA, tunggakan yuran penyelenggaraan tidak boleh dituntut. Hanya cukai tanah dan cukai pintu boleh dituntut.</p>',
 h_restr_t:'Sekatan',
@@ -1162,7 +1165,7 @@ const GENT={'Apartment / Condo / SOHO':1,'Terrace / Link / Townhouse':1,'Semi-De
 fill($('jenis'),uniq(28),tx('all_type',{n:DATA.length}));
 const selT=new Set();   // Auction Date: any number of dates can be ticked at once
 const selY=new Set();   // Completion Year (only offered under Condominium / Apartment / SOHO): any number of years
-let bmv=0,laca='',status='available';   // 'available' = Active + Unsold (shown as "No bidder"): what a client's search shows by default
+let bmv=0,laca='',railOnly=false,status='available';   // 'available' = Active + Unsold (shown as "No bidder"): what a client's search shows by default
 let sharedId=(location.hash||'').slice(1)||null;   // a shared link's unit: its share id (sid), or the real id in links made before 30/10/2026
 if(sharedId){const m=DATA.find(r=>r[20]===sharedId||r[SID]===sharedId);sharedId=m?m[20]:null}
 const track=gtrack;
@@ -1269,6 +1272,7 @@ function fmtDay(s){const d=dt(s);if(!d)return /pending/i.test(String(s||''))?tx(
 const PEND={cat:'',jenis:'',pegangan:'',bank:''};
 const tenOf=r=>/^\s*freehold/i.test(r[9])?'Freehold':/^\s*leasehold/i.test(r[9])?'Leasehold':'';   // 5/11/2026: 'Leasehold (12 Sep 2082)' counts as Leasehold; a unit with no tenure shows only under All
 function facetOpts(){
+ railUI();
  const cur={cat:PEND.cat||$('cat').value,jenis:PEND.jenis||$('jenis').value,pegangan:PEND.pegangan||$('pegangan').value,bank:PEND.bank||$('bankSel').value};PEND.cat=PEND.jenis=PEND.pegangan=PEND.bank='';
  const count=(skip,idx)=>{const m=new Map();filtered(skip).forEach(r=>{const v=r[idx];if(v)m.set(v,(m.get(v)||0)+1)});return m};
  const fillOpt=(id,all,list,m,keep,lab)=>{const el=$(id);
@@ -1513,7 +1517,11 @@ function segUI(){
  const vn=$('vipNote');if(vn){if(canSip()){vn.hidden=!META.vip_err;vn.innerHTML=META.vip_err?tx('vip_err'):''}else{vn.hidden=false;vn.innerHTML=tx('vip_hist')+' '+lockLink2()}}   // Premium / free preview: what the VIP plan adds here
  seg($('bmvSeg'),[[0,tx('all')],[10,'10%+'],[20,'20%+'],[30,'30%+'],[40,'40%+'],[50,'50%+']],0,v=>bmv=+v);
  seg($('lacaSeg'),[['',tx('all')],['LACA','LACA'],['Non-LACA','Non-LACA']],0,v=>laca=v)}
+function railFilterOn(){return faOn()&&!!(ADS&&ADS.units)}
+function railSelected(){return railFilterOn()&&railOnly}
+function railUI(){const on=railFilterOn();if(!on)railOnly=false;$('railFld').hidden=!on;$('railToggle').setAttribute('aria-pressed',String(railSelected()))}
 function paint(){
+ railUI();
  [...$('bmvSeg').children].forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.v===bmv)));
  [...$('statusSeg').children].forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===status)));
  [...$('lacaSeg').children].forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===laca)));
@@ -1540,13 +1548,13 @@ function filtered(skip){
  if(sharedId&&!skip)return DATA.filter(r=>r[20]===sharedId);
  if(favMode&&!skip)return DATA.filter(r=>FAV.has(r[20]));
  const qw=qToks(),n=$('negeri').value,j=$('jenis').value,pg=$('pegangan').value,bs=$('bankSel').value;
- return DATA.filter(r=>inPrice(r)&&(!qw.length||qw.every(w=>hay(r).includes(w)))&&(!NEWONLY||isNew(r))&&(!n||r[2]===n)&&(!selD.size||selD.has(r[3]))&&(skip==='jenis'||!j||r[28]===j)&&(skip==='pegangan'||!pg||tenOf(r)===pg)&&(skip==='bankSel'||!bs||(faC(r)||{}).b===bs)&&(!bmv||bmvv(r)>=bmv)&&(!laca||r[17]===laca)&&(skip==='tarikh'||!selT.size||selT.has(r[12]))&&(skip==='cat'||skip==='catcy'||!$('cat').value||r[21]===$('cat').value)&&(skip==='cy'||skip==='catcy'||!selY.size||selY.has(r[19]))&&(status==='all'||(status==='available'?isAvail(r):stOf(r)===status)));
+ return DATA.filter(r=>inPrice(r)&&(!qw.length||qw.every(w=>hay(r).includes(w)))&&(!NEWONLY||isNew(r))&&(!n||r[2]===n)&&(!selD.size||selD.has(r[3]))&&(skip==='jenis'||!j||r[28]===j)&&(skip==='pegangan'||!pg||tenOf(r)===pg)&&(skip==='bankSel'||!bs||(faC(r)||{}).b===bs)&&(!bmv||bmvv(r)>=bmv)&&(!laca||r[17]===laca)&&(!railSelected()||!!faTrain((ADS.units[r[SID]]||{}).jay_amenities_v1))&&(skip==='tarikh'||!selT.size||selT.has(r[12]))&&(skip==='cat'||skip==='catcy'||!$('cat').value||r[21]===$('cat').value)&&(skip==='cy'||skip==='catcy'||!selY.size||selY.has(r[19]))&&(status==='all'||(status==='available'?isAvail(r):stOf(r)===status)));
 }
 // Budget: auction price between From and To (either may be empty). A unit with no price is left out while a range is set.
 const priceLo=()=>num($('pMin').value),priceHi=()=>num($('pMax').value);
 const inPrice=r=>{const lo=priceLo(),hi=priceHi();if(!lo&&!hi)return true;const p=num(r[7]);return p>0&&p>=lo&&(!hi||p<=hi)};
 const fmtNum=v=>{const d=String(v||'').replace(/[^0-9]/g,'');return d?Number(d).toLocaleString('en-US'):''};
-function activeN(){return [$('q').value!=='',NEWONLY,$('negeri').value,selD.size,$('jenis').value,selT.size,selY.size,$('cat').value,$('pegangan').value,$('bankSel').value,bmv,laca,priceLo()||priceHi()].filter(Boolean).length}
+function activeN(){return [$('q').value!=='',NEWONLY,$('negeri').value,selD.size,$('jenis').value,selT.size,selY.size,$('cat').value,$('pegangan').value,$('bankSel').value,bmv,laca,railSelected(),priceLo()||priceHi()].filter(Boolean).length}
 // "Add to calendar": a Google Calendar event at the auction time (1 hour), or all day when the time is not known.
 function calUrl(r){const d0=dt(r[12]);if(!d0)return '';const d=new Date(d0),p2=n=>String(n).padStart(2,'0'),ymd=x=>x.getFullYear()+p2(x.getMonth()+1)+p2(x.getDate());
  let dates;const m=/(\d{1,2})[:.](\d{2})\s*([ap])?/i.exec(ok(r[13])?r[13]:'');
@@ -1620,6 +1628,16 @@ function specBox(r){const v=x=>locked(x)?XX:dash(x),c=(k,x)=>'<div><span>'+tx(k)
  return '<div class="specs'+(high?'':' three')+'">'+(high?'':c('land',r[10]))+c('built_up',r[11])+c('cy',r[19])+'<div class="sp-bank"><span>'+tx('bank')+'</span><b>'+v(r[16])+'</b></div></div>'}
 function mapBtn(r,short){return /^https:\/\//i.test(r[4]||'')?'<a class="map" href="'+esc(satUrl(r[4]))+'" target="_blank" rel="noopener"><svg class="pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7z" fill="#e53935"/><circle cx="12" cy="9" r="2.6" fill="#fff"/></svg>'+(short?tx('map_short'):'Google Maps')+'</a>':''}
 // For Admin (5/11/2026): the two portal ad texts, built here from the listing. What a listing lacks (rooms, carpark, corner lot, amenities, the contact block) comes from agent/ads.json, sealed with the agent key.
+// Shared researched rail validation: the filter and both ad templates use identical evidence.
+function faTrain(research) {
+ const rail = research && research.train;
+ if (rail && rail.verified === true && rail.route_mode === 'walking' &&
+     (rail.property_pin_verified === true || rail.project_route_verified === true || rail.mapped_address_verified === true) &&
+     Number.isInteger(rail.walking_m) && rail.walking_m > 0 && rail.walking_m < 1000 &&
+     typeof rail.source_url === 'string' && /^https:\/\/[^\s/]+\//.test(rail.source_url) &&
+     typeof rail.official_name === 'string' && /\b(?:MRT|KTM|LRT)\b/i.test(rail.official_name)) return rail;
+ return null;
+}
 // Researched nearby places for the main specialist templates.
 function faNearby(r, a) {
  const legacy = Array.isArray(a.amen) ? a.amen : [];
@@ -1627,12 +1645,8 @@ function faNearby(r, a) {
  const research = a.jay_amenities_v1;
  const locations = research ? research.amen : legacy;
  const amen = [];
- const rail = research && research.train;
- if (rail && rail.verified === true && rail.route_mode === 'walking' &&
-     (rail.property_pin_verified === true || rail.project_route_verified === true || rail.mapped_address_verified === true) &&
-     Number.isInteger(rail.walking_m) && rail.walking_m > 0 && rail.walking_m < 1000 &&
-     typeof rail.source_url === 'string' && /^https:\/\/[^\s/]+\//.test(rail.source_url) &&
-     typeof rail.official_name === 'string' && /\b(?:MRT|KTM|LRT)\b/i.test(rail.official_name)) {
+ const rail = faTrain(research);
+ if (rail) {
   const start = rail.project_route_verified ? 'from the development' :
    (rail.mapped_address_verified ? 'from the mapped street address' : 'from the property entrance');
   amen.push({t: 'transit', n: rail.official_name + ' (approx. ' + rail.walking_m + ' m walk ' + start + ')'});
@@ -1809,6 +1823,7 @@ function fchipsUI(){const el=$('fchips'),c=[];
   const lo=priceLo(),hi=priceHi();if(lo||hi)add('harga',lo&&hi?rmF(lo)+' – '+rmF(hi):lo?'≥ '+rmF(lo):'≤ '+rmF(hi));
   if(bmv)add('bmv',tx('st_bmv',{p:bmv}));
   if(laca)add('laca',laca);
+  if(railSelected())add('rail',tx('f_rail')+' · '+tx('rail_walk'));
   if(c.length>1)c.push('<button type="button" class="fchip all" data-f="all">'+esc(tx('chip_all'))+'</button>')}
  el.innerHTML=c.join('');el.hidden=!c.length}
 // Compare (My list): the first four saved units side by side; ★ marks the best value of a row
@@ -1894,10 +1909,10 @@ function favUI(){const fr=DATA.filter(r=>FAV.has(r[20])),n=fr.length;
  $('favBar').hidden=!favMode;$('favCmp').hidden=n<2;
  if(favMode){$('favBarT').textContent=txn('fav_count',n);$('favSend').hidden=!n;$('favPrint').hidden=!n;$('favSend').textContent=tx('fav_send');$('favSend').href=n?AGENT.wa+'?text='+encodeURIComponent(favMsg(fr)):'#'}}
 // Last search: the filters (not the status tab or the sort) are kept on this device and come back on the next visit.
-const snapNow=()=>({q:$('q').value,n:$('negeri').value,d:[...selD],c:$('cat').value,pg:$('pegangan').value,bk:$('bankSel').value,j:$('jenis').value,t:[...selT],y:[...selY],lo:$('pMin').value,hi:$('pMax').value,b:bmv,l:laca});
+const snapNow=()=>({q:$('q').value,n:$('negeri').value,d:[...selD],c:$('cat').value,pg:$('pegangan').value,bk:$('bankSel').value,j:$('jenis').value,t:[...selT],y:[...selY],lo:$('pMin').value,hi:$('pMax').value,b:bmv,l:laca,rail:railSelected()});
 function saveLast(){if(sharedId||favMode)return;
  const s=snapNow();
- if(s.q||s.n||s.d.length||s.c||s.j||s.t.length||s.y.length||s.lo||s.hi||s.b||s.l)ls.set('last',JSON.stringify(s));else ls.del('last')}
+ if(s.q||s.n||s.d.length||s.c||s.j||s.t.length||s.y.length||s.lo||s.hi||s.b||s.l||s.rail)ls.set('last',JSON.stringify(s));else ls.del('last')}
 function restoreLast(){let s=null;try{s=JSON.parse(ls.get('last')||'null')}catch(e){}if(!s||typeof s!=='object')return false;
  const arr=a=>Array.isArray(a)?a.map(String):[];
  $('q').value=typeof s.q==='string'?s.q:'';
@@ -1906,7 +1921,7 @@ function restoreLast(){let s=null;try{s=JSON.parse(ls.get('last')||'null')}catch
  PEND.cat=typeof s.c==='string'?s.c:'';PEND.jenis=typeof s.j==='string'?s.j:'';PEND.pegangan=typeof s.pg==='string'?s.pg:'';PEND.bank=typeof s.bk==='string'?s.bk:'';
  arr(s.t).forEach(x=>selT.add(x));arr(s.y).forEach(x=>selY.add(x));
  $('pMin').value=fmtNum(s.lo);$('pMax').value=fmtNum(s.hi);
- bmv=[0,10,20,30,40,50].includes(+s.b)?+s.b:0;laca=['','LACA','Non-LACA'].includes(s.l)?s.l:'';
+ bmv=[0,10,20,30,40,50].includes(+s.b)?+s.b:0;laca=['','LACA','Non-LACA'].includes(s.l)?s.l:'';railOnly=railFilterOn()&&s.rail===true;
  return true}
 function render(){facetOpts();
  let rows=filtered();const s=$('sort').value;
@@ -1921,7 +1936,7 @@ function render(){facetOpts();
  else if(!rows.length){   // say which status tab is empty, which filters cause it, and how many units Reset brings back
   const lbl=stName(status);
   const tot=status==='available'?cnt.active+cnt.unsold:(cnt[status]||0);
-  const on=[[$('q').value!=='','f_search'],[$('negeri').value,'f_state'],[selD.size,'f_district'],[$('cat').value,'f_cat'],[$('pegangan').value,'f_tenure'],[$('bankSel').value,'f_bank'],[$('jenis').value,'f_type'],[selT.size,'f_date'],[selY.size,'f_cy'],[priceLo()||priceHi(),'f_price'],[bmv,'f_bmv'],[laca,'LACA'],[NEWONLY,'f_new']].filter(f=>f[0]).map(f=>tx(f[1]));
+  const on=[[$('q').value!=='','f_search'],[$('negeri').value,'f_state'],[selD.size,'f_district'],[$('cat').value,'f_cat'],[$('pegangan').value,'f_tenure'],[$('bankSel').value,'f_bank'],[$('jenis').value,'f_type'],[selT.size,'f_date'],[selY.size,'f_cy'],[priceLo()||priceHi(),'f_price'],[bmv,'f_bmv'],[laca,'LACA'],[railSelected(),'rail_walk'],[NEWONLY,'f_new']].filter(f=>f[0]).map(f=>tx(f[1]));
   $('emptyMsg').innerHTML=tx('empty1',{s:'<b>'+esc(lbl)+'</b>'})+(on.length?' ('+esc(on.join(', '))+')':'')+'.'
    +(tot&&on.length?'<small>'+tx('empty2',{n:tot,s:esc(lbl)})+'</small>':'')
    +((status==='sold'||status==='calloff'||status==='unsold')&&selT.size?'<small>'+tx('empty3')+'</small>':'');
@@ -1934,7 +1949,8 @@ function render(){facetOpts();
  saveLast();
 }
 function clearShared(){if(!sharedId)return;sharedId=null;try{history.replaceState(history.state,'',location.pathname+location.search)}catch(e){}}
-function reset(quiet){clearShared();favMode=false;LASTON=false;NEWONLY=false;ls.del('last');status='available';['q','negeri','jenis','cat','pegangan','bankSel'].forEach(k=>$(k).value='');selD.clear();selT.clear();selY.clear();tarikhToggle(false);cyToggle(false);cyFlag(false);$('daerahQ').value='';daerahOpts();$('pMin').value='';$('pMax').value='';bmv=0;laca='';if(!quiet){paint();render()}}
+function reset(quiet){clearShared();favMode=false;LASTON=false;NEWONLY=false;ls.del('last');status='available';['q','negeri','jenis','cat','pegangan','bankSel'].forEach(k=>$(k).value='');selD.clear();selT.clear();selY.clear();tarikhToggle(false);cyToggle(false);cyFlag(false);$('daerahQ').value='';daerahOpts();$('pMin').value='';$('pMax').value='';bmv=0;laca='';railOnly=false;if(!quiet){paint();render()}}
+$('railToggle').onclick=()=>{if(!railFilterOn())return;clearShared();favMode=false;railOnly=!railOnly;paint();render();track('filter_rail',{on:railOnly})};
 document.querySelectorAll('.rs').forEach(b=>b.onclick=()=>reset());
 $('resetInline').onclick=()=>reset();
 $('resetBar').onclick=()=>{reset(true);$('sort').value=faOn()&&ADS&&ADS.units?'komisen':'rich';paint();render();sheet(false);try{window.scrollTo({top:0,behavior:'smooth'})}catch(e){window.scrollTo(0,0)}track('reset_top',{})};   // dock: everything back to the defaults, back to the top
@@ -2026,7 +2042,7 @@ $('fchips').onclick=e=>{const b=e.target.closest('.fchip');if(!b)return;const f=
  if(f==='q')$('q').value='';else if(f==='new')NEWONLY=false;else if(f==='negeri'){$('negeri').value='';daerahOpts()}
  else if(f==='daerah'){b.dataset.v!=null?selD.delete(b.dataset.v):selD.clear();daerahOpts()}
  else if(f==='cat'){$('cat').value='';cyFlag(false)}else if(f==='pegangan')$('pegangan').value='';else if(f==='bankSel')$('bankSel').value='';else if(f==='jenis')$('jenis').value='';else if(f==='tarikh')selT.clear();else if(f==='cy')selY.clear();
- else if(f==='harga'){$('pMin').value='';$('pMax').value=''}else if(f==='bmv')bmv=0;else if(f==='laca')laca='';
+ else if(f==='harga'){$('pMin').value='';$('pMax').value=''}else if(f==='bmv')bmv=0;else if(f==='laca')laca='';else if(f==='rail')railOnly=false;
  paint();render()};
 // summary tiles: show exactly those units (the free preview's discount tile leads to the Premium page)
 $('stats').onclick=e=>{const b=e.target.closest('.stat');if(!b)return;const k=b.dataset.st;track('stats_click',{stat:k});
