@@ -70,8 +70,8 @@
       "median_price": 382850,
       "median_bmv": 19.0,
       "kinds": {
-        "Terrace House": 304,
-        "Apartment": 135,
+        "Terrace House": 305,
+        "Apartment": 134,
         "Serviced Apartment": 58,
         "Condominium": 33,
         "Semi-D / Bungalow": 17,
@@ -125,7 +125,7 @@
         "Serviced Apartment": 17,
         "Semi-Detached House": 13,
         "Semi-D / Bungalow": 12,
-        "Shop Lot": 11,
+        "Shop Lot": 10,
         "Land": 4,
         "Cluster House": 3,
         "Hotel": 3,
@@ -134,7 +134,8 @@
         "Office": 2,
         "Retail Lot": 2,
         "Factory": 1,
-        "Penthouse": 1
+        "Penthouse": 1,
+        "Shop Office": 1
       }
     },
     "Sabah": {
@@ -339,7 +340,7 @@
         "Bungalow": 1,
         "Retail Lot": 1,
         "Semi-Detached House": 1,
-        "Shop House": 1
+        "Shop Office": 1
       }
     },
     "Labuan": {
@@ -363,12 +364,12 @@
   },
   "by_kind": {
     "Terrace House": {
-      "active": 1867,
+      "active": 1868,
       "median_price": 329000,
       "median_bmv": 19.0
     },
     "Apartment": {
-      "active": 1081,
+      "active": 1080,
       "median_price": 234000,
       "median_bmv": 21.0
     },
@@ -388,9 +389,9 @@
       "median_bmv": 27.0
     },
     "Shop Lot": {
-      "active": 174,
+      "active": 173,
       "median_price": 350000,
-      "median_bmv": 35.0
+      "median_bmv": 36.0
     },
     "Flat": {
       "active": 158,
@@ -428,8 +429,8 @@
       "median_bmv": 27.0
     },
     "Shop Office": {
-      "active": 59,
-      "median_price": 540000,
+      "active": 61,
+      "median_price": 550000,
       "median_bmv": 28.0
     },
     "Townhouse": {
@@ -448,8 +449,8 @@
       "median_bmv": null
     },
     "Shop House": {
-      "active": 19,
-      "median_price": 426465,
+      "active": 18,
+      "median_price": 423183,
       "median_bmv": 20.0
     },
     "Commercial": {
@@ -505,7 +506,7 @@
     },
     {
       "bank": "Maybank Islamic Berhad",
-      "active": 239
+      "active": 240
     },
     {
       "bank": "RHB Bank Berhad",
