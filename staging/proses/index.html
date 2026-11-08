@@ -15,6 +15,12 @@
 <meta property="og:image" content="https://lelongbidgroup.com/img/og-lelong.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0f2a44">
+<link rel="alternate" hreflang="ms" href="https://proseslelong.lelongbidgroup.com/"><link rel="alternate" hreflang="en" href="https://proseslelong.lelongbidgroup.com/en/"><link rel="alternate" hreflang="x-default" href="https://proseslelong.lelongbidgroup.com/">
+<script>
+/* before paint: the theme the reader chose (proses.theme), and the language they chose last time (proses.lang) */
+(function(){try{var t=localStorage.getItem('proses.theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);
+ var l=localStorage.getItem('proses.lang'),here=document.documentElement.lang;if(l&&l!==here&&(l==='en'||l==='ms'))location.replace(here==='ms'?'en/':'../')}catch(e){}})();
+</script>
 <link rel="icon" href="https://lelongbidgroup.com/img/icon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="https://lelongbidgroup.com/img/icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,6 +74,13 @@ section+section{border-top:1px solid var(--line)}
 .top-call{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;background:var(--navy);color:var(--navy-fg);padding:10px 14px;border-radius:999px;font-size:.95rem;white-space:nowrap}
 .top-call .ic{width:1.1em;height:1.1em}
 @media (max-width:420px){.top-call span{display:none}.top-call{padding:0;width:44px;height:44px;justify-content:center}}
+.ctl{display:flex;align-items:center;gap:8px;flex:none}
+.lang{display:inline-flex;align-items:center;gap:2px;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface)}
+.lang a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:36px;padding:0 10px;border-radius:999px;text-decoration:none;font-weight:700;font-size:.86rem;color:var(--muted)}
+.lang a.active{background:var(--navy);color:#fff}
+.theme{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--fg);display:grid;place-items:center;cursor:pointer;padding:0}
+.theme .ic{width:22px;height:22px}
+@media (max-width:520px){.brand>span:not(.mono){display:none}}
 
 /* hero */
 .hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 70%,#1e4d7a 100%);color:#fff;padding:44px 0 40px;position:relative;overflow:hidden}
@@ -280,6 +293,8 @@ footer a{text-decoration:none}
  <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17.5v.5"/></symbol>
  <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14a5 5 0 0 1 6 5"/></symbol>
  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></symbol>
+ <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></symbol>
+ <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
 </svg>
 
 <header class="top">
@@ -288,7 +303,11 @@ footer a{text-decoration:none}
    <span class="mono" aria-hidden="true">FJ</span>
    <span><b>Firdaus Jay</b><small>Ejen hartanah lelong</small></span>
   </a>
-  <a class="top-call" href="tel:+60196522361" aria-label="Telefon Firdaus Jay 019-6522361"><svg class="ic" width="24" height="24" aria-hidden="true"><use href="#i-phone"/></svg><span>019-6522361</span></a>
+  <div class="ctl">
+   <nav class="lang" aria-label="Bahasa / Language"><a class="active" href="./" aria-current="page" data-lang="ms">BM</a><a href="en/" hreflang="en" lang="en" data-lang="en">EN</a></nav>
+   <button class="theme" type="button" id="theme-btn" aria-label="Tukar ke mod gelap" aria-pressed="false" hidden><svg class="ic" width="24" height="24" aria-hidden="true" id="ic-moon"><use href="#i-moon"/></svg><svg class="ic" width="24" height="24" aria-hidden="true" id="ic-sun" hidden><use href="#i-sun"/></svg></button>
+   <a class="top-call" href="tel:+60196522361" aria-label="Telefon Firdaus Jay 019-6522361"><svg class="ic" width="24" height="24" aria-hidden="true"><use href="#i-phone"/></svg><span>019-6522361</span></a>
+  </div>
  </div>
 </header>
 
@@ -552,7 +571,7 @@ footer a{text-decoration:none}
        <div class="risau"><div><span class="lbl">Risau</span><q>Takut penghuni tak nak keluar.</q></div></div>
        <div class="jawab"><span class="lbl">Jawapan</span>
         <p>Selepas baki selesai, peguam anda uruskan tukar nama rumah kepada nama anda. Untuk LACA, dokumennya dipanggil penyerahan hak. Untuk rumah berhakmilik, pindah milik didaftarkan di Pejabat Tanah melalui Sijil Jualan yang dikeluarkan mahkamah atau Pentadbir Tanah. Peguam juga uruskan duti setem. Anda hanya perlu tandatangan bila dipanggil.</p>
-        <p>Rumah lelong tidak datang dengan kunci. Jika rumah kosong, tukar kunci dan daftar nama anda untuk elektrik, air dan cukai. Jika ada penghuni, mulakan dengan berbincang baik-baik dan beri notis bertulis. Ramai penghuni berpindah bila diberi masa yang munasabah. Jika enggan, peguam anda memohon perintah mahkamah. Ini ambil masa beberapa bulan dan kos tambahan. <b>Jangan paksa masuk atau tukar kunci sendiri selagi penghuni masih ada.</b></p>
+        <p>Rumah lelong tidak datang dengan kunci. Jika rumah kosong, tukar kunci dan daftar nama anda untuk elektrik, air dan cukai taksiran. Jika ada penghuni, mulakan dengan berbincang baik-baik dan beri notis bertulis. Ramai penghuni berpindah bila diberi masa yang munasabah. Jika enggan, peguam anda memohon perintah mahkamah. Ini ambil masa beberapa bulan dan kos tambahan. <b>Jangan paksa masuk atau tukar kunci sendiri selagi penghuni masih ada.</b></p>
        </div>
        <div class="ex"><b>Contoh:</b> Rumah kosong: tukar kunci pada hari yang sama, mohon sambungan elektrik dan air. Rumah berpenghuni: beri notis bertulis dan tawarkan tempoh 1 hingga 2 bulan untuk berpindah. Jika gagal, peguam failkan permohonan ke mahkamah.</div>
        <div class="tip"><svg class="ic" width="24" height="24" aria-hidden="true"><use href="#i-bulb"/></svg><div><b>Tip:</b> Sediakan bajet dan masa tambahan untuk kemungkinan ini sejak Langkah 6. Kalau tidak perlu guna, ia jadi simpanan baik pulih anda.</div></div>
@@ -581,7 +600,7 @@ footer a{text-decoration:none}
      <div class="row"><dt>Yuran peguam dan kos pinjaman (anggaran)<small>Dokumen tukar nama, dokumen pinjaman, duti setem pinjaman, kos pejabat</small></dt><dd class="num">RM 7,000</dd></div>
      <div class="row"><dt>Tunggakan yuran penyelenggaraan (contoh)<small>Jika POS kata pembeli tanggung</small></dt><dd class="num">RM 3,000</dd></div>
      <div class="row"><dt>Baik pulih dan kunci (contoh)</dt><dd class="num">RM 10,000</dd></div>
-     <div class="row total"><dt><b>Jumlah anggaran keluar poket</b><small>Lebih kurang; RM 193,500 daripadanya pinjaman, tunai sendiri keseluruhan lebih kurang RM 45,000</small></dt><dd class="num">RM 238,000</dd></div>
+     <div class="row total"><dt><b>Jumlah anggaran keluar poket</b><small>Anggaran. RM 193,500 daripadanya pinjaman; tunai sendiri keseluruhan lebih kurang RM 45,000</small></dt><dd class="num">RM 238,000</dd></div>
     </dl>
    </div>
    <p class="lead" style="margin-top:14px">Beza dengan nilai pasaran lebih kurang RM 62,000. Ini anggaran atas kertas. Angka sebenar bergantung pada bidaan hari itu dan kos anda.</p>
@@ -705,7 +724,7 @@ footer a{text-decoration:none}
 </main>
 
 <footer>
- <div class="wrap"><b>Firdaus Jay</b> · Ejen hartanah lelong · <a href="tel:+60196522361">019-6522361</a><br>Senarai rumah lelong: <a href="https://client.lelongbidgroup.com/">client.lelongbidgroup.com</a></div>
+ <div class="wrap"><b>Firdaus Jay</b> · Ejen hartanah lelong · <a href="tel:+60196522361">019-6522361</a><br>Senarai rumah lelong: <a href="https://client.lelongbidgroup.com/">client.lelongbidgroup.com</a><br><a href="en/" hreflang="en" lang="en" data-lang="en">Read this guide in English</a></div>
 </footer>
 
 <nav class="bar" aria-label="Pautan pantas">
@@ -719,11 +738,24 @@ footer a{text-decoration:none}
 (function(){
  var $=function(id){return document.getElementById(id)};
  var fmt=function(n){try{return Number(n).toLocaleString('en-MY')}catch(e){return String(n)}};
- var BULAN=['Januari','Februari','Mac','April','Mei','Jun','Julai','Ogos','September','Oktober','November','Disember'];
+ var T={cta:'Tengok {n} unit lelong yang boleh dibida sekarang',note:'Bilangan unit yang boleh dibida sekarang, dikira daripada senarai yang sama di client.lelongbidgroup.com.',
+  openAll:'Buka semua langkah',closeAll:'Tutup semua langkah',toLight:'Tukar ke mod cerah',toDark:'Tukar ke mod gelap',
+  months:['Januari','Februari','Mac','April','Mei','Jun','Julai','Ogos','September','Oktober','November','Disember']};
+ var BULAN=T.months;
+
+ // Light / dark: follows the phone until the reader presses the button; the choice is kept in this browser (proses.theme).
+ var tb=$('theme-btn');
+ if(tb){var cur=function(){var a=document.documentElement.getAttribute('data-theme');if(a==='light'||a==='dark')return a;return (window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'};
+  var paint=function(){var d=cur()==='dark';$('ic-moon').hidden=d;$('ic-sun').hidden=!d;tb.setAttribute('aria-pressed',d?'true':'false');tb.setAttribute('aria-label',d?T.toLight:T.toDark);tb.title=tb.getAttribute('aria-label')};
+  tb.hidden=false;paint();
+  tb.addEventListener('click',function(){var n=cur()==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('proses.theme',n)}catch(e){}paint()})}
+
+ // Language: the link already works without script; with it, the choice is remembered for the next visit (proses.lang).
+ [].slice.call(document.querySelectorAll('[data-lang]')).forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('proses.lang',a.getAttribute('data-lang'))}catch(e){}})});
 
  // Open / close every step at once (the first is open by default).
  var all=$('toggle-all'),steps=[].slice.call(document.querySelectorAll('.step details'));
- if(all){all.hidden=false;all.addEventListener('click',function(){var open=all.getAttribute('data-open')!=='1';steps.forEach(function(d){d.open=open});all.setAttribute('data-open',open?'1':'0');all.setAttribute('aria-expanded',open?'true':'false');all.textContent=open?'Tutup semua langkah':'Buka semua langkah'})}
+ if(all){all.hidden=false;all.addEventListener('click',function(){var open=all.getAttribute('data-open')!=='1';steps.forEach(function(d){d.open=open});all.setAttribute('data-open',open?'1':'0');all.setAttribute('aria-expanded',open?'true':'false');all.textContent=open?T.closeAll:T.openAll})}
 
  // Today's numbers: trial/stats.json on the main site (written by trial_data.py at every autorun; CORS open).
  // `available` is the members' page rule, the same "units you can still bid on" the client site shows on arrival.
@@ -733,8 +765,8 @@ footer a{text-decoration:none}
   fetch('https://lelongbidgroup.com/trial/stats.json?v='+v).then(function(r){return r.ok?r.json():null}).then(function(j){
    if(!j||!(Number(j.available)>0))return;
    var n=fmt(j.available);
-   $('cta-count').textContent='Tengok '+n+' unit lelong yang boleh dibida sekarang';
-   $('cta-note').textContent='Bilangan unit yang boleh dibida sekarang, dikira daripada senarai yang sama di client.lelongbidgroup.com.';
+   $('cta-count').textContent=T.cta.replace('{n}',n);
+   $('cta-note').textContent=T.note;
    $('hero-n').textContent=n;$('hero-live').hidden=false;
    var any=false;
    if(Number(j.bmv30)>0){$('t-bmv').textContent=fmt(j.bmv30);$('tile-bmv').hidden=false;any=true}
