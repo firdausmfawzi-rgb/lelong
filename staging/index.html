@@ -2025,7 +2025,7 @@ function whenRows(r,ex,cn,cal,full){   // card: one line (date, time, days left)
 // Card front (2/11/2026): size, completion year and bank in one tidy block; free-preview values stay XX
 function specBox(r){const v=x=>locked(x)?XX:dash(x),c=(k,x)=>'<div><span>'+tx(k)+'</span><b>'+v(x)+'</b></div>',high=isHigh(r);
  return '<div class="specs'+(high?'':' three')+'">'+(high?'':c('land',r[10]))+c('built_up',r[11])+c('cy',r[19])+'<div class="sp-bank"><span>'+tx('bank')+'</span><b>'+v(r[16])+'</b></div>'+faSpecs(r)+'</div>'}
-// Jay's agent view only (8/11/2026): rooms, car parks and the restriction, each with where it came from (POS first, else the listing), N/A when nothing says
+// the owner's agent view only (8/11/2026): rooms, car parks and the restriction, each with where it came from (POS first, else the listing), N/A when nothing says
 function faSpecs(r){if(!faOn())return '';const a=(ADS&&ADS.units&&ADS.units[r[SID]])||{},num=x=>/^\d{1,2}(\s*\+\s*\d)?$/.test(String(x||'').trim())?String(x).trim():'';
  const pos=a.src==='pos',bed=pos?String(a.bed):num(r[23]),bath=a.bath?String(a.bath):num(r[24]),car=a.car?String(a.car):num(r[25]);
  const tag=k=>'<i class="sp-src">'+tx(k)+'</i>',cell=(k,val,src)=>'<div><span>'+tx(k)+'</span><b>'+(val?esc(val)+tag(src):'<em>'+tx('fa_na')+'</em>')+'</b></div>';
