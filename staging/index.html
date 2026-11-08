@@ -3019,7 +3019,7 @@ const TAG={vip:['VIP Investor','<path d="M6 3h12l4 6-10 12L2 9z" fill="currentCo
 var REALAGENT=false,AVIEW='agent',RTRIAL=false,RTIER='',PAID_SITE='';   // PAID_SITE: set on trial sites by partner_sites.py (where access codes work)   // RTIER: the agent code's own plan, kept while a client view changes TIER   // RTRIAL: the free preview switched on in this page (an agent's Free view, a shared link without a code)
 const SHAREH=(location.hash||'').length>1;
 const TRIAL_DATA='https://lelongbidgroup.com/trial/data2.json';   // the free preview's masked listings (v2, 1/11/2026: photo, discount and map link open; address and paid values masked), the same file every trial site reads
-function faOn(){return KP==='lelong.'&&REALAGENT&&ISAGENT&&!!ACODE&&!TRIAL&&/^(www\.)?lelongbidgroup\.com$/.test(location.hostname)}   // For Admin: the agent view of the main site only
+function faOn(){return (KP==='lelong.'||(KP==='stg.'&&/^\/staging\//.test(location.pathname)))&&REALAGENT&&ISAGENT&&!!ACODE&&!TRIAL&&/^(www\.)?lelongbidgroup\.com$/.test(location.hostname)}   // For Admin: the agent view of the main site only
 function agentView(){REALAGENT=!!ISAGENT;if(!REALAGENT)return;RTIER=TIER;let v='agent';try{v=sessionStorage.getItem(KP+'aview')||'agent'}catch(e){}
  if(v==='vip'&&TIER==='sip'){AVIEW='vip';ISAGENT=false}
  else if(v==='prem'){AVIEW='prem';ISAGENT=false;TIER='premium'}   // what a Premium client sees: the score locked, no 12-month history
