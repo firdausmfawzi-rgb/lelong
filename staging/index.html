@@ -581,6 +581,22 @@ body{padding-block-end:100px}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=IBM+Plex+Sans:wght@400;600;700&display=swap">
 <script>/* apply the client's saved light / dark choice, text size and language before first paint (no flash); KP = this site's settings prefix */var ISAGENT=false;var KP='stg.',TRIAL=false,LANDING='premium/',SIP_URL='https://client.lelongbidgroup.com/premium/#sip',TIER='premium';if(TRIAL)document.documentElement.classList.add('trial');try{var _t=localStorage.getItem('stg.theme');if(_t==='dark')document.documentElement.setAttribute('data-theme','dark');var _s=localStorage.getItem(KP+'size');if(_s==='l'||_s==='xl')document.documentElement.setAttribute('data-size',_s);if(localStorage.getItem(KP+'lang')==='ms')document.documentElement.lang='ms'}catch(e){}</script>
+<script>
+/* Agent link (owner order, 9/11/2026): a unit link a client sends from the free preview (https://client.lelongbidgroup.com/#<share id>)
+   opens the same unit on the owner's own page instead, once THIS browser was marked with ?agent=on (?agent=off clears it; the mark
+   lives in this browser only). Only the owner's free preview (KP client., TRIAL) does this. The main site resolves the share id
+   itself (sharedId) and, without the stored agent code, shows its code screen with the unit kept in the address. */
+(function(){try{
+ var q=new URLSearchParams(location.search),a=q.get('agent');
+ if(a==='on'||a==='off'){if(a==='on')localStorage.setItem('client.agentlink','1');else localStorage.removeItem('client.agentlink');
+  q.delete('agent');history.replaceState(history.state,'',location.pathname+(q.toString()?'?'+q.toString():'')+location.hash);
+  document.addEventListener('DOMContentLoaded',function(){var d=document.createElement('div');d.setAttribute('role','status');
+   d.style.cssText='position:fixed;left:12px;right:12px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:9999;background:#0f2a44;color:#fff;border:1.5px solid #c9a227;border-radius:14px;padding:12px 14px;font:600 14px/1.4 system-ui,sans-serif;box-shadow:0 10px 30px -10px rgba(0,0,0,.5)';
+   d.textContent=a==='on'?'Pautan unit dari laman ini kini dibuka di laman ejen anda. / Unit links from this site now open on your agent page.':'Pautan unit kembali dibuka di sini. / Unit links open here again.';
+   document.body.appendChild(d);setTimeout(function(){d.remove()},7000)})}
+ if(TRIAL&&KP==='client.'&&location.hash.length>1&&localStorage.getItem('client.agentlink')==='1'){location.replace('https://lelongbidgroup.com/'+location.hash)}
+}catch(e){}})();
+</script>
 <style id="aiCss">
 /* AI assistant (2/11/2026): the character button, the chat panel, the guided-tour spotlight */
 /* AI_HIDDEN (2/11/2026, owner order): character hidden until the system is improved; delete the next line to show it again */
