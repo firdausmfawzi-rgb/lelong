@@ -71,8 +71,8 @@
       "median_price": 380000,
       "median_bmv": 19.0,
       "kinds": {
-        "Terrace House": 281,
-        "Apartment": 126,
+        "Terrace House": 282,
+        "Apartment": 125,
         "Serviced Apartment": 61,
         "Condominium": 34,
         "Semi-D / Bungalow": 13,
@@ -365,12 +365,12 @@
   },
   "by_kind": {
     "Terrace House": {
-      "active": 1770,
+      "active": 1771,
       "median_price": 320000,
       "median_bmv": 19.0
     },
     "Apartment": {
-      "active": 1026,
+      "active": 1025,
       "median_price": 234000,
       "median_bmv": 20.0
     },
