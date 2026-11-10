@@ -1,41 +1,41 @@
 {
  "v": 2,
- "updated": "2026-11-03",
- "kid": "dc29acc7",
- "akid": "67a7545e",
+ "updated": "2026-11-10",
+ "kid": "72f55580",
+ "akid": "1c307259",
  "kdf": {
   "name": "PBKDF2-SHA256",
   "iter": 600000,
-  "salt": "jXDwCnBu0Pb5xf1yGvNY4w=="
+  "salt": "/BQkKYDMKo2kVuJGlnxIkQ=="
  },
  "codes": {
-  "58f4c0c44bfc6b69c99b70e5a544203d": {
+  "cfe417c3c3f52c8da05ec5ca30eadbae": {
    "label": "RJ19",
    "exp": null,
    "tier": "sip",
    "agent": 1,
-   "iv": "BtUN0E5VtZFOb+cA",
-   "wk": "w3uxzC4EV7zqiNk12XE6eS2V2vhwOfCiHumOWYySek8xb6LchiV5FkJroTccGLZS",
-   "iv2": "g9JU0pFg4u3NXPHa",
-   "wk2": "qcRIkVDS42O+6cwuJtusOfObBAWhEDSN3Vh3QHxYDYx2v8JC4oH6pAPpf1jSNAcQ",
-   "iv3": "AnOMfo6lKnxebLyr",
-   "wk3": "aHmWh/WHWbR6rbhqY630m/ow5CYKw7hVYUN0GUOma806MXbBjdN8UIoVcxik1PD0"
+   "iv": "uz0jfYwaQpuOn+jH",
+   "wk": "LjXt+/1ICZoyVlfVZdeJmxb51/j6BE0vjmDaoSuU8XJWiynk9WSJcIgeh1SdC3bo",
+   "iv2": "V5/579Pr/H9RkzkV",
+   "wk2": "RbvgtNP9aKvtIXP3WhIF8W+0DZHvHZVeYGKDgXZoVFuKGUB86k4rHdPN8NTTBcpk",
+   "iv3": "k61zg9Dvh8EkET8t",
+   "wk3": "XtJwGrNt8mZVEuevdxZeYS9KwLADryqUmussGVicgQok67lzZ0G5kqlPDr9CEDcp"
   },
-  "8280278a2ad0b3bbbc04cbe7b1b24b9e": {
+  "8b6499b350effb79e45f294572300df5": {
    "label": "CR21",
    "exp": "2026-11-29T23:59:59+08:00",
    "tier": "sip",
-   "iv": "u1S82cjNTVBh8J4e",
-   "wk": "dTwrcjV94J1V2aCpMOgS6YU4E3dCkYvA5BpBCw+U9dwlbJ8QxLNKHLi0KV1Lg3qm",
-   "iv2": "lKlVy7TQC899yaEh",
-   "wk2": "DPwx+d1mfivx8IYaqalaRBgGB2L4AUWHUyyIxktuX9YsxKE68lpoqOPBKcdl6F5u"
+   "iv": "H1oGjqQJLMyxHPrk",
+   "wk": "uPOD6AjULCoHQetICpEI5KjRJY5qk0m8U6TFCrIdmpe0Ayy0+7qB98ze4aNGK5M4",
+   "iv2": "W2JHcvN+5twZVHCq",
+   "wk2": "Ph/BVcR7kzCzIDZ7CA7KfeFn/UFCSndjHY3I2Ba/ycbeVHLu7dbBqnmBPjHir5Wz"
   },
-  "2beda75af68b244d9c4dbd342dc5b4cb": {
+  "7877e29bfc3502bb4522d3967ff0493d": {
    "label": "U22",
    "exp": "2026-11-29T23:59:59+08:00",
    "tier": "premium",
-   "iv": "/KemXqY49cPtQRXf",
-   "wk": "TnV2JA2BKTHJAsQHsyn3AuUXYjfVrGH+Q33cvijbzSZK/1oSyNH3T5E4rAod8tpp"
+   "iv": "nKLfcPmpslsjjNtc",
+   "wk": "60/Va6e595yc/QCTI/CVGg6iCDrPFA/Fo+NL3DqGbcYvdZSEkHdsidpHFobjVBXo"
   }
  }
 }
