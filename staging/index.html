@@ -3077,7 +3077,8 @@ const VISIT_API='https://agent.lelongbidgroup.com/api/visit';
 function rid(){try{const a=new Uint8Array(8);crypto.getRandomValues(a);return [...a].map(x=>x.toString(16).padStart(2,'0')).join('')}catch(e){return (Math.random().toString(36).slice(2)+'00000000').slice(0,12)}}
 function visitStart(){try{
  const h=location.hostname,site=/^(www\.)?lelongbidgroup\.com$/.test(h)?'main':h==='client.lelongbidgroup.com'?'client':'';
- if(!site||/^\/staging/.test(location.pathname)||KP!==(site==='main'?'lelong.':'client.'))return;
+ if(!site||KP!==(site==='main'?'lelong.':'client.'))return;
+ if(/^\/staging/.test(location.pathname)){if(site==='main'&&REALAGENT&&AVIEW==='agent'&&ACODE)visitBox();return}   // staging: the box for checking, no counting
  const page=REALAGENT?AVIEW:TRIAL?'free':TIER==='sip'?'vip':'prem';
  let who=REALAGENT?'agent':TRIAL?'visitor':'client';
  if(site==='client'){try{if(localStorage.getItem('client.agentlink')==='1')who='agent'}catch(e){}}   // the owner's own phone, marked with ?agent=on
