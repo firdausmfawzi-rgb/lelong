@@ -1,36 +1,36 @@
 {
-  "updated": "2026-11-11",
-  "built": "2026-11-11",
+  "updated": "2026-11-12",
+  "built": "2026-11-12",
   "totals": {
-    "active": 5162,
-    "listed": 7980,
-    "bmv30": 580,
-    "next7": 1432,
-    "next30": 3287,
-    "new3": 211
+    "active": 5104,
+    "listed": 7944,
+    "bmv30": 591,
+    "next7": 1233,
+    "next30": 3152,
+    "new3": 327
   },
   "by_state": {
     "Selangor": {
-      "active": 1749,
-      "next7": 520,
+      "active": 1714,
+      "next7": 454,
       "median_price": 307800,
-      "median_bmv": 24.0,
+      "median_bmv": 27.0,
       "kinds": {
-        "Apartment": 485,
-        "Terrace House": 420,
-        "Condominium": 226,
-        "Serviced Apartment": 218,
-        "Semi-D / Bungalow": 58,
-        "SOHO / SOFO": 56,
-        "Flat": 45,
-        "Office": 40,
-        "Shop Lot": 40,
-        "Semi-Detached House": 37,
-        "Bungalow": 27,
-        "Retail Lot": 25,
-        "Townhouse": 25,
-        "Land": 21,
-        "Shop Office": 10,
+        "Apartment": 483,
+        "Terrace House": 409,
+        "Serviced Apartment": 219,
+        "Condominium": 207,
+        "SOHO / SOFO": 60,
+        "Semi-D / Bungalow": 54,
+        "Shop Lot": 46,
+        "Office": 44,
+        "Flat": 43,
+        "Semi-Detached House": 36,
+        "Bungalow": 29,
+        "Land": 22,
+        "Townhouse": 22,
+        "Retail Lot": 15,
+        "Shop Office": 9,
         "Cluster House": 8,
         "Factory": 5,
         "Penthouse": 2,
@@ -38,46 +38,46 @@
       }
     },
     "Kuala Lumpur": {
-      "active": 610,
-      "next7": 206,
-      "median_price": 409120,
+      "active": 593,
+      "next7": 178,
+      "median_price": 420000,
       "median_bmv": 19.0,
       "kinds": {
-        "Condominium": 184,
-        "Apartment": 143,
-        "Serviced Apartment": 126,
-        "Terrace House": 41,
-        "Office": 27,
-        "Shop Lot": 23,
-        "SOHO / SOFO": 17,
-        "Retail Lot": 9,
+        "Condominium": 166,
+        "Serviced Apartment": 135,
+        "Apartment": 133,
+        "Terrace House": 40,
+        "Office": 28,
+        "Shop Lot": 24,
+        "SOHO / SOFO": 16,
+        "Flat": 9,
         "Shop Office": 9,
-        "Flat": 8,
-        "Semi-D / Bungalow": 8,
+        "Retail Lot": 8,
+        "Semi-D / Bungalow": 7,
         "Commercial": 4,
+        "Land": 3,
+        "Semi-Detached House": 3,
         "Bungalow": 2,
-        "Land": 2,
-        "Semi-Detached House": 2,
+        "Townhouse": 2,
         "Cluster House": 1,
         "Hotel": 1,
         "Penthouse": 1,
-        "Shop House": 1,
-        "Townhouse": 1
+        "Shop House": 1
       }
     },
     "Johor": {
-      "active": 586,
-      "next7": 177,
+      "active": 571,
+      "next7": 144,
       "median_price": 380000,
       "median_bmv": 19.0,
       "kinds": {
-        "Terrace House": 289,
-        "Apartment": 130,
-        "Serviced Apartment": 75,
-        "Condominium": 32,
-        "Shop Lot": 13,
+        "Terrace House": 285,
+        "Apartment": 129,
+        "Serviced Apartment": 69,
+        "Condominium": 31,
         "Semi-D / Bungalow": 12,
-        "Cluster House": 8,
+        "Shop Lot": 12,
+        "Cluster House": 6,
         "Shop Office": 6,
         "Flat": 5,
         "Semi-Detached House": 5,
@@ -89,25 +89,25 @@
       }
     },
     "Perak": {
-      "active": 500,
-      "next7": 146,
-      "median_price": 220000,
+      "active": 483,
+      "next7": 114,
+      "median_price": 210600,
       "median_bmv": 19.0,
       "kinds": {
-        "Terrace House": 322,
-        "Apartment": 33,
+        "Terrace House": 311,
+        "Apartment": 30,
         "Semi-Detached House": 30,
-        "Townhouse": 17,
-        "Semi-D / Bungalow": 15,
-        "Shop Office": 14,
-        "Shop Lot": 13,
-        "Cluster House": 11,
+        "Shop Office": 15,
+        "Townhouse": 15,
+        "Semi-D / Bungalow": 14,
+        "Shop Lot": 12,
+        "Cluster House": 10,
+        "Condominium": 8,
         "Shop House": 8,
         "Serviced Apartment": 7,
-        "Condominium": 6,
         "Land": 6,
-        "Bungalow": 5,
         "Factory": 5,
+        "Bungalow": 4,
         "Flat": 4,
         "SOHO / SOFO": 2,
         "Agricultural Land": 1,
@@ -115,94 +115,94 @@
       }
     },
     "Penang": {
-      "active": 326,
-      "next7": 79,
+      "active": 339,
+      "next7": 68,
       "median_price": 320000,
       "median_bmv": 19.0,
       "kinds": {
-        "Apartment": 84,
-        "Flat": 69,
-        "Terrace House": 55,
-        "Condominium": 49,
-        "Serviced Apartment": 16,
-        "Semi-Detached House": 12,
-        "Shop Lot": 11,
+        "Apartment": 90,
+        "Flat": 68,
+        "Terrace House": 59,
+        "Condominium": 50,
+        "Serviced Apartment": 15,
+        "Shop Lot": 13,
+        "Semi-Detached House": 11,
         "Semi-D / Bungalow": 9,
         "Cluster House": 4,
         "Land": 4,
+        "Retail Lot": 4,
         "Hotel": 3,
-        "Townhouse": 3,
         "Office": 2,
+        "Townhouse": 2,
         "Bungalow": 1,
         "Factory": 1,
         "Penthouse": 1,
-        "Retail Lot": 1,
+        "Shop House": 1,
         "Shop Office": 1
       }
     },
     "Kedah": {
-      "active": 263,
-      "next7": 47,
-      "median_price": 275000,
+      "active": 262,
+      "next7": 39,
+      "median_price": 272500,
       "median_bmv": 19.0,
       "kinds": {
-        "Terrace House": 161,
-        "Semi-D / Bungalow": 35,
+        "Terrace House": 160,
+        "Semi-D / Bungalow": 36,
         "Semi-Detached House": 31,
         "Land": 14,
         "Shop Lot": 7,
         "Bungalow": 4,
-        "Condominium": 3,
+        "Condominium": 2,
+        "Flat": 2,
         "Serviced Apartment": 2,
-        "Agricultural Land": 1,
         "Cluster House": 1,
         "Factory": 1,
-        "Flat": 1,
         "Retail Lot": 1,
         "Shop House": 1
       }
     },
     "Sabah": {
-      "active": 251,
-      "next7": 54,
-      "median_price": 250000,
+      "active": 245,
+      "next7": 41,
+      "median_price": 251000,
       "median_bmv": 28.0,
       "kinds": {
-        "Apartment": 79,
-        "Terrace House": 69,
+        "Apartment": 74,
+        "Terrace House": 66,
         "Condominium": 29,
-        "Retail Lot": 14,
+        "Retail Lot": 15,
         "Shop Office": 14,
         "Shop Lot": 10,
         "Semi-Detached House": 9,
-        "Flat": 7,
-        "Land": 4,
+        "Flat": 5,
+        "Semi-D / Bungalow": 5,
         "Office": 4,
+        "Land": 3,
+        "Serviced Apartment": 3,
         "Bungalow": 2,
         "Commercial": 2,
         "Factory": 2,
-        "Semi-D / Bungalow": 2,
-        "Serviced Apartment": 2,
         "Agricultural Land": 1,
         "SOHO / SOFO": 1
       }
     },
     "Negeri Sembilan": {
-      "active": 194,
-      "next7": 44,
+      "active": 197,
+      "next7": 41,
       "median_price": 300000,
-      "median_bmv": 27.0,
+      "median_bmv": 25.0,
       "kinds": {
-        "Terrace House": 103,
+        "Terrace House": 105,
         "Apartment": 26,
         "Condominium": 13,
-        "Semi-D / Bungalow": 11,
+        "Semi-D / Bungalow": 12,
         "Land": 9,
         "Retail Lot": 7,
-        "Serviced Apartment": 6,
+        "Serviced Apartment": 7,
         "Shop Lot": 5,
-        "Bungalow": 3,
         "Chalet": 3,
+        "Bungalow": 2,
         "Flat": 2,
         "Semi-Detached House": 2,
         "Cluster House": 1,
@@ -212,31 +212,32 @@
       }
     },
     "Melaka": {
-      "active": 187,
-      "next7": 34,
+      "active": 188,
+      "next7": 42,
       "median_price": 225000,
       "median_bmv": 28.0,
       "kinds": {
-        "Terrace House": 76,
-        "Apartment": 23,
-        "Serviced Apartment": 20,
+        "Terrace House": 78,
+        "Apartment": 24,
+        "Serviced Apartment": 18,
         "Retail Lot": 12,
-        "Shop Lot": 11,
-        "Condominium": 9,
+        "Condominium": 10,
+        "Shop Lot": 10,
         "Semi-D / Bungalow": 6,
-        "Semi-Detached House": 6,
         "Townhouse": 6,
+        "Semi-Detached House": 5,
         "Commercial": 4,
         "Office": 4,
         "Bungalow": 3,
         "Flat": 3,
         "Cluster House": 2,
-        "Land": 2
+        "Land": 2,
+        "Shop Office": 1
       }
     },
     "Kelantan": {
-      "active": 155,
-      "next7": 31,
+      "active": 154,
+      "next7": 29,
       "median_price": 180000,
       "median_bmv": 27.0,
       "kinds": {
@@ -244,10 +245,10 @@
         "Bungalow": 18,
         "Land": 18,
         "Semi-D / Bungalow": 18,
-        "Shop Lot": 14,
+        "Shop Lot": 13,
         "Shop Office": 9,
-        "Retail Lot": 7,
-        "Office": 4,
+        "Retail Lot": 8,
+        "Office": 3,
         "Condominium": 2,
         "Semi-Detached House": 2,
         "Agricultural Land": 1,
@@ -256,20 +257,20 @@
       }
     },
     "Pahang": {
-      "active": 146,
-      "next7": 31,
+      "active": 150,
+      "next7": 29,
       "median_price": 250000,
-      "median_bmv": 26.0,
+      "median_bmv": 22.5,
       "kinds": {
-        "Terrace House": 72,
+        "Terrace House": 74,
         "Apartment": 14,
         "Serviced Apartment": 13,
         "Semi-Detached House": 11,
-        "Semi-D / Bungalow": 8,
+        "Semi-D / Bungalow": 10,
         "Land": 7,
-        "Office": 5,
-        "Shop Lot": 5,
+        "Shop Lot": 6,
         "Factory": 4,
+        "Office": 4,
         "Bungalow": 3,
         "Hotel": 1,
         "Retail Lot": 1,
@@ -278,14 +279,14 @@
       }
     },
     "Sarawak": {
-      "active": 104,
-      "next7": 33,
-      "median_price": 367250,
+      "active": 109,
+      "next7": 31,
+      "median_price": 375000,
       "median_bmv": 19.0,
       "kinds": {
-        "Terrace House": 51,
-        "Apartment": 15,
-        "Semi-D / Bungalow": 8,
+        "Terrace House": 55,
+        "Apartment": 16,
+        "Semi-D / Bungalow": 9,
         "Flat": 5,
         "Retail Lot": 5,
         "Shop House": 5,
@@ -293,53 +294,51 @@
         "Semi-Detached House": 4,
         "Bungalow": 3,
         "Commercial": 1,
-        "Office": 1,
         "Serviced Apartment": 1,
         "Townhouse": 1
       }
     },
     "Terengganu": {
-      "active": 63,
-      "next7": 20,
-      "median_price": 271035,
-      "median_bmv": 23.5,
+      "active": 75,
+      "next7": 18,
+      "median_price": 270000,
+      "median_bmv": 27.0,
       "kinds": {
-        "Terrace House": 20,
-        "Semi-D / Bungalow": 13,
-        "Land": 12,
-        "Bungalow": 9,
-        "Semi-Detached House": 4,
-        "Shop Lot": 2,
+        "Terrace House": 24,
+        "Semi-D / Bungalow": 14,
+        "Land": 13,
+        "Bungalow": 10,
+        "Semi-Detached House": 8,
+        "Shop Lot": 3,
         "Flat": 1,
         "Hotel": 1,
         "Townhouse": 1
       }
     },
-    "Perlis": {
-      "active": 15,
-      "next7": 6,
-      "median_price": 162000,
-      "median_bmv": null,
-      "kinds": {
-        "Terrace House": 10,
-        "Semi-D / Bungalow": 2,
-        "Apartment": 1,
-        "Semi-Detached House": 1,
-        "Shop Office": 1
-      }
-    },
     "Putrajaya": {
-      "active": 10,
+      "active": 11,
       "next7": 3,
-      "median_price": 563000,
+      "median_price": 550000,
       "median_bmv": 39.0,
       "kinds": {
-        "Condominium": 3,
+        "Condominium": 4,
         "Apartment": 2,
         "Terrace House": 2,
         "Bungalow": 1,
         "Retail Lot": 1,
         "Shop Office": 1
+      }
+    },
+    "Perlis": {
+      "active": 10,
+      "next7": 1,
+      "median_price": 152100,
+      "median_bmv": null,
+      "kinds": {
+        "Terrace House": 6,
+        "Semi-D / Bungalow": 2,
+        "Apartment": 1,
+        "Semi-Detached House": 1
       }
     },
     "Labuan": {
@@ -363,69 +362,69 @@
   },
   "by_kind": {
     "Terrace House": {
-      "active": 1753,
+      "active": 1736,
       "median_price": 320000,
       "median_bmv": 19.0
     },
     "Apartment": {
-      "active": 1035,
-      "median_price": 230000,
-      "median_bmv": 21.0
+      "active": 1022,
+      "median_price": 234000,
+      "median_bmv": 20.0
     },
     "Condominium": {
-      "active": 560,
-      "median_price": 364500,
-      "median_bmv": 22.0
+      "active": 526,
+      "median_price": 365000,
+      "median_bmv": 24.0
     },
     "Serviced Apartment": {
-      "active": 487,
-      "median_price": 330000,
+      "active": 490,
+      "median_price": 334170,
       "median_bmv": 20.0
     },
     "Semi-D / Bungalow": {
-      "active": 205,
-      "median_price": 510300,
-      "median_bmv": 21.0
-    },
-    "Semi-Detached House": {
-      "active": 156,
-      "median_price": 500000,
-      "median_bmv": 19.0
+      "active": 208,
+      "median_price": 505150,
+      "median_bmv": 23.5
     },
     "Shop Lot": {
-      "active": 154,
-      "median_price": 395500,
-      "median_bmv": 35.0
+      "active": 161,
+      "median_price": 375000,
+      "median_bmv": 34.0
+    },
+    "Semi-Detached House": {
+      "active": 158,
+      "median_price": 480000,
+      "median_bmv": 19.0
     },
     "Flat": {
-      "active": 150,
-      "median_price": 145900,
+      "active": 147,
+      "median_price": 145800,
       "median_bmv": 19.0
     },
     "Land": {
-      "active": 104,
+      "active": 106,
       "median_price": 322000,
-      "median_bmv": 18.0
+      "median_bmv": 11.0
     },
     "Office": {
-      "active": 90,
+      "active": 92,
       "median_price": 351000,
-      "median_bmv": 28.0
-    },
-    "Retail Lot": {
-      "active": 85,
-      "median_price": 240570,
-      "median_bmv": 28.0
+      "median_bmv": 34.0
     },
     "Bungalow": {
-      "active": 83,
-      "median_price": 750000,
-      "median_bmv": 26.0
+      "active": 84,
+      "median_price": 760000,
+      "median_bmv": 27.0
     },
     "SOHO / SOFO": {
-      "active": 77,
-      "median_price": 250000,
-      "median_bmv": 20.0
+      "active": 80,
+      "median_price": 279000,
+      "median_bmv": 27.0
+    },
+    "Retail Lot": {
+      "active": 79,
+      "median_price": 265500,
+      "median_bmv": 39.0
     },
     "Shop Office": {
       "active": 66,
@@ -433,13 +432,13 @@
       "median_bmv": 28.0
     },
     "Townhouse": {
-      "active": 55,
-      "median_price": 223200,
+      "active": 50,
+      "median_price": 217305,
       "median_bmv": 27.0
     },
     "Cluster House": {
-      "active": 36,
-      "median_price": 292500,
+      "active": 33,
+      "median_price": 288000,
       "median_bmv": 19.0
     },
     "Factory": {
@@ -448,9 +447,9 @@
       "median_bmv": 18.5
     },
     "Shop House": {
-      "active": 16,
-      "median_price": 438233,
-      "median_bmv": 20.0
+      "active": 17,
+      "median_price": 450000,
+      "median_bmv": 24.0
     },
     "Commercial": {
       "active": 12,
@@ -462,15 +461,15 @@
       "median_price": 380000,
       "median_bmv": 37.5
     },
-    "Agricultural Land": {
-      "active": 4,
-      "median_price": 625400,
-      "median_bmv": 30.0
-    },
     "Penthouse": {
       "active": 4,
       "median_price": 742500,
       "median_bmv": 26.5
+    },
+    "Agricultural Land": {
+      "active": 3,
+      "median_price": 700000,
+      "median_bmv": null
     },
     "Chalet": {
       "active": 3,
@@ -481,43 +480,43 @@
   "by_bank": [
     {
       "bank": "CIMB Bank Berhad",
-      "active": 400
+      "active": 410
     },
     {
       "bank": "Hong Leong Bank Berhad",
-      "active": 340
+      "active": 332
     },
     {
       "bank": "Public Bank Berhad",
-      "active": 308
+      "active": 318
     },
     {
       "bank": "Ambank(M) Berhad",
-      "active": 291
+      "active": 280
     },
     {
       "bank": "Lembaga Pembiayaan Perumahan Sektor Awam",
-      "active": 274
+      "active": 271
     },
     {
       "bank": "Ambank (M) Berhad",
-      "active": 270
-    },
-    {
-      "bank": "Maybank Islamic Berhad",
-      "active": 243
+      "active": 263
     },
     {
       "bank": "CIMB Islamic Bank",
-      "active": 239
+      "active": 241
     },
     {
-      "bank": "RHB Bank Berhad",
-      "active": 231
+      "bank": "Maybank Islamic Berhad",
+      "active": 238
     },
     {
       "bank": "United Overseas Bank (Malaysia) Berhad",
-      "active": 227
+      "active": 223
+    },
+    {
+      "bank": "RHB Bank Berhad",
+      "active": 211
     },
     {
       "bank": "Bank Simpanan Nasional",
@@ -525,29 +524,29 @@
     },
     {
       "bank": "Malayan Banking Berhad",
-      "active": 153
+      "active": 155
     }
   ],
   "price_bands": {
-    "<200k": 1218,
-    "200k-400k": 2206,
-    "400k-700k": 1159,
-    "700k-1M": 280,
-    ">1M": 297
+    "<200k": 1211,
+    "200k-400k": 2161,
+    "400k-700k": 1160,
+    "700k-1M": 278,
+    ">1M": 292
   },
   "rounds": {
-    "1st": 1713,
-    "2nd": 964,
-    "3rd+": 2485
+    "1st": 1698,
+    "2nd": 942,
+    "3rd+": 2464
   },
   "outcomes_28d": {
-    "sold": 305,
-    "unsold": 1156,
-    "calloff": 730
+    "sold": 321,
+    "unsold": 1175,
+    "calloff": 753
   },
   "laca": {
-    "laca": 2445,
-    "non_laca": 2709
+    "laca": 2421,
+    "non_laca": 2676
   },
   "market": {}
 }
