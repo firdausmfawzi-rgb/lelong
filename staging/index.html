@@ -2287,7 +2287,7 @@ function faTplAd(r,emo){
  const market=!suspect(r)&&pct<90?rawMarket:0,saving=reserve&&market>reserve?market-reserve:0,discount=saving&&pct>0?pct:0,pending=stOf(r)==='unsold';
  L.push((!pending&&discount?'MURAH! ':'')+headType+(place?' @ '+place:''));
  if(!pending&&discount)L.push('','Below Market Value '+discount+'%'+(emo?'  😍':''));else if(!pending)miss.push('fa_m_mv');
- if(address)L.push('',emo?'🏠 '+address:faMask(address));
+ if(address)L.push('',(emo?'🏠 ':'')+address);   // owner 11/11/2026: the full house number on iProperty too (Suhaila's template)
  const D=[],fact=v=>{if(v)D.push((emo?'✅ ':'')+v)},size=v=>clean(v).replace(/(\d)\s*sq\.?\s*(?:ft|feet)\b\.?/gi,'$1 Sq.ft');
  fact(type);
  if(corner)fact('Corner Lot');else if(end)fact('End Lot');
