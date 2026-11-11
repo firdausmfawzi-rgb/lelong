@@ -1,0 +1,12 @@
+{
+ "v": 2,
+ "updated": "2026-11-11",
+ "kid": "26771e4b",
+ "akid": "4f266fef",
+ "kdf": {
+  "name": "PBKDF2-SHA256",
+  "iter": 600000,
+  "salt": "ic2mwFnF1/01rFEmRW0JcQ=="
+ },
+ "codes": {}
+}
