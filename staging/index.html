@@ -2264,7 +2264,7 @@ const FA_CONV={shop:'🛍️',hospital:'🏥',school:'🏫',mosque:'🕌',park:'
 function faNewTpl(r){let o='';try{o=DAD.owner(r)}catch(e){}return o?o==='Suhaila':!isHigh(r)}
 function faConv(r,a){
  if(Array.isArray(a.conv)&&a.conv.length===3&&a.conv.every(x=>x&&typeof x.n==='string'&&x.n.trim()))return {items:a.conv.map(x=>({t:x.t,n:x.n.trim()})),amen:true,osm:false};
- const nb=faNearby(r,a),items=nb.amen.slice(0,2).map(x=>({t:x.t,n:x.n}));   // until the research reaches this area: the older amenity list
+ const nb=faNearby(r,a),items=nb.amen.filter(x=>x.t!=='transit').slice(0,2).map(x=>({t:x.t,n:x.n}));   // owner: 2 amenities and 1 highway, no rail line   // until the research reaches this area: the older amenity list
  if(nb.highway)items.push({t:'road',n:'Easy Access to '+nb.highway.replace(/^Easy access via\s*/i,'')});
  return {items,amen:nb.amen.length>0,osm:!!items.length&&!!nb.osm}}
 function faTplAd(r,emo){
