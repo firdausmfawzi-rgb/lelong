@@ -351,7 +351,7 @@ html.trial #cyNote,html.trial #bmvSeg,html.trial #cyBtn,html.trial #cyPanel{disp
 @keyframes faShine{60%,100%{left:120%}}
 .acts.v3.icons .fa-opt{width:100%;min-height:44px;border:1px solid #e6c25a;background:#fbf3dc;color:#5c4408;font-size:.9rem;font-weight:700;cursor:pointer}
 :root[data-theme="dark"] .acts.v3.icons .fa-opt{background:#2a2008;color:#ffe9a8}
-.fa-dl{margin:0 0 8px}.fa-notes{margin:0 0 8px;padding-left:18px;font-size:.9rem;color:var(--fg)}.fa-notes li{margin:3px 0}.acts.v3.icons .fa-com{background:#17120a;color:#ffe9a8;border-color:#e6c25a}.fld[hidden]{display:none}
+.fa-dl{margin:0 0 8px}.fa-notes{margin:0 0 8px;padding-left:18px;font-size:.9rem;color:var(--fg)}.fa-notes li{margin:3px 0}.acts.v3.icons .fa-soldcom{grid-column:1/-1}.acts.v3.icons .fa-com{background:#17120a;color:#ffe9a8;border-color:#e6c25a}.fld[hidden]{display:none}
 .fa-text{width:100%;min-height:46vh;box-sizing:border-box;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--fg);font:inherit;font-size:.95rem;line-height:1.45;white-space:pre-wrap}
 .fa-note{margin:0 0 8px;padding:8px 10px;border-radius:8px;background:var(--warn-bg);color:var(--warn);font-size:.9rem;font-weight:600}.fa-src{margin:0 0 8px;color:var(--muted);font-size:.88rem}
 .posbtn .pdfi,.pos-lbl .pdfi{width:18px;height:21px;flex:none}.pos-lbl{display:inline-flex;align-items:center;gap:6px}
@@ -2479,15 +2479,16 @@ const faPct=(lo,hi)=>(lo===hi?String(lo):lo+'-'+hi)+'%';
 const faRm=v=>'RM '+Math.round(v).toLocaleString('en-US');
 function faComShort(c){if(!c)return tx('fa_c_btn')+': -';if(c.a&&c.a.length)return tx('fa_c_btn')+': '+(c.a.length>1?faRm(c.a[0])+' - '+faRm(c.a[1]):faRm(c.a[0]));return tx('fa_c_btn')+': '+tx(c.s==='token'?'fa_c_token':c.s==='case'?'fa_c_case':c.s==='unlisted'?'fa_c_unl':'fa_c_nil')}
 function faComOpen(r){const c=faC(r),row=(k,v)=>'<div><dt>'+esc(tx(k))+'</dt><dd>'+v+'</dd></div>';if(!c)return;
- const rule=(ADS.rules||[])[c.w]||'',notes=[];
+ const rule=((ADS||COMS).rules||[])[c.w]||'',notes=[];
  if(c.s==='approve')notes.push(tx('fa_c_n_approve'));if(c.k)notes.push(tx('fa_c_n_cap').replace('{v}',faRm(c.k)));if(c.f)notes.push(tx('fa_c_n_fee').replace('{v}',c.f));
  if(c.p)notes.push(tx('fa_c_n_parent'));if(c.g)notes.push(tx('fa_c_n_venue'));if(c.a&&c.a.length)notes.push(tx('fa_c_n_reserve'),tx('fa_c_n_sst'));
  openModal(tx('fa_c_btn'),'<dl class="more open fa-dl">'+row('bank',esc(String(r[16]||'-')))+row('fa_c_case_t',esc([r[17],r[14],r[2]].filter(ok).join(' · ')))+row('fa_c_price',esc(String(r[7]||'-')))
   +(c.r&&c.r.length?row('fa_c_rate',esc(faPct(c.r[0],c.r[c.r.length-1]))):'')+row('fa_c_amt','<b>'+esc(faComShort(c).split(': ').slice(1).join(': '))+'</b>')+row('fa_c_rule',esc(rule))+'</dl>'
-  +(notes.length?'<ul class="fa-notes">'+notes.map(n=>'<li>'+esc(n)+'</li>').join('')+'</ul>':'')+'<p class="fa-src">'+esc(tx('fa_c_src').replace('{d}',ADS.pdf||''))+'</p>',
+  +(notes.length?'<ul class="fa-notes">'+notes.map(n=>'<li>'+esc(n)+'</li>').join('')+'</ul>':'')+'<p class="fa-src">'+esc(tx('fa_c_src').replace('{d}',(ADS||COMS).pdf||''))+'</p>',
   '<button class="btn" type="button" data-close>'+esc(tx('close'))+'</button>')}
 function faBtn(r,st){
- if(!faOn())return '';
+ if(!faOn()){if(!comOn()||!COMS||(st!=='active'&&st!=='unsold'))return '';   // owner 12/11/2026: Khairul and Aezran's agent view shows the commission on the card
+  return '<button type="button" class="fa-opt fa-com fa-soldcom" data-k="com" data-id="'+esc(r[20])+'">'+esc(faComShort(faC(r)))+'</button>'}
  const ended=st!=='active'&&st!=='unsold';
  const tracker=dadCard(r,ended);
  if(ended)return tracker;
