@@ -1523,11 +1523,11 @@ function facetOpts(){
  fillOpt('cat',tx('all_cat',{n:filtered('cat').length}),CATS.filter(c=>cm.get(c)),cm,cur.cat,catName);
  const nm=new Map();filtered('pegangan').forEach(r=>{const v=tenOf(r);if(v)nm.set(v,(nm.get(v)||0)+1)});
  fillOpt('pegangan',tx('all_tenure',{n:filtered('pegangan').length}),['Freehold','Leasehold'].filter(v=>nm.get(v)),nm,cur.pegangan);
- if(faOn()&&ADS&&ADS.units){const m=new Map();filtered('bankSel').forEach(r=>{const c=faC(r);if(!c)return;const g=m.get(c.b)||{n:0,lo:1e9,hi:0,sum:0,k:0,token:false,unl:false};g.n++;if(c.s==='token')g.token=true;if(c.s==='unlisted')g.unl=true;if(c.r&&c.r.length){g.lo=Math.min(g.lo,c.r[0]);g.hi=Math.max(g.hi,c.r[c.r.length-1]);g.sum+=(c.r[0]+c.r[c.r.length-1])/2;g.k++}m.set(c.b,g)});
+ if((faOn()&&ADS&&ADS.units)||(comOn()&&COMS&&COMS.units)){const m=new Map();filtered('bankSel').forEach(r=>{const c=faC(r);if(!c)return;const g=m.get(c.b)||{n:0,lo:1e9,hi:0,sum:0,k:0,token:false,unl:false};g.n++;if(c.s==='token')g.token=true;if(c.s==='unlisted')g.unl=true;if(c.r&&c.r.length){g.lo=Math.min(g.lo,c.r[0]);g.hi=Math.max(g.hi,c.r[c.r.length-1]);g.sum+=(c.r[0]+c.r[c.r.length-1])/2;g.k++}m.set(c.b,g)});
   const avg=g=>g.k?g.sum/g.k:(g.token?-1:-2),list=[...m.keys()].sort((a,b)=>avg(m.get(b))-avg(m.get(a))||a.localeCompare(b));   // the bank that pays most on average first
   $('bankSel').innerHTML='<option value="">'+esc(tx('all_bank',{n:filtered('bankSel').length}))+'</option>'+list.map(b=>{const g=m.get(b);return '<option value="'+esc(b)+'">'+esc(b)+' - '+esc(g.k?faPct(g.lo,g.hi):tx(g.token?'fa_c_token':g.unl?'fa_c_unl':'fa_c_nil'))+' ('+g.n+')</option>'}).join('');
   $('bankSel').value=list.includes(cur.bank)?cur.bank:'';$('bankFld').hidden=false;
-  if(!$('sort').querySelector('[value="komisen"]')){const o=document.createElement('option');o.value='komisen';o.dataset.i18n='s_com';o.textContent=tx('s_com');$('sort').appendChild(o);if($('sort').value==='rich')$('sort').value='komisen'}}   // the main site's agent view opens on the highest commission (5/11/2026)
+  if(faOn()&&!$('sort').querySelector('[value="komisen"]')){const o=document.createElement('option');o.value='komisen';o.dataset.i18n='s_com';o.textContent=tx('s_com');$('sort').appendChild(o);if($('sort').value==='rich')$('sort').value='komisen'}}   // the main site's agent view opens on the highest commission (5/11/2026)
  {const fi=filtered('imp'),ages=fi.map(impAge),byD=new Map();fi.forEach((r,k)=>{if(ages[k]>=2&&ages[k]<=29){const d=String(r[22]).slice(0,10);byD.set(d,(byD.get(d)||0)+1)}});
   const cnt=f=>ages.filter(f).length,o=[['today',tx('imp_today'),cnt(a=>a===0)],['yday',tx('imp_yday'),cnt(a=>a===1)]].concat([3,7,14,30].map(n=>['l'+n,tx('imp_last',{n}),cnt(a=>a>=0&&a<n)])).filter(x=>x[2]),dl=[...byD.keys()].sort().reverse(),vals=o.map(x=>x[0]).concat(dl.map(d=>'d'+d));
   $('impSel').innerHTML='<option value="">'+esc(tx('all_imp',{n:fi.length}))+'</option>'+o.map(x=>'<option value="'+x[0]+'">'+esc(x[1])+' ('+x[2]+')</option>').join('')+(dl.length?'<optgroup label="'+esc(tx('imp_g'))+'">'+dl.map(d=>'<option value="d'+d+'">'+esc(fmtDay(d))+' ('+byD.get(d)+')</option>').join('')+'</optgroup>':'');
@@ -2473,7 +2473,7 @@ function faOpen(r,kind){
  copy();
 }
 // Agent commission (5/11/2026), for the same view: each unit's rule and amount come in agent/ads.json (tools/commission.py, from the bank table). The amount is on the reserve price.
-function faC(r){const a=ADS&&ADS.units&&ADS.units[r[SID]];return a&&a.c||null}
+function faC(r){const a=(ADS&&ADS.units&&ADS.units[r[SID]])||(COMS&&COMS.units&&COMS.units[r[SID]]);return a&&a.c||null}
 function faAmt(r){const c=faC(r);return c&&c.a&&c.a.length?c.a[c.a.length-1]:-1}
 const faPct=(lo,hi)=>(lo===hi?String(lo):lo+'-'+hi)+'%';
 const faRm=v=>'RM '+Math.round(v).toLocaleString('en-US');
@@ -3058,7 +3058,7 @@ try{aiBoot()}catch(e){try{console.error('assistant',e)}catch(x){}}
 // so the listings cannot be read without one. The slow PBKDF2 step is remembered on the device: a returning client waits only once.
 const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));const ub64=a=>btoa(String.fromCharCode(...a));
 const normCode=c=>String(c||'').toUpperCase().replace(/[^A-Z0-9]/g,'');
-let ACCESS=null,CLIENT='',DKEY=null,DKEY2=null,DKEY3=null,AGINFO=null,ADS=null,ACODE='';   // DKEY3 / AGINFO: the agent key and the agent-only contacts by share id (agent codes only, 1/11/2026)   // ACODE: the code that opened the page (agents send it with Download POS)   // DKEY2: the VIP history key (sip codes only)
+let ACCESS=null,CLIENT='',DKEY=null,DKEY2=null,DKEY3=null,AGINFO=null,ADS=null,COMS=null,ACODE='';   // DKEY3 / AGINFO: the agent key and the agent-only contacts by share id (agent codes only, 1/11/2026)   // ACODE: the code that opened the page (agents send it with Download POS)   // DKEY2: the VIP history key (sip codes only)
 // instant codes (11/11/2026): a code made a moment ago is not in the published access.json yet; the portal wraps the key for it with
 // this page's salt and key id. LIVE_ERR: the portal could not be reached (the gate then waits for the published file instead).
 let LIVE_ERR=false;
@@ -3132,6 +3132,7 @@ async function loadListings(){if(TRIAL)return RTRIAL?fetch(TRIAL_DATA+'?v='+Date
   j.listings=j.listings.concat((hj.listings||[]).filter(o=>o&&o.id&&!ids.has(o.id)));j.vip_days=hj.days||365}catch(x){j.vip_err=true}}   // the member is told under the status buttons
  AGINFO=null;if(gp){try{const a=await gp;if(a&&a.ct&&a.kid===ACCESS.akid){const aj=JSON.parse(await gunzip(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(a.iv)},DKEY3,b64(a.ct))));AGINFO=new Map(Object.entries(aj.units||{}))}}catch(x){AGINFO=null}}   // a key mismatch or any error = no column, never a wrong one
  ADS=null;if(ISAGENT&&DKEY3&&faOn()){try{const a=await fetch('agent/ads.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null);if(a&&a.ct&&a.kid===ACCESS.akid)ADS=JSON.parse(await gunzip(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(a.iv)},DKEY3,b64(a.ct))))}catch(x){ADS=null}}   // no file yet: the text is built from the listing alone and says what is missing
+ COMS=null;if(ISAGENT&&DKEY3&&comOn()){try{const a=await fetch('https://lelongbidgroup.com/agent/com.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null);if(a&&a.ct&&a.kid===ACCESS.akid)COMS=JSON.parse(await gunzip(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(a.iv)},DKEY3,b64(a.ct))))}catch(x){COMS=null}}   // partner commission filter: any failure = no filter
  return j}
 // visitor counter (11/11/2026: every agent's site counted, shown to the owner in the Control Room and the portal): 'in' when the page opens,
 // a beat each minute while it is on screen, 'out' with the seconds when it is left; a random browser id (none after the visitor declined
@@ -3169,6 +3170,9 @@ var REALAGENT=false,AVIEW='agent',RTRIAL=false,RTIER='',PAID_SITE='';   // PAID_
 const SHAREH=(location.hash||'').length>1;
 const TRIAL_DATA='https://lelongbidgroup.com/trial/data2.json';   // the free preview's masked listings (v2, 1/11/2026: photo, discount and map link open; address and paid values masked), the same file every trial site reads
 function faOn(){return KP==='lelong.'&&REALAGENT&&ISAGENT&&!!ACODE&&!TRIAL&&/^(www\.)?lelongbidgroup\.com$/.test(location.hostname)}   // For Admin: the agent view of the main site only
+// Bank commission filter on chosen partner pages (owner 12/11/2026: Khairul and Aezran only, Agent Specialist view): partner_sites.py
+// sets COMSITE on those builds; they load agent/com.json (the commission part only, never the For Admin data).
+var COMSITE=true;function comOn(){return COMSITE&&REALAGENT&&ISAGENT&&!!ACODE&&!TRIAL}
 function agentView(){REALAGENT=!!ISAGENT;if(!REALAGENT)return;RTIER=TIER;let v='agent';try{v=sessionStorage.getItem(KP+'aview')||'agent'}catch(e){}
  if(v==='vip'&&TIER==='sip'){AVIEW='vip';ISAGENT=false}
  else if(v==='prem'){AVIEW='prem';ISAGENT=false;TIER='premium'}   // what a Premium client sees: the score locked, no 12-month history
