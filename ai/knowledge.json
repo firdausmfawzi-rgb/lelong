@@ -16,10 +16,10 @@
       "median_price": 306000,
       "median_bmv": 27.0,
       "kinds": {
-        "Apartment": 512,
+        "Apartment": 509,
         "Terrace House": 430,
-        "Serviced Apartment": 265,
-        "Condominium": 232,
+        "Serviced Apartment": 270,
+        "Condominium": 230,
         "SOHO / SOFO": 64,
         "Semi-D / Bungalow": 54,
         "Office": 45,
@@ -44,9 +44,9 @@
       "median_price": 420000,
       "median_bmv": 19.0,
       "kinds": {
-        "Condominium": 177,
-        "Serviced Apartment": 150,
-        "Apartment": 147,
+        "Condominium": 178,
+        "Serviced Apartment": 151,
+        "Apartment": 145,
         "Terrace House": 41,
         "Office": 35,
         "Shop Lot": 23,
@@ -72,10 +72,10 @@
       "median_price": 380000,
       "median_bmv": 19.0,
       "kinds": {
-        "Terrace House": 286,
-        "Apartment": 138,
+        "Terrace House": 287,
+        "Apartment": 136,
         "Serviced Apartment": 85,
-        "Condominium": 33,
+        "Condominium": 34,
         "Semi-D / Bungalow": 15,
         "Shop Lot": 12,
         "Cluster House": 6,
@@ -148,9 +148,9 @@
       "median_price": 237500,
       "median_bmv": 34.0,
       "kinds": {
-        "Apartment": 112,
+        "Apartment": 113,
         "Terrace House": 83,
-        "Condominium": 37,
+        "Condominium": 36,
         "Retail Lot": 20,
         "Shop Office": 16,
         "Shop Lot": 10,
@@ -288,10 +288,10 @@
       "median_bmv": 19.0,
       "kinds": {
         "Terrace House": 57,
-        "Apartment": 14,
+        "Apartment": 15,
         "Semi-D / Bungalow": 8,
         "Retail Lot": 6,
-        "Condominium": 5,
+        "Condominium": 4,
         "Flat": 4,
         "Shop House": 4,
         "Bungalow": 3,
@@ -366,22 +366,22 @@
   },
   "by_kind": {
     "Terrace House": {
-      "active": 1798,
+      "active": 1799,
       "median_price": 320000,
       "median_bmv": 19.0
     },
     "Apartment": {
-      "active": 1143,
-      "median_price": 226800,
+      "active": 1138,
+      "median_price": 226000,
       "median_bmv": 27.0
     },
     "Serviced Apartment": {
-      "active": 585,
-      "median_price": 335340,
+      "active": 591,
+      "median_price": 332100,
       "median_bmv": 20.0
     },
     "Condominium": {
-      "active": 572,
+      "active": 570,
       "median_price": 365000,
       "median_bmv": 21.0
     },
@@ -484,7 +484,7 @@
   "by_bank": [
     {
       "bank": "Hong Leong Bank Berhad",
-      "active": 454
+      "active": 450
     },
     {
       "bank": "CIMB Bank Berhad",
@@ -492,7 +492,7 @@
     },
     {
       "bank": "Ambank (M) Berhad",
-      "active": 358
+      "active": 355
     },
     {
       "bank": "Lembaga Pembiayaan Perumahan Sektor Awam",
@@ -504,7 +504,7 @@
     },
     {
       "bank": "Ambank(M) Berhad",
-      "active": 276
+      "active": 279
     },
     {
       "bank": "CIMB Islamic Bank",
