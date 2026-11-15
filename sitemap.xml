@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- lelongbidgroup.com (14/11/2026): the pages meant for search.
+     The list page changes twice a day with its data, so it carries no lastmod (a date nobody keeps true would make Google ignore
+     every date here). The profile page's lastmod is the day that page last changed: change it by hand with the page. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://lelongbidgroup.com/</loc></url>
+  <url><loc>https://lelongbidgroup.com/firdaus-jay/</loc><lastmod>2026-11-14</lastmod></url>
+</urlset>
