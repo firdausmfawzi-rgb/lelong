@@ -31,7 +31,13 @@ ol{margin:16px 0 0;padding-left:20px;color:var(--ink2);font-size:14px}
 #mark{background:#f2b705;color:#14213d}
 #mark:disabled{opacity:.45}
 #undo,#end{background:rgba(255,255,255,.92);color:#14213d}
-#ov .dot{position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border:2px solid #fff;border-radius:50%;box-shadow:0 0 0 2px rgba(0,0,0,.4)}
+/* the aim: a thin cross, hidden once the yellow floor ring shows (a ring here looked like a mark that ran away, 16/11) */
+#ov .aim{position:absolute;left:50%;top:50%;width:28px;height:28px;margin:-14px 0 0 -14px;opacity:.85}
+#ov .aim::before,#ov .aim::after{content:"";position:absolute;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.5)}
+#ov .aim::before{left:13px;top:0;width:2px;height:28px}
+#ov .aim::after{top:13px;left:0;height:2px;width:28px}
+#ov .aim.off{display:none}
+#ov .hint{margin-top:6px;font-size:13px;color:#ffe08a}
 </style>
 </head>
 <body>
@@ -48,15 +54,15 @@ ol{margin:16px 0 0;padding-left:20px;color:var(--ink2);font-size:14px}
   <ol>
     <li>Tekan Mula ukur dan benarkan kamera.</li>
     <li>Halakan kamera ke lantai dan gerakkan telefon perlahan ke kiri dan kanan selama 5 hingga 10 saat, supaya telefon mengenali bilik dahulu. Bulatan kuning akan muncul di lantai.</li>
-    <li>Letak bulatan pada sudut dinding di aras lantai, tekan <b>Tanda</b>. Pergi ke sudut hujung dinding yang sama, tekan <b>Tanda</b> lagi.</li>
+    <li>Letak bulatan kuning pada sudut dinding di aras lantai, tekan <b>Tanda</b>: pin merah akan berdiri di situ. Pergi ke sudut hujung dinding yang sama, tekan <b>Tanda</b> lagi. Tanda putih di tengah skrin hanya penanda arah dan sentiasa ikut kamera.</li>
     <li>Ukur dinding yang sama dengan pita ukur dan bandingkan.</li>
   </ol>
   <div id="res"></div>
 </main>
 
 <div id="ov">
-  <div class="top"><div id="st">Mencari lantai… gerakkan telefon perlahan.</div><div class="big" id="len"></div><div id="tot"></div></div>
-  <div class="dot"></div>
+  <div class="top"><div id="st">Mencari lantai… gerakkan telefon perlahan.</div><div class="big" id="len"></div><div id="tot"></div><div class="hint" id="hint"></div></div>
+  <div class="aim" id="aim"></div>
   <div class="bar"><button id="undo" type="button">Undur</button><button id="mark" type="button">Tanda</button><button id="end" type="button">Siap</button></div>
 </div>
 
@@ -85,7 +91,7 @@ if (!navigator.xr){
 /* Each mark is an ARCore anchor (WebXR Anchors API): ARCore keeps refining its map of the room while the phone moves, and an
    anchor moves with those corrections, so the mark stays on the real corner. A bare position (the first version) stayed where
    the old map put it and seemed to run away. `drift` keeps how far each mark was moved by ARCore since it was placed. */
-var renderer, scene, camera, reticle, session, refSpace, hitSrc, lastHit = null, tracking = false;
+var renderer, scene, camera, reticle, session, refSpace, hitSrc, lastHit = null, tracking = false, lost = 0;
 var pts = [], marks = [], lines = [], anchors = [], placed = [], drift = [], depthOn = false, anchorsOn = false;
 
 function setup(){
@@ -107,7 +113,11 @@ function addPoint(){
   if (!reticle.visible || !tracking) return;
   var p = new THREE.Vector3().setFromMatrixPosition(reticle.matrix), i = pts.length;
   pts.push(p); placed.push(p.clone()); drift.push(0); anchors.push(null);
-  var m = new THREE.Mesh(new THREE.SphereGeometry(0.02, 16, 12), new THREE.MeshBasicMaterial({color:0xffffff}));
+  // a red pin: a ball on the floor and a 25 cm stick, so the mark is easy to see from across the room
+  var m = new THREE.Group(), red = new THREE.MeshBasicMaterial({color:0xe53935});
+  m.add(new THREE.Mesh(new THREE.SphereGeometry(0.025, 16, 12), red));
+  var stick = new THREE.Mesh(new THREE.CylinderGeometry(0.004, 0.004, 0.25, 8), red); stick.position.y = 0.125; m.add(stick);
+  var head = new THREE.Mesh(new THREE.SphereGeometry(0.018, 12, 10), red); head.position.y = 0.25; m.add(head);
   m.position.copy(p); scene.add(m); marks.push(m);
   if (pts.length > 1){
     var l = new THREE.Line(new THREE.BufferGeometry().setFromPoints([pts[i - 1], p]), new THREE.LineBasicMaterial({color:0xf2b705}));
@@ -161,7 +171,7 @@ function start(){
   navigator.xr.requestSession('immersive-ar', opts).catch(function(){
     return navigator.xr.requestSession('immersive-ar', {requiredFeatures:['hit-test'], optionalFeatures:['anchors','dom-overlay'], domOverlay:{root:$('ov')}});
   }).then(function(s){
-    session = s; pts = []; info = []; anchors = []; placed = []; drift = [];
+    session = s; pts = []; info = []; anchors = []; placed = []; drift = []; lost = 0;
     var en = s.enabledFeatures || [];
     depthOn = en.indexOf('depth-sensing') >= 0;
     anchorsOn = en.indexOf('anchors') >= 0 || (!s.enabledFeatures && typeof XRAnchor !== 'undefined');
@@ -182,22 +192,26 @@ function frame(t, f){
   tracking = !!(vp && !vp.emulatedPosition);   // emulatedPosition: ARCore lost the room and only guesses
   follow(f);
   lastHit = null;
+  var n = pts.length ? ' (' + pts.length + ' pin merah ditanda)' : '';
   if (!tracking){
-    reticle.visible = false; $('mark').disabled = true;
-    $('st').textContent = 'Penjejakan hilang. Halakan semula ke kawasan yang sudah diimbas dan gerakkan perlahan.';
+    reticle.visible = false; $('mark').disabled = true; lost = lost || t;
+    $('st').textContent = 'Penjejakan hilang' + n + '. Halakan semula ke kawasan yang sudah diimbas dan gerakkan perlahan.';
   } else if (hitSrc){
     var r = f.getHitTestResults(hitSrc);
     if (r.length){
-      lastHit = r[0];
+      lastHit = r[0]; lost = 0;
       var pose = r[0].getPose(refSpace);
       reticle.visible = true; reticle.matrix.fromArray(pose.transform.matrix); $('mark').disabled = false;
-      if (!pts.length) $('st').textContent = 'Lantai dijumpai. Letak bulatan pada sudut dinding dan tekan Tanda.';
-      else $('st').textContent = 'Jarak ke titik terakhir: ' + cm(Math.hypot(reticle.matrix.elements[12] - pts[pts.length - 1].x, reticle.matrix.elements[14] - pts[pts.length - 1].z));
+      if (!pts.length) $('st').textContent = 'Lantai dijumpai. Letak bulatan kuning pada sudut dinding dan tekan Tanda.';
+      else $('st').textContent = 'Jarak dari pin terakhir' + n + ': ' + cm(Math.hypot(reticle.matrix.elements[12] - pts[pts.length - 1].x, reticle.matrix.elements[14] - pts[pts.length - 1].z));
     } else {
-      reticle.visible = false; $('mark').disabled = true;
-      $('st').textContent = 'Mencari lantai… gerakkan telefon perlahan.';
+      reticle.visible = false; $('mark').disabled = true; lost = lost || t;
+      $('st').textContent = 'Mencari lantai' + n + '… bulatan kuning belum muncul, Tanda belum boleh ditekan.';
     }
   }
+  $('aim').classList.toggle('off', reticle.visible);
+  // still no floor after 4 s: say what helps (seen 16/11: phone held still, close and straight down, in sun and shade)
+  $('hint').textContent = lost && t - lost > 4000 ? 'Tip: angkat telefon setinggi dada, condongkan ke lantai (jangan tegak ke bawah), dan gerakkan ke kiri dan kanan perlahan. Elak cahaya matahari terus dan bayang gelap.' : '';
   renderer.render(scene, camera);
 }
 function ended(){
