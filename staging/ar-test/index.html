@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Ujian Ukur AR</title>
+<style>
+:root{--paper:#eceff4;--card:#fff;--ink:#14213d;--ink2:#53617f;--line:#d3d9e5;--accent:#f2b705;--ok:#1b7f3b;--bad:#b3261e}
+@media (prefers-color-scheme:dark){:root{--paper:#0e1522;--card:#151f31;--ink:#e8edf7;--ink2:#9eabc6;--line:#27344d;--ok:#5fd38a;--bad:#ff8a80}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;padding:16px}
+.box{max-width:520px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+h1{margin:0 0 4px;font-size:22px}
+.sub{margin:0 0 16px;color:var(--ink2);font-size:14px}
+ul.chk{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:6px}
+ul.chk li{display:flex;gap:10px;align-items:baseline;font-size:15px}
+ul.chk b{min-width:22px;text-align:center}
+.ok{color:var(--ok)}.bad{color:var(--bad)}.wait{color:var(--ink2)}
+.btn{width:100%;min-height:52px;border-radius:8px;border:0;background:var(--accent);color:#14213d;font:700 17px system-ui,sans-serif;cursor:pointer}
+.btn:disabled{opacity:.4}
+ol{margin:16px 0 0;padding-left:20px;color:var(--ink2);font-size:14px}
+#res{margin-top:16px;font:500 14px/1.6 ui-monospace,Menlo,monospace;white-space:pre-wrap}
+/* AR overlay (shown over the camera) */
+#ov{display:none;position:fixed;inset:0;pointer-events:none;color:#fff;font-family:system-ui,sans-serif}
+#ov.on{display:block}
+#ov .top{position:absolute;left:12px;right:12px;top:calc(12px + env(safe-area-inset-top,0px));background:rgba(20,33,61,.82);border-radius:10px;padding:10px 12px;font-size:15px}
+#ov .big{font:700 26px ui-monospace,Menlo,monospace;color:var(--accent)}
+#ov .bar{position:absolute;left:12px;right:12px;bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;gap:10px;pointer-events:auto}
+#ov .bar button{flex:1;min-height:60px;border:0;border-radius:12px;font:700 17px system-ui,sans-serif}
+#mark{background:#f2b705;color:#14213d}
+#undo,#end{background:rgba(255,255,255,.92);color:#14213d}
+#ov .dot{position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border:2px solid #fff;border-radius:50%;box-shadow:0 0 0 2px rgba(0,0,0,.4)}
+</style>
+</head>
+<body>
+<div style="position:fixed;left:8px;bottom:8px;z-index:9999;background:#c62828;color:#fff;font:700 12px/1 system-ui,sans-serif;padding:6px 10px;border-radius:999px;pointer-events:none">STAGING · ujian, bukan laman live</div>
+<main class="box">
+  <h1>Ujian Ukur AR</h1>
+  <p class="sub">Semak sama ada telefon ini boleh mengukur bilik dengan kamera, kemudian ukur satu dinding dan bandingkan dengan pita ukur.</p>
+  <ul class="chk" id="chk">
+    <li><b id="c1" class="wait">…</b><span>Laman selamat (HTTPS)</span></li>
+    <li><b id="c2" class="wait">…</b><span>Pelayar menyokong WebXR</span></li>
+    <li><b id="c3" class="wait">…</b><span>Mod AR (ARCore) tersedia</span></li>
+  </ul>
+  <button id="go" class="btn" type="button" disabled>Mula ukur</button>
+  <ol>
+    <li>Tekan Mula ukur dan benarkan kamera.</li>
+    <li>Halakan kamera ke lantai dan gerakkan telefon perlahan sehingga bulatan kuning muncul di lantai.</li>
+    <li>Letak bulatan pada sudut dinding di aras lantai, tekan <b>Tanda</b>. Pergi ke sudut hujung dinding yang sama, tekan <b>Tanda</b> lagi.</li>
+    <li>Ukur dinding yang sama dengan pita ukur dan bandingkan.</li>
+  </ol>
+  <div id="res"></div>
+</main>
+
+<div id="ov">
+  <div class="top"><div id="st">Mencari lantai… gerakkan telefon perlahan.</div><div class="big" id="len"></div><div id="tot"></div></div>
+  <div class="dot"></div>
+  <div class="bar"><button id="undo" type="button">Undur</button><button id="mark" type="button">Tanda</button><button id="end" type="button">Siap</button></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+'use strict';
+var $ = function(id){ return document.getElementById(id); };
+function set(id, ok, txt){ var el = $(id); el.textContent = ok === null ? '…' : ok ? '✓' : '✗'; el.className = ok === null ? 'wait' : ok ? 'ok' : 'bad'; if (txt) el.nextElementSibling.textContent = txt; }
+function cm(m){ return (m * 100).toFixed(1) + ' cm'; }
+
+var info = [];
+set('c1', window.isSecureContext);
+if (!navigator.xr){
+  set('c2', false); set('c3', false, 'Mod AR (ARCore) tidak tersedia');
+  $('res').textContent = 'Pelayar ini tiada WebXR. Buka laman ini dalam Google Chrome pada telefon Android.';
+} else {
+  set('c2', true);
+  navigator.xr.isSessionSupported('immersive-ar').then(function(ok){
+    set('c3', ok);
+    $('go').disabled = !ok;
+    if (!ok) $('res').textContent = 'Mod AR tidak tersedia. Pastikan "Google Play Services for AR" dipasang dan dikemas kini dari Play Store, kemudian muat semula.';
+  }).catch(function(){ set('c3', false); });
+}
+
+var renderer, scene, camera, reticle, session, refSpace, hitSrc, pts = [], marks = [], lines = [], last = null, depthOn = false;
+
+function setup(){
+  renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.xr.enabled = true;
+  document.body.appendChild(renderer.domElement);
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 40);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1));
+  var g = new THREE.RingGeometry(0.06, 0.08, 32).rotateX(-Math.PI / 2);
+  reticle = new THREE.Mesh(g, new THREE.MeshBasicMaterial({color:0xf2b705}));
+  reticle.matrixAutoUpdate = false; reticle.visible = false;
+  scene.add(reticle);
+}
+
+function addPoint(){
+  if (!reticle.visible) return;
+  var p = new THREE.Vector3().setFromMatrixPosition(reticle.matrix);
+  pts.push(p);
+  var m = new THREE.Mesh(new THREE.SphereGeometry(0.02, 16, 12), new THREE.MeshBasicMaterial({color:0xffffff}));
+  m.position.copy(p); scene.add(m); marks.push(m);
+  if (pts.length > 1){
+    var a = pts[pts.length - 2];
+    var l = new THREE.Line(new THREE.BufferGeometry().setFromPoints([a, p]), new THREE.LineBasicMaterial({color:0xf2b705}));
+    scene.add(l); lines.push(l);
+  }
+  info.push('Titik ' + pts.length + (pts.length > 1 ? ': ' + cm(seg(pts.length - 1)) + ' dari titik sebelumnya' : ''));
+  show();
+  if (navigator.vibrate) navigator.vibrate(30);
+}
+function seg(i){ var a = pts[i - 1], b = pts[i]; return Math.hypot(b.x - a.x, b.z - a.z); }   // flat distance on the floor
+function total(){ var s = 0; for (var i = 1; i < pts.length; i++) s += seg(i); return s; }
+function undo(){
+  if (!pts.length) return;
+  pts.pop(); scene.remove(marks.pop()); if (lines.length >= pts.length && lines.length) scene.remove(lines.pop());
+  info.pop(); show();
+}
+function show(){
+  $('len').textContent = pts.length > 1 ? cm(seg(pts.length - 1)) : '';
+  $('tot').textContent = pts.length > 2 ? 'Jumlah ' + pts.length + ' titik: ' + cm(total()) : pts.length === 1 ? 'Pergi ke sudut seterusnya dan tekan Tanda.' : '';
+}
+
+function start(){
+  if (!renderer) setup();
+  var opts = {requiredFeatures:['hit-test','local'], optionalFeatures:['dom-overlay','depth-sensing'], domOverlay:{root:$('ov')},
+    depthSensing:{usagePreference:['cpu-optimized'], dataFormatPreference:['luminance-alpha']}};
+  navigator.xr.requestSession('immersive-ar', opts).catch(function(){
+    return navigator.xr.requestSession('immersive-ar', {requiredFeatures:['hit-test'], optionalFeatures:['dom-overlay'], domOverlay:{root:$('ov')}});
+  }).then(function(s){
+    session = s; pts = []; info = [];
+    depthOn = !!(s.enabledFeatures && s.enabledFeatures.indexOf('depth-sensing') >= 0);
+    $('ov').classList.add('on');
+    renderer.xr.setReferenceSpaceType('local');
+    renderer.xr.setSession(s);
+    s.requestReferenceSpace('viewer').then(function(v){ return s.requestHitTestSource({space:v}); }).then(function(h){ hitSrc = h; });
+    s.addEventListener('end', ended);
+    renderer.setAnimationLoop(frame);
+  }).catch(function(e){
+    $('res').textContent = 'AR tidak dapat dimulakan: ' + (e && e.message ? e.message : e) + '\nPastikan kamera dibenarkan untuk Chrome.';
+  });
+}
+function frame(t, f){
+  if (!f) return;
+  refSpace = renderer.xr.getReferenceSpace();
+  if (hitSrc){
+    var r = f.getHitTestResults(hitSrc);
+    if (r.length){
+      var pose = r[0].getPose(refSpace);
+      reticle.visible = true; reticle.matrix.fromArray(pose.transform.matrix);
+      if (!pts.length) $('st').textContent = 'Lantai dijumpai. Letak bulatan pada sudut dinding dan tekan Tanda.';
+      else $('st').textContent = 'Jarak ke titik terakhir: ' + cm(Math.hypot(reticle.matrix.elements[12] - pts[pts.length - 1].x, reticle.matrix.elements[14] - pts[pts.length - 1].z));
+    } else {
+      reticle.visible = false;
+      $('st').textContent = 'Mencari lantai… gerakkan telefon perlahan.';
+    }
+  }
+  renderer.render(scene, camera);
+}
+function ended(){
+  renderer.setAnimationLoop(null);
+  $('ov').classList.remove('on');
+  hitSrc = null; session = null;
+  marks.concat(lines).forEach(function(o){ scene.remove(o); }); marks = []; lines = [];
+  var out = ['Telefon: ' + navigator.userAgent.replace(/^.*Android [^;]*; ([^)]*)\).*$/, '$1'),
+             'Sensor kedalaman (Depth API): ' + (depthOn ? 'aktif' : 'tidak aktif'), ''];
+  out = out.concat(info.length ? info : ['Tiada titik ditanda.']);
+  if (pts.length > 2) out.push('', 'Jumlah: ' + cm(total()));
+  $('res').textContent = out.join('\n') + '\n\nBandingkan setiap ukuran dengan pita ukur dan beritahu Claude hasilnya.';
+}
+
+$('go').addEventListener('click', start);
+$('mark').addEventListener('click', addPoint);
+$('undo').addEventListener('click', undo);
+$('end').addEventListener('click', function(){ if (session) session.end(); });
+['mark','undo','end'].forEach(function(id){ $(id).addEventListener('beforexrselect', function(e){ e.preventDefault(); }); });
+})();
+</script>
+</body>
+</html>
