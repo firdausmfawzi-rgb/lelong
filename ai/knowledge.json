@@ -72,8 +72,8 @@
       "median_price": 385000,
       "median_bmv": 19.0,
       "kinds": {
-        "Terrace House": 282,
-        "Apartment": 134,
+        "Terrace House": 283,
+        "Apartment": 133,
         "Serviced Apartment": 85,
         "Condominium": 32,
         "Semi-D / Bungalow": 14,
@@ -365,12 +365,12 @@
   },
   "by_kind": {
     "Terrace House": {
-      "active": 1768,
+      "active": 1769,
       "median_price": 324000,
       "median_bmv": 19.0
     },
     "Apartment": {
-      "active": 1100,
+      "active": 1099,
       "median_price": 225000,
       "median_bmv": 26.0
     },
@@ -491,7 +491,7 @@
     },
     {
       "bank": "Ambank (M) Berhad",
-      "active": 340
+      "active": 341
     },
     {
       "bank": "Lembaga Pembiayaan Perumahan Sektor Awam",
