@@ -29,6 +29,7 @@ ol{margin:16px 0 0;padding-left:20px;color:var(--ink2);font-size:14px}
 #ov .bar{position:absolute;left:12px;right:12px;bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;gap:10px;pointer-events:auto}
 #ov .bar button{flex:1;min-height:60px;border:0;border-radius:12px;font:700 17px system-ui,sans-serif}
 #mark{background:#f2b705;color:#14213d}
+#mark:disabled{opacity:.45}
 #undo,#end{background:rgba(255,255,255,.92);color:#14213d}
 #ov .dot{position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border:2px solid #fff;border-radius:50%;box-shadow:0 0 0 2px rgba(0,0,0,.4)}
 </style>
@@ -46,7 +47,7 @@ ol{margin:16px 0 0;padding-left:20px;color:var(--ink2);font-size:14px}
   <button id="go" class="btn" type="button" disabled>Mula ukur</button>
   <ol>
     <li>Tekan Mula ukur dan benarkan kamera.</li>
-    <li>Halakan kamera ke lantai dan gerakkan telefon perlahan sehingga bulatan kuning muncul di lantai.</li>
+    <li>Halakan kamera ke lantai dan gerakkan telefon perlahan ke kiri dan kanan selama 5 hingga 10 saat, supaya telefon mengenali bilik dahulu. Bulatan kuning akan muncul di lantai.</li>
     <li>Letak bulatan pada sudut dinding di aras lantai, tekan <b>Tanda</b>. Pergi ke sudut hujung dinding yang sama, tekan <b>Tanda</b> lagi.</li>
     <li>Ukur dinding yang sama dengan pita ukur dan bandingkan.</li>
   </ol>
@@ -81,7 +82,11 @@ if (!navigator.xr){
   }).catch(function(){ set('c3', false); });
 }
 
-var renderer, scene, camera, reticle, session, refSpace, hitSrc, pts = [], marks = [], lines = [], last = null, depthOn = false;
+/* Each mark is an ARCore anchor (WebXR Anchors API): ARCore keeps refining its map of the room while the phone moves, and an
+   anchor moves with those corrections, so the mark stays on the real corner. A bare position (the first version) stayed where
+   the old map put it and seemed to run away. `drift` keeps how far each mark was moved by ARCore since it was placed. */
+var renderer, scene, camera, reticle, session, refSpace, hitSrc, lastHit = null, tracking = false;
+var pts = [], marks = [], lines = [], anchors = [], placed = [], drift = [], depthOn = false, anchorsOn = false;
 
 function setup(){
   renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
@@ -99,25 +104,49 @@ function setup(){
 }
 
 function addPoint(){
-  if (!reticle.visible) return;
-  var p = new THREE.Vector3().setFromMatrixPosition(reticle.matrix);
-  pts.push(p);
+  if (!reticle.visible || !tracking) return;
+  var p = new THREE.Vector3().setFromMatrixPosition(reticle.matrix), i = pts.length;
+  pts.push(p); placed.push(p.clone()); drift.push(0); anchors.push(null);
   var m = new THREE.Mesh(new THREE.SphereGeometry(0.02, 16, 12), new THREE.MeshBasicMaterial({color:0xffffff}));
   m.position.copy(p); scene.add(m); marks.push(m);
   if (pts.length > 1){
-    var a = pts[pts.length - 2];
-    var l = new THREE.Line(new THREE.BufferGeometry().setFromPoints([a, p]), new THREE.LineBasicMaterial({color:0xf2b705}));
+    var l = new THREE.Line(new THREE.BufferGeometry().setFromPoints([pts[i - 1], p]), new THREE.LineBasicMaterial({color:0xf2b705}));
     scene.add(l); lines.push(l);
   }
-  info.push('Titik ' + pts.length + (pts.length > 1 ? ': ' + cm(seg(pts.length - 1)) + ' dari titik sebelumnya' : ''));
+  if (lastHit && lastHit.createAnchor){
+    lastHit.createAnchor().then(function(a){
+      if (marks[i] === m) anchors[i] = a; else a.delete();   // undone before ARCore answered
+    }).catch(function(){});
+  }
+  info.push('');
   show();
   if (navigator.vibrate) navigator.vibrate(30);
+}
+function follow(f){
+  /* move every mark (and its lines) to where ARCore now says its anchor is */
+  var moved = false;
+  for (var i = 0; i < anchors.length; i++){
+    var a = anchors[i];
+    if (!a || !f.trackedAnchors || !f.trackedAnchors.has(a)) continue;
+    var pose = f.getPose(a.anchorSpace, refSpace); if (!pose) continue;
+    var q = pose.transform.position;
+    if (Math.abs(q.x - pts[i].x) + Math.abs(q.y - pts[i].y) + Math.abs(q.z - pts[i].z) > 0.0005){
+      pts[i].set(q.x, q.y, q.z); marks[i].position.copy(pts[i]); moved = true;
+      drift[i] = Math.max(drift[i], pts[i].distanceTo(placed[i]));
+    }
+  }
+  if (moved){
+    for (var j = 0; j < lines.length; j++) lines[j].geometry.setFromPoints([pts[j], pts[j + 1]]);
+    show();
+  }
 }
 function seg(i){ var a = pts[i - 1], b = pts[i]; return Math.hypot(b.x - a.x, b.z - a.z); }   // flat distance on the floor
 function total(){ var s = 0; for (var i = 1; i < pts.length; i++) s += seg(i); return s; }
 function undo(){
   if (!pts.length) return;
-  pts.pop(); scene.remove(marks.pop()); if (lines.length >= pts.length && lines.length) scene.remove(lines.pop());
+  pts.pop(); placed.pop(); drift.pop(); scene.remove(marks.pop());
+  var a = anchors.pop(); if (a) a.delete();
+  if (lines.length >= pts.length && lines.length) scene.remove(lines.pop());
   info.pop(); show();
 }
 function show(){
@@ -127,13 +156,15 @@ function show(){
 
 function start(){
   if (!renderer) setup();
-  var opts = {requiredFeatures:['hit-test','local'], optionalFeatures:['dom-overlay','depth-sensing'], domOverlay:{root:$('ov')},
+  var opts = {requiredFeatures:['hit-test','local'], optionalFeatures:['anchors','dom-overlay','depth-sensing'], domOverlay:{root:$('ov')},
     depthSensing:{usagePreference:['cpu-optimized'], dataFormatPreference:['luminance-alpha']}};
   navigator.xr.requestSession('immersive-ar', opts).catch(function(){
-    return navigator.xr.requestSession('immersive-ar', {requiredFeatures:['hit-test'], optionalFeatures:['dom-overlay'], domOverlay:{root:$('ov')}});
+    return navigator.xr.requestSession('immersive-ar', {requiredFeatures:['hit-test'], optionalFeatures:['anchors','dom-overlay'], domOverlay:{root:$('ov')}});
   }).then(function(s){
-    session = s; pts = []; info = [];
-    depthOn = !!(s.enabledFeatures && s.enabledFeatures.indexOf('depth-sensing') >= 0);
+    session = s; pts = []; info = []; anchors = []; placed = []; drift = [];
+    var en = s.enabledFeatures || [];
+    depthOn = en.indexOf('depth-sensing') >= 0;
+    anchorsOn = en.indexOf('anchors') >= 0 || (!s.enabledFeatures && typeof XRAnchor !== 'undefined');
     $('ov').classList.add('on');
     renderer.xr.setReferenceSpaceType('local');
     renderer.xr.setSession(s);
@@ -147,15 +178,23 @@ function start(){
 function frame(t, f){
   if (!f) return;
   refSpace = renderer.xr.getReferenceSpace();
-  if (hitSrc){
+  var vp = f.getViewerPose(refSpace);
+  tracking = !!(vp && !vp.emulatedPosition);   // emulatedPosition: ARCore lost the room and only guesses
+  follow(f);
+  lastHit = null;
+  if (!tracking){
+    reticle.visible = false; $('mark').disabled = true;
+    $('st').textContent = 'Penjejakan hilang. Halakan semula ke kawasan yang sudah diimbas dan gerakkan perlahan.';
+  } else if (hitSrc){
     var r = f.getHitTestResults(hitSrc);
     if (r.length){
+      lastHit = r[0];
       var pose = r[0].getPose(refSpace);
-      reticle.visible = true; reticle.matrix.fromArray(pose.transform.matrix);
+      reticle.visible = true; reticle.matrix.fromArray(pose.transform.matrix); $('mark').disabled = false;
       if (!pts.length) $('st').textContent = 'Lantai dijumpai. Letak bulatan pada sudut dinding dan tekan Tanda.';
       else $('st').textContent = 'Jarak ke titik terakhir: ' + cm(Math.hypot(reticle.matrix.elements[12] - pts[pts.length - 1].x, reticle.matrix.elements[14] - pts[pts.length - 1].z));
     } else {
-      reticle.visible = false;
+      reticle.visible = false; $('mark').disabled = true;
       $('st').textContent = 'Mencari lantai… gerakkan telefon perlahan.';
     }
   }
@@ -164,11 +203,14 @@ function frame(t, f){
 function ended(){
   renderer.setAnimationLoop(null);
   $('ov').classList.remove('on');
-  hitSrc = null; session = null;
+  hitSrc = null; session = null; lastHit = null;
   marks.concat(lines).forEach(function(o){ scene.remove(o); }); marks = []; lines = [];
   var out = ['Telefon: ' + navigator.userAgent.replace(/^.*Android [^;]*; ([^)]*)\).*$/, '$1'),
-             'Sensor kedalaman (Depth API): ' + (depthOn ? 'aktif' : 'tidak aktif'), ''];
-  out = out.concat(info.length ? info : ['Tiada titik ditanda.']);
+             'Sensor kedalaman (Depth API): ' + (depthOn ? 'aktif' : 'tidak aktif'),
+             'Anchor ARCore: ' + (anchorsOn ? 'aktif' : 'TIDAK aktif (titik boleh lari)'), ''];
+  for (var i = 0; i < pts.length; i++)
+    info[i] = 'Titik ' + (i + 1) + (i ? ': ' + cm(seg(i)) + ' dari titik sebelumnya' : '') + (drift[i] >= 0.005 ? ' (dibetulkan ARCore ' + cm(drift[i]) + ')' : '');
+  out = out.concat(pts.length ? info : ['Tiada titik ditanda.']);
   if (pts.length > 2) out.push('', 'Jumlah: ' + cm(total()));
   $('res').textContent = out.join('\n') + '\n\nBandingkan setiap ukuran dengan pita ukur dan beritahu Claude hasilnya.';
 }
