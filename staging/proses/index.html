@@ -373,6 +373,8 @@ footer a{text-decoration:none;color:var(--neon)}
 .vid-btn{position:absolute;inset:0;margin:auto;width:64px;height:64px;border-radius:50%;background:rgba(6,14,26,.72);border:2px solid var(--neon);display:grid;place-items:center;box-shadow:0 0 24px rgba(34,211,238,.45)}
 .vid-btn svg{width:26px;height:26px;fill:#fff;margin-left:4px}
 .vid figcaption{padding:10px 12px;font-size:.95rem}
+.hero .vids{margin:18px 0 6px}
+.hero .vid{background:rgba(255,255,255,.06);border-color:rgba(125,211,252,.28);color:#fff}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1!important;transform:none!important}}
 @media print{.bar,.top,.agent,.rail,.pager,.steprail,.snext,.console,.hero .btns,.fx,#prog{display:none!important}body{padding:0}body::before,body::after{display:none}main>section[hidden]{display:block!important}.rv{opacity:1!important;transform:none!important}}
 </style>
@@ -427,6 +429,11 @@ footer a{text-decoration:none;color:var(--neon)}
   <div class="wrap">
    <span class="ai-badge" aria-hidden="true"><i></i>AGENTIC AI POWERED DATA</span><span class="kicker"><span class="dot" aria-hidden="true"></span>Panduan percuma untuk pembeli pertama</span>
    <h1>Nak beli rumah lelong kali pertama? <em>Ini prosesnya, A hingga Z.</em></h1>
+   <div class="vids" aria-label="Video proses lelongan"><span class="lbl">Mukadimah: tonton dua video ini dahulu</span>
+   <div class="vid-grid">
+    <figure class="vid"><a class="vid-play" href="https://www.youtube.com/watch?v=bvrJiOuBoLs" target="_blank" rel="noopener" data-yt="bvrJiOuBoLs" aria-label="Main video: jika ada lebih dari seorang pembida"><img src="https://i.ytimg.com/vi/bvrJiOuBoLs/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="vid-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15L19.5 12z"/></svg></span></a><figcaption><b>Jika ada lebih dari seorang pembida</b></figcaption></figure>
+    <figure class="vid"><a class="vid-play" href="https://www.youtube.com/watch?v=ZDIH_5o--Ow" target="_blank" rel="noopener" data-yt="ZDIH_5o--Ow" aria-label="Main video: jika anda menang sebagai pembida tunggal"><img src="https://i.ytimg.com/vi/ZDIH_5o--Ow/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="vid-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15L19.5 12z"/></svg></span></a><figcaption><b>Jika anda menang sebagai pembida tunggal</b></figcaption></figure>
+   </div></div>
    <p class="sub">Bahasa mudah. Ayat pendek. Setiap istilah diterangkan. Sepuluh langkah dari cari rumah sampai dapat kunci, dengan satu contoh penuh dalam ringgit.</p>
    <div class="btns">
     <a class="btn btn-gold" href="#langkah"><svg class="ic" width="24" height="24" aria-hidden="true"><use href="#i-arrow"/></svg>Mula baca langkah 1</a>
@@ -674,11 +681,6 @@ footer a{text-decoration:none;color:var(--neon)}
         <p><b>Tak menang:</b> bank draf dipulangkan di kaunter pelelong, biasanya pada hari yang sama.</p>
         <p><b>Untuk e-Lelong:</b> pemenang mesti genapkan deposit ikut peratus dalam POS dan dipanggil ke mahkamah untuk tandatangan Kontrak Jualan dalam masa yang mahkamah tetapkan. Terlepas masa itu, deposit boleh hangus. Deposit pembida yang tidak menang dipulangkan ke akaun dalam beberapa hari bekerja.</p>
        </div>
-       <div class="vids" aria-label="Video proses lelongan"><span class="lbl">Tonton prosesnya</span>
-       <div class="vid-grid">
-        <figure class="vid"><a class="vid-play" href="https://www.youtube.com/watch?v=bvrJiOuBoLs" target="_blank" rel="noopener" data-yt="bvrJiOuBoLs" aria-label="Main video: jika ada lebih dari seorang pembida"><img src="https://i.ytimg.com/vi/bvrJiOuBoLs/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="vid-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15L19.5 12z"/></svg></span></a><figcaption><b>Jika ada lebih dari seorang pembida</b></figcaption></figure>
-        <figure class="vid"><a class="vid-play" href="https://www.youtube.com/watch?v=ZDIH_5o--Ow" target="_blank" rel="noopener" data-yt="ZDIH_5o--Ow" aria-label="Main video: jika anda menang sebagai pembida tunggal"><img src="https://i.ytimg.com/vi/ZDIH_5o--Ow/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="vid-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15L19.5 12z"/></svg></span></a><figcaption><b>Jika anda menang sebagai pembida tunggal</b></figcaption></figure>
-       </div></div>
        <div class="ex"><b>Contoh:</b> Harga rizab RM 200,000, kenaikan RM 5,000. Bidaan naik: RM 205,000, RM 210,000, RM 215,000. Senyap. Pelelong ulang tiga kali. Dijual! Had anda RM 215,000. Kalau orang lain bida RM 220,000, biarkan. Rumah lain akan ada. Tambahan deposit jika POS minta: 5% x RM 215,000 = RM 10,750, jadi tambah RM 750.</div>
        <div class="tip"><svg class="ic" width="24" height="24" aria-hidden="true"><use href="#i-bulb"/></svg><div><b>Tip:</b> Perlindungan paling besar anda ialah angka yang anda tulis di Langkah 6. Saya boleh temani anda di dewan dan ingatkan anda berhenti pada had itu.</div></div>
       </div>
