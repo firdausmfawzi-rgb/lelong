@@ -5,4 +5,7 @@
 User-agent: *
 Disallow: /partner-master.txt
 
+# sitemap.xml: the list page and the profile page (site/sitemap.xml).
+# lelong/sitemap.xml: the pages by state and district, rewritten twice a day by pipeline/tools/seo_pages.py (15/11/2026).
 Sitemap: https://lelongbidgroup.com/sitemap.xml
+Sitemap: https://lelongbidgroup.com/lelong/sitemap.xml
