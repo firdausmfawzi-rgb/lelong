@@ -1,32 +1,39 @@
 {
  "v": 2,
- "updated": "2026-11-11",
- "kid": "55e9f6fd",
- "akid": "512c7071",
+ "updated": "2026-11-18",
+ "kid": "18334b3e",
+ "akid": "d6d84fc4",
  "kdf": {
   "name": "PBKDF2-SHA256",
   "iter": 600000,
-  "salt": "xsgM93+hOE05177wRv6vcg=="
+  "salt": "20et6sEjTpgjqXPHgw7SBg=="
  },
  "codes": {
-  "ad926c96f7dad0a67f3baf0ce1eb9015": {
+  "1f0eb81196dca7b9fb5db43fc1aeda0b": {
    "label": "A15",
    "exp": null,
    "tier": "sip",
    "agent": 1,
-   "iv": "A0hBbqSzXfYVLK8C",
-   "wk": "rR8IkfmRvyhccwChbhf19O0JVBquAUkR2dc1e0wNJr6DxyRVmwWvJx7GYAuABYnV",
-   "iv2": "J4ZaiZCM+mrRUxc5",
-   "wk2": "QyHaiCH/5Z3Zw1RmPvy7LNcozjGlDFpmCQLoXmWsFz6zG9eGCpSOsRWI9AL4JQeJ",
-   "iv3": "pknFXpMrJ3nyifif",
-   "wk3": "jyyrxgyB5PmQ2RMwGk7H1d954UVHvSDXr+iG4kIAvIihwkavCPLvqbYT/YP8qi/F"
+   "iv": "yFeR1O7mhv4p1FCw",
+   "wk": "5BSEAlobmz674eWw9EWhopPzuMEVjSGyZDc9oK8vJJboLf4PRcTreqohYWsIjk5W",
+   "iv2": "K3G+ihflqUf6J1GQ",
+   "wk2": "atwkYyFHHkfLgGLdY6HuJDWXkiR6WdHWecCVIrD8UIJQiFdamOQTq1hWtEYc9Lso",
+   "iv3": "k0BmDaCQ3R6tyWRH",
+   "wk3": "FEerpB4a6VNd4j+MBEsubzQ9V7a7EzRWNS6u5kWjOwUbqlqCaytiWH2lcy1BSkt/"
   },
-  "9c8f0992301cff4f85fe666ee99a413d": {
+  "6f7480562853471181308e17d2f0a818": {
    "label": "PB32",
    "exp": "2026-11-18T23:59:59+08:00",
    "tier": "premium",
-   "iv": "tccZBWQTwzt0tOVN",
-   "wk": "2MSPBwsluQpEuDqDq5nOE9PVo5t7lTslgAfCng7p4lWshJYCZKYVbBpEwi5swaId"
+   "iv": "L1yWqO649Bp5HqIg",
+   "wk": "K/WYoZmylTbJbwOi5k1kEsheTwuRDaNY4eF8LFWamkKlxw0YiBlnFDXXESt6ZXVz"
+  },
+  "8acb5c4f6cebcaf07a4f41b5fecba02e": {
+   "label": "PB50",
+   "exp": "2026-11-25T23:59:59+08:00",
+   "tier": "premium",
+   "iv": "9P3J6jRo3Ui989T3",
+   "wk": "0hJ2gk/hNikehuzErSgMnAEC/fXLch4T8S20hqw+wrfB3H0CTLu3rS6WvvJAqGbz"
   }
  }
 }
