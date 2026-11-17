@@ -1160,7 +1160,7 @@ button.stat:hover,button.stat:focus-visible{border-color:var(--neon);box-shadow:
 <label for="dadOwner">Admin Done Ads</label>
 <select id="dadOwner"><option value="" data-i18n="dad_all_owners">All admins</option><option>Faezah</option><option>Suhaila</option></select>
 <label for="dadState" data-i18n="dad_state">Posting status</label>
-<select id="dadState"><option value="" data-i18n="dad_all">All statuses</option><option value="posted" data-i18n="dad_posted">Posted on at least one portal</option><option value="pending" data-i18n="dad_pending">Still to post on at least one portal</option><option value="expired" data-i18n="dad_expired">Expired on at least one portal</option><option value="relist" data-i18n="dad_relist">Back at auction: repost the ads</option></select>
+<select id="dadState"><option value="" data-i18n="dad_all">All statuses</option><option value="posted" data-i18n="dad_posted">Posted on at least one portal</option><option value="pending" data-i18n="dad_pending">Still to post on at least one portal</option><option value="expired" data-i18n="dad_expired">Expired on at least one portal</option><option value="relist" data-i18n="dad_relist">Back at auction: repost the ads</option><option value="reposted" data-i18n="dad_reposted_f">Done Reposted</option></select>
 <small id="dadFilterNote" role="status"></small><button id="dadRetry" type="button" class="btn" data-i18n="dad_retry" hidden>Retry</button>
 <button id="dadLedger" type="button" class="btn" data-i18n="dad_ledger">Ad expiry dates</button>
 </div>
@@ -1301,7 +1301,7 @@ dad_state:"Posting status",
 dad_all:"All statuses",
 dad_posted:"Posted on at least one portal",
 dad_pending:"Still to post on at least one portal",
-dad_expired:"Expired on at least one portal",dad_relist:"Back at auction: repost the ads",
+dad_expired:"Expired on at least one portal",dad_relist:"Back at auction: repost the ads",dad_reposted_f:"Done Reposted",
 dad_tick:"Tick when posted · {days} days",
 dad_date:"Posted {date}",
 dad_until:"Expires {date}",
@@ -1396,7 +1396,7 @@ dad_state:"Status iklan",
 dad_all:"Semua status",
 dad_posted:"Dah iklan di sekurang-kurangnya satu portal",
 dad_pending:"Belum iklan di sekurang-kurangnya satu portal",
-dad_expired:"Luput di sekurang-kurangnya satu portal",dad_relist:"Masuk lelong semula: post semula iklan",
+dad_expired:"Luput di sekurang-kurangnya satu portal",dad_relist:"Masuk lelong semula: post semula iklan",dad_reposted_f:"Sudah Done Reposted",
 dad_tick:"Tanda bila dah iklan · {days} hari",
 dad_date:"Diiklankan {date}",
 dad_until:"Luput {date}",
@@ -2175,6 +2175,7 @@ function dadMatch(row,owner,state,forFacet){
  if(DAD.status()!=='ready'||!DAD.sourceReady())return !!forFacet;
  if(DAD.blocked(row[SID])||(ended&&state==='pending'))return false;
  if(state==='relist')return !!DAD.relist(row[SID]);
+ if(state==='reposted')return DAD.reposts(row[SID]).length>0;   // owner 17/11/2026: units an admin ticked Done Reposted, to check them
  const records=dadPortals.map(p=>DAD.get(row[SID],p));
  if(state==='pending')return records.some(rec=>!rec);
  if(state==='expired')return records.some(rec=>rec&&rec.expires<=DAD.today());
