@@ -11,7 +11,7 @@
 :root{--bg:#f5f6f8;--card:#fff;--ink:#0f172a;--mute:#5b6473;--line:#e3e6eb;--brand:#0f172a;--gold:#b45309;--gold-bg:#fff7e6;--green:#15803d;--green-bg:#ecfdf3;--red:#b91c1c;--red-bg:#fef2f2;--blue:#1d4ed8;--blue-bg:#eff6ff;--chip:#eef1f5;--sh:0 1px 2px rgba(15,23,42,.06),0 6px 20px -12px rgba(15,23,42,.25)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1020;--card:#141a2c;--ink:#e8ecf4;--mute:#9aa4b8;--line:#263049;--brand:#e8ecf4;--gold:#fbbf24;--gold-bg:#2a2008;--green:#4ade80;--green-bg:#0c2a18;--red:#f87171;--red-bg:#2e1111;--blue:#93c5fd;--blue-bg:#0f1f3d;--chip:#1e2740;--sh:0 1px 2px rgba(0,0,0,.4)}}
 :root[data-theme="dark"]{--bg:#0b1020;--card:#141a2c;--ink:#e8ecf4;--mute:#9aa4b8;--line:#263049;--brand:#e8ecf4;--gold:#fbbf24;--gold-bg:#2a2008;--green:#4ade80;--green-bg:#0c2a18;--red:#f87171;--red-bg:#2e1111;--blue:#93c5fd;--blue-bg:#0f1f3d;--chip:#1e2740;--sh:0 1px 2px rgba(0,0,0,.4)}
-*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+*{box-sizing:border-box}[hidden]{display:none!important}html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:40px}
 a{color:var(--blue)}button{font:inherit;cursor:pointer}
 .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
@@ -94,11 +94,74 @@ th{font-size:11px;color:var(--mute);font-weight:600;white-space:nowrap}
 .empty{padding:30px;text-align:center;color:var(--mute);background:var(--card);border:1px dashed var(--line);border-radius:14px}
 /* control room */
 .cr input{border:1px solid var(--line);border-radius:9px;padding:8px 10px;background:var(--bg);color:var(--ink);font:inherit;font-size:14px}
+.cr .cd{font:600 14px ui-monospace,Consolas,monospace;letter-spacing:.06em;white-space:nowrap;display:inline-block;margin:0 4px 4px 0}
+.cr .cdc{min-width:150px}.cr .cdc .btn{margin-bottom:4px}
 .cr .big{font-size:22px;letter-spacing:.12em;font-weight:700;text-align:center;padding:12px;border:1.5px dashed var(--gold);border-radius:12px;background:var(--gold-bg);color:var(--gold);margin:8px 0}
 .ok{color:var(--green)}.err{color:var(--red)}
 .toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:var(--brand);color:var(--bg);padding:10px 16px;border-radius:12px;font-size:13px;z-index:50;opacity:0;transition:.2s;pointer-events:none}
 .toast.on{opacity:1}
 @media (max-width:480px){.list{grid-template-columns:1fr}#sheet .pan{padding:12px}h1 small{display:none}}
+/* ---- easy view (22/11/2026): big tiles, one-tap filters, advert cards ---- */
+body{font-size:16px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 6px}
+.tile{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:12px;text-align:left;color:var(--ink);box-shadow:var(--sh)}
+.tile:hover{border-color:var(--ink)}
+.tile b{display:block;font-size:28px;line-height:1.1;font-variant-numeric:tabular-nums}.tile span{font-size:13px;color:var(--mute)}
+.tile.t1 b{color:var(--green)}.tile.t2 b{color:var(--gold)}
+.tabs .tab{font-size:15px;padding:10px 18px;min-height:44px}
+.fbox{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;margin-bottom:6px;display:flex;flex-direction:column;gap:10px}
+.srch{display:flex;align-items:center;gap:8px;border:2px solid var(--line);border-radius:12px;padding:0 12px;background:var(--bg)}
+.srch:focus-within{border-color:var(--blue)}
+.srch input{flex:1;min-width:0;border:0;background:none;color:var(--ink);font:inherit;font-size:16px;padding:12px 0;outline:0}
+.srch button{border:0;background:var(--chip);color:var(--ink);border-radius:999px;width:30px;height:30px;font-weight:700}
+.quick,.seg{display:flex;gap:6px;flex-wrap:wrap}
+.pill{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;min-height:40px;white-space:nowrap}
+.pill:hover{border-color:var(--ink)}
+.pill small{font-weight:500;color:var(--mute);margin-left:2px}
+.pill.on{background:var(--green);border-color:var(--green);color:#fff}.pill.on small{color:#fff}
+:root[data-theme="dark"] .pill.on,:root[data-theme="dark"] .pill.on small{color:#04130a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pill.on,:root:not([data-theme="light"]) .pill.on small{color:#04130a}}
+.pill.zero{opacity:.45}
+.gl{font-size:13px;font-weight:700;margin-bottom:5px}
+.segs{display:flex;flex-wrap:wrap;gap:10px 28px}
+.fbody{display:flex;flex-direction:column;gap:10px}
+.selrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
+.selrow label{font-size:13px;font-weight:700;display:block;margin-bottom:4px}
+.selrow select{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:9px 10px;background:var(--bg);color:var(--ink);font:inherit;font-size:15px;min-height:44px}
+.selrow select.set{border-color:var(--green);background:var(--green-bg)}
+details.adv summary{cursor:pointer;font-weight:700;font-size:14px;padding:6px 0;color:var(--blue)}
+details.adv .selrow{margin-top:6px}
+#fToggle{display:none}
+.rbar{position:sticky;top:var(--hh,56px);z-index:4;background:var(--bg);padding:8px 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px}
+.rbar #count{font-size:17px;font-weight:500}.rbar #count b{font-size:20px}
+.act{display:flex;gap:6px;flex-wrap:wrap;flex:1;min-width:0}
+.apill{border:0;background:var(--green-bg);color:var(--green);border-radius:999px;padding:6px 11px;font-size:13px;font-weight:600;white-space:nowrap}
+.apill:hover{background:var(--red-bg);color:var(--red)}
+.list.ads{grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+.adc{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);padding:14px;display:flex;flex-direction:column;gap:9px;min-width:0}
+.adc.own{border:2px solid var(--green)}
+.adc .top{display:flex;gap:10px;align-items:flex-start}
+.adc .th{width:54px;height:54px;border-radius:10px;object-fit:cover;flex:none}
+.adc h3{margin:0;font-size:17px;line-height:1.25;cursor:pointer}.adc h3:hover{text-decoration:underline}
+.adc .sub{font-size:13px;color:var(--mute)}
+.star{background:var(--gold-bg);color:var(--gold);border-radius:8px;padding:4px 8px;font-size:12px;font-weight:800;white-space:nowrap}
+.cbig{background:var(--green-bg);border-radius:12px;padding:10px 12px}
+.cbig span,.cbig small{font-size:12px;color:var(--mute);display:block}
+.cbig b{font-size:27px;color:var(--green);line-height:1.2;display:block}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}.two span{font-size:12px;color:var(--mute);display:block}.two b{font-size:16px}
+.ttl{font-size:13px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.adc .acts{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:auto;padding-top:2px}
+.adc select{border:1px solid var(--line);border-radius:10px;padding:7px 8px;background:var(--card);color:var(--ink);font-size:13px}
+.adc .chip{font-size:12.5px;padding:3px 8px}
+.empty b{display:block;font-size:40px;margin-bottom:6px}.empty p{margin:0 0 12px}
+.morew{text-align:center;margin:18px 0}
+#top{position:fixed;right:16px;bottom:16px;z-index:6;width:46px;height:46px;border-radius:999px;border:0;background:var(--brand);color:var(--bg);font-size:20px;font-weight:700;box-shadow:var(--sh);display:none}
+#top.on{display:block}
+@media (max-width:640px){.tiles{grid-template-columns:repeat(2,1fr)}.tile b{font-size:24px}
+ #fToggle{display:flex}.fbody{display:none}.fbox.open .fbody{display:flex}
+ .quick{flex-wrap:nowrap;overflow-x:auto;margin:0 -12px;padding:0 12px 2px;scrollbar-width:none}.quick::-webkit-scrollbar{display:none}
+ .act{flex-wrap:nowrap;overflow-x:auto;flex-basis:100%;order:3;scrollbar-width:none}.list.ads{grid-template-columns:1fr}
+ header h1{font-size:15px}}
 </style>
 </head>
 <body>
@@ -121,36 +184,49 @@ th{font-size:11px;color:var(--mute);font-weight:600;white-space:nowrap}
  </section>
 
  <section id="app" hidden>
+  <div class="tiles" id="tiles"></div>
+  <p class="note" id="upd" style="margin:0 0 4px"></p>
   <div class="tabs" role="tablist">
-   <button class="tab on" data-t="bld" role="tab" data-i18n="tab_bld"></button>
-   <button class="tab" data-t="leads" role="tab" data-i18n="tab_leads"></button>
+   <button class="tab on" data-t="ads" role="tab" data-i18n="tab_ads"></button>
+   <button class="tab" data-t="bld" role="tab" data-i18n="tab_bld"></button>
    <button class="tab" data-t="cr" role="tab" id="crTab" hidden>Control Room</button>
   </div>
-  <div class="stats" id="stats"></div>
 
-  <div id="vBld">
-   <div class="filters" id="filters">
-    <div class="full"><label for="q" data-i18n="f_q"></label><input id="q" data-i18n-ph="f_q_ph"></div>
-    <div><label for="fState" data-i18n="f_state"></label><select id="fState"></select></div>
-    <div><label for="fDist" data-i18n="f_dist"></label><select id="fDist"></select></div>
-    <div><label for="fKind" data-i18n="f_kind"></label><select id="fKind"><option value="" data-i18n="all"></option><option>Apartment</option><option>Condominium</option><option>Serviced Apartment</option></select></div>
-    <div><label for="fTen">Tenure</label><select id="fTen"><option value="" data-i18n="all"></option><option>Freehold</option><option>Leasehold</option></select></div>
-    <div><label for="fLaca">LACA</label><select id="fLaca"><option value="" data-i18n="all"></option><option value="LACA" data-i18n="laca_has"></option><option value="Non-LACA" data-i18n="nonlaca_has"></option></select></div>
-    <div><label for="fBank">Bank</label><select id="fBank"></select></div>
-    <div><label for="fSeller" data-i18n="f_seller"></label><select id="fSeller"><option value="" data-i18n="all"></option><option value="owner">Direct owner</option><option value="agent" data-i18n="seller_agent"></option></select></div>
-    <div><label for="fGap" data-i18n="f_gap"></label><input id="fGap" type="number" step="10000" value="0"></div>
-    <div><label for="fCash" data-i18n="f_cash"></label><input id="fCash" type="number" step="10000" value="100000"></div>
-    <div><label for="fYear" data-i18n="f_year"></label><input id="fYear" type="number" value="2020"></div>
-    <div><label for="fSub">Subsales</label><select id="fSub"><option value="" data-i18n="sub_all"></option><option value="lead" data-i18n="sub_lead"></option><option value="any" data-i18n="sub_any"></option><option value="none" data-i18n="sub_none"></option></select></div>
-    <div><label for="sort" data-i18n="f_sort"></label><select id="sort"><option value="gap" data-i18n="sort_gap"></option><option value="cash" data-i18n="sort_cash"></option><option value="mvn" data-i18n="sort_mvn"></option><option value="psf" data-i18n="sort_psf"></option><option value="cheap" data-i18n="sort_cheap"></option><option value="year" data-i18n="sort_year"></option><option value="name" data-i18n="sort_name"></option></select></div>
+  <div id="vList">
+   <div class="fbox" id="fbox">
+    <div class="srch"><span aria-hidden="true">🔍</span><input id="q" type="search" autocomplete="off" data-i18n-ph="q_ph" data-i18n-al="q_ph"><button id="qx" hidden aria-label="clear">✕</button></div>
+    <div class="quick" id="quick"></div>
+    <button class="btn o s" id="fToggle"></button>
+    <div class="fbody" id="filters">
+     <div class="segs">
+      <div><div class="gl" data-i18n="g_cash"></div><div class="seg" data-f="cash"></div></div>
+      <div><div class="gl" data-i18n="g_beds"></div><div class="seg" data-f="beds"></div></div>
+      <div><div class="gl" data-i18n="g_price"></div><div class="seg" data-f="price"></div></div>
+     </div>
+     <div class="selrow">
+      <div><label for="fState" data-i18n="f_state"></label><select id="fState"></select></div>
+      <div><label for="fDist" data-i18n="f_dist"></label><select id="fDist"></select></div>
+      <div id="sortAW"><label for="sortA" data-i18n="f_sort"></label><select id="sortA"><option value="net" data-i18n="sa_net"></option><option value="cheap" data-i18n="sa_cheap"></option><option value="new" data-i18n="sa_new"></option><option value="psf" data-i18n="sa_psf"></option></select></div>
+      <div id="sortBW" hidden><label for="sortB" data-i18n="f_sort"></label><select id="sortB"><option value="cash" data-i18n="sort_cash"></option><option value="name" data-i18n="sort_name"></option><option value="year" data-i18n="sort_year"></option><option value="mvn" data-i18n="sort_mvn"></option><option value="cheap" data-i18n="sort_cheap"></option></select></div>
+     </div>
+     <details class="adv" id="adv"><summary data-i18n="more"></summary>
+      <div class="selrow">
+       <div><label for="fSrc" data-i18n="f_src"></label><select id="fSrc"><option value="" data-i18n="all"></option><option value="mudah">Mudah</option><option value="propertyguru">PropertyGuru</option><option value="iproperty">iProperty</option></select></div>
+       <div><label for="fKind" data-i18n="f_kind"></label><select id="fKind"><option value="" data-i18n="all"></option><option>Apartment</option><option>Condominium</option><option>Serviced Apartment</option></select></div>
+       <div><label for="fTen" data-i18n="f_ten"></label><select id="fTen"><option value="" data-i18n="all"></option><option>Freehold</option><option>Leasehold</option></select></div>
+       <div><label for="fLaca">LACA</label><select id="fLaca"><option value="" data-i18n="all"></option><option value="LACA" data-i18n="laca_has"></option><option value="Non-LACA" data-i18n="nonlaca_has"></option></select></div>
+       <div><label for="fBank">Bank</label><select id="fBank"></select></div>
+       <div><label for="fYear" data-i18n="f_year"></label><select id="fYear"></select></div>
+       <div><label for="fAuc" data-i18n="f_auc"></label><select id="fAuc"><option value="" data-i18n="all"></option><option value="any" data-i18n="auc_any"></option><option value="30" data-i18n="auc_30"></option></select></div>
+       <div><label for="fStatus" data-i18n="f_status"></label><select id="fStatus"></select></div>
+       <div id="fSubW" hidden><label for="fSub" data-i18n="f_sub"></label><select id="fSub"><option value="" data-i18n="all"></option><option value="any" data-i18n="sub_any"></option><option value="none" data-i18n="sub_none"></option></select></div>
+      </div>
+     </details>
+    </div>
    </div>
-   <div class="row" style="margin-bottom:10px"><span class="note" id="count"></span><div class="grow"></div><button class="btn s o" id="reset" data-i18n="reset"></button></div>
+   <div class="rbar" id="rbar"><span id="count" role="status"></span><div class="act" id="act"></div><button class="btn s r" id="reset" hidden></button></div>
    <div class="list" id="list"></div>
-  </div>
-
-  <div id="vLeads" hidden>
-   <p class="note" style="margin:0 0 10px" id="leadsIntro"></p>
-   <div id="leads"></div>
+   <div class="morew"><button class="btn o" id="moreBtn" hidden></button></div>
   </div>
 
   <div id="vCr" hidden class="cr">
@@ -161,7 +237,8 @@ th{font-size:11px;color:var(--mute);font-weight:600;white-space:nowrap}
    </div>
    <div class="sec">
     <h4><span data-i18n="cr_codes"></span> <span class="n" id="crN"></span></h4>
-    <div class="tw"><table id="codes"><thead><tr><th data-i18n="th_label"></th><th data-i18n="th_for"></th><th data-i18n="th_exp"></th><th>Status</th><th></th></tr></thead><tbody></tbody></table></div>
+    <div class="tw"><table id="codes"><thead><tr><th data-i18n="th_label"></th><th data-i18n="th_for"></th><th data-i18n="th_code"></th><th data-i18n="th_exp"></th><th>Status</th><th></th></tr></thead><tbody></tbody></table></div>
+    <p class="note" style="margin:8px 0 0" data-i18n="codes_warn"></p>
    </div>
    <div class="sec">
     <h4 data-i18n="cr_new"></h4>
@@ -180,15 +257,17 @@ th{font-size:11px;color:var(--mute);font-weight:600;white-space:nowrap}
 </main>
 
 <div id="sheet" aria-modal="true" role="dialog"><div class="bg" id="sheetBg"></div><div class="pan" id="pan"></div></div>
+<button id="top" aria-label="top">↑</button>
 <div class="toast" id="toast"></div>
 
 <script>
 // ---------------------------------------------------------------- language (BM first, EN on the button; remembered in this browser)
 const I18N={
-ms:{title_sub:'bmv.lelongbidgroup.com · Highrise siap 6 tahun+ · Below Market Value',logout:'Keluar',gate_h:'Kod akses',gate_p:'Laman peribadi. Masukkan kod yang diberi melalui Control Room.',gate_btn:'Buka',gate_full:'Masukkan kod penuh.',gate_checking:'Menyemak kod…',err_access:'access.json tidak dapat dibaca. Cuba lagi sebentar.',err_invalid:'Kod tidak sah.',err_expired:'Kod ini sudah tamat tempoh ({d}). Minta kod baharu.',err_data:'Data tidak dapat dibuka: ',
-tab_bld:'Bangunan',tab_leads:'Leads ≥ RM100k',st_b:'bangunan highrise 6 tahun+',st_mv:'dengan nilai pasaran lelong',st_chk:'bangunan sudah dicari subsales',st_ads:'iklan subsales',st_lead:'lead cashback ≥ {x}',st_own:'iklan direct owner',st_upd:'kemas kini data · lelong {a} · subsales {b}',not_yet:'belum',
-f_q:'Cari bangunan / kawasan / bank',f_q_ph:'cth. Flora Damansara, Kajang, RHB',f_state:'Negeri',f_dist:'Daerah',f_kind:'Jenis',f_seller:'Penjual subsales',f_gap:'Gap minimum (RM)',f_year:'Tahun siap hingga',f_sort:'Susun',all:'Semua',laca_has:'Ada LACA',nonlaca_has:'Ada Non-LACA',seller_agent:'Ejen',sub_all:'Semua bangunan',sub_lead:'Ada lead ≥ gap',sub_any:'Ada iklan subsales',sub_none:'Belum ada carian',
-sort_gap:'Gap terbesar',sort_cash:'Cashback terbesar',sort_mvn:'Paling banyak bukti MV',sort_psf:'MV/kps tertinggi',sort_cheap:'Iklan termurah',sort_year:'Paling lama siap',sort_name:'Nama A-Z',reset:'Set semula penapis',count:'{n} bangunan dipaparkan daripada {t}',count_more:' (300 pertama ditunjukkan, tapis lagi)',empty:'Tiada bangunan padan penapis.',
+ms:{tab_ads:'💰 Iklan',tab_bld:'🏢 Bangunan',tile_ads:'iklan cashback bersih {x}+',tile_lead:'lead (cashback {x}+)',tile_own:'iklan owner terus',tile_bld:'bangunan highrise',upd_line:'Data dikemas kini {u} · lelong {a} · subsales {b} · {c} bangunan sudah dicari · {m} ada nilai pasaran · {e} umur anggaran',q_ph:'Cari nama bangunan atau kawasan, cth. Kajang',q_lead:'Lead {x}+',q_owner:'Owner terus',q_phone:'Ada no. telefon',q_ver:'Sudah disahkan',q_strong:'MV kukuh (2+ unit lelong)',q_fresh:'Iklan baharu ({m})',g_cash:'💰 Cashback bersih paling kurang',g_price:'🏷️ Harga rumah',g_beds:'🛏️ Bilik tidur',p_a:'Bawah RM300k',p_b:'RM300k – 500k',p_c:'RM500k – 1 juta',p_d:'Atas RM1 juta',beds_1:'Studio / 1',beds_n:'{n} bilik',studio:'Studio',bath_w:'b.air',more:'⚙️ Lagi penapis (portal, jenis, bank, tahun, lelong, status)',f_src:'Portal iklan',f_ten:'Pegangan (tenure)',year_opt:'Siap {y} atau lebih awal',f_auc:'🔨 Lelong akan datang',auc_any:'Ada tarikh lelong akan datang',auc_30:'Lelong dalam 30 hari',f_status:'Status saya',f_sub:'Carian subsales',sa_net:'Cashback paling besar',sa_cheap:'Harga paling murah',sa_new:'Iklan paling baru',sa_psf:'Paling murah setiap kaki persegi',found_ads:'Jumpa {n} iklan',found_blds:'Jumpa {n} bangunan',remove:'Buang penapis ini',ftoggle:'🎛️ Buka penapis lain',ftoggle_close:'▲ Tutup penapis',more_btn:'Tunjuk {n} lagi (baki {r})',empty_ads:'Tiada iklan yang padan.',empty_tip:'Cuba buang satu penapis, atau padam semua.',c_net:'Cashback bersih (anggaran)',c_gross:'kasar {x}, sebelum tolak kos ~4%',c_price:'Harga minta',c_mv:'Nilai bank (MV anggaran)',calc:'Tunjuk kiraan',calc_hide:'Sembunyi kiraan',next_auc:'lelong {d}',
+title_sub:'bmv.lelongbidgroup.com · Highrise siap 6 tahun+ · Below Market Value',logout:'Keluar',gate_h:'Kod akses',gate_p:'Laman peribadi. Masukkan kod yang diberi melalui Control Room.',gate_btn:'Buka',gate_full:'Masukkan kod penuh.',gate_checking:'Menyemak kod…',err_access:'access.json tidak dapat dibaca. Cuba lagi sebentar.',err_invalid:'Kod tidak sah.',err_expired:'Kod ini sudah tamat tempoh ({d}). Minta kod baharu.',err_data:'Data tidak dapat dibuka: ',
+st_b:'bangunan highrise 6 tahun+',st_mv:'dengan nilai pasaran lelong',st_chk:'bangunan sudah dicari subsales',st_ads:'iklan subsales',st_lead:'lead cashback ≥ {x}',st_own:'iklan direct owner',st_upd:'kemas kini data · lelong {a} · subsales {b}',not_yet:'belum',
+f_q:'Cari bangunan / kawasan / bank',f_q_ph:'cth. Flora Damansara, Kajang, RHB',f_state:'📍 Negeri',f_dist:'Daerah',f_kind:'Jenis rumah',f_seller:'Penjual subsales',f_gap:'Gap minimum (RM)',f_year:'Tahun siap',f_sort:'↕️ Susun ikut',all:'Semua',laca_has:'Ada LACA',nonlaca_has:'Ada Non-LACA',seller_agent:'Ejen',sub_all:'Semua bangunan',sub_lead:'Ada lead ≥ gap',sub_any:'Ada iklan subsales',sub_none:'Belum dicari',
+sort_gap:'Gap terbesar',sort_cash:'Cashback terbesar',sort_mvn:'Paling banyak bukti MV',sort_psf:'MV/kps tertinggi',sort_cheap:'Iklan termurah',sort_year:'Paling lama siap',sort_name:'Nama A-Z',reset:'✕ Padam semua penapis',count:'{n} bangunan dipaparkan daripada {t}',count_more:' (300 pertama ditunjukkan, tapis lagi)',empty:'Tiada bangunan padan penapis.',
 no_photo:'Tiada gambar',chip_year:'Siap {y} ({a} thn)',chip_est:'Umur anggaran {b} tahun',d_year_est:'Tidak pasti · anggaran {b} tahun · {c}',conf_low:'yakin rendah',conf_medium:'yakin sederhana',conf_high:'yakin tinggi',conf_guess:'tekaan tanpa carian web',est_why:'Sebab anggaran: {r}',est_auction:'lelong pertama {y}: pinjaman sudah bertahun, jadi bangunan sekurang-kurangnya 6 tahun',st_est:'bangunan umur anggaran sahaja',chip_rooms:'{b} bilik · {t} b.air',chip_park:'Parkir {p}',k_mv:'Nilai pasaran (lelong)',no_mv:'tiada MV',k_psf:'MV / kaki persegi',psf_med:'(median {n} unit)',mv1:'MV dari 1 unit sahaja',mv1_cb:'MV ini dari 1 unit lelong sahaja. Semak harga pasaran dahulu.',k_res:'Harga rizab lelong',k_bu:'Built-up',kps:'kps',k_subp:'Harga subsales',no_ads:'tiada iklan',not_searched:'belum dicari',k_oa:'Owner / Ejen',owner_w:'owner',agent_w:'ejen',bank_l:'Bank: ',btn_detail:'Butiran · {u} unit lelong',ads_n:' · {n} iklan',btn_map:'Peta',k_cash:'Cashback terbaik (90% MV)',cash_short:'cashback',
 close:'← Tutup',copy:'Salin ringkasan',copied:'Ringkasan disalin',d_type:'Property Type',d_year:'Tahun siap',d_year_v:'{y} · {a} tahun',d_laca:'LACA / Non-LACA',d_bu:'Built-up',d_rooms:'Bilik / Bilik air',d_park:'Carpark',no_info:'tiada maklumat',d_bank:'Nama bank (pemiutang)',d_pr:'Price range subsales',d_mv:'Market Value (lelong)',none_w:'tiada',d_psf:'MV / kps median',psf_mm:'(min {a}, maks {b})',
 h_owner:'Subsales · direct owner',h_agent:'Subsales · ejen',h_unknown:'Penjual tidak pasti',no_owner:'Tiada iklan owner dijumpai pada {d}',no_agent:'Tiada iklan ejen dijumpai.',not_searched_dot:'Belum dicari.',src_ok:'disemak',src_blocked:'disekat',searched_on:'dicari {d}',h_evidence:'Bukti nilai pasaran dari lelong',units_n:'{n} unit',th_date:'Tarikh lelong',th_res:'Rizab',th_psf:'RM/kps',th_rooms:'Bilik',arkib:'arkib',upcoming:'akan datang',addr_l:'Alamat unit: ',
@@ -197,13 +276,14 @@ statuses:['Baru','Dihubungi','Berminat','Tak berminat','Deal'],wa_msg:'Hi, saya 
 cb_title:'💰 Anggaran cashback untuk klien',cb_mv:'Nilai rumah ikut bank (MV)',cb_loan:'Bank bagi pinjaman 90%',cb_price:'Harga beli rumah ini',cb_pocket:'Baki masuk poket klien',cb_pos:'≈ {x}',cb_neg:'Tiada cashback · kurang {x}',cb_na:'Iklan ini tiada saiz, jadi nilai rumah tak dapat dikira.',cb_cost:'Tolak kos (guaman, duti setem, yuran ~4%)',cb_net:'Cashback bersih anggaran',f_cash:'Cashback minimum (RM)',copy_client:'Salin untuk klien',copied_client:'Teks untuk klien disalin',client_text:'{b}, {a}\nHarga iklan: {p}\nNilai rumah ikut bank (anggaran): {mv}\nBank bagi pinjaman 90%: {loan}\nDuit lebih (kasar): {left}\nSelepas tolak kos ~4%: {net}\nNota: anggaran dari data lelong, bukan penilaian bank.',cb_how:'Cara kira: bank pinjam ikut nilai rumah, bukan harga beli. 90% nilai rumah tolak harga beli = duit lebih yang klien dapat (kasar, sebelum kos guaman, duti setem dan yuran).',
 leads_intro:'Setiap iklan subsales yang cashback anggarannya (pinjaman 90% nilai pasaran lelong tolak harga minta) sekurang-kurangnya {x}. Direct owner dahulu, kemudian ejen; KL dan Selangor diutamakan dalam carian.',leads_empty:'Belum ada lead dengan cashback ≥ {x}. {c} daripada {t} bangunan sudah dicari.',
 cr_cov:'Liputan carian subsales',cr_b:'Bangunan',cr_done:'Sudah dicari',cr_todo:'Belum dicari',cr_ads:'Iklan subsales',cr_lead:'Lead ≥ {x}',cr_blocked:'Portal disekat (bangunan)',cr_next:'Carian seterusnya: dalam Claude Code, <code>python -X utf8 bmv/tools/bmv_subsales.py plan &lt;admin&gt; plan.json --limit 40</code>, jalankan Workflow carian atau <code>bmv_portal.js</code> dalam Chrome, kemudian <code>merge</code> dan <code>python ops/deploy.py bmv-data</code>. Lihat bmv/README.md.',
-cr_codes:'Kod akses',active_n:'{n} aktif',th_label:'Label',th_for:'Untuk',th_exp:'Tamat',expired:'tamat',active:'aktif',revoke:'Tarik',revoke_confirm:'Tarik kod {id}…? Pemegang kod tidak boleh buka laman lagi selepas diterbitkan.',pending:'Ada perubahan belum diterbitkan. Tekan Terbitkan (atau muat turun access.json).',cr_new:'Beri kod baharu',n_name_ph:'Nama penerima (cth. Ali)',n_days_ph:'Hari (kosong = tiada tamat)',mk:'Jana kod',need_name:'Isi nama penerima',new_code_note:'Salin sekarang. Kod ini tidak dipaparkan lagi selepas ini. Tekan Terbitkan supaya kod berfungsi di laman ini.',copied_code:'Kod disalin ke papan keratan',
+cr_codes:'Kod akses',active_n:'{n} aktif',th_label:'Label',th_for:'Untuk',th_code:'Kod',show:'Tunjuk',hide:'Sembunyi',copy_code:'Salin',copy_fail:'Tidak dapat menyalin. Tekan Tunjuk dan salin sendiri.',no_vault:'belum disimpan: kemas kini data sekali',codes_warn:'Sesiapa yang memegang kod admin boleh membaca semua kod dalam senarai ini.',th_exp:'Tamat',expired:'tamat',active:'aktif',revoke:'Tarik',revoke_confirm:'Tarik kod {id}…? Pemegang kod tidak boleh buka laman lagi selepas diterbitkan.',pending:'Ada perubahan belum diterbitkan. Tekan Terbitkan (atau muat turun access.json).',cr_new:'Beri kod baharu',n_name_ph:'Nama penerima (cth. Ali)',n_days_ph:'Hari (kosong = tiada tamat)',mk:'Jana kod',need_name:'Isi nama penerima',new_code_note:'Salin sekarang. Kod ini tidak dipaparkan lagi selepas ini. Tekan Terbitkan supaya kod berfungsi di laman ini.',copied_code:'Kod disalin ke papan keratan',
 cr_pub:'Terbitkan access.json ke GitHub',cr_pub_note:'Token GitHub <i>fine-grained</i> untuk repo <code>firdausmfawzi-rgb/lelong-bmv</code> sahaja (Contents: Read and write). Disimpan dalam tab ini sahaja (sessionStorage), hilang bila tab ditutup. Tanpa token, muat turun fail dan commit sendiri.',pub:'Terbitkan',dl:'Muat turun access.json',dl_done:'Fail dimuat turun. Letak sebagai <code>access.json</code> di akar repo <code>lelong-bmv</code> dan commit; laman kemas kini dalam 1-2 minit.',need_tok:'Masukkan token GitHub, atau muat turun fail.',no_changes:'Tiada perubahan untuk diterbitkan.',publishing:'Menerbitkan…',gh_err:'GitHub {s} (token salah atau repo belum ada?)',pub_ok:'<span class="ok">Diterbitkan.</span> GitHub Pages mengambil 1-2 minit. Kod baharu boleh dicuba selepas itu.',pub_fail_tail:' Gunakan "Muat turun access.json" sebagai ganti.',commit_msg:'Control Room: kemas kini kod akses',
 sum_1:'{k} · siap {y} ({a} thn) · {t} · {l}',sum_mv:'Market Value lelong: {r} · RM {p}/kps ({n} unit) · built-up {s} kps · {b} bilik {t} b.air · bank {bk}',sum_sub:'Subsales: {n} iklan ({o} owner, {a} ejen){r}{g}',sum_gap:' · gap terbaik {g} ({s})',sum_cash:' · cashback klien ≈ {c} (90% MV)'},
-en:{title_sub:'bmv.lelongbidgroup.com · Highrise 6+ years old · Below Market Value',logout:'Log out',gate_h:'Access code',gate_p:'Private site. Enter the code given through the Control Room.',gate_btn:'Open',gate_full:'Enter the full code.',gate_checking:'Checking the code…',err_access:'access.json could not be read. Try again shortly.',err_invalid:'Invalid code.',err_expired:'This code expired on {d}. Ask for a new one.',err_data:'Data could not be opened: ',
-tab_bld:'Buildings',tab_leads:'Leads ≥ RM100k',st_b:'highrise buildings 6+ years old',st_mv:'with auction market value',st_chk:'buildings searched for subsales',st_ads:'subsales adverts',st_lead:'leads, cashback ≥ {x}',st_own:'direct-owner adverts',st_upd:'data updated · auction {a} · subsales {b}',not_yet:'not yet',
-f_q:'Search building / area / bank',f_q_ph:'e.g. Flora Damansara, Kajang, RHB',f_state:'State',f_dist:'District',f_kind:'Type',f_seller:'Subsales seller',f_gap:'Minimum gap (RM)',f_year:'Completed up to',f_sort:'Sort',all:'All',laca_has:'Has LACA',nonlaca_has:'Has Non-LACA',seller_agent:'Agent',sub_all:'All buildings',sub_lead:'Has a lead ≥ gap',sub_any:'Has subsales adverts',sub_none:'Not searched yet',
-sort_gap:'Biggest gap',sort_cash:'Biggest cashback',sort_mvn:'Most MV evidence',sort_psf:'Highest MV per sq ft',sort_cheap:'Cheapest advert',sort_year:'Oldest completion',sort_name:'Name A-Z',reset:'Reset filters',count:'{n} of {t} buildings shown',count_more:' (first 300 shown, filter more)',empty:'No building matches the filters.',
+en:{tab_ads:'💰 Adverts',tab_bld:'🏢 Buildings',tile_ads:'adverts, net cashback {x}+',tile_lead:'leads (cashback {x}+)',tile_own:'direct-owner adverts',tile_bld:'highrise buildings',upd_line:'Data updated {u} · auction {a} · subsales {b} · {c} buildings searched · {m} with a market value · {e} with an estimated age',q_ph:'Search a building or an area, e.g. Kajang',q_lead:'Leads {x}+',q_owner:'Direct owner',q_phone:'Has a phone number',q_ver:'Checked',q_strong:'Solid MV (2+ auction units)',q_fresh:'New adverts ({m})',g_cash:'💰 Net cashback at least',g_price:'🏷️ Asking price',g_beds:'🛏️ Bedrooms',p_a:'Under RM300k',p_b:'RM300k – 500k',p_c:'RM500k – 1 million',p_d:'Over RM1 million',beds_1:'Studio / 1',beds_n:'{n} bed',studio:'Studio',bath_w:'bath',more:'⚙️ More filters (portal, type, bank, year, auction, status)',f_src:'Advert portal',f_ten:'Tenure',year_opt:'Completed {y} or earlier',f_auc:'🔨 Upcoming auction',auc_any:'Has an upcoming auction date',auc_30:'Auction within 30 days',f_status:'My status',f_sub:'Subsales search',sa_net:'Biggest cashback',sa_cheap:'Lowest price',sa_new:'Newest adverts',sa_psf:'Cheapest per sq ft',found_ads:'{n} adverts found',found_blds:'{n} buildings found',remove:'Remove this filter',ftoggle:'🎛️ Open more filters',ftoggle_close:'▲ Close filters',more_btn:'Show {n} more ({r} left)',empty_ads:'No advert matches.',empty_tip:'Try removing one filter, or clear them all.',c_net:'Net cashback (estimate)',c_gross:'gross {x}, before ~4% costs',c_price:'Asking price',c_mv:'Bank value (est. MV)',calc:'Show the sum',calc_hide:'Hide the sum',next_auc:'auction {d}',
+title_sub:'bmv.lelongbidgroup.com · Highrise 6+ years old · Below Market Value',logout:'Log out',gate_h:'Access code',gate_p:'Private site. Enter the code given through the Control Room.',gate_btn:'Open',gate_full:'Enter the full code.',gate_checking:'Checking the code…',err_access:'access.json could not be read. Try again shortly.',err_invalid:'Invalid code.',err_expired:'This code expired on {d}. Ask for a new one.',err_data:'Data could not be opened: ',
+st_b:'highrise buildings 6+ years old',st_mv:'with auction market value',st_chk:'buildings searched for subsales',st_ads:'subsales adverts',st_lead:'leads, cashback ≥ {x}',st_own:'direct-owner adverts',st_upd:'data updated · auction {a} · subsales {b}',not_yet:'not yet',
+f_q:'Search building / area / bank',f_q_ph:'e.g. Flora Damansara, Kajang, RHB',f_state:'📍 State',f_dist:'District',f_kind:'Home type',f_seller:'Subsales seller',f_gap:'Minimum gap (RM)',f_year:'Completion year',f_sort:'↕️ Sort by',all:'All',laca_has:'Has LACA',nonlaca_has:'Has Non-LACA',seller_agent:'Agent',sub_all:'All buildings',sub_lead:'Has a lead ≥ gap',sub_any:'Has subsales adverts',sub_none:'Not searched yet',
+sort_gap:'Biggest gap',sort_cash:'Biggest cashback',sort_mvn:'Most MV evidence',sort_psf:'Highest MV per sq ft',sort_cheap:'Cheapest advert',sort_year:'Oldest completion',sort_name:'Name A-Z',reset:'✕ Clear all filters',count:'{n} of {t} buildings shown',count_more:' (first 300 shown, filter more)',empty:'No building matches the filters.',
 no_photo:'No photo',chip_year:'Built {y} ({a} yrs)',chip_est:'Est. age {b} yrs',d_year_est:'Unknown · estimated {b} yrs · {c}',conf_low:'low confidence',conf_medium:'medium confidence',conf_high:'high confidence',conf_guess:'guess, no web search yet',est_why:'Why this estimate: {r}',est_auction:'first auction {y}: the loan is years old, so the building is at least 6 years old',st_est:'buildings with an estimated age only',chip_rooms:'{b} bed · {t} bath',chip_park:'Parking {p}',k_mv:'Market value (auction)',no_mv:'no MV',k_psf:'MV / sq ft',psf_med:'(median of {n} units)',mv1:'MV from 1 unit only',mv1_cb:'This MV comes from just 1 auction unit. Check market prices first.',k_res:'Auction reserve price',k_bu:'Built-up',kps:'sq ft',k_subp:'Subsales asking price',no_ads:'no adverts',not_searched:'not searched',k_oa:'Owner / Agent',owner_w:'owner',agent_w:'agent',bank_l:'Bank: ',btn_detail:'Details · {u} auction units',ads_n:' · {n} adverts',btn_map:'Map',k_cash:'Best cashback (90% MV)',cash_short:'cashback',
 close:'← Close',copy:'Copy summary',copied:'Summary copied',d_type:'Property Type',d_year:'Completion year',d_year_v:'{y} · {a} years',d_laca:'LACA / Non-LACA',d_bu:'Built-up',d_rooms:'Bedrooms / Bathrooms',d_park:'Carpark',no_info:'no information',d_bank:'Bank (lender)',d_pr:'Subsales price range',d_mv:'Market Value (auction)',none_w:'none',d_psf:'MV / sq ft median',psf_mm:'(min {a}, max {b})',
 h_owner:'Subsales · direct owner',h_agent:'Subsales · agents',h_unknown:'Seller unknown',no_owner:'No owner advert found on {d}',no_agent:'No agent advert found.',not_searched_dot:'Not searched yet.',src_ok:'checked',src_blocked:'blocked',searched_on:'searched {d}',h_evidence:'Market value evidence from auctions',units_n:'{n} units',th_date:'Auction date',th_res:'Reserve',th_psf:'RM/sq ft',th_rooms:'Rooms',arkib:'archive',upcoming:'upcoming',addr_l:'Unit addresses: ',
@@ -212,7 +292,7 @@ statuses:['New','Contacted','Interested','Not interested','Deal'],wa_msg:'Hi, I 
 cb_title:'💰 Estimated cashback for the client',cb_mv:'Home value per the bank (MV)',cb_loan:'Bank lends 90%',cb_price:'Buy price of this unit',cb_pocket:'Left over for the client',cb_pos:'≈ {x}',cb_neg:'No cashback · short by {x}',cb_na:'This advert has no size, so the home value cannot be worked out.',cb_cost:'Less costs (legal, stamp duty, fees ~4%)',cb_net:'Estimated net cashback',f_cash:'Minimum cashback (RM)',copy_client:'Copy for client',copied_client:'Client text copied',client_text:'{b}, {a}\nAsking price: {p}\nHome value per the bank (estimate): {mv}\nBank lends 90%: {loan}\nExtra money (rough): {left}\nAfter ~4% costs: {net}\nNote: estimate from auction data, not a bank valuation.',cb_how:'How it works: the bank lends on the home value, not the buy price. 90% of the value minus the buy price = the extra money the client gets (rough, before legal fees, stamp duty and charges).',
 leads_intro:'Every subsales advert whose estimated cashback (a 90% loan on the auction market value minus the asking price) is at least {x}. Direct owners first, then agents; KL and Selangor are searched first.',leads_empty:'No lead with cashback ≥ {x} yet. {c} of {t} buildings searched.',
 cr_cov:'Subsales search coverage',cr_b:'Buildings',cr_done:'Searched',cr_todo:'Not searched',cr_ads:'Subsales adverts',cr_lead:'Leads ≥ {x}',cr_blocked:'Portals blocked (buildings)',cr_next:'Next search: in Claude Code, <code>python -X utf8 bmv/tools/bmv_subsales.py plan &lt;admin&gt; plan.json --limit 40</code>, run the search Workflow or <code>bmv_portal.js</code> in Chrome, then <code>merge</code> and <code>python ops/deploy.py bmv-data</code>. See bmv/README.md.',
-cr_codes:'Access codes',active_n:'{n} active',th_label:'Label',th_for:'For',th_exp:'Expires',expired:'expired',active:'active',revoke:'Revoke',revoke_confirm:'Revoke code {id}…? Its holder cannot open the site once this is published.',pending:'Unpublished changes. Press Publish (or download access.json).',cr_new:'Give a new code',n_name_ph:'Recipient name (e.g. Ali)',n_days_ph:'Days (blank = no expiry)',mk:'Make code',need_name:'Enter the recipient name',new_code_note:'Copy it now. It is not shown again. Press Publish so the code works on this site.',copied_code:'Code copied to clipboard',
+cr_codes:'Access codes',active_n:'{n} active',th_label:'Label',th_for:'For',th_code:'Code',show:'Show',hide:'Hide',copy_code:'Copy',copy_fail:'Could not copy. Press Show and copy it yourself.',no_vault:'not stored yet: refresh the data once',codes_warn:'Anyone who holds an admin code can read every code in this list.',th_exp:'Expires',expired:'expired',active:'active',revoke:'Revoke',revoke_confirm:'Revoke code {id}…? Its holder cannot open the site once this is published.',pending:'Unpublished changes. Press Publish (or download access.json).',cr_new:'Give a new code',n_name_ph:'Recipient name (e.g. Ali)',n_days_ph:'Days (blank = no expiry)',mk:'Make code',need_name:'Enter the recipient name',new_code_note:'Copy it now. It is not shown again. Press Publish so the code works on this site.',copied_code:'Code copied to clipboard',
 cr_pub:'Publish access.json to GitHub',cr_pub_note:'A <i>fine-grained</i> GitHub token for the repo <code>firdausmfawzi-rgb/lelong-bmv</code> only (Contents: Read and write). Kept in this tab only (sessionStorage), gone when the tab closes. Without a token, download the file and commit it yourself.',pub:'Publish',dl:'Download access.json',dl_done:'File downloaded. Put it as <code>access.json</code> at the root of the <code>lelong-bmv</code> repo and commit; the site updates in 1-2 minutes.',need_tok:'Enter a GitHub token, or download the file.',no_changes:'Nothing to publish.',publishing:'Publishing…',gh_err:'GitHub {s} (wrong token or repo missing?)',pub_ok:'<span class="ok">Published.</span> GitHub Pages takes 1-2 minutes; try the new code after that.',pub_fail_tail:' Use "Download access.json" instead.',commit_msg:'Control Room: access code update',
 sum_1:'{k} · built {y} ({a} yrs) · {t} · {l}',sum_mv:'Auction Market Value: {r} · RM {p}/sq ft ({n} units) · built-up {s} sq ft · {b} bed {t} bath · bank {bk}',sum_sub:'Subsales: {n} adverts ({o} owner, {a} agent){r}{g}',sum_gap:' · best gap {g} ({s})',sum_cash:' · client cashback ≈ {c} (90% MV)'}};
 let LANG=(()=>{try{return JSON.parse(localStorage.getItem('bmv.lang'))||'ms'}catch(e){return 'ms'}})();if(!I18N[LANG])LANG='ms';
@@ -242,7 +322,7 @@ const wa=(p,txt)=>{let d=(p||'').replace(/[^\d]/g,'');if(d.startsWith('0'))d='6'
 // theme + language buttons
 (function(){const th=ls.get('bmv.theme');if(th)document.documentElement.dataset.theme=th;
  $('#theme').onclick=()=>{const cur=document.documentElement.dataset.theme||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');const n=cur==='dark'?'light':'dark';document.documentElement.dataset.theme=n;ls.set('bmv.theme',n)};
- $('#lang').onclick=()=>{LANG=LANG==='ms'?'en':'ms';ls.set('bmv.lang',LANG);applyLang();if(DATA){stats();render();if(!$('#vLeads').hidden)renderLeads();if(!$('#vCr').hidden)renderCR();closeSheet()}};
+ $('#lang').onclick=()=>{LANG=LANG==='ms'?'en':'ms';ls.set('bmv.lang',LANG);applyLang();if(DATA){tiles();fillStatic();if(TAB==='cr')renderCR();else render(true);closeSheet()}};
  applyLang()})();
 
 // ---------------------------------------------------------------- access
@@ -282,42 +362,132 @@ $('#lock').onclick=()=>{ls.del('bmv.code');ls.del('bmv.kdk');sessionStorage.remo
 (async()=>{const c=ls.get('bmv.code');if(c){$('#code').value=c;const r=await unlock(c);if(r.ok)await start();else{$('#gmsg').textContent=r.err}}})();
 
 // ---------------------------------------------------------------- data views
-const STATUS_KEYS=['Baru','Dihubungi','Berminat','Tak berminat','Deal'];   // stored on the device in BM; shown in the chosen language
-let B=[],LEADMIN=100000,STAT={};
-function build(){B=DATA.buildings;LEADMIN=DATA.lead_min||100000;STAT=ls.get('bmv.status',{});$('#fGap').value=0;$('#fCash').value=LEADMIN;
- const states=[...new Set(B.map(b=>b.state).filter(Boolean))].sort();$('#fState').innerHTML='<option value="">'+t('all')+'</option>'+states.map(s=>`<option>${esc(s)}</option>`).join('');
- const banks=[...new Set(B.flatMap(b=>b.banks))].sort();$('#fBank').innerHTML='<option value="">'+t('all')+'</option>'+banks.map(s=>`<option>${esc(s)}</option>`).join('');
- fillDist();$('#fState').onchange=()=>{fillDist();render()};
- $$('#filters select,#filters input').forEach(el=>{if(el.id!=='fState')el.oninput=render});
- $('#reset').onclick=()=>{$$('#filters select').forEach(s=>s.value='');$('#q').value='';$('#fGap').value=0;$('#fCash').value=LEADMIN;$('#fYear').value=DATA.rule.max_year;$('#sort').value='gap';fillDist();render()};
- $$('.tab').forEach(tb=>tb.onclick=()=>{$$('.tab').forEach(x=>x.classList.toggle('on',x===tb));$('#vBld').hidden=tb.dataset.t!=='bld';$('#vLeads').hidden=tb.dataset.t!=='leads';$('#vCr').hidden=tb.dataset.t!=='cr';if(tb.dataset.t==='leads')renderLeads();if(tb.dataset.t==='cr')renderCR()});
- $('#sheetBg').onclick=closeSheet;document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSheet()});
- stats();render()}
-function fillDist(){const st=$('#fState').value;const ds=[...new Set(B.filter(b=>!st||b.state===st).map(b=>b.district).filter(Boolean))].sort();$('#fDist').innerHTML='<option value="">'+t('all')+'</option>'+ds.map(s=>`<option>${esc(s)}</option>`).join('')}
-function stats(){const tt=DATA.totals;const owners=B.reduce((n,b)=>n+b.sub.owners,0);
- $('#stats').innerHTML=[[B.length,t('st_b')],[B.filter(b=>b.mv.n).length,t('st_mv')],[tt.checked,t('st_chk')],[tt.listings,t('st_ads')],[tt.leads,t('st_lead',{x:fmtk(LEADMIN)})],[owners,t('st_own')],[DATA.estimated||B.filter(b=>b.year_est).length,t('st_est')]].map(([v,l])=>`<div class="st"><b>${v}</b><span>${l}</span></div>`).join('')+
- `<div class="st"><b style="font-size:13px">${esc(DATA.updated)}</b><span>${t('st_upd',{a:esc(DATA.built),b:esc(DATA.sub_updated||t('not_yet'))})}</span></div>`}
-const bestCash=b=>b.sub.listings.reduce((m,l)=>l.cashout90!=null&&(m==null||l.cashout90>m)?l.cashout90:m,null);
+// ==BMV-FILTERS-BEGIN== pure filter logic: no DOM, no network (swarm/tests/test_bmv_page_filters.py runs this block in node)
+const PRICE_BANDS={a:[0,300000],b:[300000,500000],c:[500000,1000000],d:[1000000,Infinity]};   // asking price: from (included) up to (not included)
+const F0=()=>({q:'',lead:false,owner:false,phone:false,ver:false,strong:false,fresh:false,cash:0,price:'',beds:'',state:'',dist:'',src:'',kind:'',tenure:'',laca:'',bank:'',year:0,auc:'',status:'',sub:''});
+const AD_KEYS=['lead','owner','phone','ver','fresh','cash','price','beds','src','status'];   // filters that look at one advert; the rest look at its building
+const activeKeys=F=>Object.keys(F0()).filter(k=>F[k]);
+const netOf=l=>l.net!=null?l.net:l.est_mv==null?null:Math.round(l.est_mv*0.9)-l.price-Math.round(l.price*0.04);   // the same sum as bmv_subsales.net_cash
+const uidOf=(l,b)=>l.url||(b.key+'|'+l.price);
 const ySort=b=>b.year_sort??b.completion_year??9999;
+const addDays=(iso,n)=>new Date(Date.parse(iso+'T00:00:00Z')+n*864e5).toISOString().slice(0,10);
+const nextAuction=(b,today)=>(b.units||[]).reduce((m,u)=>u.src==='active'&&u.auction_date&&u.auction_date>=today&&(m==null||u.auction_date<m)?u.auction_date:m,null);
+const hay=b=>b._hay||(b._hay=[b.name,b.area,b.street,b.district,b.state,b.postcode,(b.banks||[]).join(' ')].filter(Boolean).join(' ').toLowerCase());
+const qMatch=(text,q)=>{const w=(q||'').toLowerCase().split(/\s+/).filter(Boolean);return w.every(x=>text.includes(x))};   // every word typed must be there
+function bldMatch(b,F,ctx){
+ if(F.state&&b.state!==F.state)return false;if(F.dist&&b.district!==F.dist)return false;
+ if(F.kind&&b.kind!==F.kind)return false;if(F.tenure&&b.tenure!==F.tenure)return false;
+ if(F.laca&&!(b.laca||{})[F.laca])return false;if(F.bank&&!(b.banks||[]).includes(F.bank))return false;
+ if(F.year&&ySort(b)>F.year)return false;
+ if(F.strong&&!(b.mv&&b.mv.n>=2))return false;   // market value seen on two auction units or more
+ if(F.auc){const n=nextAuction(b,ctx.today);if(!n)return false;if(F.auc!=='any'&&n>addDays(ctx.today,+F.auc))return false}
+ return true}
+function adMatch(l,b,F,ctx){
+ if(F.lead&&!l.lead)return false;if(F.owner&&l.seller!=='owner')return false;if(F.phone&&!l.phone)return false;
+ if(F.ver&&l.verified!=='confirmed'&&l.verified!=='corrected')return false;   // opened one by one and still for sale
+ if(F.fresh&&!(ctx.month&&String(l.listed||'').slice(0,7)===ctx.month))return false;
+ if(F.cash){const n=netOf(l);if(n==null||n<F.cash)return false}
+ if(F.price){const [a,z]=PRICE_BANDS[F.price];if(!(l.price>=a&&l.price<z))return false}
+ if(F.beds){const n=l.bedroom;if(n==null)return false;if(F.beds==='1'?n>1:F.beds==='4'?n<4:n!==+F.beds)return false}   // '1' = studio or one room, '4' = four or more
+ if(F.src&&l.src!==F.src&&!(l.also||[]).includes(F.src))return false;
+ if(F.status&&(ctx.status?ctx.status(uidOf(l,b)):'Baru')!==F.status)return false;
+ return true}
+function filterAds(B,F,ctx){const out=[];for(const b of B){if(!bldMatch(b,F,ctx))continue;const h=hay(b);
+  for(const l of b.sub.listings)if(adMatch(l,b,F,ctx)&&qMatch(h+' '+String(l.title||'').toLowerCase(),F.q))out.push({b,l})}return out}
+function filterBlds(B,F,ctx){const adf=AD_KEYS.some(k=>F[k]);
+ return B.filter(b=>{if(!bldMatch(b,F,ctx)||!qMatch(hay(b),F.q))return false;
+  if(F.sub==='any'&&!b.sub.n)return false;if(F.sub==='none'&&b.sub.checked)return false;
+  return !adf||b.sub.listings.some(l=>adMatch(l,b,F,ctx))})}   // an advert filter keeps the buildings that have such an advert
+const bestCash=b=>b.sub.listings.reduce((m,l)=>l.cashout90!=null&&(m==null||l.cashout90>m)?l.cashout90:m,null);
+function sortAds(rows,s){const n=r=>netOf(r.l)??-1e12,psf=r=>r.l.built_up?r.l.price/r.l.built_up:1e12;
+ return rows.sort((x,y)=>s==='cheap'?x.l.price-y.l.price||n(y)-n(x):s==='new'?String(y.l.listed||'').localeCompare(String(x.l.listed||''))||n(y)-n(x):s==='psf'?psf(x)-psf(y)||n(y)-n(x):n(y)-n(x)||x.l.price-y.l.price)}
+function sortBlds(rows,s){const c=b=>bestCash(b)??-1e12;
+ return rows.sort((a,b)=>s==='name'?a.name.localeCompare(b.name):s==='year'?ySort(a)-ySort(b)||a.name.localeCompare(b.name):s==='mvn'?b.mv.n-a.mv.n||c(b)-c(a):s==='cheap'?((a.sub.price_range?.[0]??1e12)-(b.sub.price_range?.[0]??1e12))||a.name.localeCompare(b.name):c(b)-c(a)||b.mv.n-a.mv.n||a.name.localeCompare(b.name))}
+// ==BMV-FILTERS-END==
+
+const STATUS_KEYS=['Baru','Dihubungi','Berminat','Tak berminat','Deal'];   // stored on the device in BM; shown in the chosen language
+const PAGE_N=60;
+const QUICK=[['lead','⭐','q_lead'],['owner','👤','q_owner'],['phone','📞','q_phone'],['ver','✅','q_ver'],['strong','🛡️','q_strong'],['fresh','🆕','q_fresh']];
+const SEL={fState:'state',fDist:'dist',fSrc:'src',fKind:'kind',fTen:'tenure',fLaca:'laca',fBank:'bank',fYear:'year',fAuc:'auc',fStatus:'status',fSub:'sub'};
+const SRC_NAME={mudah:'Mudah',propertyguru:'PropertyGuru',iproperty:'iProperty',propmall:'Propmall',edgeprop:'EdgeProp',other:'Web'};
+let B=[],LEADMIN=100000,NETMIN=30000,STAT={},F=F0(),TAB='ads',SHOWN=PAGE_N,CTX={};
+const segOpts=f=>f==='cash'?[[0,t('all')],[50000,'RM50k+'],[100000,'RM100k+'],[200000,'RM200k+']]:f==='price'?[['',t('all')],['a',t('p_a')],['b',t('p_b')],['c',t('p_c')],['d',t('p_d')]]:[['',t('all')],['1',t('beds_1')],['2','2'],['3','3'],['4','4+']];
+const qLabel=k=>t('q_'+k,{x:fmtk(LEADMIN),m:CTX.month});
+function build(){B=DATA.buildings;LEADMIN=DATA.lead_min||100000;NETMIN=DATA.net_min||30000;STAT=ls.get('bmv.status',{});F=F0();
+ const d=new Date(),today=new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10);
+ const months=B.flatMap(b=>b.sub.listings.map(l=>String(l.listed||'').slice(0,7))).filter(m=>/^\d{4}-\d\d$/.test(m)).sort();
+ CTX={today,month:months[months.length-1]||'',status:u=>STAT[u]||'Baru'};   // "new adverts" = the newest month the portals show
+ fillStatic();
+ Object.entries(SEL).forEach(([id,key])=>$('#'+id).onchange=e=>{F[key]=key==='year'?+e.target.value:e.target.value;if(key==='state')F.dist='';render()});
+ $('#sortA').onchange=$('#sortB').onchange=()=>render();
+ $('#q').oninput=e=>{F.q=e.target.value.trim();render()};$('#qx').onclick=()=>{F.q='';$('#q').focus();render()};
+ $('#fbox').onclick=e=>{const p=e.target.closest('[data-q]');if(p){F[p.dataset.q]=!F[p.dataset.q];render();return}
+  const g=e.target.closest('[data-seg]');if(g){const f=g.parentElement.dataset.f;F[f]=f==='cash'?+g.dataset.seg:g.dataset.seg;render()}};
+ $('#fToggle').onclick=()=>{$('#fbox').classList.toggle('open');toggleLabel()};
+ $('#act').onclick=e=>{const x=e.target.closest('[data-x]');if(!x)return;const key=x.dataset.x;F[key]=F0()[key];if(key==='state')F.dist='';render()};
+ $('#reset').onclick=resetAll;$('#moreBtn').onclick=()=>{SHOWN+=PAGE_N;render(true)};
+ $('#tiles').onclick=e=>{const g=e.target.closest('[data-go]');if(!g)return;F=F0();const go=g.dataset.go;if(go==='lead'||go==='owner')F[go]=true;setTab(go==='bld'?'bld':'ads');$('#vList').scrollIntoView({behavior:'smooth'})};
+ $('#list').onclick=e=>{if(e.target.closest('a,select,[data-copy]'))return;if(e.target.closest('[data-reset]')){resetAll();return}
+  const c=e.target.closest('[data-calc]');if(c){const box=c.closest('.adc').querySelector('.calc'),l=ADS.get(c.dataset.calc);if(!box.innerHTML&&l)box.innerHTML=cashBox(l,l._b);box.hidden=!box.hidden;c.textContent=t(box.hidden?'calc':'calc_hide');return}
+  const kk=e.target.closest('[data-k]');if(kk)openSheet(kk.dataset.k)};
+ $$('.tab').forEach(tb=>tb.onclick=()=>setTab(tb.dataset.t));
+ $('#sheetBg').onclick=closeSheet;document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSheet()});
+ const hh=()=>document.documentElement.style.setProperty('--hh',$('header').offsetHeight+'px');hh();addEventListener('resize',hh);
+ addEventListener('scroll',()=>$('#top').classList.toggle('on',scrollY>700),{passive:true});$('#top').onclick=()=>scrollTo({top:0,behavior:'smooth'});
+ tiles();setTab('ads')}
+function resetAll(){F=F0();$('#sortA').value='net';$('#sortB').value='cash';render()}
+function setTab(tb){TAB=tb;$$('.tab').forEach(x=>{x.classList.toggle('on',x.dataset.t===tb);x.setAttribute('aria-selected',x.dataset.t===tb)});
+ $('#vList').hidden=tb==='cr';$('#vCr').hidden=tb!=='cr';$('#sortAW').hidden=tb!=='ads';$('#sortBW').hidden=tb!=='bld';$('#fSubW').hidden=tb!=='bld';
+ if(tb!=='bld')F.sub='';if(tb==='cr')renderCR();else render()}
+function fillStatic(){const opt=(v,l)=>`<option value="${esc(v)}">${esc(l)}</option>`,all=opt('',t('all'));   // lists whose words follow the language
+ $('#fBank').innerHTML=all+[...new Set(B.flatMap(b=>b.banks))].sort().map(s=>opt(s,s)).join('');
+ $('#fYear').innerHTML=opt(0,t('all'))+[2015,2010,2005,2000].map(y=>opt(y,t('year_opt',{y}))).join('');
+ $('#fStatus').innerHTML=all+STATUS_KEYS.map((s,i)=>opt(s,t('statuses')[i])).join('')}
+function tiles(){const tt=DATA.totals;const owners=B.reduce((n,b)=>n+b.sub.owners,0);const n=v=>(+v).toLocaleString('en-MY');
+ $('#tiles').innerHTML=[['ads','t1','💰',tt.listings,t('tile_ads',{x:fmtk(NETMIN)})],['lead','t2','⭐',tt.leads,t('tile_lead',{x:fmtk(LEADMIN)})],['owner','','👤',owners,t('tile_own')],['bld','','🏢',B.length,t('tile_bld')]]
+  .map(([go,c,ic,v,l])=>`<button class="tile ${c}" data-go="${go}"><b>${ic} ${n(v)}</b><span>${l}</span></button>`).join('');
+ $('#upd').textContent=t('upd_line',{u:DATA.updated,a:DATA.built,b:DATA.sub_updated||t('not_yet'),c:n(tt.checked),m:n(B.filter(b=>b.mv.n).length),e:n(DATA.estimated||B.filter(b=>b.year_est).length)})}
+const rowsOf=f=>TAB==='ads'?filterAds(B,f,CTX):filterBlds(B,f,CTX);
+function facets(){const opt=(v,l,n)=>`<option value="${esc(v)}">${esc(l)}${n==null?'':' ('+n+')'}</option>`;   // Negeri and Daerah show how many results each one holds
+ const count=(f,key)=>{const m=new Map();rowsOf(f).forEach(r=>{const v=(r.b||r)[key];if(v)m.set(v,(m.get(v)||0)+1)});return [...m].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]))};
+ $('#fState').innerHTML=opt('',t('all'))+count({...F,state:'',dist:''},'state').map(([v,n])=>opt(v,v,n)).join('');
+ $('#fDist').innerHTML=opt('',t('all'))+count({...F,dist:''},'district').map(([v,n])=>opt(v,v,n)).join('')}
+function actLabel(k){const v=F[k];return k==='q'?'🔍 “'+v+'”':QUICK.some(q=>q[0]===k)?QUICK.find(q=>q[0]===k)[1]+' '+qLabel(k):k==='cash'?'💰 '+fmtk(v)+'+':k==='price'?'🏷️ '+t('p_'+v):k==='beds'?'🛏️ '+(v==='1'?t('beds_1'):t('beds_n',{n:v==='4'?'4+':v})):k==='state'?'📍 '+v:k==='src'?SRC_NAME[v]||v:k==='laca'?t(v==='LACA'?'laca_has':'nonlaca_has'):k==='year'?t('year_opt',{y:v}):k==='auc'?'🔨 '+t('auc_'+v):k==='status'?t('statuses')[STATUS_KEYS.indexOf(v)]||v:k==='sub'?t('sub_'+v):v}
+function toggleLabel(){const inside=activeKeys(F).filter(k=>k!=='q'&&!QUICK.some(q=>q[0]===k)).length;$('#fToggle').textContent=$('#fbox').classList.contains('open')?t('ftoggle_close'):t('ftoggle')+(inside?' ('+inside+')':'')}
+function render(keep){if(!keep)SHOWN=PAGE_N;const ads=TAB==='ads';const n=v=>v.toLocaleString('en-MY');
+ const rows=ads?sortAds(filterAds(B,F,CTX),$('#sortA').value):sortBlds(filterBlds(B,F,CTX),$('#sortB').value);
+ $('#count').innerHTML=t(ads?'found_ads':'found_blds',{n:'<b>'+n(rows.length)+'</b>'});
+ $('#quick').innerHTML=QUICK.map(([k,ic])=>{const c=rowsOf({...F,[k]:true}).length;return `<button class="pill ${F[k]?'on':''} ${c?'':'zero'}" data-q="${k}" aria-pressed="${!!F[k]}">${ic} ${esc(qLabel(k))} <small>${n(c)}</small></button>`}).join('');
+ $$('.seg').forEach(g=>{const f=g.dataset.f;g.innerHTML=segOpts(f).map(([v,l])=>`<button class="pill ${String(F[f]||'')===String(v||'')?'on':''}" data-seg="${v}" aria-pressed="${String(F[f]||'')===String(v||'')}">${esc(l)}</button>`).join('')});
+ facets();Object.entries(SEL).forEach(([id,key])=>{const el=$('#'+id);el.value=F[key]||(key==='year'?0:'');el.classList.toggle('set',!!F[key])});
+ if($('#q').value.trim()!==F.q)$('#q').value=F.q;$('#qx').hidden=!F.q;
+ const act=activeKeys(F);$('#act').innerHTML=act.map(k=>`<button class="apill" data-x="${k}" title="${esc(t('remove'))}">${esc(actLabel(k))} ✕</button>`).join('');
+ $('#reset').hidden=!act.length;$('#reset').textContent=t('reset')+(act.length?' ('+act.length+')':'');
+ if(act.some(k=>!['q','cash','price','beds','state','dist'].includes(k)&&!QUICK.some(q=>q[0]===k)))$('#adv').open=true;toggleLabel();
+ $('#list').className='list'+(ads?' ads':'');
+ $('#list').innerHTML=rows.length?rows.slice(0,SHOWN).map(r=>ads?adCard(r.l,r.b):card(r)).join(''):`<div class="empty" style="grid-column:1/-1"><b>🔎</b><p>${t(ads?'empty_ads':'empty')} ${act.length?t('empty_tip'):''}</p>${act.length?`<button class="btn r" data-reset>${t('reset')}</button>`:''}</div>`;
+ const rest=rows.length-SHOWN;$('#moreBtn').hidden=rest<=0;$('#moreBtn').textContent=t('more_btn',{n:Math.min(PAGE_N,rest),r:n(Math.max(rest,0))});
+ bindStatus('#list')}
 const ageChip=b=>b.completion_year?`<span class="chip">${t('chip_year',{y:b.completion_year,a:b.age})}</span>`:b.year_est?`<span class="chip g" title="${estReason(b)}">${t('chip_est',{b:b.year_est.band})}</span>`:'';
 const estReason=b=>b.year_est.src==='auction record'?t('est_auction',{y:(b.year_est.reason.match(/\d{4}/)||[''])[0]}):esc(b.year_est.reason||'');
 const ageText=b=>b.completion_year?t('chip_year',{y:b.completion_year,a:b.age}):b.year_est?t('chip_est',{b:b.year_est.band}):'';
-function filtered(){const q=$('#q').value.trim().toLowerCase(),st=$('#fState').value,di=$('#fDist').value,kd=$('#fKind').value,tn=$('#fTen').value,la=$('#fLaca').value,bk=$('#fBank').value,se=$('#fSeller').value,gp=+$('#fGap').value||0,cm=+$('#fCash').value||0,yr=+$('#fYear').value||9999,sb=$('#fSub').value;
- return B.filter(b=>{if(cm>0&&!b.sub.listings.some(l=>l.cashout90!=null&&l.cashout90>=cm))return false;if(st&&b.state!==st)return false;if(di&&b.district!==di)return false;if(kd&&b.kind!==kd)return false;if(tn&&b.tenure!==tn)return false;if(la&&!b.laca[la])return false;if(bk&&!b.banks.includes(bk))return false;if(ySort(b)>yr)return false;
-  if(q&&!(b.name+' '+b.area+' '+(b.street||'')+' '+b.banks.join(' ')+' '+(b.district||'')).toLowerCase().includes(q))return false;
-  const ls2=b.sub.listings.filter(l=>!se||l.seller===se);
-  if(se&&!ls2.length)return false;
-  if(sb==='any'&&!ls2.length)return false;if(sb==='none'&&b.sub.checked)return false;
-  if(sb==='lead'&&!ls2.some(l=>l.gap!=null&&l.gap>=gp))return false;return true})}
-function sortRows(rows){const s=$('#sort').value;const g=b=>b.sub.best_gap??-1e12;const c=b=>bestCash(b)??-1e12;
- rows.sort((a,b)=>s==='gap'?g(b)-g(a)||b.mv.n-a.mv.n:s==='cash'?c(b)-c(a)||b.mv.n-a.mv.n:s==='mvn'?b.mv.n-a.mv.n:s==='psf'?(b.mv.psf_median||0)-(a.mv.psf_median||0):s==='cheap'?((a.sub.price_range?.[0]??1e12)-(b.sub.price_range?.[0]??1e12)):s==='year'?ySort(a)-ySort(b):a.name.localeCompare(b.name));return rows}
-function render(){const rows=sortRows(filtered());$('#count').textContent=t('count',{n:rows.length,t:B.length})+(rows.length>300?t('count_more'):'');
- const gp=+$('#fGap').value||0;$('#list').innerHTML=rows.length?rows.slice(0,300).map(b=>card(b,gp)).join(''):'<div class="empty">'+t('empty')+'</div>';
- $$('#list .card').forEach(c=>c.onclick=e=>{if(e.target.closest('a'))return;openSheet(c.dataset.k)})}
-function card(b,gp){const s=b.sub;const lead=s.listings.filter(l=>l.gap!=null&&l.gap>=gp);const best=lead[0];const cash=bestCash(b);
+const place=b=>esc([b.street,b.area].filter(Boolean).join(', '))+(b.state&&!(b.area||'').includes(b.state)?' · '+esc(b.state):'');
+// one advert = one card: the net cashback first, in big green figures
+function adCard(l,b){const uid=uidOf(l,b);ADS.set(uid,Object.assign(l,{_b:b}));const st=Math.max(0,STATUS_KEYS.indexOf(STAT[uid]||'Baru'));const net=netOf(l);
+ const msg=t('wa_msg',{b:b.name,s:l.built_up?l.built_up+' '+t('kps')+', ':'',p:fmt(l.price)});const nx=nextAuction(b,CTX.today);
+ const srcs=[...new Set([l.src,...(l.also||[])])].map(s=>SRC_NAME[s]||s).join(' + ');
+ return `<article class="adc ${l.seller==='owner'?'own':''}">
+ <div class="top">${b.photo?`<img class="th" loading="lazy" src="${PHOTO}${esc(b.photo)}.webp" alt="" onerror="this.remove()">`:''}<div style="flex:1;min-width:0"><h3 data-k="${esc(b.key)}">${esc(b.name)}</h3><div class="sub">📍 ${place(b)}</div></div>${l.lead?'<span class="star">⭐ LEAD</span>':''}</div>
+ <div class="cbig"><span>${t('c_net')}</span><b class="money">≈ ${fmt(net)}</b><small>${t('c_gross',{x:fmt(l.cashout90)})}</small></div>
+ <div class="two"><div><span>${t('c_price')}</span><b class="money">${fmt(l.price)}</b></div><div><span>${t('c_mv')}</span><b class="money">${fmt(l.est_mv)}</b></div></div>
+ <div class="chips"><span class="chip ${l.seller==='owner'?'gr':l.seller==='agent'?'b':''}">${l.seller==='owner'?'👤 '+t('direct_owner'):l.seller==='agent'?t('ejen'):t('unsure')}</span><span class="chip">${esc(srcs)}</span>${l.built_up?`<span class="chip">${l.built_up.toLocaleString('en-MY')} ${t('kps')} · RM ${Math.round(l.price/l.built_up)}/${t('kps')}</span>`:''}${l.bedroom!=null?`<span class="chip">🛏️ ${l.bedroom<=0?t('studio'):t('beds_n',{n:l.bedroom})}${l.bathroom?' · '+l.bathroom+' '+t('bath_w'):''}</span>`:''}${l.carpark?`<span class="chip">${t('park_n',{n:esc(l.carpark)})}</span>`:''}${l.verified==='confirmed'||l.verified==='corrected'?`<span class="chip gr">✅ ${t('v_'+l.verified)}</span>`:''}${l.listed?`<span class="chip">${t('ad_month',{m:esc(l.listed)})}</span>`:''}${b.mv.n===1?`<span class="chip r">⚠️ ${t('mv1')}</span>`:''}${nx?`<span class="chip g">🔨 ${t('next_auc',{d:esc(nx)})}</span>`:''}</div>
+ <div class="ttl" title="${esc(l.title||'')}">${esc(l.title||'')}</div>${l.seller_name||l.agency?`<div class="ttl">${esc([...new Set([l.seller_name,l.agency].filter(Boolean))].join(' · '))}</div>`:''}
+ <div class="calc" hidden></div>
+ <div class="acts">${l.url?`<a class="btn s" href="${esc(l.url)}" target="_blank" rel="noopener">${t('open_ad')} ↗</a>`:''}${l.phone?`<a class="btn s g" href="${wa(l.phone,msg)}" target="_blank" rel="noopener">WhatsApp</a>`:''}<button class="btn s o" data-calc="${esc(uid)}">${t('calc')}</button><button class="btn s o" data-copy="${esc(uid)}">${t('copy_client')}</button><select data-u="${esc(uid)}" aria-label="Status">${t('statuses').map((x,i)=>`<option value="${i}" ${i===st?'selected':''}>${x}</option>`).join('')}</select></div></article>`}
+function card(b){const s=b.sub;const cash=bestCash(b);
  return `<article class="card" data-k="${esc(b.key)}">
- <div class="ph">${b.photo?`<img loading="lazy" src="${PHOTO}${esc(b.photo)}.webp" alt="" onerror="this.remove()">`:''}<div class="nf">${b.photo?'':t('no_photo')}</div><span class="tag">${esc(b.kind||'')}</span>${cash!=null&&cash>0?`<span class="lead">💰 ${t('cash_short')} ≈ ${fmtk(cash)}</span>`:best?`<span class="lead">+${fmtk(best.gap)} ${best.seller==='owner'?t('owner_w'):best.seller==='agent'?t('agent_w'):''}</span>`:''}</div>
- <div class="bd"><h3>${esc(b.name)}</h3><div class="sub">${esc([b.street,b.area].filter(Boolean).join(', '))}${b.state&&!b.area.includes(b.state)?' · '+esc(b.state):''}</div>
+ <div class="ph">${b.photo?`<img loading="lazy" src="${PHOTO}${esc(b.photo)}.webp" alt="" onerror="this.remove()">`:''}<div class="nf">${b.photo?'':t('no_photo')}</div><span class="tag">${esc(b.kind||'')}</span>${cash!=null&&cash>0?`<span class="lead">💰 ${t('cash_short')} ≈ ${fmtk(cash)}</span>`:''}</div>
+ <div class="bd"><h3>${esc(b.name)}</h3><div class="sub">${place(b)}</div>
  <div class="chips">${b.mv.n===1?`<span class="chip r">${t('mv1')}</span>`:''}${ageChip(b)}${b.tenure?`<span class="chip">${esc(b.tenure)}</span>`:''}${b.laca.LACA?`<span class="chip g">LACA ${b.laca.LACA}</span>`:''}${b.laca['Non-LACA']?`<span class="chip b">Non-LACA ${b.laca['Non-LACA']}</span>`:''}${b.bedroom?`<span class="chip">${t('chip_rooms',{b:b.bedroom,t:b.bathroom||'?'})}</span>`:''}${b.carpark?`<span class="chip">${t('chip_park',{p:esc(b.carpark)})}</span>`:''}</div>
  <div class="kv"><div><span>${t('k_mv')}</span><b class="money">${b.mv.range?fmtk(b.mv.range[0])+' – '+fmtk(b.mv.range[1]):t('no_mv')}</b></div><div><span>${t('k_psf')}</span><b class="money">${b.mv.psf_median?'RM '+b.mv.psf_median+' <small>'+t('psf_med',{n:b.mv.n})+'</small>':'—'}</b></div>
  <div><span>${t('k_res')}</span><b class="money">${b.reserve_range?fmtk(b.reserve_range[0])+' – '+fmtk(b.reserve_range[1]):'—'}</b></div><div><span>${t('k_bu')}</span><b>${b.sizes.length?b.sizes[0]+(b.sizes.length>1?' – '+b.sizes[b.sizes.length-1]:'')+' '+t('kps'):'—'}</b></div>
@@ -340,7 +510,7 @@ function cashBox(l,b){if(l.est_mv==null)return `<div class="cash na"><h5>${t('cb
 
 // ---------------------------------------------------------------- detail sheet
 function closeSheet(){$('#sheet').classList.remove('on');document.body.style.overflow=''}
-function openSheet(key){const b=B.find(x=>x.key===key);if(!b)return;const s=b.sub;const gp=+$('#fGap').value||LEADMIN;
+function openSheet(key){const b=B.find(x=>x.key===key);if(!b)return;const s=b.sub;const gp=LEADMIN;
  const own=s.listings.filter(l=>l.seller==='owner'),ag=s.listings.filter(l=>l.seller==='agent'),un=s.listings.filter(l=>l.seller==='unknown');
  const srcs=Object.entries(s.sources||{}).filter(([kk,v])=>v!=='none').map(([kk,v])=>`<span class="chip ${v==='ok'?'gr':'r'}">${kk}: ${v==='ok'?t('src_ok'):t('src_blocked')}</span>`).join('');
  $('#pan').innerHTML=`<div class="row" style="margin-bottom:10px"><button class="btn s o" id="close">${t('close')}</button><div class="grow"></div><button class="btn s o" id="copy">${t('copy')}</button></div>
@@ -378,27 +548,28 @@ function summary(b){const s=b.sub;const best=s.listings[0];const cash=bestCash(b
  t('sum_mv',{r:b.mv.range?fmt(b.mv.range[0])+' - '+fmt(b.mv.range[1]):t('none_w'),p:b.mv.psf_median||'?',n:b.mv.n,s:b.sizes.join('/'),b:b.bedroom||'?',t:b.bathroom||'?',bk:b.banks.join(', ')}),
  t('sum_sub',{n:s.n,o:s.owners,a:s.agents,r:s.price_range?' · '+fmt(s.price_range[0])+' - '+fmt(s.price_range[1]):'',g:(best&&best.gap!=null?t('sum_gap',{g:fmt(best.gap),s:best.seller}):'')+(cash!=null&&cash>0?t('sum_cash',{c:fmt(cash)}):'')})].join('\n')}
 
-// ---------------------------------------------------------------- leads
-function renderLeads(){const gp=+$('#fGap').value||0;const cm=+$('#fCash').value||0;const rows=[];$('#leadsIntro').textContent=t('leads_intro',{x:fmt(cm||LEADMIN)});
- B.forEach(b=>b.sub.listings.forEach(l=>{if(l.cashout90!=null&&l.cashout90>=(cm||LEADMIN)&&(gp<=0||(l.gap!=null&&l.gap>=gp)))rows.push({b,l})}));
- rows.sort((x,y)=>(x.l.seller==='owner'?0:1)-(y.l.seller==='owner'?0:1)||(y.l.cashout90??-1e12)-(x.l.cashout90??-1e12));
- $('#leads').innerHTML=rows.length?rows.map(({b,l})=>`<div class="sec" style="padding:10px 12px"><div class="row" style="margin-bottom:6px"><b style="cursor:pointer" data-k="${esc(b.key)}" class="lk">${esc(b.name)}</b><span class="note">${esc(b.area)} · ${ageText(b)} · ${esc(b.tenure||'')}</span></div>${adRow(l,b,gp)}</div>`).join(''):`<div class="empty">${t('leads_empty',{x:fmt(cm||LEADMIN),c:DATA.totals.checked,t:B.length})}</div>`;
- $$('#leads .lk').forEach(e=>e.onclick=()=>openSheet(e.dataset.k));bindStatus('#leads')}
-
 // ---------------------------------------------------------------- control room (admin code only)
 let PENDING=null;   // access.json edited in the browser, not yet published
 function renderCR(){if(!ADMIN)return;const tt=DATA.totals;const blocked={};B.forEach(b=>Object.entries(b.sub.sources||{}).forEach(([kk,v])=>{if(v==='blocked')blocked[kk]=(blocked[kk]||0)+1}));
  $('#crCov').innerHTML=[[t('cr_b'),B.length],[t('cr_done'),tt.checked],[t('cr_todo'),B.length-tt.checked],[t('cr_ads'),tt.listings],[t('cr_lead',{x:fmtk(LEADMIN)}),tt.leads],[t('cr_blocked'),Object.entries(blocked).map(([kk,v])=>kk+' '+v).join(', ')||t('none_w')]].map(([a,v])=>`<div><span>${a}</span><b>${esc(v)}</b></div>`).join('');
  const tok=sessionStorage.getItem('bmv.gh');if(tok)$('#ghTok').value=tok;
  $('#ghTok').oninput=()=>sessionStorage.setItem('bmv.gh',$('#ghTok').value.trim());
- $('#mk').onclick=makeCode;$('#pub').onclick=publish;$('#dl').onclick=download;codesTable();pend()}
+ $('#mk').onclick=makeCode;$('#pub').onclick=publish;$('#dl').onclick=download;codesTable();pend();openVault().then(codesTable)}
 function curAccess(){return PENDING||ACCESS}
+// the codes themselves (Jay 22/11/2026): opened from access.json "vault" with the admin key A, kept in memory only, shown masked until asked
+let VCODES={};const VSHOW=new Set();
+async function openVault(){if(!ARAW)return;const ak=await crypto.subtle.importKey('raw',ARAW,'AES-GCM',false,['decrypt']);
+ for(const [id,v] of Object.entries(curAccess().vault||{})){if(VCODES[id])continue;
+  try{VCODES[id]=JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(v.iv)},ak,b64(v.ct)))).code}catch(e){}}}
+const codeCell=id=>VCODES[id]?`<code class="cd">${VSHOW.has(id)?esc(VCODES[id]):'BMV-••••-••••'}</code> <button class="btn s o" data-show="${esc(id)}">${t(VSHOW.has(id)?'hide':'show')}</button> <button class="btn s o" data-cp="${esc(id)}">${t('copy_code')}</button>`:`<span class="note">${t('no_vault')}</span>`;
 function codesTable(){const a=curAccess();const rows=Object.entries(a.codes).map(([id,e])=>({id,...e}));rows.sort((x,y)=>(x.label||'').localeCompare(y.label||''));
  $('#crN').textContent=t('active_n',{n:rows.filter(e=>e.wk).length});
  $('#codes tbody').innerHTML=rows.map(e=>{const exp=e.exp?new Date(e.exp):null;const expired=!e.wk||(exp&&exp<new Date());
-  return `<tr><td><b>${esc(e.label||'')}</b>${e.admin?' <span class="chip g">admin</span>':''}</td><td>${esc(e.name||'—')}</td><td>${exp?esc(e.exp.slice(0,10)):t('none_w')}</td><td class="${expired?'err':'ok'}">${expired?t('expired'):t('active')}</td><td>${e.admin?'':`<button class="btn s r" data-del="${esc(e.id)}">${t('revoke')}</button>`}</td></tr>`}).join('');
+  return `<tr><td><b>${esc(e.label||'')}</b>${e.admin?' <span class="chip g">admin</span>':''}</td><td>${esc(e.name||'—')}</td><td class="cdc">${codeCell(e.id)}</td><td>${exp?esc(e.exp.slice(0,10)):t('none_w')}</td><td class="${expired?'err':'ok'}">${expired?t('expired'):t('active')}</td><td>${e.admin?'':`<button class="btn s r" data-del="${esc(e.id)}">${t('revoke')}</button>`}</td></tr>`}).join('');
+ $$('#codes [data-show]').forEach(bt=>bt.onclick=()=>{const id=bt.dataset.show;VSHOW.has(id)?VSHOW.delete(id):VSHOW.add(id);codesTable()});
+ $$('#codes [data-cp]').forEach(bt=>bt.onclick=()=>{navigator.clipboard.writeText(VCODES[bt.dataset.cp]).then(()=>toast(t('copied_code')),()=>toast(t('copy_fail')))});
  $$('#codes [data-del]').forEach(bt=>bt.onclick=()=>{if(!confirm(t('revoke_confirm',{id:bt.dataset.del.slice(0,6)})))return;
-  PENDING=PENDING||JSON.parse(JSON.stringify(ACCESS));delete PENDING.codes[bt.dataset.del];if(PENDING.vault)delete PENDING.vault[bt.dataset.del];codesTable();pend()})}
+  PENDING=PENDING||JSON.parse(JSON.stringify(ACCESS));delete PENDING.codes[bt.dataset.del];if(PENDING.vault)delete PENDING.vault[bt.dataset.del];delete VCODES[bt.dataset.del];VSHOW.delete(bt.dataset.del);codesTable();pend()})}
 function pend(){$('#pending').textContent=PENDING?t('pending'):''}
 function newCode(){const A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';const u=crypto.getRandomValues(new Uint8Array(8));const s=[...u].map(x=>A[x%32]).join('');return 'BMV-'+s.slice(0,4)+'-'+s.slice(4)}
 async function makeCode(){const name=$('#nName').value.trim();if(!name){toast(t('need_name'));return}const days=+$('#nDays').value||0;
@@ -413,7 +584,7 @@ async function makeCode(){const name=$('#nName').value.trim();if(!name){toast(t(
  // the code itself, sealed with the admin key so bmv_codes.py sync can re-wrap it after a key rotation
  const ak=await crypto.subtle.importKey('raw',ARAW,'AES-GCM',false,['encrypt']);const iv2=crypto.getRandomValues(new Uint8Array(12));
  const ct=await crypto.subtle.encrypt({name:'AES-GCM',iv:iv2},ak,new TextEncoder().encode(JSON.stringify({code,label:entry.label,name,exp:entry.exp,created:new Date().toISOString()})));
- PENDING=PENDING||JSON.parse(JSON.stringify(ACCESS));PENDING.codes[id]=entry;PENDING.vault=PENDING.vault||{};PENDING.vault[id]={iv:tob64(iv2),ct:tob64(ct)};
+ PENDING=PENDING||JSON.parse(JSON.stringify(ACCESS));PENDING.codes[id]=entry;PENDING.vault=PENDING.vault||{};PENDING.vault[id]={iv:tob64(iv2),ct:tob64(ct)};VCODES[id]=code;
  $('#newCode').hidden=false;$('#newCodeTxt').textContent=code;$('#nName').value='';$('#nDays').value='';codesTable();pend();
  navigator.clipboard?.writeText(code).then(()=>toast(t('copied_code')),()=>{})}
 function download(){const a=curAccess();const blob=new Blob([JSON.stringify(a,null,1)],{type:'application/json'});const u=URL.createObjectURL(blob);const l=document.createElement('a');l.href=u;l.download='access.json';l.click();setTimeout(()=>URL.revokeObjectURL(u),1000);

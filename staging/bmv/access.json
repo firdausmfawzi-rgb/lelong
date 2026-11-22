@@ -1,6 +1,6 @@
 {
  "v": 2,
- "updated": "2026-11-13",
+ "updated": "2026-11-22",
  "kid": "ca980398",
  "akid": "9a6ee5c1",
  "kdf": {
@@ -13,12 +13,17 @@
    "label": "ADM01",
    "exp": null,
    "name": "Firdaus Jay",
-   "iv": "LlROxKIPBfwRT6Hz",
-   "wk": "P/kRlnUuNYuBHuB1OxAIWFCj0BV42j3qskBad94XLkFq6broVpimIrnDQWE5W72O",
+   "iv": "LQEGX3S91epMefbg",
+   "wk": "CH13aLruwHLGS6bEMI30dUlUC7jw+4JHJelcGBe7Q0nQ0rDznFIS84KvZiI20fLj",
    "admin": 1,
-   "iv2": "0Q9YZLkm264s+r5R",
-   "wk2": "g0ICzTDC0ufI9e0/5YBSBzDizc4k0NgDcpOf3MiipsiDqVKwcf9TBBogFMCvmB3V"
+   "iv2": "cCCqcFFDgrCjdE2R",
+   "wk2": "QBm8t1wwVJS7p8Ox7KH3EGeTHAf0FCLZOuOqQXQ4JwmOpws7dUpbxv0Mv+/Px3zu"
   }
  },
- "vault": {}
+ "vault": {
+  "8343efbbd952b07906bf9d87a9cbd69f": {
+   "iv": "abdPKgj8fSnlcsWQ",
+   "ct": "fFV1kbXUcJaR9Tu/blDBHcLmsCOwK0Hnt04FRRaxj3FjwpeS/cXc/HT3X8dq8EqiTElBjd4gxe6a/UplQUFvghyDZYc/c2rBqoVWXngohgtCP+MirgL7XV1d1R7vm69UUJogYPw5C5be8meZIPcUU7veNqWr2LXPdrQcbo8GFgqdecKjzdZc"
+  }
+ }
 }
