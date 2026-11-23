@@ -1,9 +1,10 @@
 # lelongbidgroup.com (14/11/2026)
 # Everything may be crawled: the page loads its list from access.json and trial/data2.json, so those must stay open.
 # The staging folders carry a noindex tag, which only works while they can be crawled: do not block them here.
-# partner-master.txt is the raw source of the agents' page, not a page for visitors.
+# partner-master.txt and khairul-master.txt are the raw sources of the agents' pages, not pages for visitors.
 User-agent: *
 Disallow: /partner-master.txt
+Disallow: /khairul-master.txt
 
 # sitemap.xml: the list page and the profile page (site/sitemap.xml).
 # lelong/sitemap.xml: the pages by state and district, rewritten every day by pipeline/tools/seo_pages.py (15/11/2026).
