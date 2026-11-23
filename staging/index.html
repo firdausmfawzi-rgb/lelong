@@ -3034,19 +3034,18 @@ function pickCard(c){const id=c.dataset.id;if(!id||!faOn())return;   // owner: A
  if(id===pickedId()&&c.classList.contains('picked'))return;PICKED=id;
  document.querySelectorAll('#list .card.picked').forEach(x=>{if(x!==c)x.classList.remove('picked')});c.classList.add('picked');try{localStorage.setItem(KP+'picked',id)}catch(e){}}
 document.addEventListener('click',e=>{const c=e.target.closest&&e.target.closest('#list .card.v2[data-id]');if(c)pickCard(c)},true);
-// 24/11/2026 (owner, phone tidy-up): the card of the client views (Free, Premium, VIP Investor): photo with a heart, type line, address,
-// auction price with the % below market value, auction date with the days left, one main button and a small WhatsApp button. A tap
-// anywhere else on the card opens the unit window too (listClick). Calendar, the POS request, Share, the size and bank rows and the
+// 24/11/2026 (owner, phone tidy-up): the card of the client views (Free, Premium, VIP Investor): photo with a heart (and, on the photo,
+// 'See photo' and 'Google Maps location' as before), type line, address, auction price with the % below market value, auction date with
+// the days left, one main button and a small WhatsApp button. A tap anywhere else on the card opens the unit window too (listClick). Calendar, the POS request, Share, the size and bank rows and the
 // Premium / VIP rows are in the unit window (detailHtml). The Agent Specialist view keeps the full card (card() below).
 const HRTI='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
 const favWord=on=>tx(on?'saved':'save').replace(/^[^A-Za-z]+/,'');
-function heroLite(r,i){const ph=/^[ub]:[0-9a-f]{20}$/.test(r[32]||'')?r[32]:'';const k=artOf(r);if(!k&&!ph)return '';   // the same picture and chips as hero(); the whole card is the link, so no map / photo halves here
- return '<div class="hero"><img src="'+IMG+(ph?'tg/'+ph.slice(2):k)+'.webp" width="960" height="540" alt="" '+(i<2?'loading="eager" fetchpriority="high"':'loading="lazy"')+' decoding="async" onload="this.classList.add(\'ok\')" onerror="this.classList.add(\'ok\')">'+heroChips(r)+'<span class="hero-cap">'+tx(ph?'hero_cap_'+ph[0]:'hero_cap')+'</span></div>'}
 function priceLite(r,ex,bt){const p=num(r[7]),mv=ex||suspect(r)||locked(r[8])?0:num(r[8]),s=p&&mv>p?Math.round((1-p/mv)*100):0;   // the same figures as valueBox(): the % below market value and the market value, only where they are open
  return '<div class="pricebox lt-price"><span class="pl">'+tx(stOf(r)==='unsold'?'auction_price_last':'auction_price')+'</span><div class="price">'+dash(r[7])+'</div>'
   +(s?'<div class="lt-bmv"><b>'+tx('pv_below',{p:s})+'</b><span>'+tx('market_value')+' '+winRm(mv)+'</span></div>':bt?'<div class="lt-bmv"><b>'+esc(bt)+'</b></div>':'')+'</div>'}
 function cardLite(r,i,st,end,ex){QLOCK=true;try{
- const bt=bmvTxt(r),cn=nthTxt(r),fav=FAV.has(r[20]),hz=heroLite(r,i);
+ const bt=bmvTxt(r),cn=nthTxt(r),fav=FAV.has(r[20]);
+ let hz=hero(r);if(i<2)hz=hz.replace('loading="lazy"','loading="eager" fetchpriority="high"');   // Jay 24/11/2026: 'See photo' and 'Google Maps location' stay on the photo of the card, as on the full card
  const hb='<button type="button" class="fav hrt'+(hz?'':' inl')+'" data-id="'+esc(r[20])+'" aria-pressed="'+fav+'" aria-label="'+esc(favWord(fav))+'">'+HRTI+'</button>';
  return '<article class="card v2 lite'+(ex?' expired':'')+(sharedId?' hl':'')+'" data-k="'+i+'" data-id="'+esc(r[20])+'">'
  +(hz?'<div class="lt-ph">'+hz+hb+'</div>':'')+(end?'<div class="exp-tag '+st+'">'+tagText(r,st)+'</div>':'')
