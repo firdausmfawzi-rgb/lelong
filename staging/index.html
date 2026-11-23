@@ -875,6 +875,13 @@ button.stat:hover,button.stat:focus-visible{border-color:var(--neon);box-shadow:
 .fav.hrt[aria-pressed="true"]{color:#c62828}.fav.hrt[aria-pressed="true"] svg{fill:currentColor}
 .fav.hrt:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .fav.hrt.inl{position:static;flex:none;box-shadow:0 0 0 1px var(--line)}
+/* the share icon (Jay 24/11/2026): small, glowing, beside the heart; shown where the Share button always was (members, not the free preview) */
+.sh.shi{position:absolute;right:56px;bottom:10px;z-index:3;width:36px;height:36px;min-height:0;padding:0;border:0;border-radius:50%;display:grid;place-items:center;background:#0f2a44;color:#f8e29a;cursor:pointer;-webkit-tap-highlight-color:transparent;box-shadow:0 0 0 1.5px rgba(248,226,154,.95),0 0 9px 2px rgba(248,226,154,.6),0 2px 8px rgba(0,0,0,.35);animation:shiGlow 2.4s ease-in-out infinite}
+.sh.shi svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;filter:drop-shadow(0 0 3px rgba(248,226,154,.9))}
+.sh.shi:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.sh.shi.inl{position:static;flex:none}
+@keyframes shiGlow{0%,100%{box-shadow:0 0 0 1.5px rgba(248,226,154,.95),0 0 7px 1px rgba(248,226,154,.5),0 2px 8px rgba(0,0,0,.35)}50%{box-shadow:0 0 0 2px #fff0b8,0 0 16px 5px rgba(248,226,154,.95),0 2px 8px rgba(0,0,0,.35)}}
+@media (prefers-reduced-motion:reduce){.sh.shi{animation:none}}
 .card.lite .head{align-items:center}
 .card.v2.lite .lt-price{flex-direction:row;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 10px}
 .lt-bmv{flex:1 1 100%;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:1px 10px;font-size:.84rem;line-height:1.35;color:var(--muted)}
@@ -962,7 +969,7 @@ button.stat:hover,button.stat:focus-visible{border-color:var(--neon);box-shadow:
  html:not(.agv) .consent>span{flex:1 1 100%}
  html:not(.agv) .consent .btn{min-height:36px;padding:4px 12px;font-size:.82rem}
 }
-@media print{.fav.hrt,.lt-lock,.ulk,.below{display:none!important}}
+@media print{.fav.hrt,.sh.shi,.lt-lock,.ulk,.below{display:none!important}}
 </style>
 </head>
 <body>
@@ -3040,11 +3047,12 @@ function pickCard(c){const id=c.dataset.id;if(!id||!faOn())return;   // owner: A
  document.querySelectorAll('#list .card.picked').forEach(x=>{if(x!==c)x.classList.remove('picked')});c.classList.add('picked');try{localStorage.setItem(KP+'picked',id)}catch(e){}}
 document.addEventListener('click',e=>{const c=e.target.closest&&e.target.closest('#list .card.v2[data-id]');if(c)pickCard(c)},true);
 // 24/11/2026 (owner, phone tidy-up): the card of the client views (Free, Premium, VIP Investor): photo with a heart (and, on the photo,
-// 'See photo' and 'Google Maps location' as before), type line, address, auction price with the % below market value, auction date with
-// the days left, one main button, a small WhatsApp button and a small Calendar button. A tap anywhere else on the card opens the unit window too (listClick). The POS request, Share, the size and bank rows and the
+// 'See photo' and 'Google Maps location' as before, and a small glowing share icon for members), type line, address, auction price with the % below market value, auction date with
+// the days left, one main button, a small WhatsApp button and a small Calendar button. A tap anywhere else on the card opens the unit window too (listClick). The POS request, the size and bank rows and the
 // Premium / VIP rows are in the unit window (detailHtml). The Agent Specialist view keeps the full card (card() below).
 const HRTI='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
 const favWord=on=>tx(on?'saved':'save').replace(/^[^A-Za-z]+/,'');
+const SHRI='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="5.5" r="3"/><circle cx="18" cy="18.5" r="3"/><path d="M8.64 10.57l6.72-3.64M8.64 13.43l6.72 3.64"/></svg>';   // Jay 24/11/2026: the share icon he asked for, three rings joined by two lines
 function priceLite(r,ex,bt){const p=num(r[7]),mv=ex||suspect(r)||locked(r[8])?0:num(r[8]),s=p&&mv>p?Math.round((1-p/mv)*100):0;   // the same figures as valueBox(): the % below market value and the market value, only where they are open
  return '<div class="pricebox lt-price"><span class="pl">'+tx(stOf(r)==='unsold'?'auction_price_last':'auction_price')+'</span><div class="price">'+dash(r[7])+'</div>'
   +(s?'<div class="lt-bmv"><b>'+tx('pv_below',{p:s})+'</b><span>'+tx('market_value')+' '+winRm(mv)+'</span></div>':bt?'<div class="lt-bmv"><b>'+esc(bt)+'</b></div>':'')+'</div>'}
@@ -3053,9 +3061,10 @@ function cardLite(r,i,st,end,ex){QLOCK=true;try{
  const cal=!ex&&dt(r[12])>=T0?calUrl(r):'';   // Jay 24/11/2026: 'Add to calendar' is on the front of the card too
  let hz=hero(r);if(i<2)hz=hz.replace('loading="lazy"','loading="eager" fetchpriority="high"');   // Jay 24/11/2026: 'See photo' and 'Google Maps location' stay on the photo of the card, as on the full card
  const hb='<button type="button" class="fav hrt'+(hz?'':' inl')+'" data-id="'+esc(r[20])+'" aria-pressed="'+fav+'" aria-label="'+esc(favWord(fav))+'">'+HRTI+'</button>';
+ const sb=shareBtn(r)?'<button type="button" class="sh shi'+(hz?'':' inl')+'" data-id="'+esc(r[20])+'" aria-label="'+esc(tx('share'))+'" title="'+esc(tx('share'))+'">'+SHRI+'</button>':'';   // Jay 24/11/2026: a small glowing share icon beside the heart; shown where the Share button always was (members, not the free preview)
  return '<article class="card v2 lite'+(ex?' expired':'')+(sharedId?' hl':'')+'" data-k="'+i+'" data-id="'+esc(r[20])+'">'
- +(hz?'<div class="lt-ph">'+hz+hb+'</div>':'')+(end?'<div class="exp-tag '+st+'">'+tagText(r,st)+'</div>':'')
- +kindLine(r,cn)+'<div class="head"><div class="addr">'+hlAddr(r[1])+'</div>'+(hz?'':hb)+'</div>'
+ +(hz?'<div class="lt-ph">'+hz+sb+hb+'</div>':'')+(end?'<div class="exp-tag '+st+'">'+tagText(r,st)+'</div>':'')
+ +kindLine(r,cn)+'<div class="head"><div class="addr">'+hlAddr(r[1])+'</div>'+(hz?'':sb+hb)+'</div>'
  +priceLite(r,ex,bt)+(st==='unsold'&&liveUnsold(r)?unsoldNote(r):'')+whenRows(r,ex,cn,'')
  +(TRIAL?'<p class="lt-lock">'+LOCKI+'<span>'+tx('lt_lock')+'</span></p>':'')
  +'<div class="acts lt-acts'+(cal?' three':'')+'"><button type="button" class="detbtn" data-id="'+esc(r[20])+'">'+tx('detail_btn')+'\u00a0\u203A</button><a class="wa-unit sm" href="'+esc(waUnit(r,st))+'" target="_blank" rel="noopener">'+tx('wa_short')+'</a>'
@@ -3873,7 +3882,7 @@ const AT_TXT={ms:{more:'Leret atau tatal pada bahagian bercahaya untuk lihat sel
  c_xx:['Kenapa ada XX?','Pratonton percuma menyorokkan alamat penuh dan sebahagian maklumat. XX bermaksud maklumat itu dikunci.','Ini bukan ralat. Maklumat itu dibuka untuk ahli Premium.'],
  c_win:['Kalau menang pada harga tertentu?','Pilih harga menang di sini. Laman akan kira peratus bawah nilai pasaran dan anggaran ansuran bulanan.','Ia ada dalam tetingkap unit, di bahagian Premium.'],
  c_det:['Semua maklumat satu unit','Tekan Lihat butiran, atau mana-mana tempat pada kad, untuk buka semua maklumat unit ini.','Untuk kembali ke senarai, tekan X di bahagian atas tetingkap.'],
- c_icons:['Butang dalam tetingkap unit','Peta: lihat lokasi.\nSimpan: masukkan unit ke Senarai saya.\nKongsi: hantar unit kepada orang lain.','Ikon hati pada gambar juga menyimpan unit. Butang Kalendar ada pada kad.'],
+ c_icons:['Butang dalam tetingkap unit','Peta: lihat lokasi.\nSimpan: masukkan unit ke Senarai saya.\nKongsi: hantar unit kepada orang lain.','Ikon hati dan ikon kongsi ada pada gambar. Butang Kalendar ada pada kad.'],
  c_icons_f:['Butang dalam tetingkap unit','Peta: lihat lokasi.\nSimpan: masukkan unit ke Senarai saya.','Ikon hati pada gambar juga menyimpan unit. Butang Kalendar ada pada kad.'],
  c_wa:['Tanya tentang unit ini','Tekan WhatsApp. Mesej sudah siap dengan butiran unit, anda cuma perlu tekan hantar.','Mesej ini terus kepada {agent}.'],
  c_pos:['Minta POS','POS ialah notis rasmi lelong bagi unit ini. Tekan butang ini untuk minta daripada {agent} melalui WhatsApp.','Baca POS sebelum membuat keputusan.'],
@@ -3932,7 +3941,7 @@ const AT_TXT={ms:{more:'Leret atau tatal pada bahagian bercahaya untuk lihat sel
  c_xx:['Why do I see XX?','The free preview hides the full address and some details. XX means that detail is locked.','This is not an error. Premium members see those details.'],
  c_win:['What if I win at a certain price?','Choose a winning price here. The site works out the percentage below market value and an estimated monthly instalment.','It is in the unit window, in the Premium part.'],
  c_det:['Everything about one unit','Press View details, or anywhere on the card, to open everything about this unit.','To go back to the list, press the X at the top of the window.'],
- c_icons:['The buttons in the unit window','Map: see the location.\nSave: put the unit in My list.\nShare: send the unit to someone.','The heart on the photo saves the unit too. The Calendar button is on the card.'],
+ c_icons:['The buttons in the unit window','Map: see the location.\nSave: put the unit in My list.\nShare: send the unit to someone.','The heart and the share icon are on the photo. The Calendar button is on the card.'],
  c_icons_f:['The buttons in the unit window','Map: see the location.\nSave: put the unit in My list.','The heart on the photo saves the unit too. The Calendar button is on the card.'],
  c_wa:['Ask about this unit','Press WhatsApp. The message already has the unit details, so you only need to press send.','This message goes to {agent}.'],
  c_pos:['Get the POS','The POS is the official auction notice for this unit. Press this button to ask {agent} for it on WhatsApp.','Read the POS before you decide.'],
