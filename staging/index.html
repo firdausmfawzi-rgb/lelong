@@ -875,13 +875,11 @@ button.stat:hover,button.stat:focus-visible{border-color:var(--neon);box-shadow:
 .fav.hrt[aria-pressed="true"]{color:#c62828}.fav.hrt[aria-pressed="true"] svg{fill:currentColor}
 .fav.hrt:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .fav.hrt.inl{position:static;flex:none;box-shadow:0 0 0 1px var(--line)}
-/* the share icon (Jay 24/11/2026): small, glowing, beside the heart; shown where the Share button always was (members, not the free preview) */
-.sh.shi{position:absolute;right:56px;bottom:10px;z-index:3;width:36px;height:36px;min-height:0;padding:0;border:0;border-radius:50%;display:grid;place-items:center;background:#0f2a44;color:#f8e29a;cursor:pointer;-webkit-tap-highlight-color:transparent;box-shadow:0 0 0 1.5px rgba(248,226,154,.95),0 0 9px 2px rgba(248,226,154,.6),0 2px 8px rgba(0,0,0,.35);animation:shiGlow 2.4s ease-in-out infinite}
-.sh.shi svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;filter:drop-shadow(0 0 3px rgba(248,226,154,.9))}
+/* the share icon (Jay 24/11/2026): small, beside the heart, no glow (his second word on it); shown where the Share button always was (members, not the free preview) */
+.sh.shi{position:absolute;right:56px;bottom:10px;z-index:3;width:36px;height:36px;min-height:0;padding:0;border:0;border-radius:50%;display:grid;place-items:center;background:#0f2a44;color:#f8e29a;cursor:pointer;-webkit-tap-highlight-color:transparent;box-shadow:0 0 0 1.5px rgba(248,226,154,.95),0 2px 8px rgba(0,0,0,.28)}
+.sh.shi svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 .sh.shi:focus-visible{outline:3px solid #fff;outline-offset:2px}
 .sh.shi.inl{position:static;flex:none}
-@keyframes shiGlow{0%,100%{box-shadow:0 0 0 1.5px rgba(248,226,154,.95),0 0 7px 1px rgba(248,226,154,.5),0 2px 8px rgba(0,0,0,.35)}50%{box-shadow:0 0 0 2px #fff0b8,0 0 16px 5px rgba(248,226,154,.95),0 2px 8px rgba(0,0,0,.35)}}
-@media (prefers-reduced-motion:reduce){.sh.shi{animation:none}}
 .card.lite .head{align-items:center}
 .card.v2.lite .lt-price{flex-direction:row;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 10px}
 .lt-bmv{flex:1 1 100%;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:1px 10px;font-size:.84rem;line-height:1.35;color:var(--muted)}
@@ -3047,7 +3045,7 @@ function pickCard(c){const id=c.dataset.id;if(!id||!faOn())return;   // owner: A
  document.querySelectorAll('#list .card.picked').forEach(x=>{if(x!==c)x.classList.remove('picked')});c.classList.add('picked');try{localStorage.setItem(KP+'picked',id)}catch(e){}}
 document.addEventListener('click',e=>{const c=e.target.closest&&e.target.closest('#list .card.v2[data-id]');if(c)pickCard(c)},true);
 // 24/11/2026 (owner, phone tidy-up): the card of the client views (Free, Premium, VIP Investor): photo with a heart (and, on the photo,
-// 'See photo' and 'Google Maps location' as before, and a small glowing share icon for members), type line, address, auction price with the % below market value, auction date with
+// 'See photo' and 'Google Maps location' as before, and a small share icon for members), type line, address, auction price with the % below market value, auction date with
 // the days left, one main button, a small WhatsApp button and a small Calendar button. A tap anywhere else on the card opens the unit window too (listClick). The POS request, the size and bank rows and the
 // Premium / VIP rows are in the unit window (detailHtml). The Agent Specialist view keeps the full card (card() below).
 const HRTI='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
@@ -3061,7 +3059,7 @@ function cardLite(r,i,st,end,ex){QLOCK=true;try{
  const cal=!ex&&dt(r[12])>=T0?calUrl(r):'';   // Jay 24/11/2026: 'Add to calendar' is on the front of the card too
  let hz=hero(r);if(i<2)hz=hz.replace('loading="lazy"','loading="eager" fetchpriority="high"');   // Jay 24/11/2026: 'See photo' and 'Google Maps location' stay on the photo of the card, as on the full card
  const hb='<button type="button" class="fav hrt'+(hz?'':' inl')+'" data-id="'+esc(r[20])+'" aria-pressed="'+fav+'" aria-label="'+esc(favWord(fav))+'">'+HRTI+'</button>';
- const sb=shareBtn(r)?'<button type="button" class="sh shi'+(hz?'':' inl')+'" data-id="'+esc(r[20])+'" aria-label="'+esc(tx('share'))+'" title="'+esc(tx('share'))+'">'+SHRI+'</button>':'';   // Jay 24/11/2026: a small glowing share icon beside the heart; shown where the Share button always was (members, not the free preview)
+ const sb=shareBtn(r)?'<button type="button" class="sh shi'+(hz?'':' inl')+'" data-id="'+esc(r[20])+'" aria-label="'+esc(tx('share'))+'" title="'+esc(tx('share'))+'">'+SHRI+'</button>':'';   // Jay 24/11/2026: a small share icon beside the heart (no glow); shown where the Share button always was (members, not the free preview)
  return '<article class="card v2 lite'+(ex?' expired':'')+(sharedId?' hl':'')+'" data-k="'+i+'" data-id="'+esc(r[20])+'">'
  +(hz?'<div class="lt-ph">'+hz+sb+hb+'</div>':'')+(end?'<div class="exp-tag '+st+'">'+tagText(r,st)+'</div>':'')
  +kindLine(r,cn)+'<div class="head"><div class="addr">'+hlAddr(r[1])+'</div>'+(hz?'':sb+hb)+'</div>'
