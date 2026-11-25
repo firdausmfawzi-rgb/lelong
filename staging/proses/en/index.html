@@ -828,7 +828,7 @@ footer a{white-space:nowrap}
   <div class="pm-box">
    <div class="pm-ico" aria-hidden="true"><svg class="ic" width="24" height="24" aria-hidden="true"><use href="#i-check"/></svg></div>
    <h2 id="pm-h">Congratulations!</h2>
-   <p class="pm-p">You have received a free Premium access code for <b id="pm-days">7</b> days.</p>
+   <p class="pm-p">You have received a free <span id="pm-plan">Premium</span> access code for <b id="pm-days">7</b> days.</p>
    <div class="pm-code"><code id="pm-code">Getting your code ready…</code></div>
    <p class="pm-exp small" id="pm-exp"></p>
    <button class="btn btn-gold pm-copy" type="button" id="pm-copy" disabled>Copy the code</button>
@@ -1033,7 +1033,7 @@ footer a{white-space:nowrap}
   var ctl=window.AbortController?new AbortController():null,tm=setTimeout(function(){if(ctl)ctl.abort()},8000);
   fetch('https://agent.lelongbidgroup.com/api/proses-code',{cache:'no-store',signal:ctl?ctl.signal:undefined}).then(function(r){return r.ok?r.json():null}).then(function(j){clearTimeout(tm);
    if(!j||!j.code){location.href=CLIENT;return}
-   code=String(j.code);$('pm-code').textContent=code;if(j.days)$('pm-days').textContent=String(j.days);if(j.expires)$('pm-exp').textContent=P.until.replace('{d}',nice(j.expires));
+   code=String(j.code);$('pm-code').textContent=code;if(j.days)$('pm-days').textContent=String(j.days);if(j.plan==='sip')$('pm-plan').textContent='VIP';if(j.expires)$('pm-exp').textContent=P.until.replace('{d}',nice(j.expires));
    cp.disabled=false;try{cp.focus()}catch(e){}}).catch(function(){location.href=CLIENT})});
 })();
 </script>
