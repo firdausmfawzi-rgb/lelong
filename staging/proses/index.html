@@ -809,7 +809,7 @@ footer a{white-space:nowrap}
     <ul class="ticks">
      <li><svg class="ic" width="24" height="24" aria-hidden="true"><use href="#i-check"/></svg><span>Dikemas kini setiap hari</span></li>
      <li><svg class="ic" width="24" height="24" aria-hidden="true"><use href="#i-check"/></svg><span>Maklumat POS, tunggakan dan tarikh lelong dalam satu tempat</span></li>
-     <li><svg class="ic" width="24" height="24" aria-hidden="true"><use href="#i-check"/></svg><span>Akses percuma 7 hari: tekan butang di atas untuk terima kod, atau <a href="https://wa.me/60196522361?text=Premium" target="_blank" rel="noopener">WhatsApp saya dengan kod “Premium”</a>.</span></li>
+     <li><svg class="ic" width="24" height="24" aria-hidden="true"><use href="#i-check"/></svg><span>Akses VIP percuma 1 bulan: tekan butang di atas untuk terima kod, atau <a href="https://wa.me/60196522361?text=VIP" target="_blank" rel="noopener">WhatsApp saya dengan kod “VIP”</a>.</span></li>
     </ul>
     <div class="tiles" id="tiles" hidden>
      <div class="tile" id="tile-bmv" hidden><b class="num" id="t-bmv"></b><span>unit 30% atau lebih di bawah harga pasaran</span></div>
@@ -828,7 +828,7 @@ footer a{white-space:nowrap}
   <div class="pm-box">
    <div class="pm-ico" aria-hidden="true"><svg class="ic" width="24" height="24" aria-hidden="true"><use href="#i-check"/></svg></div>
    <h2 id="pm-h">Tahniah!</h2>
-   <p class="pm-p">Anda menerima kod akses <span id="pm-plan">Premium</span> secara percuma selama <b id="pm-days">7</b> hari.</p>
+   <p class="pm-p">Anda menerima kod akses <span id="pm-plan">VIP</span> secara percuma selama <b id="pm-days">30</b> hari.</p>
    <div class="pm-code"><code id="pm-code">Menyediakan kod anda…</code></div>
    <p class="pm-exp small" id="pm-exp"></p>
    <button class="btn btn-gold pm-copy" type="button" id="pm-copy" disabled>Salin kod</button>
@@ -858,7 +858,7 @@ footer a{white-space:nowrap}
   months:['Januari','Februari','Mac','April','Mei','Jun','Julai','Ogos','September','Oktober','November','Disember'],
   topics:'Bahagian',steps:'Sepuluh langkah',step:'Langkah',prev:'Sebelum',next:'Seterusnya',done:'Lihat senarai rumah lelong terkini',stepNext:'Ke langkah {n}',stepDone:'Lihat contoh penuh dalam ringgit',
   prog:'{a}/{b} bahagian dibaca',modeAll:'Tunjuk semua bahagian dalam satu halaman',modeTopic:'Kembali ke satu bahagian satu skrin',
-  lines:['Rumah lelong bank, diterangkan langkah demi langkah', 'Enam bahagian, dari istilah hingga hari lelong', 'Pilih bahagian di bawah dan baca satu demi satu', 'Kod Premium menunggu anda di hujung panduan'],
+  lines:['Rumah lelong bank, diterangkan langkah demi langkah', 'Enam bahagian, dari istilah hingga hari lelong', 'Pilih bahagian di bawah dan baca satu demi satu', 'Kod VIP percuma menunggu anda di hujung panduan'],
   lineN:'Menyemak senarai: {n} unit boleh dibida hari ini'};
  var BULAN=T.months;
  var RM=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches),IO='IntersectionObserver' in window;
@@ -1033,7 +1033,7 @@ footer a{white-space:nowrap}
   var ctl=window.AbortController?new AbortController():null,tm=setTimeout(function(){if(ctl)ctl.abort()},8000);
   fetch('https://agent.lelongbidgroup.com/api/proses-code',{cache:'no-store',signal:ctl?ctl.signal:undefined}).then(function(r){return r.ok?r.json():null}).then(function(j){clearTimeout(tm);
    if(!j||!j.code){location.href=CLIENT;return}
-   code=String(j.code);$('pm-code').textContent=code;if(j.days)$('pm-days').textContent=String(j.days);if(j.plan==='sip')$('pm-plan').textContent='VIP';if(j.expires)$('pm-exp').textContent=P.until.replace('{d}',nice(j.expires));
+   code=String(j.code);$('pm-code').textContent=code;if(j.days)$('pm-days').textContent=String(j.days);$('pm-plan').textContent=j.plan==='sip'?'VIP':'Premium';if(j.expires)$('pm-exp').textContent=P.until.replace('{d}',nice(j.expires));
    cp.disabled=false;try{cp.focus()}catch(e){}}).catch(function(){location.href=CLIENT})});
 })();
 </script>
