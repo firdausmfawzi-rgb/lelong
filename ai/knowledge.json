@@ -4,7 +4,7 @@
   "totals": {
     "active": 5255,
     "listed": 8157,
-    "bmv30": 867,
+    "bmv30": 868,
     "next7": 2001,
     "next30": 3251,
     "new3": 438
@@ -19,12 +19,12 @@
         "Apartment": 519,
         "Terrace House": 402,
         "Serviced Apartment": 305,
-        "Condominium": 209,
+        "Condominium": 210,
         "SOHO / SOFO": 73,
         "Office": 53,
         "Semi-Detached House": 46,
         "Flat": 44,
-        "Semi-D / Bungalow": 44,
+        "Semi-D / Bungalow": 43,
         "Shop Lot": 34,
         "Townhouse": 33,
         "Bungalow": 30,
@@ -370,12 +370,12 @@
       "median_bmv": 23.0
     },
     "Condominium": {
-      "active": 543,
+      "active": 544,
       "median_price": 370000,
       "median_bmv": 20.0
     },
     "Semi-D / Bungalow": {
-      "active": 176,
+      "active": 175,
       "median_price": 480000,
       "median_bmv": 19.0
     },
@@ -523,9 +523,9 @@
   "price_bands": {
     "<200k": 1365,
     "200k-400k": 2214,
-    "400k-700k": 1159,
+    "400k-700k": 1160,
     "700k-1M": 245,
-    ">1M": 272
+    ">1M": 271
   },
   "rounds": {
     "1st": 1654,
