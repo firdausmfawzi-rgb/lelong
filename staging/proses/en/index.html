@@ -482,6 +482,9 @@ body.pm-open{overflow:hidden}
 .money td{text-align:right;font-weight:700;font-variant-numeric:tabular-nums;width:42%}
 .money td span{white-space:nowrap}
 .money tfoot th,.money tfoot td{border-bottom:0;border-top:2px solid var(--gold);background:rgba(226,191,74,.16);font-weight:700;font-size:1.24rem}
+/* 26/11/2026 Jay: under the total, the cash to have ready when buying with a 90% loan */
+.money tfoot tr.cash th,.money tfoot tr.cash td{border-top:1px dashed var(--gold);background:rgba(34,197,94,.14);font-size:1.12rem}
+.money tfoot tr.cash small{display:block;font-weight:500;font-size:.82rem;opacity:.85}
 .fn{font-size:1.02rem;color:var(--muted)}
 .sched tbody th{width:38%}
 .when{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:700;font-size:1.22rem;line-height:1.25}
@@ -724,7 +727,8 @@ footer a{white-space:nowrap}
      <tr><th scope="row">Legal fees and stamp duty (loan + transfer)</th><td><span>RM8,000 –</span> <span>RM15,000</span></td></tr>
      <tr><th scope="row">Renovation / repairs</th><td><span>RM5,000 –</span> <span>RM10,000</span></td></tr>
     </tbody>
-    <tfoot><tr><th scope="row">Estimated total</th><td><span>RM330,000+</span></td></tr></tfoot>
+    <tfoot><tr><th scope="row">Estimated total</th><td><span>RM330,000+</span></td></tr>
+     <tr class="cash"><th scope="row">Estimated cash to have ready<small>If you buy with a 90% loan (RM330,000 &minus; RM270,000)</small></th><td><span>RM60,000+</span></td></tr></tfoot>
    </table>
    <p class="fn">*Part of the arrears (for example quit rent, assessment tax and strata maintenance fees) can usually be claimed back through the bank. Check with your agent.</p>
    <div class="note gold"><svg class="ic" width="24" height="24" aria-hidden="true"><use href="#i-bulb"/></svg><div><b>The lesson</b>Budget from this estimate, not from the reserve price alone.</div></div>
