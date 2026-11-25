@@ -3156,7 +3156,7 @@ function cardLite(r,i,st,end,ex){QLOCK=true;try{
  +(TRIAL?'<p class="lt-lock">'+LOCKI+'<span>'+tx('lt_lock')+'</span></p>':'')
  +'<div class="acts lt-acts'+(cal?' three':'')+'"><button type="button" class="detbtn" data-id="'+esc(r[20])+'">'+tx('detail_lite')+'\u00a0\u203A</button><a class="wa-unit sm" href="'+esc(waUnit(r,st))+'" target="_blank" rel="noopener">'+tx('wa_short')+'</a>'
  +(cal?'<a class="calbtn ic" href="'+esc(cal)+'" target="_blank" rel="noopener" aria-label="'+esc(tx('cal_add'))+'" title="'+esc(tx('cal_add'))+'">'+CALI+'<span>'+tx('cal_lite')+'</span></a>':'')+'</div>'
- +(up?'<button type="button" class="regbtn" data-id="'+esc(r[20])+'"><span aria-hidden="true">✍️</span><span>'+tx('reg_btn')+'</span><small>'+tx('reg_btn_s')+'</small><span aria-hidden="true">›</span></button>':'')   // Jay 26/11/2026: Register Bidding under View details | WhatsApp | Calendar, upcoming units only
+ +(up&&!TRIAL?'<button type="button" class="regbtn" data-id="'+esc(r[20])+'"><span aria-hidden="true">✍️</span><span>'+tx('reg_btn')+'</span><small>'+tx('reg_btn_s')+'</small><span aria-hidden="true">›</span></button>':'')   // Jay 26/11/2026: Register Bidding under View details | WhatsApp | Calendar, upcoming units only
  +'</article>'}finally{QLOCK=false}}
 // Jay 26/11/2026 (his own page only): Register Bidding. The client fills the full name as in the IC, the NRIC and the phone number, photographs
 // the IC front and back and signs with a finger. Send opens the phone's share menu with the two IC photos, the signature (a PNG cut to the ink)
