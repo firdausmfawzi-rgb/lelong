@@ -2,16 +2,16 @@
   "updated": "2026-11-28",
   "built": "2026-11-28",
   "totals": {
-    "active": 4906,
-    "listed": 7962,
-    "bmv30": 807,
+    "active": 4905,
+    "listed": 7961,
+    "bmv30": 808,
     "next7": 724,
     "next30": 2108,
     "new3": 426
   },
   "by_state": {
     "Selangor": {
-      "active": 1648,
+      "active": 1647,
       "next7": 224,
       "median_price": 306000,
       "median_bmv": 20.0,
@@ -19,10 +19,10 @@
         "Apartment": 450,
         "Terrace House": 402,
         "Serviced Apartment": 249,
-        "Condominium": 174,
-        "SOHO / SOFO": 57,
+        "Condominium": 175,
+        "SOHO / SOFO": 56,
         "Office": 50,
-        "Semi-D / Bungalow": 49,
+        "Semi-D / Bungalow": 48,
         "Flat": 37,
         "Semi-Detached House": 36,
         "Shop Lot": 35,
@@ -366,13 +366,13 @@
       "median_bmv": 21.0
     },
     "Condominium": {
-      "active": 482,
+      "active": 483,
       "median_price": 370000,
       "median_bmv": 19.0
     },
     "Semi-D / Bungalow": {
-      "active": 199,
-      "median_price": 486000,
+      "active": 198,
+      "median_price": 483000,
       "median_bmv": 19.0
     },
     "Shop Lot": {
@@ -406,7 +406,7 @@
       "median_bmv": 41.0
     },
     "SOHO / SOFO": {
-      "active": 82,
+      "active": 81,
       "median_price": 231000,
       "median_bmv": 28.0
     },
@@ -518,23 +518,23 @@
   ],
   "price_bands": {
     "<200k": 1282,
-    "200k-400k": 2034,
-    "400k-700k": 1087,
+    "200k-400k": 2033,
+    "400k-700k": 1088,
     "700k-1M": 240,
-    ">1M": 263
+    ">1M": 262
   },
   "rounds": {
     "1st": 1473,
     "2nd": 914,
-    "3rd+": 2519
+    "3rd+": 2518
   },
   "outcomes_28d": {
     "sold": 389,
-    "unsold": 1679,
+    "unsold": 1678,
     "calloff": 724
   },
   "laca": {
-    "laca": 2343,
+    "laca": 2342,
     "non_laca": 2558
   },
   "market": {}
